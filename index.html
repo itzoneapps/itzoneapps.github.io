@@ -1,45 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skeki Blur Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial;
-      text-align: center;
-      background: #0f172a;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #08142c;
       color: white;
-      padding: 40px;
+      text-align: center;
+      padding: 30px 20px 60px;
     }
+
     h1 {
       color: #22c55e;
+      font-size: 34px;
+      margin-bottom: 30px;
     }
+
     .box {
-      background: #1e293b;
-      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 24px;
+      background: #1b2942;
+      border-radius: 22px;
+      padding: 28px 22px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 10px 0 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 14px 22px;
       border-radius: 12px;
-      margin-top: 20px;
+      background: #22c55e;
+      color: #08142c;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #08142c;
+    }
+
+    a.link {
+      color: #22c55e;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-<h1>Skeki Blur Studio 🚀</h1>
+  <h1>Skeki Blur Studio 🚀</h1>
 
-<div class="box">
-  <p>Professional AI Blur App</p>
-  <p>Blur faces, backgrounds and sensitive content easily.</p>
-</div>
+  <div class="box">
+    <h2>Professional AI Blur App</h2>
+    <p>Blur faces, backgrounds and sensitive content easily.</p>
+    <a class="btn" href="#privacy">Privacy Policy</a>
+  </div>
 
-<div class="box">
-  <h2>Privacy Policy</h2>
-  <p>Your data stays on your device. We do not collect personal data.</p>
-</div>
+  <div class="box" id="privacy">
+    <h2>Privacy Policy</h2>
+    <p>Your data stays on your device. We do not collect personal data.</p>
+    <a class="btn btn-secondary" href="mailto:itzoneapps1@gmail.com">Contact Support</a>
+  </div>
 
-<div class="box">
-  <h2>Contact</h2>
-  <p>Email: itzoneapps1@gmail.com</p>
-</div>
+  <div class="box">
+    <h2>Contact</h2>
+    <p>
+      Email:
+      <a class="link" href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+    </p>
+  </div>
 
 </body>
 </html>
