@@ -4,88 +4,382 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skeki Blur Studio</title>
+  <meta name="description" content="Skeki Blur Studio - Professional AI blur app for blurring faces, backgrounds and sensitive content." />
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: Arial, sans-serif;
-      background: #08142c;
-      color: white;
-      text-align: center;
-      padding: 30px 20px 60px;
+      background: linear-gradient(180deg, #061327 0%, #081a33 100%);
+      color: #ffffff;
+      line-height: 1.6;
     }
 
-    h1 {
-      color: #22c55e;
-      font-size: 34px;
-      margin-bottom: 30px;
+    a {
+      text-decoration: none;
     }
 
-    .box {
-      max-width: 700px;
-      margin: 0 auto 24px;
-      background: #1b2942;
-      border-radius: 22px;
-      padding: 28px 22px;
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 18px;
     }
 
-    h2 {
-      margin-top: 0;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(6, 19, 39, 0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
       font-size: 24px;
+      font-weight: 800;
+      color: #22c55e;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.5;
-      margin: 10px 0 0;
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      background: rgba(255,255,255,0.06);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(34, 197, 94, 0.18);
+    }
+
+    .hero {
+      padding: 60px 0 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      color: #22c55e;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      font-size: 20px;
+      color: #d8e3f1;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 24px;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 14px;
       padding: 14px 22px;
       border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
       background: #22c55e;
       color: #08142c;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
+    }
+
+    .btn-primary:hover {
+      background: #1fb157;
     }
 
     .btn-secondary {
-      background: white;
+      background: #ffffff;
       color: #08142c;
     }
 
-    a.link {
+    .btn-secondary:hover {
+      background: #eaeaea;
+    }
+
+    .card {
+      background: #16253d;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 28px 22px;
+      margin: 22px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .section {
+      padding: 10px 0;
+    }
+
+    .section h2 {
+      font-size: 34px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .section p {
+      font-size: 18px;
+      color: #e7eef8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .feature-box {
+      background: #1b2d49;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature-box h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
       color: #22c55e;
-      text-decoration: none;
-      font-weight: bold;
+    }
+
+    .feature-box p {
+      font-size: 16px;
+      color: #d8e3f1;
+    }
+
+    .policy-text {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .policy-text p {
+      margin-bottom: 14px;
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-box a {
+      color: #22c55e;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: #b9c6d8;
+      font-size: 14px;
+    }
+
+    .small-note {
+      font-size: 14px;
+      color: #b9c6d8;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section h2 {
+        font-size: 28px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .logo {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 42px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Skeki Blur Studio 🚀</h1>
+  <header>
+    <div class="container nav">
+      <div class="logo">Skeki Blur Studio 🚀</div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="box">
-    <h2>Professional AI Blur App</h2>
-    <p>Blur faces, backgrounds and sensitive content easily.</p>
-    <a class="btn" href="#privacy">Privacy Policy</a>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Professional AI Blur App</h1>
+        <p>
+          Blur faces, backgrounds and sensitive content easily with a clean,
+          fast and simple mobile experience.
+        </p>
 
-  <div class="box" id="privacy">
-    <h2>Privacy Policy</h2>
-    <p>Your data stays on your device. We do not collect personal data.</p>
-    <a class="btn btn-secondary" href="mailto:itzoneapps1@gmail.com">Contact Support</a>
-  </div>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="YOUR_PLAY_STORE_LINK" target="_blank" rel="noopener noreferrer">
+            Download on Play Store
+          </a>
+          <a class="btn btn-secondary" href="#privacy">
+            Read Privacy Policy
+          </a>
+        </div>
 
-  <div class="box">
-    <h2>Contact</h2>
-    <p>
-      Email:
-      <a class="link" href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-    </p>
-  </div>
+        <p class="small-note">
+          Replace <b>YOUR_PLAY_STORE_LINK</b> later with your real Google Play link.
+        </p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <div class="card">
+          <h2>Features</h2>
+          <div class="grid">
+            <div class="feature-box">
+              <h3>AI Blur</h3>
+              <p>Quickly blur backgrounds, faces and sensitive content in a simple way.</p>
+            </div>
+            <div class="feature-box">
+              <h3>Easy to Use</h3>
+              <p>Clean interface designed for fast editing directly on your device.</p>
+            </div>
+            <div class="feature-box">
+              <h3>Mobile Friendly</h3>
+              <p>Built to work smoothly on smartphones with a modern layout.</p>
+            </div>
+            <div class="feature-box">
+              <h3>Private Editing</h3>
+              <p>Your editing workflow is designed to keep the experience simple and direct.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="section">
+      <div class="container">
+        <div class="card">
+          <h2>Privacy Policy</h2>
+          <div class="policy-text">
+            <p>
+              Skeki Blur Studio respects your privacy.
+            </p>
+            <p>
+              The app is designed to help users blur faces, backgrounds and sensitive content.
+            </p>
+            <p>
+              We do not intentionally collect personal data through this website.
+            </p>
+            <p>
+              If the app processes images on the device, those files remain under the user's control.
+            </p>
+            <p>
+              If you contact us by email, we may receive your email address and the information you provide in your message in order to respond.
+            </p>
+            <p>
+              We may update this Privacy Policy in the future if the app functionality changes.
+            </p>
+            <p>
+              If you have any questions about privacy, you can contact us at:
+              <a href="mailto:itzoneapps1@gmail.com" style="color:#22c55e; font-weight:bold;">itzoneapps1@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="card contact-box">
+          <h2>Contact</h2>
+          <p>
+            Support email:
+            <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+          </p>
+          <div style="margin-top:20px;">
+            <a class="btn btn-primary" href="mailto:itzoneapps1@gmail.com">
+              Email Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Skeki Blur Studio. All rights reserved.
+    </div>
+  </footer>
 
 </body>
 </html>
