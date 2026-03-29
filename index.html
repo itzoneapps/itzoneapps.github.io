@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skeki Blur Studio</title>
+  <title>IT ZONE | Web & App Development</title>
   <meta
     name="description"
-    content="Skeki Blur Studio - probna premium početna stranica za budući web sajt."
+    content="IT ZONE - premium probna web stranica za web i app development."
   />
   <style>
     :root {
-      --bg: #07111f;
-      --bg-2: #0b1830;
-      --panel: #101d34;
-      --panel-2: #14233f;
-      --panel-3: #182a49;
+      --bg: #090b0e;
+      --bg-soft: #101419;
+      --panel: #151a20;
+      --panel-2: #1b2129;
+      --panel-3: #202833;
+      --panel-4: #262f3c;
       --line: rgba(255,255,255,0.08);
-      --text: #eef4ff;
-      --muted: #a9b8d2;
-      --green: #1fdb70;
-      --green-2: #10c760;
-      --blue-glow: rgba(50, 120, 255, 0.18);
-      --green-glow: rgba(31, 219, 112, 0.16);
-      --shadow: 0 12px 35px rgba(0,0,0,0.35);
+      --line-strong: rgba(255,255,255,0.14);
+      --text: #f5f7fb;
+      --muted: #aab3c0;
+      --green: #37d786;
+      --green-2: #22c46f;
+      --green-soft: rgba(55, 215, 134, 0.12);
+      --white-soft: #edf2f8;
+      --gold-soft: #d4ba86;
+      --shadow: 0 20px 55px rgba(0,0,0,0.35);
       --radius: 18px;
-      --radius-lg: 24px;
-      --max: 1460px;
-      --sidebar-w: 240px;
-      --top-h: 48px;
-      --main-h: 68px;
+      --radius-lg: 28px;
+      --max: 1540px;
+      --sidebar: 250px;
+      --topbar: 42px;
+      --nav: 84px;
     }
 
     * {
@@ -45,13 +48,13 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(31, 219, 112, 0.06), transparent 18%),
-        radial-gradient(circle at 90% 10%, rgba(70, 120, 255, 0.10), transparent 20%),
-        radial-gradient(circle at 50% 90%, rgba(31, 219, 112, 0.05), transparent 18%),
-        linear-gradient(180deg, #050d18 0%, #081426 40%, #08111f 100%);
+        radial-gradient(circle at 12% 8%, rgba(55,215,134,0.08), transparent 18%),
+        radial-gradient(circle at 88% 10%, rgba(255,255,255,0.04), transparent 14%),
+        radial-gradient(circle at 50% 100%, rgba(55,215,134,0.05), transparent 18%),
+        linear-gradient(180deg, #08090b 0%, #0d1014 48%, #090b0e 100%);
       min-height: 100vh;
-      line-height: 1.5;
       overflow-x: hidden;
+      line-height: 1.5;
     }
 
     a {
@@ -59,22 +62,46 @@
       text-decoration: none;
     }
 
+    button {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
-      width: min(var(--max), calc(100% - 26px));
+      width: min(var(--max), calc(100% - 24px));
       margin: 0 auto;
     }
 
-    .badge {
+    .card {
+      background: linear-gradient(180deg, rgba(24,29,35,0.97), rgba(17,21,26,0.99));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .small-card {
+      background: linear-gradient(180deg, rgba(30,36,44,0.96), rgba(21,26,33,0.98));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 7px 12px;
-      background: rgba(31, 219, 112, 0.09);
-      border: 1px solid rgba(31, 219, 112, 0.16);
-      color: #d8ffe8;
       border-radius: 999px;
+      background: var(--green-soft);
+      border: 1px solid rgba(55,215,134,0.18);
+      color: #d7ffe9;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: 0.2px;
     }
 
     .dot {
@@ -82,61 +109,83 @@
       height: 8px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 10px rgba(31, 219, 112, 0.8);
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(20,35,63,0.96), rgba(16,29,52,0.98));
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-    }
-
-    .small-card {
-      background: linear-gradient(180deg, rgba(22,38,67,0.95), rgba(18,31,55,0.98));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .section-title {
-      font-size: 30px;
-      font-weight: 800;
-      letter-spacing: -0.4px;
-      margin-bottom: 10px;
-    }
-
-    .section-subtitle {
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 780px;
+      box-shadow: 0 0 10px rgba(55,215,134,0.75);
     }
 
     .muted {
       color: var(--muted);
     }
 
-    .green {
-      color: var(--green);
+    .section-title {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--green), var(--green-2));
+      color: #09110d;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .btn-dark {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    .btn-dark:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
     }
 
     /* TOP BAR */
     .topbar {
-      min-height: var(--top-h);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      background: rgba(4, 10, 18, 0.78);
+      min-height: var(--topbar);
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(8,10,12,0.90);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
 
     .topbar-inner {
-      min-height: var(--top-h);
+      min-height: var(--topbar);
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 16px;
       font-size: 13px;
-      color: #c8d5e9;
+      color: #c5ccd7;
     }
 
     .topbar-left,
@@ -147,23 +196,19 @@
       flex-wrap: wrap;
     }
 
-    .topbar a:hover {
-      color: #fff;
-    }
-
     /* MAIN NAV */
     .mainnav-wrap {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(7, 14, 26, 0.82);
+      z-index: 80;
+      background: rgba(10,12,15,0.92);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .mainnav {
-      min-height: var(--main-h);
+      min-height: var(--nav);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -173,22 +218,31 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       min-width: 0;
     }
 
-    .logo-box {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(31,219,112,0.35), transparent 40%),
-        linear-gradient(180deg, #183052, #10203a);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: grid;
-      place-items: center;
-      font-size: 22px;
+    .brand-logo {
+      width: 74px;
+      height: 74px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff, #dde3ea);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.26);
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 14px;
     }
 
     .brand-text {
@@ -196,17 +250,19 @@
     }
 
     .brand-title {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--green);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -1px;
       line-height: 1;
-      letter-spacing: -0.4px;
+      color: var(--white-soft);
     }
 
     .brand-subtitle {
-      margin-top: 4px;
+      margin-top: 6px;
+      font-size: 13px;
       color: var(--muted);
-      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .nav-links {
@@ -217,41 +273,41 @@
       justify-content: flex-end;
     }
 
-    .nav-links a {
-      padding: 12px 15px;
+    .nav-links a,
+    .nav-links button {
+      border: none;
+      cursor: pointer;
+      padding: 12px 16px;
       border-radius: 14px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.05);
-      color: #f7fbff;
+      color: #f5f7fa;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 800;
       transition: 0.2s ease;
     }
 
-    .nav-links a:hover {
-      background: rgba(31,219,112,0.14);
-      border-color: rgba(31,219,112,0.16);
+    .nav-links a:hover,
+    .nav-links button:hover {
+      background: rgba(55,215,134,0.12);
+      border-color: rgba(55,215,134,0.14);
       transform: translateY(-1px);
     }
 
-    .nav-links .primary-link {
+    .nav-links .playstore-btn {
       background: linear-gradient(180deg, var(--green), var(--green-2));
-      color: #04121f;
+      color: #08110d;
       border-color: transparent;
-    }
-
-    .nav-links .primary-link:hover {
-      filter: brightness(1.03);
     }
 
     /* SUB NAV */
     .subnav {
       border-bottom: 1px solid rgba(255,255,255,0.05);
-      background: rgba(10, 18, 32, 0.75);
+      background: rgba(14,17,21,0.88);
     }
 
     .subnav-inner {
-      min-height: 48px;
+      min-height: 52px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -260,34 +316,38 @@
       scrollbar-width: thin;
     }
 
-    .subnav-inner a {
+    .subnav-inner a,
+    .subnav-inner button {
       white-space: nowrap;
+      border: none;
+      cursor: pointer;
       padding: 10px 14px;
       border-radius: 12px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.05);
+      color: #e8edf5;
       font-size: 13px;
-      color: #dfe9f8;
-      font-weight: 700;
+      font-weight: 800;
+      transition: 0.2s ease;
     }
 
-    .subnav-inner a:hover {
-      background: rgba(31,219,112,0.10);
+    .subnav-inner a:hover,
+    .subnav-inner button:hover {
+      background: rgba(55,215,134,0.10);
     }
 
-    /* LAYOUT */
+    /* PAGE LAYOUT */
     .page-layout {
       display: grid;
-      grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--sidebar-w);
+      grid-template-columns: var(--sidebar) minmax(0, 1fr) var(--sidebar);
       gap: 18px;
-      padding: 22px 0 34px;
+      padding: 20px 0 34px;
       align-items: start;
     }
 
-    /* SIDEBARS */
     .sidebar {
       position: sticky;
-      top: calc(var(--top-h) + var(--main-h) + 22px);
+      top: calc(var(--topbar) + var(--nav) + 22px);
       display: grid;
       gap: 16px;
     }
@@ -299,7 +359,7 @@
     .side-box h3 {
       font-size: 17px;
       margin-bottom: 12px;
-      color: #fff;
+      color: var(--text);
     }
 
     .side-box p {
@@ -310,38 +370,55 @@
     .side-list {
       display: grid;
       gap: 10px;
-      margin-top: 10px;
     }
 
     .side-list a,
+    .side-list button,
     .side-list div {
-      padding: 11px 12px;
-      border-radius: 12px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      cursor: pointer;
+      padding: 12px 13px;
+      border-radius: 13px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.05);
+      color: #e8edf5;
       font-size: 14px;
-      color: #dfe8f8;
+      transition: 0.2s ease;
     }
 
-    .side-list a:hover {
-      background: rgba(31,219,112,0.11);
+    .side-list a:hover,
+    .side-list button:hover {
+      background: rgba(55,215,134,0.10);
     }
 
-    .tag-grid {
+    .status-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(212,186,134,0.08);
+      border: 1px solid rgba(212,186,134,0.14);
+      color: #f3e4bf;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .chip-list {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 12px;
     }
 
-    .tag {
-      font-size: 12px;
+    .chip-list span {
       padding: 8px 10px;
       border-radius: 999px;
-      background: rgba(31,219,112,0.08);
-      border: 1px solid rgba(31,219,112,0.13);
-      color: #d3ffe5;
-      font-weight: 700;
+      background: rgba(55,215,134,0.08);
+      border: 1px solid rgba(55,215,134,0.14);
+      color: #d8ffe8;
+      font-size: 12px;
+      font-weight: 800;
     }
 
     /* MAIN CONTENT */
@@ -354,54 +431,79 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 34px;
-      min-height: 320px;
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 22px;
-      align-items: center;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 24px;
+      padding: 34px;
+      min-height: 420px;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      left: -90px;
-      top: -90px;
+      left: -70px;
+      top: -70px;
       width: 260px;
       height: 260px;
-      background: radial-gradient(circle, var(--green-glow), transparent 68%);
+      background: radial-gradient(circle, rgba(55,215,134,0.10), transparent 70%);
       pointer-events: none;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      right: -100px;
-      top: -70px;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, var(--blue-glow), transparent 72%);
+      right: -70px;
+      bottom: -70px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 70%);
       pointer-events: none;
     }
 
     .hero-copy {
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero h1 {
-      margin-top: 16px;
-      font-size: 44px;
-      line-height: 1.08;
-      letter-spacing: -1px;
-      margin-bottom: 14px;
-      font-weight: 800;
+      margin-top: 18px;
+      font-size: 58px;
+      line-height: 0.98;
+      letter-spacing: -1.8px;
+      font-weight: 900;
+      color: var(--white-soft);
+      max-width: 720px;
     }
 
-    .hero p {
-      color: var(--muted);
+    .hero-subline {
+      margin-top: 14px;
       font-size: 18px;
-      max-width: 720px;
+      color: #d8e0eb;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .hero-status {
+      margin-top: 18px;
+      max-width: 560px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+      font-size: 17px;
+      font-weight: 800;
+      color: #f2f5f9;
+    }
+
+    .hero-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 640px;
     }
 
     .hero-actions {
@@ -411,69 +513,57 @@
       flex-wrap: wrap;
     }
 
-    .btn {
-      min-height: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 14px;
-      font-size: 15px;
-      font-weight: 800;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-green {
-      background: linear-gradient(180deg, var(--green), var(--green-2));
-      color: #04121f;
-    }
-
-    .btn-green:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.03);
-    }
-
-    .btn-dark {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.08);
-      color: white;
-    }
-
-    .btn-dark:hover {
-      background: rgba(255,255,255,0.10);
-    }
-
-    .hero-note {
-      margin-top: 14px;
-      color: #96a8c3;
-      font-size: 13px;
-    }
-
     .hero-visual {
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: stretch;
     }
 
-    .visual-wrap {
+    .hero-panel {
+      width: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
       padding: 18px;
       border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
       border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .mock {
+    .hero-logo-panel {
+      padding: 14px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 120px;
+    }
+
+    .hero-logo-panel img {
+      max-height: 92px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.15));
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 6px;
+    }
+
+    .mockup {
+      height: 100%;
+      min-height: 220px;
       border-radius: 22px;
       overflow: hidden;
-      min-height: 270px;
+      padding: 16px;
       background:
-        radial-gradient(circle at 20% 20%, rgba(31,219,112,0.18), transparent 26%),
-        radial-gradient(circle at 80% 20%, rgba(80,130,255,0.14), transparent 24%),
-        linear-gradient(160deg, #10213e, #0b1730 50%, #132949 100%);
-      border: 1px solid rgba(255,255,255,0.06);
+        radial-gradient(circle at 20% 20%, rgba(55,215,134,0.09), transparent 26%),
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,0.05), transparent 24%),
+        linear-gradient(180deg, #242b34, #1b2128 58%, #151a20 100%);
+      border: 1px solid rgba(255,255,255,0.05);
       display: grid;
       grid-template-rows: auto 1fr auto;
-      padding: 16px;
       gap: 14px;
     }
 
@@ -481,18 +571,17 @@
       display: flex;
       justify-content: space-between;
       font-size: 12px;
-      color: #dbe7f8;
+      color: #dfe6ef;
     }
 
     .mock-center {
-      border-radius: 18px;
       position: relative;
+      border-radius: 20px;
       background:
-        linear-gradient(140deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
-        linear-gradient(180deg, #132543, #0c1730);
+        linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01)),
+        linear-gradient(180deg, #2a3340, #1d2430);
       border: 1px solid rgba(255,255,255,0.05);
       overflow: hidden;
-      min-height: 120px;
     }
 
     .mock-center::before {
@@ -500,23 +589,23 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 25% 40%, rgba(255,255,255,0.18), transparent 14%),
-        radial-gradient(circle at 68% 48%, rgba(31,219,112,0.22), transparent 18%),
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.10), transparent 11%);
-      filter: blur(14px);
+        radial-gradient(circle at 25% 45%, rgba(255,255,255,0.10), transparent 15%),
+        radial-gradient(circle at 68% 48%, rgba(55,215,134,0.12), transparent 18%),
+        radial-gradient(circle at 50% 52%, rgba(212,186,134,0.08), transparent 12%);
+      filter: blur(16px);
     }
 
     .mock-center::after {
       content: "";
       position: absolute;
-      width: 110px;
-      height: 132px;
-      left: calc(50% - 55px);
-      top: calc(50% - 66px);
-      border-radius: 24px;
-      border: 1px solid rgba(31,219,112,0.34);
-      background: linear-gradient(180deg, rgba(31,219,112,0.16), rgba(31,219,112,0.04));
-      box-shadow: 0 10px 30px rgba(31,219,112,0.10);
+      width: 120px;
+      height: 148px;
+      left: calc(50% - 60px);
+      top: calc(50% - 74px);
+      border-radius: 28px;
+      border: 1px solid rgba(55,215,134,0.22);
+      background: linear-gradient(180deg, rgba(55,215,134,0.10), rgba(255,255,255,0.02));
+      box-shadow: 0 12px 28px rgba(0,0,0,0.20);
     }
 
     .mock-bottom {
@@ -525,43 +614,43 @@
       gap: 8px;
     }
 
-    .chip {
+    .mock-chip {
       padding: 8px 11px;
       border-radius: 999px;
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #dce8f9;
+      border: 1px solid rgba(255,255,255,0.05);
+      color: #eef3fb;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    /* HIGHLIGHTS */
-    .highlights {
+    /* STATS */
+    .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
-    .highlight {
-      padding: 22px 18px;
+    .stat-box {
+      padding: 20px 16px;
       text-align: center;
     }
 
-    .highlight strong {
+    .stat-box strong {
       display: block;
-      color: var(--green);
       font-size: 26px;
+      color: var(--green);
       margin-bottom: 5px;
     }
 
-    .highlight span {
+    .stat-box span {
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    /* NEWS / MODULE BLOCK STYLE */
+    /* MODULE */
     .module {
-      padding: 26px;
+      padding: 24px;
     }
 
     .module-head {
@@ -575,17 +664,22 @@
 
     .module-head h2 {
       font-size: 28px;
-      font-weight: 800;
+      font-weight: 900;
+      letter-spacing: -0.4px;
     }
 
-    .module-head .module-link {
+    .module-head p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .module-link {
       color: var(--green);
       font-size: 14px;
       font-weight: 800;
     }
 
-    /* GRID BLOCKS */
-    .feature-grid {
+    .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
@@ -593,7 +687,7 @@
 
     .feature-box {
       padding: 22px;
-      min-height: 160px;
+      min-height: 170px;
       position: relative;
       overflow: hidden;
     }
@@ -601,11 +695,11 @@
     .feature-box::after {
       content: "";
       position: absolute;
-      right: -50px;
-      bottom: -50px;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, rgba(31,219,112,0.10), transparent 72%);
+      right: -40px;
+      bottom: -40px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(55,215,134,0.08), transparent 72%);
       pointer-events: none;
     }
 
@@ -615,85 +709,80 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: rgba(31,219,112,0.10);
-      border: 1px solid rgba(31,219,112,0.14);
-      font-size: 21px;
+      background: rgba(55,215,134,0.10);
+      border: 1px solid rgba(55,215,134,0.14);
+      font-size: 20px;
       margin-bottom: 14px;
     }
 
     .feature-box h3 {
       font-size: 22px;
       margin-bottom: 8px;
-      color: var(--green);
+      color: var(--text);
     }
 
     .feature-box p {
-      font-size: 15px;
       color: var(--muted);
+      font-size: 15px;
     }
 
-    /* SPLIT SECTIONS */
+    /* PLACEHOLDER BLOCKS */
+    .placeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .placeholder-box {
+      padding: 22px;
+      min-height: 125px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .placeholder-box strong {
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .placeholder-box span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .under-construction {
+      display: inline-block;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(212,186,134,0.08);
+      border: 1px solid rgba(212,186,134,0.14);
+      color: #f3e4bf;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* SPLIT */
     .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    .text-block {
+    .text-box {
       padding: 26px;
     }
 
-    .text-block h3 {
-      font-size: 25px;
+    .text-box h3 {
+      font-size: 24px;
       margin-bottom: 12px;
     }
 
-    .text-block p {
+    .text-box p {
       color: var(--muted);
       font-size: 15px;
       margin-bottom: 12px;
-    }
-
-    .under-dev {
-      margin-top: 14px;
-      padding: 13px 14px;
-      border-radius: 14px;
-      background: rgba(31,219,112,0.08);
-      border: 1px solid rgba(31,219,112,0.13);
-      color: #d9ffe8;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    /* MINI NAV PANELS */
-    .panel-menu {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .panel-link {
-      padding: 18px;
-      min-height: 96px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 8px;
-      transition: 0.2s ease;
-    }
-
-    .panel-link:hover {
-      transform: translateY(-2px);
-      border-color: rgba(31,219,112,0.16);
-    }
-
-    .panel-link strong {
-      font-size: 18px;
-    }
-
-    .panel-link span {
-      font-size: 14px;
-      color: var(--muted);
     }
 
     /* PRIVACY */
@@ -702,7 +791,7 @@
     }
 
     .privacy-box p {
-      color: #e8eef9;
+      color: #edf2f8;
       font-size: 15px;
       margin-bottom: 14px;
     }
@@ -724,14 +813,14 @@
     }
 
     .contact-box p {
-      font-size: 16px;
       color: var(--muted);
-      margin-bottom: 16px;
+      font-size: 15px;
+      margin-bottom: 14px;
     }
 
-    .contact-box .mail {
+    .mail {
       color: var(--green);
-      font-weight: 800;
+      font-weight: 900;
       word-break: break-word;
     }
 
@@ -740,6 +829,7 @@
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+      margin-top: 12px;
     }
 
     /* FOOTER */
@@ -751,13 +841,13 @@
       padding: 20px 24px;
       display: flex;
       justify-content: space-between;
-      gap: 16px;
       align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .footer-left {
-      color: #b2c1d9;
+      color: #b4bcc8;
       font-size: 14px;
     }
 
@@ -767,23 +857,70 @@
       flex-wrap: wrap;
     }
 
-    .footer-right a {
+    .footer-right a,
+    .footer-right button {
+      border: none;
+      cursor: pointer;
       padding: 10px 12px;
       border-radius: 12px;
       background: rgba(255,255,255,0.04);
+      color: #e7edf6;
       font-size: 13px;
-      color: #dce6f5;
-      font-weight: 700;
+      font-weight: 800;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(6,8,11,0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 200;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(560px, 100%);
+      padding: 30px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(35,41,51,0.98), rgba(24,29,36,0.99));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.42);
+    }
+
+    .modal-box h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .modal-box p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 1320px) {
+    @media (max-width: 1300px) {
       .page-layout {
-        grid-template-columns: 220px minmax(0, 1fr) 220px;
+        grid-template-columns: 225px minmax(0, 1fr) 225px;
       }
     }
 
-    @media (max-width: 1180px) {
+    @media (max-width: 1160px) {
       .page-layout {
         grid-template-columns: 1fr;
       }
@@ -797,15 +934,15 @@
         grid-template-columns: 1fr;
       }
 
-      .highlights {
+      .stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 860px) {
-      .feature-grid,
+      .grid-2,
       .split,
-      .panel-menu,
+      .placeholder-grid,
       .sidebar {
         grid-template-columns: 1fr;
       }
@@ -815,37 +952,24 @@
         align-items: flex-start;
       }
 
+      .brand {
+        width: 100%;
+      }
+
       .nav-links {
         width: 100%;
         justify-content: flex-start;
       }
 
-      .brand {
-        width: 100%;
-      }
-
-      .hero {
-        padding: 24px;
-        min-height: unset;
-      }
-
       .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section-title {
-        font-size: 26px;
+        font-size: 40px;
       }
 
       .module-head h2 {
         font-size: 24px;
       }
 
-      .highlights {
+      .stats-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -855,21 +979,19 @@
         width: min(var(--max), calc(100% - 16px));
       }
 
-      .topbar-inner {
-        padding: 8px 0;
-      }
-
-      .brand-title {
-        font-size: 22px;
-      }
-
-      .nav-links a,
-      .subnav-inner a {
-        font-size: 13px;
+      .hero,
+      .module,
+      .text-box,
+      .privacy-box,
+      .contact-box,
+      .side-box,
+      .modal-box {
+        padding: 20px;
       }
 
       .hero-actions,
-      .contact-actions {
+      .contact-actions,
+      .modal-actions {
         flex-direction: column;
       }
 
@@ -877,16 +999,17 @@
         width: 100%;
       }
 
-      .module,
-      .privacy-box,
-      .contact-box,
-      .text-block,
-      .side-box {
-        padding: 20px;
+      .brand-logo {
+        width: 60px;
+        height: 60px;
       }
 
-      .hero {
-        padding: 20px;
+      .brand-title {
+        font-size: 23px;
+      }
+
+      .hero-logo-panel img {
+        max-height: 74px;
       }
     }
   </style>
@@ -895,14 +1018,13 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-left">
-        <span class="badge"><span class="dot"></span> Probna premium stranica</span>
+        <span class="tag"><span class="dot"></span> Premium probna stranica</span>
         <a href="#home">Početna</a>
-        <a href="#features">Funkcije</a>
         <a href="#privacy">Privatnost</a>
       </div>
       <div class="topbar-right">
         <a href="#contact">Kontakt</a>
-        <span class="muted">Skeki Blur Studio • U izradi</span>
+        <span class="muted">IT ZONE • U izradi</span>
       </div>
     </div>
   </div>
@@ -910,19 +1032,20 @@
   <div class="mainnav-wrap">
     <div class="container mainnav">
       <a href="#home" class="brand">
-        <div class="logo-box">✨</div>
+        <div class="brand-logo">
+          <img src="logo.png" alt="IT ZONE logo" />
+        </div>
         <div class="brand-text">
-          <div class="brand-title">Skeki Blur Studio</div>
-          <div class="brand-subtitle">Premium probna početna stranica</div>
+          <div class="brand-title">IT ZONE</div>
+          <div class="brand-subtitle">WEB & APP DEVELOPMENT</div>
         </div>
       </a>
 
       <nav class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#preview">Preview</a>
+        <a href="#home">Početna</a>
         <a href="#privacy">Privacy</a>
-        <a href="#contact">Contact</a>
-        <a class="primary-link" href="YOUR_PLAY_STORE_LINK" target="_blank" rel="noopener noreferrer">Play Store</a>
+        <a href="#contact">Kontakt</a>
+        <button class="playstore-btn" onclick="openInProgress('Play Store link')">Play Store</button>
       </nav>
     </div>
   </div>
@@ -930,12 +1053,14 @@
   <div class="subnav">
     <div class="container subnav-inner">
       <a href="#home">Naslovna</a>
-      <a href="#features">AI Blur</a>
-      <a href="#preview">Premium izgled</a>
-      <a href="#work">U izradi</a>
+      <button onclick="openInProgress('AI Blur')">AI Blur</button>
+      <button onclick="openInProgress('Web Development')">Web Development</button>
+      <button onclick="openInProgress('App Development')">App Development</button>
+      <button onclick="openInProgress('Portfolio')">Portfolio</button>
+      <button onclick="openInProgress('Novosti')">Novosti</button>
       <a href="#privacy">Privacy Policy</a>
       <a href="#contact">Podrška</a>
-      <a href="#future">Budući sajt</a>
+      <button onclick="openInProgress('Budući sajt')">Budući sajt</button>
     </div>
   </div>
 
@@ -945,30 +1070,25 @@
         <h3>Brzi meni</h3>
         <div class="side-list">
           <a href="#home">Početna</a>
-          <a href="#features">Funkcije</a>
-          <a href="#preview">Preview</a>
-          <a href="#privacy">Privacy</a>
+          <a href="#privacy">Privacy Policy</a>
           <a href="#contact">Kontakt</a>
+          <button onclick="openInProgress('Portfolio')">Portfolio</button>
+          <button onclick="openInProgress('Usluge')">Usluge</button>
         </div>
       </div>
 
       <div class="side-box small-card">
-        <h3>Status projekta</h3>
-        <p>Ova stranica je probna verzija i služi kao baza za budući pravi web sajt.</p>
-        <div class="tag-grid">
-          <span class="tag">U izradi</span>
-          <span class="tag">Premium stil</span>
-          <span class="tag">Probna verzija</span>
-        </div>
+        <h3>Status</h3>
+        <p>Osnovna premium početna stranica je aktivna. Dodatne sekcije se postepeno pripremaju.</p>
+        <div class="status-box">Sajt u izradi</div>
       </div>
 
       <div class="side-box small-card">
-        <h3>Kasnije dodati</h3>
-        <div class="side-list">
-          <div>Screenshots app-a</div>
-          <div>Impressum</div>
-          <div>Pravi Play Store link</div>
-          <div>Više jezika</div>
+        <h3>Aktivno sada</h3>
+        <div class="chip-list">
+          <span>Početna</span>
+          <span>Privacy</span>
+          <span>Kontakt</span>
         </div>
       </div>
     </aside>
@@ -976,155 +1096,166 @@
     <main class="content">
       <section id="home" class="hero card">
         <div class="hero-copy">
-          <span class="badge"><span class="dot"></span> Elegantno • Tamno • Premium</span>
+          <span class="tag"><span class="dot"></span> Aktivna premium početna</span>
 
-          <h1>Početna stranica koja izgleda ozbiljno i moderno.</h1>
+          <h1>IT ZONE</h1>
+          <div class="hero-subline">WEB & APP DEVELOPMENT</div>
 
-          <p>
-            Skeki Blur Studio dobija probnu premium web stranicu sa radnim menijem,
-            lepšim rasporedom, bogatijim izgledom i boljom osnovom za kasniji pravi sajt.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-green" href="#features">Pogledaj funkcije</a>
-            <a class="btn btn-dark" href="#contact">Kontakt podrška</a>
+          <div class="hero-status">
+            Sajt u izradi.
           </div>
 
           <div class="hero-note">
-            Ovde kasnije samo zameni <b>YOUR_PLAY_STORE_LINK</b> svojim pravim Play Store linkom.
+            Aktivne sekcije: Početna, Privacy Policy i Kontakt.
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#privacy">Privacy Policy</a>
+            <a class="btn btn-dark" href="#contact">Kontakt</a>
+            <button class="btn btn-outline" onclick="openInProgress('Portfolio')">Portfolio</button>
           </div>
         </div>
 
-        <div class="hero-visual" id="preview">
-          <div class="visual-wrap">
-            <div class="mock">
+        <div class="hero-visual">
+          <div class="hero-panel">
+            <div class="hero-logo-panel">
+              <img src="logo.png" alt="IT ZONE logo preview" />
+            </div>
+
+            <div class="mockup">
               <div class="mock-top">
-                <span>Skeki Blur Studio</span>
+                <span>IT ZONE</span>
                 <span>Premium Preview</span>
               </div>
 
               <div class="mock-center"></div>
 
               <div class="mock-bottom">
-                <span class="chip">AI Blur</span>
-                <span class="chip">Face Blur</span>
-                <span class="chip">Background Blur</span>
-                <span class="chip">Privacy</span>
+                <span class="mock-chip">Web</span>
+                <span class="mock-chip">Apps</span>
+                <span class="mock-chip">Design</span>
+                <span class="mock-chip">U izradi</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="highlights">
-        <div class="highlight small-card">
+      <section class="stats-grid">
+        <div class="stat-box small-card">
+          <strong>3</strong>
+          <span>aktivne sekcije</span>
+        </div>
+        <div class="stat-box small-card">
           <strong>Premium</strong>
-          <span>lepši i ozbiljniji izgled</span>
+          <span>probni dizajn</span>
         </div>
-        <div class="highlight small-card">
-          <strong>Portal</strong>
-          <span>radni meni sa strane i gore</span>
+        <div class="stat-box small-card">
+          <strong>Dark</strong>
+          <span>elegantna tema</span>
         </div>
-        <div class="highlight small-card">
-          <strong>Responsive</strong>
-          <span>radi i na telefonu i na računaru</span>
-        </div>
-        <div class="highlight small-card">
-          <strong>Future Ready</strong>
-          <span>kasnije lako preraste u pravi sajt</span>
+        <div class="stat-box small-card">
+          <strong>Ready</strong>
+          <span>za dalji razvoj</span>
         </div>
       </section>
 
-      <section id="features" class="module card">
+      <section class="module card">
         <div class="module-head">
           <div>
-            <h2>Glavne sekcije sajta</h2>
-            <p class="section-subtitle">
-              Početna je sada složena više kao ozbiljna naslovna strana, a ne kao običan jednostavan landing page.
-            </p>
+            <h2>Glavne sekcije</h2>
+            <p>Čista premium struktura sa aktivnim osnovama i jasno označenim delovima koji su u pripremi.</p>
           </div>
-          <a class="module-link" href="#future">Plan za dalje →</a>
         </div>
 
-        <div class="feature-grid">
+        <div class="grid-2">
           <div class="feature-box small-card">
-            <div class="feature-icon">🎯</div>
-            <h3>AI Blur</h3>
-            <p>
-              Posebna sekcija za glavni proizvod, sa boljim isticanjem funkcije i ozbiljnijim vizuelnim nastupom.
-            </p>
+            <div class="feature-icon">🏠</div>
+            <h3>Početna</h3>
+            <p>Aktivna naslovna sekcija sa osnovnim premium prikazom sajta.</p>
           </div>
 
           <div class="feature-box small-card">
-            <div class="feature-icon">🧭</div>
-            <h3>Radni meni</h3>
-            <p>
-              Gornji meni, podmeni i bočne sekcije daju utisak pravog sajta i bolje organizacije sadržaja.
-            </p>
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy Policy</h3>
+            <p>Aktivna sekcija sa osnovnim informacijama o privatnosti.</p>
           </div>
 
           <div class="feature-box small-card">
-            <div class="feature-icon">🎨</div>
-            <h3>Boje kao app</h3>
-            <p>
-              Tamna premium osnova sa zelenim akcentima i blagim plavim sjajem izgleda ozbiljnije i elegantnije.
-            </p>
+            <div class="feature-icon">✉️</div>
+            <h3>Kontakt</h3>
+            <p>Aktivna sekcija za podršku, upit i osnovni kontakt.</p>
           </div>
 
           <div class="feature-box small-card">
-            <div class="feature-icon">🚀</div>
-            <h3>Osnova za budući web</h3>
-            <p>
-              Kasnije se lako dodaju screenshoti, download sekcije, blog, cene, Impressum i još puno toga.
-            </p>
+            <div class="feature-icon">🛠️</div>
+            <h3>Ostale sekcije</h3>
+            <p>Portfolio, usluge, novosti i dodatni sadržaj su trenutno označeni kao “Sajt u izradi”.</p>
           </div>
         </div>
       </section>
 
-      <section class="panel-menu" id="work">
-        <a href="#features" class="panel-link small-card">
-          <strong>AI Blur modul</strong>
-          <span>Osnovna prezentacija glavne funkcije aplikacije.</span>
-        </a>
+      <section class="module card">
+        <div class="module-head">
+          <div>
+            <h2>Pripremljene pozicije</h2>
+            <p>Rezervisani blokovi za budući sadržaj.</p>
+          </div>
+          <span class="module-link">Premium struktura</span>
+        </div>
 
-        <a href="#privacy" class="panel-link small-card">
-          <strong>Privacy Policy</strong>
-          <span>Jasno izdvojen deo za Play Store i korisnike.</span>
-        </a>
+        <div class="placeholder-grid">
+          <div class="placeholder-box small-card">
+            <strong>Portfolio</strong>
+            <span>Sajt u izradi</span>
+            <span class="under-construction">U izradi</span>
+          </div>
 
-        <a href="#contact" class="panel-link small-card">
-          <strong>Kontakt centar</strong>
-          <span>Email podrška i kasniji dodatni kontakti.</span>
-        </a>
+          <div class="placeholder-box small-card">
+            <strong>Usluge</strong>
+            <span>Sajt u izradi</span>
+            <span class="under-construction">U izradi</span>
+          </div>
+
+          <div class="placeholder-box small-card">
+            <strong>Web projekti</strong>
+            <span>Sajt u izradi</span>
+            <span class="under-construction">U izradi</span>
+          </div>
+
+          <div class="placeholder-box small-card">
+            <strong>App projekti</strong>
+            <span>Sajt u izradi</span>
+            <span class="under-construction">U izradi</span>
+          </div>
+
+          <div class="placeholder-box small-card">
+            <strong>FAQ</strong>
+            <span>Sajt u izradi</span>
+            <span class="under-construction">U izradi</span>
+          </div>
+
+          <div class="placeholder-box small-card">
+            <strong>Impressum</strong>
+            <span>Sajt u izradi</span>
+            <span class="under-construction">U izradi</span>
+          </div>
+        </div>
       </section>
 
       <section class="split">
-        <div class="text-block card">
-          <span class="badge"><span class="dot"></span> U izradi</span>
-          <h3 style="margin-top:14px;">Probna premium verzija naslovne stranice</h3>
-          <p>
-            Ova stranica je zamišljena kao probna osnova za budući pravi sajt. Trenutno je cilj da početna izgleda što lepše, bogatije i ozbiljnije.
-          </p>
-          <p>
-            Ne mora sve odmah biti gotovo. Bitno je da naslovna ostavlja dobar utisak i da kasnije lako možeš da je širiš.
-          </p>
-          <div class="under-dev">
-            Status: sadržaj je delimično u izradi, ali dizajn već može da izgleda premium.
-          </div>
+        <div class="text-box card">
+          <h3>Informacija</h3>
+          <p>Ova verzija služi kao probna premium osnova za budući redovni web sajt.</p>
+          <p>Sadržaj je sveden i čist, kako bi početna strana delovala ozbiljno i uredno.</p>
+          <div class="status-box">Dalji sadržaj se priprema.</div>
         </div>
 
-        <div class="text-block card" id="future">
-          <span class="badge"><span class="dot"></span> Plan za dalje</span>
-          <h3 style="margin-top:14px;">Šta može kasnije da se doda</h3>
-          <p>
-            Kasnije možeš dodati posebne stranice za aplikaciju, galeriju screenshotova, FAQ, pravne informacije, sekciju za novosti i pravi profesionalni kontakt centar.
-          </p>
-          <p>
-            Ovaj izgled je sada više kao “portal / radni meni / ozbiljna početna” i odličan je kao baza za sledeću fazu.
-          </p>
-          <div class="under-dev">
-            Sledeći korak: dodavanje screenshot sekcije i pravog legalnog teksta.
-          </div>
+        <div class="text-box card">
+          <h3>Dalji razvoj</h3>
+          <p>Kasnije se mogu dodati portfolio blokovi, screenshot sekcije, detaljniji opisi usluga i pravne stranice.</p>
+          <p>Za početak je fokus na izgledu, redu i premium utisku.</p>
+          <div class="status-box">Dodatne sekcije: u izradi.</div>
         </div>
       </section>
 
@@ -1132,28 +1263,15 @@
         <div class="module-head">
           <div>
             <h2>Privacy Policy</h2>
-            <p class="section-subtitle">
-              Za početak može stajati jednostavna i čista verzija. Kasnije možemo ubaciti punu pravnu verziju.
-            </p>
+            <p>Osnovna aktivna sekcija.</p>
           </div>
         </div>
 
-        <p><strong>Skeki Blur Studio poštuje privatnost korisnika.</strong></p>
-        <p>
-          Ova probna web stranica je namenjena predstavljanju aplikacije i osnovnih informacija o projektu.
-        </p>
-        <p>
-          Putem ove stranice ne prikupljamo namerno lične podatke osim ako nam se korisnik sam ne javi putem email adrese.
-        </p>
-        <p>
-          Ako aplikacija obrađuje slike na uređaju, te slike ostaju pod kontrolom korisnika.
-        </p>
-        <p>
-          Ako nas kontaktiraš emailom, možemo primiti tvoju email adresu i sadržaj poruke kako bismo odgovorili.
-        </p>
-        <p>
-          Privacy Policy može biti izmenjen kasnije kada sajt i aplikacija dobiju dodatne funkcije.
-        </p>
+        <p><strong>IT ZONE poštuje privatnost korisnika.</strong></p>
+        <p>Ova probna web stranica služi za osnovno predstavljanje projekta i kontakta.</p>
+        <p>Putem ove stranice ne prikupljamo namerno lične podatke osim ako nas korisnik sam kontaktira putem email adrese.</p>
+        <p>Ako se kontakt ostvari putem emaila, možemo primiti email adresu i sadržaj poruke radi odgovora.</p>
+        <p>Kasnije će po potrebi biti dodata proširena verzija Privacy Policy teksta.</p>
         <p>
           Kontakt za pitanja o privatnosti:
           <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
@@ -1161,18 +1279,16 @@
       </section>
 
       <section id="contact" class="contact-box card">
-        <span class="badge"><span class="dot"></span> Podrška i kontakt</span>
+        <span class="tag"><span class="dot"></span> Aktivna sekcija</span>
         <h2 style="margin-top:14px;">Kontakt</h2>
+        <p>Osnovni kontakt za podršku i pitanja.</p>
         <p>
-          Za sada je dovoljno da ovde stoji osnovni kontakt, a kasnije se može dodati ceo kontakt centar.
-        </p>
-        <p>
-          Email podrške:
+          Email:
           <a class="mail" href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
         </p>
 
         <div class="contact-actions">
-          <a class="btn btn-green" href="mailto:itzoneapps1@gmail.com">Pošalji email</a>
+          <a class="btn btn-primary" href="mailto:itzoneapps1@gmail.com">Pošalji email</a>
           <a class="btn btn-dark" href="#home">Nazad na vrh</a>
         </div>
       </section>
@@ -1182,33 +1298,31 @@
       <div class="side-box small-card">
         <h3>Desni meni</h3>
         <div class="side-list">
-          <a href="#home">Naslovna</a>
-          <a href="#features">Sekcije</a>
-          <a href="#work">U izradi</a>
-          <a href="#future">Budući plan</a>
+          <a href="#home">Početna</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#contact">Kontakt</a>
+          <button onclick="openInProgress('Novosti')">Novosti</button>
+          <button onclick="openInProgress('FAQ')">FAQ</button>
         </div>
       </div>
 
       <div class="side-box small-card">
         <h3>Vizuelni smer</h3>
-        <p>
-          Tamna premium pozadina, uredne kartice i neon zeleni akcenti daju jači i ozbiljniji utisak.
-        </p>
-        <div class="tag-grid">
-          <span class="tag">Dark premium</span>
-          <span class="tag">Portal stil</span>
-          <span class="tag">Probna baza</span>
+        <p>Monohrom premium osnova sa zelenim akcentom prema logo identitetu.</p>
+        <div class="chip-list">
+          <span>Black</span>
+          <span>White</span>
+          <span>Green Accent</span>
         </div>
       </div>
 
       <div class="side-box small-card">
-        <h3>Buduće stranice</h3>
+        <h3>Buduće sekcije</h3>
         <div class="side-list">
-          <div>O aplikaciji</div>
-          <div>Galerija slika</div>
-          <div>Novosti</div>
-          <div>FAQ</div>
-          <div>Pravni podaci</div>
+          <div>Portfolio</div>
+          <div>Web</div>
+          <div>Apps</div>
+          <div>Impressum</div>
         </div>
       </div>
     </aside>
@@ -1218,15 +1332,45 @@
     <div class="container">
       <div class="footer-card small-card">
         <div class="footer-left">
-          © 2026 Skeki Blur Studio • Probna premium početna stranica
+          © 2026 IT ZONE • Premium probna početna stranica
         </div>
         <div class="footer-right">
-          <a href="#features">Features</a>
+          <a href="#home">Početna</a>
           <a href="#privacy">Privacy</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Kontakt</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <div class="modal" id="inProgressModal">
+    <div class="modal-box">
+      <h3>Sajt u izradi</h3>
+      <p id="modalText">Ova sekcija je trenutno u izradi.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="closeModal()">U redu</button>
+        <a class="btn btn-dark" href="#home" onclick="closeModal()">Nazad na početnu</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openInProgress(sectionName) {
+      const modal = document.getElementById("inProgressModal");
+      const text = document.getElementById("modalText");
+      text.textContent = sectionName + " — sajt u izradi.";
+      modal.classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("inProgressModal").classList.remove("show");
+    }
+
+    document.getElementById("inProgressModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
