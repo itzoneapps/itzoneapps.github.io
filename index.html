@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skeki Blur Studio</title>
   <meta
     name="description"
-    content="Skeki Blur Studio - premium AI blur app for faces, backgrounds and sensitive content."
+    content="Skeki Blur Studio - probna premium početna stranica za budući web sajt."
   />
   <style>
     :root {
-      --bg: #061226;
-      --bg-soft: #0a1a33;
-      --card: rgba(20, 35, 63, 0.82);
-      --card-2: rgba(17, 31, 54, 0.92);
-      --line: rgba(255, 255, 255, 0.08);
-      --text: #f3f7ff;
-      --muted: #b8c6de;
-      --green: #1fe06f;
-      --green-2: #0fcf62;
-      --green-dark: #0d8f45;
-      --white-btn: #f8fbff;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius: 28px;
-      --max: 1240px;
+      --bg: #07111f;
+      --bg-2: #0b1830;
+      --panel: #101d34;
+      --panel-2: #14233f;
+      --panel-3: #182a49;
+      --line: rgba(255,255,255,0.08);
+      --text: #eef4ff;
+      --muted: #a9b8d2;
+      --green: #1fdb70;
+      --green-2: #10c760;
+      --blue-glow: rgba(50, 120, 255, 0.18);
+      --green-glow: rgba(31, 219, 112, 0.16);
+      --shadow: 0 12px 35px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --radius-lg: 24px;
+      --max: 1460px;
+      --sidebar-w: 240px;
+      --top-h: 48px;
+      --main-h: 68px;
     }
 
     * {
@@ -40,77 +45,71 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 10%, rgba(31, 224, 111, 0.08), transparent 22%),
-        radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.10), transparent 28%),
-        radial-gradient(circle at 50% 80%, rgba(31, 224, 111, 0.05), transparent 25%),
-        linear-gradient(180deg, #04101f 0%, #07152a 45%, #05111f 100%);
+        radial-gradient(circle at 10% 10%, rgba(31, 219, 112, 0.06), transparent 18%),
+        radial-gradient(circle at 90% 10%, rgba(70, 120, 255, 0.10), transparent 20%),
+        radial-gradient(circle at 50% 90%, rgba(31, 219, 112, 0.05), transparent 18%),
+        linear-gradient(180deg, #050d18 0%, #081426 40%, #08111f 100%);
       min-height: 100vh;
-      line-height: 1.55;
+      line-height: 1.5;
       overflow-x: hidden;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      text-decoration: none;
     }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 26px));
       margin: 0 auto;
     }
 
-    .section {
-      padding: 84px 0;
-    }
-
-    .glass {
-      background: linear-gradient(180deg, rgba(22, 39, 70, 0.88), rgba(15, 27, 49, 0.95));
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: var(--radius);
-    }
-
-    .eyebrow {
+    .badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
+      gap: 8px;
+      padding: 7px 12px;
+      background: rgba(31, 219, 112, 0.09);
+      border: 1px solid rgba(31, 219, 112, 0.16);
+      color: #d8ffe8;
       border-radius: 999px;
-      border: 1px solid rgba(31, 224, 111, 0.18);
-      background: rgba(31, 224, 111, 0.08);
-      color: #c9ffe0;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.3px;
     }
 
-    .eyebrow .dot {
+    .dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 14px rgba(31, 224, 111, 0.85);
+      box-shadow: 0 0 10px rgba(31, 219, 112, 0.8);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(20,35,63,0.96), rgba(16,29,52,0.98));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .small-card {
+      background: linear-gradient(180deg, rgba(22,38,67,0.95), rgba(18,31,55,0.98));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
 
     .section-title {
-      font-size: clamp(34px, 5vw, 60px);
-      line-height: 1.05;
+      font-size: 30px;
       font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 18px;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
     }
 
     .section-subtitle {
-      max-width: 820px;
-      font-size: clamp(18px, 2vw, 23px);
+      font-size: 16px;
       color: var(--muted);
+      max-width: 780px;
     }
 
     .muted {
@@ -121,19 +120,50 @@
       color: var(--green);
     }
 
-    /* Header */
-    .site-header {
+    /* TOP BAR */
+    .topbar {
+      min-height: var(--top-h);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(4, 10, 18, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      min-height: var(--top-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 13px;
+      color: #c8d5e9;
+    }
+
+    .topbar-left,
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .topbar a:hover {
+      color: #fff;
+    }
+
+    /* MAIN NAV */
+    .mainnav-wrap {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(4, 12, 24, 0.72);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(7, 14, 26, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .header-inner {
-      min-height: 88px;
+    .mainnav {
+      min-height: var(--main-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -144,92 +174,213 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      min-width: 0;
     }
 
-    .brand-badge {
+    .logo-box {
       width: 46px;
       height: 46px;
       border-radius: 14px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(31, 224, 111, 0.45), transparent 45%),
-        linear-gradient(180deg, #132644, #0d1b33);
+        radial-gradient(circle at 30% 30%, rgba(31,219,112,0.35), transparent 40%),
+        linear-gradient(180deg, #183052, #10203a);
       border: 1px solid rgba(255,255,255,0.08);
       display: grid;
       place-items: center;
       font-size: 22px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+      flex-shrink: 0;
     }
 
     .brand-text {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--green);
+      min-width: 0;
     }
 
-    .nav {
+    .brand-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-links {
       display: flex;
+      align-items: center;
+      gap: 10px;
       flex-wrap: wrap;
-      gap: 12px;
       justify-content: flex-end;
     }
 
-    .nav a {
-      padding: 13px 18px;
-      border-radius: 16px;
+    .nav-links a {
+      padding: 12px 15px;
+      border-radius: 14px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.05);
-      color: #f4f8ff;
+      color: #f7fbff;
+      font-size: 14px;
       font-weight: 700;
-      transition: 0.22s ease;
+      transition: 0.2s ease;
     }
 
-    .nav a:hover {
+    .nav-links a:hover {
+      background: rgba(31,219,112,0.14);
+      border-color: rgba(31,219,112,0.16);
       transform: translateY(-1px);
-      background: rgba(31, 224, 111, 0.14);
-      border-color: rgba(31, 224, 111, 0.18);
-      color: #dbffe9;
     }
 
-    /* Hero */
-    .hero {
-      padding: 72px 0 42px;
-      position: relative;
+    .nav-links .primary-link {
+      background: linear-gradient(180deg, var(--green), var(--green-2));
+      color: #04121f;
+      border-color: transparent;
     }
 
-    .hero-wrap {
+    .nav-links .primary-link:hover {
+      filter: brightness(1.03);
+    }
+
+    /* SUB NAV */
+    .subnav {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(10, 18, 32, 0.75);
+    }
+
+    .subnav-inner {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 8px 0;
+      scrollbar-width: thin;
+    }
+
+    .subnav-inner a {
+      white-space: nowrap;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px;
+      color: #dfe9f8;
+      font-weight: 700;
+    }
+
+    .subnav-inner a:hover {
+      background: rgba(31,219,112,0.10);
+    }
+
+    /* LAYOUT */
+    .page-layout {
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 28px;
-      align-items: stretch;
+      grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--sidebar-w);
+      gap: 18px;
+      padding: 22px 0 34px;
+      align-items: start;
     }
 
-    .hero-left,
-    .hero-right {
-      padding: 34px;
+    /* SIDEBARS */
+    .sidebar {
+      position: sticky;
+      top: calc(var(--top-h) + var(--main-h) + 22px);
+      display: grid;
+      gap: 16px;
+    }
+
+    .side-box {
+      padding: 18px;
+    }
+
+    .side-box h3 {
+      font-size: 17px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .side-box p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .side-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .side-list a,
+    .side-list div {
+      padding: 11px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+      font-size: 14px;
+      color: #dfe8f8;
+    }
+
+    .side-list a:hover {
+      background: rgba(31,219,112,0.11);
+    }
+
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(31,219,112,0.08);
+      border: 1px solid rgba(31,219,112,0.13);
+      color: #d3ffe5;
+      font-weight: 700;
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    /* HERO */
+    .hero {
       position: relative;
       overflow: hidden;
+      padding: 34px;
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 22px;
+      align-items: center;
     }
 
-    .hero-left::before,
-    .hero-right::before {
+    .hero::before {
       content: "";
       position: absolute;
-      inset: -20% auto auto -10%;
+      left: -90px;
+      top: -90px;
       width: 260px;
       height: 260px;
-      background: radial-gradient(circle, rgba(31, 224, 111, 0.14), transparent 65%);
+      background: radial-gradient(circle, var(--green-glow), transparent 68%);
       pointer-events: none;
     }
 
-    .hero-left::after {
+    .hero::after {
       content: "";
       position: absolute;
-      right: -80px;
-      top: -80px;
+      right: -100px;
+      top: -70px;
       width: 260px;
       height: 260px;
-      background: radial-gradient(circle, rgba(34, 164, 255, 0.16), transparent 70%);
+      background: radial-gradient(circle, var(--blue-glow), transparent 72%);
       pointer-events: none;
     }
 
@@ -239,502 +390,482 @@
     }
 
     .hero h1 {
-      margin-top: 22px;
-      font-size: clamp(46px, 7vw, 82px);
-      line-height: 0.98;
-      letter-spacing: -2px;
-      font-weight: 900;
-      margin-bottom: 22px;
+      margin-top: 16px;
+      font-size: 44px;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+      font-weight: 800;
     }
 
     .hero p {
-      font-size: clamp(18px, 2vw, 24px);
       color: var(--muted);
-      max-width: 760px;
+      font-size: 18px;
+      max-width: 720px;
     }
 
     .hero-actions {
+      margin-top: 24px;
       display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
     }
 
     .btn {
+      min-height: 50px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
-      padding: 14px 22px;
-      border-radius: 18px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 15px;
       font-weight: 800;
-      font-size: 16px;
-      transition: 0.22s ease;
+      transition: 0.2s ease;
       border: 1px solid transparent;
-      cursor: pointer;
     }
 
-    .btn-primary {
+    .btn-green {
       background: linear-gradient(180deg, var(--green), var(--green-2));
       color: #04121f;
-      box-shadow: 0 14px 34px rgba(31, 224, 111, 0.22);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
+    .btn-green:hover {
+      transform: translateY(-1px);
       filter: brightness(1.03);
     }
 
-    .btn-secondary {
+    .btn-dark {
       background: rgba(255,255,255,0.06);
       border-color: rgba(255,255,255,0.08);
-      color: #fff;
+      color: white;
     }
 
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.09);
+    .btn-dark:hover {
+      background: rgba(255,255,255,0.10);
     }
 
     .hero-note {
-      margin-top: 16px;
-      font-size: 14px;
-      color: #98abc7;
+      margin-top: 14px;
+      color: #96a8c3;
+      font-size: 13px;
     }
 
-    .hero-note b {
-      color: #fff;
-    }
-
-    /* Mockup */
-    .mockup {
+    .hero-visual {
       position: relative;
-      height: 100%;
-      min-height: 540px;
-      display: grid;
-      place-items: center;
       z-index: 1;
     }
 
-    .phone {
-      width: min(330px, 100%);
-      border-radius: 34px;
-      padding: 14px;
-      background: linear-gradient(180deg, #0b0f16, #121a28);
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow:
-        0 30px 70px rgba(0,0,0,0.5),
-        inset 0 0 0 1px rgba(255,255,255,0.04);
-    }
-
-    .phone-screen {
-      border-radius: 24px;
-      overflow: hidden;
-      min-height: 620px;
-      background:
-        radial-gradient(circle at 30% 15%, rgba(31,224,111,0.18), transparent 20%),
-        radial-gradient(circle at 70% 20%, rgba(0,170,255,0.15), transparent 24%),
-        linear-gradient(180deg, #071325, #0a1730 55%, #08122a 100%);
-      padding: 22px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .screen-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: #c6d2e7;
-      opacity: 0.95;
-    }
-
-    .screen-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 22px;
+    .visual-wrap {
       padding: 18px;
-    }
-
-    .screen-hero {
-      min-height: 180px;
-      background:
-        radial-gradient(circle at 60% 20%, rgba(31, 224, 111, 0.15), transparent 28%),
-        linear-gradient(180deg, rgba(16, 30, 54, 0.9), rgba(15, 28, 48, 0.98));
-    }
-
-    .blur-preview {
-      position: relative;
-      height: 230px;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 6px;
-      background:
-        linear-gradient(135deg, #162944, #0f1c36 50%, #152c49);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .blur-preview::before,
-    .blur-preview::after {
+    .mock {
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 270px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(31,219,112,0.18), transparent 26%),
+        radial-gradient(circle at 80% 20%, rgba(80,130,255,0.14), transparent 24%),
+        linear-gradient(160deg, #10213e, #0b1730 50%, #132949 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 16px;
+      gap: 14px;
+    }
+
+    .mock-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #dbe7f8;
+    }
+
+    .mock-center {
+      border-radius: 18px;
+      position: relative;
+      background:
+        linear-gradient(140deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        linear-gradient(180deg, #132543, #0c1730);
+      border: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+      min-height: 120px;
+    }
+
+    .mock-center::before {
       content: "";
       position: absolute;
       inset: 0;
-    }
-
-    .blur-preview::before {
       background:
-        radial-gradient(circle at 25% 35%, rgba(255,255,255,0.25), transparent 16%),
-        radial-gradient(circle at 70% 45%, rgba(31,224,111,0.28), transparent 18%),
-        radial-gradient(circle at 52% 50%, rgba(255,255,255,0.15), transparent 12%);
-      filter: blur(22px);
-      opacity: 0.9;
+        radial-gradient(circle at 25% 40%, rgba(255,255,255,0.18), transparent 14%),
+        radial-gradient(circle at 68% 48%, rgba(31,219,112,0.22), transparent 18%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.10), transparent 11%);
+      filter: blur(14px);
     }
 
-    .blur-preview::after {
-      width: 115px;
-      height: 150px;
-      left: calc(50% - 57px);
-      top: calc(50% - 75px);
-      border-radius: 30px;
-      background:
-        linear-gradient(180deg, rgba(31,224,111,0.18), rgba(31,224,111,0.04));
-      border: 1px solid rgba(31,224,111,0.36);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.04),
-        0 8px 40px rgba(31,224,111,0.18);
-      filter: blur(0);
+    .mock-center::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 132px;
+      left: calc(50% - 55px);
+      top: calc(50% - 66px);
+      border-radius: 24px;
+      border: 1px solid rgba(31,219,112,0.34);
+      background: linear-gradient(180deg, rgba(31,219,112,0.16), rgba(31,219,112,0.04));
+      box-shadow: 0 10px 30px rgba(31,219,112,0.10);
     }
 
-    .chips {
+    .mock-bottom {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 8px;
     }
 
     .chip {
-      padding: 10px 14px;
+      padding: 8px 11px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.06);
-      font-size: 13px;
-      color: #d8e4f6;
+      color: #dce8f9;
+      font-size: 12px;
       font-weight: 700;
     }
 
-    /* Stats */
-    .stats {
-      margin-top: 22px;
+    /* HIGHLIGHTS */
+    .highlights {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
-    .stat {
-      padding: 24px 20px;
+    .highlight {
+      padding: 22px 18px;
       text-align: center;
     }
 
-    .stat h3 {
-      font-size: 30px;
+    .highlight strong {
+      display: block;
       color: var(--green);
-      margin-bottom: 6px;
+      font-size: 26px;
+      margin-bottom: 5px;
     }
 
-    .stat p {
+    .highlight span {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
     }
 
-    /* Features */
-    .features-grid {
-      margin-top: 30px;
+    /* NEWS / MODULE BLOCK STYLE */
+    .module {
+      padding: 26px;
+    }
+
+    .module-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .module-head h2 {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .module-head .module-link {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* GRID BLOCKS */
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
-    .feature-card {
-      padding: 28px;
+    .feature-box {
+      padding: 22px;
+      min-height: 160px;
       position: relative;
       overflow: hidden;
-      min-height: 190px;
     }
 
-    .feature-card::before {
+    .feature-box::after {
       content: "";
       position: absolute;
-      inset: auto -80px -80px auto;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(31,224,111,0.13), transparent 70%);
+      right: -50px;
+      bottom: -50px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(31,219,112,0.10), transparent 72%);
       pointer-events: none;
     }
 
     .feature-icon {
-      width: 52px;
-      height: 52px;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
-      border-radius: 16px;
-      font-size: 22px;
-      background: rgba(31,224,111,0.12);
-      border: 1px solid rgba(31,224,111,0.14);
-      margin-bottom: 16px;
+      background: rgba(31,219,112,0.10);
+      border: 1px solid rgba(31,219,112,0.14);
+      font-size: 21px;
+      margin-bottom: 14px;
     }
 
-    .feature-card h3 {
-      font-size: 27px;
-      margin-bottom: 10px;
-      color: var(--green);
-    }
-
-    .feature-card p {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    /* Why */
-    .why-wrap {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 22px;
-      align-items: stretch;
-      margin-top: 26px;
-    }
-
-    .why-left,
-    .why-right {
-      padding: 34px;
-    }
-
-    .why-list {
-      display: grid;
-      gap: 18px;
-      margin-top: 12px;
-    }
-
-    .why-item {
-      padding: 18px 18px 18px 20px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .why-item h4 {
-      font-size: 20px;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-
-    .why-item p {
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .premium-panel {
-      display: grid;
-      gap: 16px;
-      height: 100%;
-    }
-
-    .premium-box {
-      padding: 22px;
-      border-radius: 22px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .premium-box h4 {
+    .feature-box h3 {
       font-size: 22px;
       margin-bottom: 8px;
       color: var(--green);
     }
 
-    .premium-box p {
-      font-size: 17px;
+    .feature-box p {
+      font-size: 15px;
       color: var(--muted);
     }
 
-    /* Privacy */
-    .policy-card {
-      padding: 38px;
+    /* SPLIT SECTIONS */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .policy-card p {
-      color: #e8eef9;
+    .text-block {
+      padding: 26px;
+    }
+
+    .text-block h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .text-block p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .under-dev {
+      margin-top: 14px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: rgba(31,219,112,0.08);
+      border: 1px solid rgba(31,219,112,0.13);
+      color: #d9ffe8;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* MINI NAV PANELS */
+    .panel-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .panel-link {
+      padding: 18px;
+      min-height: 96px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.2s ease;
+    }
+
+    .panel-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(31,219,112,0.16);
+    }
+
+    .panel-link strong {
       font-size: 18px;
-      margin-bottom: 16px;
     }
 
-    .policy-card a {
+    .panel-link span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* PRIVACY */
+    .privacy-box {
+      padding: 28px;
+    }
+
+    .privacy-box p {
+      color: #e8eef9;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .privacy-box a {
       color: var(--green);
       font-weight: 800;
     }
 
-    /* FAQ */
-    .faq-grid {
-      margin-top: 26px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .faq-item {
-      padding: 22px 24px;
-    }
-
-    .faq-item h4 {
-      font-size: 21px;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .faq-item p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    /* Contact */
-    .contact-card {
-      padding: 38px;
+    /* CONTACT */
+    .contact-box {
+      padding: 30px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .contact-card::before {
-      content: "";
-      position: absolute;
-      inset: auto auto -80px -80px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(31,224,111,0.14), transparent 70%);
-      pointer-events: none;
+    .contact-box h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
     }
 
-    .contact-card h2 {
-      font-size: clamp(34px, 5vw, 54px);
-      margin-bottom: 12px;
-    }
-
-    .contact-card p {
-      font-size: 20px;
+    .contact-box p {
+      font-size: 16px;
       color: var(--muted);
+      margin-bottom: 16px;
     }
 
-    .contact-card a.mail {
+    .contact-box .mail {
       color: var(--green);
-      font-weight: 900;
+      font-weight: 800;
       word-break: break-word;
     }
 
     .contact-actions {
-      margin-top: 24px;
       display: flex;
       justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* Footer */
-    footer {
-      padding: 26px 0 40px;
-      color: #a8b8d1;
-      text-align: center;
-      font-size: 15px;
-    }
-
-    .footer-line {
-      height: 1px;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-    }
-
-    .footer-links {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .footer-links a {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      color: #dce7f7;
-      font-weight: 700;
+    /* FOOTER */
+    footer {
+      padding: 24px 0 38px;
+    }
+
+    .footer-card {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      color: #b2c1d9;
       font-size: 14px;
     }
 
-    /* Responsive */
-    @media (max-width: 1100px) {
-      .hero-wrap,
-      .why-wrap {
-        grid-template-columns: 1fr;
-      }
+    .footer-right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-      .hero-right {
-        order: -1;
-      }
+    .footer-right a {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      font-size: 13px;
+      color: #dce6f5;
+      font-weight: 700;
+    }
 
-      .stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* RESPONSIVE */
+    @media (max-width: 1320px) {
+      .page-layout {
+        grid-template-columns: 220px minmax(0, 1fr) 220px;
       }
     }
 
-    @media (max-width: 760px) {
-      .section {
-        padding: 64px 0;
+    @media (max-width: 1180px) {
+      .page-layout {
+        grid-template-columns: 1fr;
       }
 
-      .header-inner {
-        padding: 14px 0;
+      .sidebar {
+        position: static;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .highlights {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .feature-grid,
+      .split,
+      .panel-menu,
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .mainnav {
+        padding: 12px 0;
         align-items: flex-start;
       }
 
-      .brand-text {
-        font-size: 24px;
-      }
-
-      .nav {
+      .nav-links {
         width: 100%;
         justify-content: flex-start;
       }
 
-      .hero-left,
-      .hero-right,
-      .policy-card,
-      .contact-card,
-      .why-left,
-      .why-right,
-      .feature-card {
-        padding: 24px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .phone {
+      .brand {
         width: 100%;
-        max-width: 360px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .container {
-        width: min(var(--max), calc(100% - 20px));
       }
 
       .hero {
-        padding-top: 34px;
+        padding: 24px;
+        min-height: unset;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .module-head h2 {
+        font-size: 24px;
+      }
+
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(var(--max), calc(100% - 16px));
+      }
+
+      .topbar-inner {
+        padding: 8px 0;
+      }
+
+      .brand-title {
+        font-size: 22px;
+      }
+
+      .nav-links a,
+      .subnav-inner a {
+        font-size: 13px;
       }
 
       .hero-actions,
@@ -746,377 +877,354 @@
         width: 100%;
       }
 
-      .brand {
-        align-items: center;
+      .module,
+      .privacy-box,
+      .contact-box,
+      .text-block,
+      .side-box {
+        padding: 20px;
       }
 
-      .brand-text {
-        font-size: 22px;
-      }
-
-      .nav a {
-        font-size: 14px;
-        padding: 11px 14px;
+      .hero {
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span class="badge"><span class="dot"></span> Probna premium stranica</span>
+        <a href="#home">Početna</a>
+        <a href="#features">Funkcije</a>
+        <a href="#privacy">Privatnost</a>
+      </div>
+      <div class="topbar-right">
+        <a href="#contact">Kontakt</a>
+        <span class="muted">Skeki Blur Studio • U izradi</span>
+      </div>
+    </div>
+  </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand">
-        <div class="brand-badge">✨</div>
-        <div class="brand-text">Skeki Blur Studio 🚀</div>
+  <div class="mainnav-wrap">
+    <div class="container mainnav">
+      <a href="#home" class="brand">
+        <div class="logo-box">✨</div>
+        <div class="brand-text">
+          <div class="brand-title">Skeki Blur Studio</div>
+          <div class="brand-subtitle">Premium probna početna stranica</div>
+        </div>
       </a>
 
-      <nav class="nav">
+      <nav class="nav-links">
         <a href="#features">Features</a>
-        <a href="#why">Premium</a>
+        <a href="#preview">Preview</a>
         <a href="#privacy">Privacy</a>
-        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
+        <a class="primary-link" href="YOUR_PLAY_STORE_LINK" target="_blank" rel="noopener noreferrer">Play Store</a>
       </nav>
     </div>
-  </header>
+  </div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-wrap">
-        <div class="hero-left glass">
-          <div class="hero-copy">
-            <div class="eyebrow">
-              <span class="dot"></span>
-              Premium AI Blur Experience
-            </div>
+  <div class="subnav">
+    <div class="container subnav-inner">
+      <a href="#home">Naslovna</a>
+      <a href="#features">AI Blur</a>
+      <a href="#preview">Premium izgled</a>
+      <a href="#work">U izradi</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Podrška</a>
+      <a href="#future">Budući sajt</a>
+    </div>
+  </div>
 
-            <h1>
-              Blur smarter.<br />
-              Look premium.
-            </h1>
-
-            <p>
-              Skeki Blur Studio is a modern blur app designed for faces, backgrounds
-              and sensitive content — with a clean, elegant and premium mobile feel.
-            </p>
-
-            <div class="hero-actions">
-              <a
-                class="btn btn-primary"
-                href="YOUR_PLAY_STORE_LINK"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download on Play Store
-              </a>
-
-              <a class="btn btn-secondary" href="#privacy">
-                Read Privacy Policy
-              </a>
-            </div>
-
-            <div class="hero-note">
-              Later replace <b>YOUR_PLAY_STORE_LINK</b> with your real Google Play link.
-            </div>
-
-            <div class="stats">
-              <div class="stat glass">
-                <h3>AI</h3>
-                <p>Smart blur workflow</p>
-              </div>
-              <div class="stat glass">
-                <h3>Fast</h3>
-                <p>Quick editing flow</p>
-              </div>
-              <div class="stat glass">
-                <h3>Clean</h3>
-                <p>Premium interface</p>
-              </div>
-              <div class="stat glass">
-                <h3>Private</h3>
-                <p>User-focused privacy</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right glass">
-          <div class="mockup">
-            <div class="phone">
-              <div class="phone-screen">
-                <div class="screen-top">
-                  <span>Skeki Blur Studio</span>
-                  <span>Premium</span>
-                </div>
-
-                <div class="screen-card screen-hero">
-                  <div style="font-size:12px;color:#a9bad7;margin-bottom:6px;">AI Blur Preview</div>
-                  <div style="font-size:26px;font-weight:800;color:#ffffff;line-height:1.1;">
-                    Professional blur.<br />
-                    Elegant result.
-                  </div>
-                  <div style="margin-top:8px;color:#b7c7de;font-size:14px;">
-                    Face blur, background blur and private content masking.
-                  </div>
-                </div>
-
-                <div class="blur-preview"></div>
-
-                <div class="chips">
-                  <div class="chip">Face Blur</div>
-                  <div class="chip">Background Blur</div>
-                  <div class="chip">Privacy Safe</div>
-                  <div class="chip">Premium UI</div>
-                </div>
-
-                <div class="screen-card">
-                  <div style="font-size:15px;color:#ffffff;font-weight:700;margin-bottom:8px;">Why users love it</div>
-                  <div style="color:#b9c7dc;font-size:14px;">
-                    Elegant layout, fast workflow and a more professional mobile editing experience.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="container page-layout">
+    <aside class="sidebar">
+      <div class="side-box small-card">
+        <h3>Brzi meni</h3>
+        <div class="side-list">
+          <a href="#home">Početna</a>
+          <a href="#features">Funkcije</a>
+          <a href="#preview">Preview</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#contact">Kontakt</a>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="features">
-      <div class="container">
-        <div class="eyebrow">
-          <span class="dot"></span>
-          Core Features
+      <div class="side-box small-card">
+        <h3>Status projekta</h3>
+        <p>Ova stranica je probna verzija i služi kao baza za budući pravi web sajt.</p>
+        <div class="tag-grid">
+          <span class="tag">U izradi</span>
+          <span class="tag">Premium stil</span>
+          <span class="tag">Probna verzija</span>
         </div>
-        <h2 class="section-title">A richer and more premium app presentation</h2>
-        <p class="section-subtitle">
-          Designed to present your app more seriously, more professionally and more like a real premium product.
-        </p>
+      </div>
 
-        <div class="features-grid">
-          <div class="feature-card glass">
+      <div class="side-box small-card">
+        <h3>Kasnije dodati</h3>
+        <div class="side-list">
+          <div>Screenshots app-a</div>
+          <div>Impressum</div>
+          <div>Pravi Play Store link</div>
+          <div>Više jezika</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="home" class="hero card">
+        <div class="hero-copy">
+          <span class="badge"><span class="dot"></span> Elegantno • Tamno • Premium</span>
+
+          <h1>Početna stranica koja izgleda ozbiljno i moderno.</h1>
+
+          <p>
+            Skeki Blur Studio dobija probnu premium web stranicu sa radnim menijem,
+            lepšim rasporedom, bogatijim izgledom i boljom osnovom za kasniji pravi sajt.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#features">Pogledaj funkcije</a>
+            <a class="btn btn-dark" href="#contact">Kontakt podrška</a>
+          </div>
+
+          <div class="hero-note">
+            Ovde kasnije samo zameni <b>YOUR_PLAY_STORE_LINK</b> svojim pravim Play Store linkom.
+          </div>
+        </div>
+
+        <div class="hero-visual" id="preview">
+          <div class="visual-wrap">
+            <div class="mock">
+              <div class="mock-top">
+                <span>Skeki Blur Studio</span>
+                <span>Premium Preview</span>
+              </div>
+
+              <div class="mock-center"></div>
+
+              <div class="mock-bottom">
+                <span class="chip">AI Blur</span>
+                <span class="chip">Face Blur</span>
+                <span class="chip">Background Blur</span>
+                <span class="chip">Privacy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlights">
+        <div class="highlight small-card">
+          <strong>Premium</strong>
+          <span>lepši i ozbiljniji izgled</span>
+        </div>
+        <div class="highlight small-card">
+          <strong>Portal</strong>
+          <span>radni meni sa strane i gore</span>
+        </div>
+        <div class="highlight small-card">
+          <strong>Responsive</strong>
+          <span>radi i na telefonu i na računaru</span>
+        </div>
+        <div class="highlight small-card">
+          <strong>Future Ready</strong>
+          <span>kasnije lako preraste u pravi sajt</span>
+        </div>
+      </section>
+
+      <section id="features" class="module card">
+        <div class="module-head">
+          <div>
+            <h2>Glavne sekcije sajta</h2>
+            <p class="section-subtitle">
+              Početna je sada složena više kao ozbiljna naslovna strana, a ne kao običan jednostavan landing page.
+            </p>
+          </div>
+          <a class="module-link" href="#future">Plan za dalje →</a>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-box small-card">
             <div class="feature-icon">🎯</div>
             <h3>AI Blur</h3>
             <p>
-              Quickly blur faces, backgrounds and sensitive content in a cleaner and more intuitive workflow.
+              Posebna sekcija za glavni proizvod, sa boljim isticanjem funkcije i ozbiljnijim vizuelnim nastupom.
             </p>
           </div>
 
-          <div class="feature-card glass">
-            <div class="feature-icon">⚡</div>
-            <h3>Fast Editing</h3>
+          <div class="feature-box small-card">
+            <div class="feature-icon">🧭</div>
+            <h3>Radni meni</h3>
             <p>
-              A fast mobile editing experience with a polished interface and a better premium feel.
+              Gornji meni, podmeni i bočne sekcije daju utisak pravog sajta i bolje organizacije sadržaja.
             </p>
           </div>
 
-          <div class="feature-card glass">
-            <div class="feature-icon">📱</div>
-            <h3>Mobile First</h3>
+          <div class="feature-box small-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Boje kao app</h3>
             <p>
-              Optimized for phones and designed to look strong on both mobile and desktop screens.
+              Tamna premium osnova sa zelenim akcentima i blagim plavim sjajem izgleda ozbiljnije i elegantnije.
             </p>
           </div>
 
-          <div class="feature-card glass">
-            <div class="feature-icon">🔒</div>
-            <h3>Privacy Focused</h3>
+          <div class="feature-box small-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Osnova za budući web</h3>
             <p>
-              The website is simple, direct and focused on clarity, trust and user privacy information.
+              Kasnije se lako dodaju screenshoti, download sekcije, blog, cene, Impressum i još puno toga.
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="why">
-      <div class="container">
-        <div class="eyebrow">
-          <span class="dot"></span>
-          Premium Feel
+      <section class="panel-menu" id="work">
+        <a href="#features" class="panel-link small-card">
+          <strong>AI Blur modul</strong>
+          <span>Osnovna prezentacija glavne funkcije aplikacije.</span>
+        </a>
+
+        <a href="#privacy" class="panel-link small-card">
+          <strong>Privacy Policy</strong>
+          <span>Jasno izdvojen deo za Play Store i korisnike.</span>
+        </a>
+
+        <a href="#contact" class="panel-link small-card">
+          <strong>Kontakt centar</strong>
+          <span>Email podrška i kasniji dodatni kontakti.</span>
+        </a>
+      </section>
+
+      <section class="split">
+        <div class="text-block card">
+          <span class="badge"><span class="dot"></span> U izradi</span>
+          <h3 style="margin-top:14px;">Probna premium verzija naslovne stranice</h3>
+          <p>
+            Ova stranica je zamišljena kao probna osnova za budući pravi sajt. Trenutno je cilj da početna izgleda što lepše, bogatije i ozbiljnije.
+          </p>
+          <p>
+            Ne mora sve odmah biti gotovo. Bitno je da naslovna ostavlja dobar utisak i da kasnije lako možeš da je širiš.
+          </p>
+          <div class="under-dev">
+            Status: sadržaj je delimično u izradi, ali dizajn već može da izgleda premium.
+          </div>
         </div>
-        <h2 class="section-title">Why this version looks more serious</h2>
-        <p class="section-subtitle">
-          This layout is made to feel more like a strong product brand, not just a basic app info page.
+
+        <div class="text-block card" id="future">
+          <span class="badge"><span class="dot"></span> Plan za dalje</span>
+          <h3 style="margin-top:14px;">Šta može kasnije da se doda</h3>
+          <p>
+            Kasnije možeš dodati posebne stranice za aplikaciju, galeriju screenshotova, FAQ, pravne informacije, sekciju za novosti i pravi profesionalni kontakt centar.
+          </p>
+          <p>
+            Ovaj izgled je sada više kao “portal / radni meni / ozbiljna početna” i odličan je kao baza za sledeću fazu.
+          </p>
+          <div class="under-dev">
+            Sledeći korak: dodavanje screenshot sekcije i pravog legalnog teksta.
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy" class="privacy-box card">
+        <div class="module-head">
+          <div>
+            <h2>Privacy Policy</h2>
+            <p class="section-subtitle">
+              Za početak može stajati jednostavna i čista verzija. Kasnije možemo ubaciti punu pravnu verziju.
+            </p>
+          </div>
+        </div>
+
+        <p><strong>Skeki Blur Studio poštuje privatnost korisnika.</strong></p>
+        <p>
+          Ova probna web stranica je namenjena predstavljanju aplikacije i osnovnih informacija o projektu.
+        </p>
+        <p>
+          Putem ove stranice ne prikupljamo namerno lične podatke osim ako nam se korisnik sam ne javi putem email adrese.
+        </p>
+        <p>
+          Ako aplikacija obrađuje slike na uređaju, te slike ostaju pod kontrolom korisnika.
+        </p>
+        <p>
+          Ako nas kontaktiraš emailom, možemo primiti tvoju email adresu i sadržaj poruke kako bismo odgovorili.
+        </p>
+        <p>
+          Privacy Policy može biti izmenjen kasnije kada sajt i aplikacija dobiju dodatne funkcije.
+        </p>
+        <p>
+          Kontakt za pitanja o privatnosti:
+          <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+      </section>
+
+      <section id="contact" class="contact-box card">
+        <span class="badge"><span class="dot"></span> Podrška i kontakt</span>
+        <h2 style="margin-top:14px;">Kontakt</h2>
+        <p>
+          Za sada je dovoljno da ovde stoji osnovni kontakt, a kasnije se može dodati ceo kontakt centar.
+        </p>
+        <p>
+          Email podrške:
+          <a class="mail" href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
         </p>
 
-        <div class="why-wrap">
-          <div class="why-left glass">
-            <div class="why-list">
-              <div class="why-item">
-                <h4>Stronger first impression</h4>
-                <p>
-                  The hero section, colors and structure create a better premium look immediately.
-                </p>
-              </div>
+        <div class="contact-actions">
+          <a class="btn btn-green" href="mailto:itzoneapps1@gmail.com">Pošalji email</a>
+          <a class="btn btn-dark" href="#home">Nazad na vrh</a>
+        </div>
+      </section>
+    </main>
 
-              <div class="why-item">
-                <h4>Better brand identity</h4>
-                <p>
-                  The dark-glass style with neon green accents matches your app direction much better.
-                </p>
-              </div>
-
-              <div class="why-item">
-                <h4>More trust for users</h4>
-                <p>
-                  Clean sections, privacy text and contact details make the app appear more reliable.
-                </p>
-              </div>
-
-              <div class="why-item">
-                <h4>Ready to grow later</h4>
-                <p>
-                  When your Play Store link is ready, just replace one line and the page stays usable.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="why-right glass">
-            <div class="premium-panel">
-              <div class="premium-box">
-                <h4>Premium visual language</h4>
-                <p>
-                  Glass cards, layered shadows, stronger typography and richer spacing create a better overall experience.
-                </p>
-              </div>
-
-              <div class="premium-box">
-                <h4>App-style presentation</h4>
-                <p>
-                  The phone mockup and polished layout make the website feel closer to a real app landing page.
-                </p>
-              </div>
-
-              <div class="premium-box">
-                <h4>More professional positioning</h4>
-                <p>
-                  This version looks more ready for public presentation, store linking and future updates.
-                </p>
-              </div>
-            </div>
-          </div>
+    <aside class="sidebar">
+      <div class="side-box small-card">
+        <h3>Desni meni</h3>
+        <div class="side-list">
+          <a href="#home">Naslovna</a>
+          <a href="#features">Sekcije</a>
+          <a href="#work">U izradi</a>
+          <a href="#future">Budući plan</a>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="privacy">
-      <div class="container">
-        <div class="eyebrow">
-          <span class="dot"></span>
-          Privacy Information
-        </div>
-        <h2 class="section-title">Privacy Policy</h2>
-        <p class="section-subtitle">
-          Clear, readable and visually stronger privacy section for your app presentation.
+      <div class="side-box small-card">
+        <h3>Vizuelni smer</h3>
+        <p>
+          Tamna premium pozadina, uredne kartice i neon zeleni akcenti daju jači i ozbiljniji utisak.
         </p>
-
-        <div class="policy-card glass" style="margin-top:28px;">
-          <p><strong>Skeki Blur Studio respects your privacy.</strong></p>
-          <p>
-            The app is designed to help users blur faces, backgrounds and sensitive content.
-          </p>
-          <p>
-            We do not intentionally collect personal data through this website.
-          </p>
-          <p>
-            If the app processes images on the device, those files remain under the user's control.
-          </p>
-          <p>
-            If you contact us by email, we may receive your email address and the information you provide in your message in order to respond.
-          </p>
-          <p>
-            We may update this Privacy Policy in the future if the app functionality changes.
-          </p>
-          <p>
-            If you have any questions about privacy, you can contact us at:
-            <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-          </p>
+        <div class="tag-grid">
+          <span class="tag">Dark premium</span>
+          <span class="tag">Portal stil</span>
+          <span class="tag">Probna baza</span>
         </div>
       </div>
-    </section>
 
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="eyebrow">
-          <span class="dot"></span>
-          Quick Answers
-        </div>
-        <h2 class="section-title">FAQ</h2>
-        <p class="section-subtitle">
-          A few short answers that make the site feel more complete and more premium.
-        </p>
-
-        <div class="faq-grid">
-          <div class="faq-item glass">
-            <h4>What is Skeki Blur Studio?</h4>
-            <p>
-              Skeki Blur Studio is a blur-focused app concept for editing faces, backgrounds and sensitive content with a premium visual feel.
-            </p>
-          </div>
-
-          <div class="faq-item glass">
-            <h4>Does the website collect personal data?</h4>
-            <p>
-              This website does not intentionally collect personal data. Contact by email only happens when the user decides to send a message.
-            </p>
-          </div>
-
-          <div class="faq-item glass">
-            <h4>Where will the app be available?</h4>
-            <p>
-              The main public download link can later point directly to your Google Play listing.
-            </p>
-          </div>
-
-          <div class="faq-item glass">
-            <h4>Can this website be upgraded later?</h4>
-            <p>
-              Yes. You can easily add screenshots, legal text, store links, language sections and app update notes later.
-            </p>
-          </div>
+      <div class="side-box small-card">
+        <h3>Buduće stranice</h3>
+        <div class="side-list">
+          <div>O aplikaciji</div>
+          <div>Galerija slika</div>
+          <div>Novosti</div>
+          <div>FAQ</div>
+          <div>Pravni podaci</div>
         </div>
       </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-card glass">
-          <div class="eyebrow" style="margin-bottom:18px;">
-            <span class="dot"></span>
-            Contact & Support
-          </div>
-
-          <h2>Need help or have a question?</h2>
-          <p>
-            Support email:
-            <a class="mail" href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-          </p>
-
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:itzoneapps1@gmail.com">
-              Email Support
-            </a>
-
-            <a class="btn btn-secondary" href="#top">
-              Back to Top
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    </aside>
+  </div>
 
   <footer>
     <div class="container">
-      <div class="footer-line"></div>
-      <div>© 2026 Skeki Blur Studio. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="#features">Features</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+      <div class="footer-card small-card">
+        <div class="footer-left">
+          © 2026 Skeki Blur Studio • Probna premium početna stranica
+        </div>
+        <div class="footer-right">
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </div>
   </footer>
