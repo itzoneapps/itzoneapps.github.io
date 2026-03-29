@@ -7,28 +7,23 @@
   <meta name="description" content="IT ZONE premium probna web stranica." />
   <style>
     :root{
-      --bg1:#fff8f1;
-      --bg2:#f4fbff;
-      --bg3:#fffef8;
+      --bg:#f6f8fc;
+      --bg2:#eef3fb;
       --panel:#ffffff;
-      --panel-soft:#f8fbff;
-      --panel-soft-2:#fff9f4;
-      --line:rgba(20,30,50,.08);
-      --text:#1c2430;
-      --muted:#6f7b8d;
-      --accent:#4f7cff;
-      --accent-2:#7a5cff;
-      --green:#34c38f;
-      --orange:#ff9f43;
-      --pink:#ff6fb5;
-      --yellow:#ffd166;
-      --shadow:0 16px 40px rgba(44,62,80,.10);
+      --panel-soft:#f9fbff;
+      --line:#dde5f0;
+      --text:#172133;
+      --muted:#6f7d93;
+      --blue:#4a7dff;
+      --blue2:#6b5cff;
+      --green:#30c48d;
+      --orange:#ff9d42;
+      --shadow:0 14px 36px rgba(45, 70, 110, 0.10);
       --radius:18px;
-      --radius-lg:28px;
-      --max:1540px;
-      --sidebar:250px;
-      --topbar:44px;
-      --nav:86px;
+      --radius-lg:24px;
+      --topbar-h:82px;
+      --sidebar-w:260px;
+      --max:1500px;
     }
 
     *{
@@ -45,13 +40,11 @@
       font-family:Arial, Helvetica, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(79,124,255,.10), transparent 18%),
-        radial-gradient(circle at 90% 10%, rgba(255,111,181,.10), transparent 18%),
-        radial-gradient(circle at 50% 100%, rgba(255,209,102,.12), transparent 22%),
-        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 45%, var(--bg3) 100%);
+        radial-gradient(circle at 8% 8%, rgba(74,125,255,.10), transparent 18%),
+        radial-gradient(circle at 92% 10%, rgba(255,157,66,.10), transparent 18%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
       min-height:100vh;
       overflow-x:hidden;
-      line-height:1.5;
     }
 
     a{
@@ -64,8 +57,8 @@
     }
 
     img{
-      max-width:100%;
       display:block;
+      max-width:100%;
     }
 
     .container{
@@ -74,14 +67,14 @@
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,251,255,.98));
+      background:linear-gradient(180deg, #ffffff, #f9fbff);
       border:1px solid var(--line);
       border-radius:var(--radius-lg);
       box-shadow:var(--shadow);
     }
 
     .small-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(252,253,255,.98));
+      background:linear-gradient(180deg, #ffffff, #fbfcff);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -93,20 +86,18 @@
       gap:8px;
       padding:8px 13px;
       border-radius:999px;
-      background:rgba(79,124,255,.10);
-      border:1px solid rgba(79,124,255,.12);
-      color:#3257cc;
+      background:rgba(74,125,255,.10);
+      border:1px solid rgba(74,125,255,.12);
+      color:#3d63d6;
       font-size:12px;
       font-weight:800;
-      letter-spacing:.2px;
     }
 
     .dot{
       width:8px;
       height:8px;
       border-radius:50%;
-      background:var(--accent);
-      box-shadow:0 0 10px rgba(79,124,255,.40);
+      background:var(--blue);
     }
 
     .muted{
@@ -114,94 +105,53 @@
     }
 
     .btn{
-      min-height:52px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      min-height:48px;
       padding:12px 18px;
+      border:none;
       border-radius:14px;
-      font-size:15px;
+      font-size:14px;
       font-weight:800;
-      border:1px solid transparent;
-      transition:.2s ease;
       cursor:pointer;
+      transition:.2s ease;
     }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      background:linear-gradient(135deg, var(--blue), var(--blue2));
       color:#fff;
-      box-shadow:0 10px 24px rgba(79,124,255,.22);
+      box-shadow:0 10px 22px rgba(74,125,255,.18);
     }
 
     .btn-primary:hover{
       transform:translateY(-1px);
-      filter:brightness(1.04);
+      filter:brightness(1.03);
     }
 
     .btn-soft{
-      background:linear-gradient(135deg, #ffffff, #f6f8ff);
+      background:#fff;
       color:var(--text);
-      border-color:rgba(79,124,255,.10);
+      border:1px solid var(--line);
     }
 
     .btn-soft:hover{
-      background:#fff;
-      transform:translateY(-1px);
+      background:#f7faff;
     }
 
-    .btn-green{
-      background:linear-gradient(135deg, #42d89f, #2dbf8b);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(52,195,143,.18);
-    }
-
-    .btn-orange{
-      background:linear-gradient(135deg, #ffb45c, #ff9340);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(255,159,67,.18);
-    }
-
-    /* TOP BAR */
+    /* Header */
     .topbar{
-      min-height:var(--topbar);
+      position:sticky;
+      top:0;
+      z-index:50;
+      min-height:var(--topbar-h);
       display:flex;
       align-items:center;
-      border-bottom:1px solid rgba(20,30,50,.06);
-      background:rgba(255,255,255,.65);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
     }
 
     .topbar-inner{
-      min-height:var(--topbar);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      font-size:13px;
-      color:#607089;
-    }
-
-    .topbar-left,.topbar-right{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    /* MAIN NAV */
-    .mainnav-wrap{
-      position:sticky;
-      top:0;
-      z-index:80;
-      background:rgba(255,255,255,.82);
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(20,30,50,.06);
-    }
-
-    .mainnav{
-      min-height:var(--nav);
+      min-height:var(--topbar-h);
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -211,23 +161,20 @@
     .brand{
       display:flex;
       align-items:center;
-      gap:16px;
+      gap:14px;
       min-width:0;
     }
 
     .brand-logo{
-      width:74px;
-      height:74px;
-      border-radius:18px;
+      width:64px;
+      height:64px;
+      border-radius:16px;
       overflow:hidden;
       background:#fff;
-      border:1px solid rgba(20,30,50,.08);
-      box-shadow:0 12px 28px rgba(44,62,80,.10);
+      border:1px solid var(--line);
+      box-shadow:0 10px 22px rgba(45,70,110,.08);
       flex-shrink:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:6px;
+      padding:5px;
     }
 
     .brand-logo img{
@@ -235,26 +182,25 @@
       height:100%;
       object-fit:contain;
       background:#fff;
-      border-radius:14px;
+      border-radius:12px;
     }
 
     .brand-title{
-      font-size:30px;
+      font-size:28px;
       font-weight:900;
       letter-spacing:-1px;
       line-height:1;
-      color:#111927;
     }
 
     .brand-subtitle{
       margin-top:6px;
-      font-size:13px;
+      font-size:12px;
       color:var(--muted);
       letter-spacing:1px;
       text-transform:uppercase;
     }
 
-    .nav-links{
+    .top-nav{
       display:flex;
       align-items:center;
       gap:10px;
@@ -262,364 +208,275 @@
       justify-content:flex-end;
     }
 
-    .nav-links a,
-    .nav-links button{
+    .top-nav button{
       border:none;
       cursor:pointer;
-      padding:12px 16px;
-      border-radius:14px;
-      background:rgba(79,124,255,.06);
-      border:1px solid rgba(79,124,255,.08);
-      color:#203049;
+      padding:11px 15px;
+      border-radius:13px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:#24344c;
       font-size:14px;
       font-weight:800;
       transition:.2s ease;
     }
 
-    .nav-links a:hover,
-    .nav-links button:hover{
+    .top-nav button:hover{
+      background:#f3f7ff;
       transform:translateY(-1px);
-      background:rgba(79,124,255,.12);
     }
 
-    .nav-links .special-btn{
-      background:linear-gradient(135deg, var(--pink), var(--orange));
+    .top-nav .primary{
+      background:linear-gradient(135deg, var(--blue), var(--blue2));
       color:#fff;
       border:none;
-      box-shadow:0 10px 24px rgba(255,111,181,.18);
     }
 
-    /* SUB NAV */
-    .subnav{
-      border-bottom:1px solid rgba(20,30,50,.06);
-      background:rgba(255,255,255,.60);
-    }
-
-    .subnav-inner{
-      min-height:52px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      overflow-x:auto;
-      padding:8px 0;
-      scrollbar-width:thin;
-    }
-
-    .subnav-inner a,
-    .subnav-inner button{
-      white-space:nowrap;
-      border:none;
-      cursor:pointer;
-      padding:10px 14px;
-      border-radius:12px;
-      background:#fff;
-      border:1px solid rgba(20,30,50,.06);
-      color:#33425a;
-      font-size:13px;
-      font-weight:800;
-      transition:.2s ease;
-      box-shadow:0 8px 20px rgba(44,62,80,.04);
-    }
-
-    .subnav-inner a:hover,
-    .subnav-inner button:hover{
-      background:#f5f8ff;
-    }
-
-    /* PAGE */
-    .page-layout{
+    /* Main layout */
+    .layout{
       display:grid;
-      grid-template-columns:var(--sidebar) minmax(0, 1fr) var(--sidebar);
+      grid-template-columns:var(--sidebar-w) minmax(0, 1fr);
       gap:18px;
-      padding:20px 0 34px;
+      padding:20px 0 32px;
       align-items:start;
     }
 
+    /* Sidebar */
     .sidebar{
       position:sticky;
-      top:calc(var(--topbar) + var(--nav) + 22px);
-      display:grid;
-      gap:16px;
-    }
-
-    .side-box{
+      top:calc(var(--topbar-h) + 20px);
       padding:18px;
     }
 
-    .side-box h3{
+    .sidebar h3{
       font-size:17px;
-      margin-bottom:12px;
+      margin-bottom:14px;
     }
 
-    .side-box p{
-      font-size:14px;
-      color:var(--muted);
-    }
-
-    .side-list{
+    .side-menu{
       display:grid;
       gap:10px;
     }
 
-    .side-list a,
-    .side-list button,
-    .side-list div{
+    .side-btn{
       width:100%;
       text-align:left;
-      border:none;
-      cursor:pointer;
-      padding:12px 13px;
-      border-radius:13px;
+      padding:13px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
       background:#fff;
-      border:1px solid rgba(20,30,50,.06);
-      color:#2a3950;
+      color:#273852;
       font-size:14px;
+      font-weight:800;
+      cursor:pointer;
       transition:.2s ease;
     }
 
-    .side-list a:hover,
-    .side-list button:hover{
+    .side-btn:hover{
       background:#f5f8ff;
     }
 
-    .status-box{
-      margin-top:12px;
-      padding:12px 14px;
+    .side-btn.active{
+      background:linear-gradient(135deg, rgba(74,125,255,.12), rgba(107,92,255,.10));
+      border-color:rgba(74,125,255,.18);
+      color:#2548b8;
+    }
+
+    .sidebar-info{
+      margin-top:18px;
+      padding:14px;
       border-radius:14px;
-      background:rgba(255,209,102,.14);
-      border:1px solid rgba(255,209,102,.18);
-      color:#8a6513;
+      background:rgba(48,196,141,.10);
+      border:1px solid rgba(48,196,141,.14);
+      color:#23795b;
       font-size:13px;
-      font-weight:800;
+      font-weight:700;
     }
 
-    .chip-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:12px;
-    }
-
-    .chip-list span{
-      padding:8px 10px;
-      border-radius:999px;
-      background:rgba(52,195,143,.12);
-      border:1px solid rgba(52,195,143,.14);
-      color:#237a5c;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    /* CONTENT */
+    /* Content area */
     .content{
       display:grid;
       gap:18px;
     }
 
-    /* HERO */
     .hero{
-      position:relative;
-      overflow:hidden;
+      padding:26px;
       display:grid;
-      grid-template-columns:1.02fr .98fr;
-      gap:24px;
-      padding:34px;
-      min-height:430px;
+      grid-template-columns:1.05fr .95fr;
+      gap:20px;
+      align-items:stretch;
+      min-height:300px;
       background:
-        radial-gradient(circle at 10% 20%, rgba(79,124,255,.10), transparent 22%),
-        radial-gradient(circle at 90% 20%, rgba(255,111,181,.08), transparent 20%),
-        linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,251,255,.98));
+        radial-gradient(circle at 10% 15%, rgba(74,125,255,.10), transparent 22%),
+        radial-gradient(circle at 90% 15%, rgba(255,157,66,.10), transparent 18%),
+        linear-gradient(180deg, #ffffff, #f8fbff);
     }
 
-    .hero-copy{
+    .hero-left{
       display:flex;
       flex-direction:column;
       justify-content:center;
-      position:relative;
-      z-index:1;
     }
 
-    .hero h1{
-      margin-top:18px;
-      font-size:58px;
-      line-height:.98;
-      letter-spacing:-1.8px;
-      font-weight:900;
-      color:#162032;
-      max-width:720px;
-    }
-
-    .hero-subline{
+    .hero-title{
       margin-top:14px;
-      font-size:18px;
-      color:#4c5f7b;
-      font-weight:800;
-      letter-spacing:.8px;
-      text-transform:uppercase;
+      font-size:52px;
+      line-height:1;
+      letter-spacing:-1.6px;
+      font-weight:900;
+      color:#132033;
     }
 
-    .hero-status{
-      margin-top:18px;
-      max-width:560px;
-      padding:18px 20px;
-      border-radius:18px;
-      background:linear-gradient(135deg, #fff, #f7fbff);
-      border:1px solid rgba(20,30,50,.07);
-      font-size:17px;
+    .hero-sub{
+      margin-top:12px;
+      font-size:18px;
+      color:#5f7088;
       font-weight:800;
-      color:#26344a;
-      box-shadow:0 10px 26px rgba(44,62,80,.06);
+      text-transform:uppercase;
+      letter-spacing:.8px;
     }
 
     .hero-note{
-      margin-top:12px;
-      color:var(--muted);
-      font-size:14px;
-      max-width:640px;
+      margin-top:18px;
+      max-width:620px;
+      padding:16px 18px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      color:#31435d;
+      font-size:16px;
+      font-weight:700;
     }
 
     .hero-actions{
-      margin-top:24px;
+      margin-top:18px;
       display:flex;
       gap:12px;
       flex-wrap:wrap;
     }
 
-    .hero-visual{
+    .hero-right{
       display:flex;
-      align-items:stretch;
-    }
-
-    .hero-panel{
-      width:100%;
-      display:grid;
-      grid-template-rows:auto 1fr;
-      gap:16px;
-      padding:18px;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(250,251,255,.98));
-      border:1px solid rgba(20,30,50,.07);
-    }
-
-    .hero-logo-panel{
-      padding:14px;
-      border-radius:20px;
-      background:linear-gradient(180deg, #ffffff, #f7f9fc);
-      border:1px solid rgba(20,30,50,.06);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:126px;
-    }
-
-    .hero-logo-panel img{
-      max-height:92px;
-      object-fit:contain;
-      background:#fff;
-      border-radius:14px;
-      padding:6px;
-      box-shadow:0 8px 18px rgba(44,62,80,.06);
-    }
-
-    .mockup{
-      height:100%;
-      min-height:220px;
-      border-radius:22px;
-      overflow:hidden;
-      padding:16px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(79,124,255,.10), transparent 26%),
-        radial-gradient(circle at 78% 18%, rgba(255,111,181,.10), transparent 24%),
-        linear-gradient(180deg, #ffffff, #f7f9fd 58%, #eef3fb 100%);
-      border:1px solid rgba(20,30,50,.06);
-      display:grid;
-      grid-template-rows:auto 1fr auto;
+      flex-direction:column;
       gap:14px;
     }
 
-    .mock-top{
+    .logo-showcase{
+      min-height:122px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      border-radius:20px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+
+    .logo-showcase img{
+      max-height:88px;
+      object-fit:contain;
+      background:#fff;
+      border-radius:12px;
+      padding:4px;
+    }
+
+    .preview-box{
+      flex:1;
+      min-height:150px;
+      border-radius:20px;
+      padding:16px;
+      background:
+        radial-gradient(circle at 22% 20%, rgba(74,125,255,.12), transparent 24%),
+        radial-gradient(circle at 75% 20%, rgba(255,111,181,.10), transparent 22%),
+        linear-gradient(180deg, #ffffff, #f6f9ff);
+      border:1px solid var(--line);
+      display:grid;
+      grid-template-rows:auto 1fr auto;
+      gap:12px;
+    }
+
+    .preview-top{
       display:flex;
       justify-content:space-between;
       font-size:12px;
-      color:#5d708a;
+      color:#60728b;
     }
 
-    .mock-center{
-      position:relative;
-      border-radius:20px;
+    .preview-center{
+      border-radius:18px;
       background:
-        linear-gradient(160deg, rgba(255,255,255,.88), rgba(245,248,255,.96)),
-        linear-gradient(180deg, #ffffff, #f5f8ff);
-      border:1px solid rgba(20,30,50,.06);
+        linear-gradient(160deg, #ffffff, #f3f8ff),
+        linear-gradient(180deg, #ffffff, #eef4fb);
+      border:1px solid var(--line);
+      position:relative;
       overflow:hidden;
     }
 
-    .mock-center::before{
+    .preview-center::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 25% 45%, rgba(79,124,255,.14), transparent 15%),
-        radial-gradient(circle at 68% 48%, rgba(52,195,143,.16), transparent 18%),
-        radial-gradient(circle at 50% 52%, rgba(255,209,102,.18), transparent 12%);
-      filter:blur(16px);
+        radial-gradient(circle at 26% 42%, rgba(74,125,255,.15), transparent 15%),
+        radial-gradient(circle at 70% 48%, rgba(48,196,141,.16), transparent 18%),
+        radial-gradient(circle at 50% 54%, rgba(255,209,102,.18), transparent 12%);
+      filter:blur(15px);
     }
 
-    .mock-center::after{
+    .preview-center::after{
       content:"";
       position:absolute;
-      width:120px;
-      height:148px;
-      left:calc(50% - 60px);
-      top:calc(50% - 74px);
+      width:118px;
+      height:144px;
+      left:calc(50% - 59px);
+      top:calc(50% - 72px);
       border-radius:28px;
-      border:1px solid rgba(79,124,255,.18);
-      background:linear-gradient(180deg, rgba(79,124,255,.10), rgba(255,255,255,.25));
-      box-shadow:0 12px 28px rgba(44,62,80,.10);
+      border:1px solid rgba(74,125,255,.18);
+      background:linear-gradient(180deg, rgba(74,125,255,.10), rgba(255,255,255,.26));
+      box-shadow:0 12px 24px rgba(45,70,110,.10);
     }
 
-    .mock-bottom{
+    .preview-bottom{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
     }
 
-    .mock-chip{
+    .chip{
       padding:8px 11px;
       border-radius:999px;
       background:#fff;
-      border:1px solid rgba(20,30,50,.06);
-      color:#42536c;
+      border:1px solid var(--line);
+      color:#48607f;
       font-size:12px;
       font-weight:800;
     }
 
-    /* STATS */
-    .stats-grid{
+    /* dashboard cards */
+    .dash-grid{
       display:grid;
       grid-template-columns:repeat(4, 1fr);
       gap:16px;
     }
 
-    .stat-box{
+    .dash-box{
       padding:20px 16px;
       text-align:center;
     }
 
-    .stat-box strong{
+    .dash-box strong{
       display:block;
       font-size:26px;
-      color:var(--accent);
+      color:var(--blue);
       margin-bottom:5px;
     }
 
-    .stat-box span{
+    .dash-box span{
       color:var(--muted);
       font-size:13px;
     }
 
-    /* INFO BAR */
-    .info-row{
+    .info-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:16px;
@@ -632,50 +489,103 @@
     .info-box h3{
       font-size:17px;
       margin-bottom:8px;
-      color:#1d2a3d;
     }
 
     .info-box p{
-      font-size:14px;
       color:var(--muted);
+      font-size:14px;
     }
 
     .weather-temp{
-      font-size:28px;
+      margin-top:6px;
+      font-size:30px;
       font-weight:900;
-      color:var(--accent);
-      margin-top:4px;
+      color:var(--blue);
     }
 
-    /* MODULES */
-    .module{
-      padding:24px;
+    /* content panel */
+    .content-panel{
+      padding:28px;
+      min-height:420px;
     }
 
-    .module-head{
+    .content-head{
       display:flex;
       justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      margin-bottom:18px;
+      align-items:flex-start;
+      gap:16px;
       flex-wrap:wrap;
+      margin-bottom:22px;
     }
 
-    .module-head h2{
-      font-size:28px;
+    .content-head h2{
+      font-size:34px;
       font-weight:900;
-      letter-spacing:-.4px;
+      letter-spacing:-.8px;
+      color:#182438;
     }
 
-    .module-head p{
+    .content-head p{
       color:var(--muted);
       font-size:15px;
+      max-width:760px;
     }
 
-    .module-link{
-      color:var(--accent);
-      font-size:14px;
+    .status-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,209,102,.16);
+      border:1px solid rgba(255,209,102,.18);
+      color:#8b670f;
+      font-size:12px;
       font-weight:800;
+      white-space:nowrap;
+    }
+
+    .content-body{
+      display:grid;
+      gap:18px;
+    }
+
+    .section-box{
+      padding:22px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+
+    .section-box h3{
+      font-size:20px;
+      margin-bottom:10px;
+      color:#1b2738;
+    }
+
+    .section-box p{
+      color:#5f7088;
+      font-size:15px;
+      margin-bottom:10px;
+    }
+
+    .construction-box{
+      padding:26px;
+      border-radius:20px;
+      background:linear-gradient(135deg, rgba(74,125,255,.10), rgba(255,157,66,.10));
+      border:1px solid rgba(74,125,255,.10);
+      text-align:center;
+    }
+
+    .construction-box h3{
+      font-size:24px;
+      margin-bottom:10px;
+      color:#19304f;
+    }
+
+    .construction-box p{
+      color:#586983;
+      font-size:15px;
     }
 
     .grid-2{
@@ -684,155 +594,40 @@
       gap:16px;
     }
 
-    .feature-box{
-      padding:22px;
-      min-height:170px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .feature-box::after{
-      content:"";
-      position:absolute;
-      right:-40px;
-      bottom:-40px;
-      width:120px;
-      height:120px;
-      background:radial-gradient(circle, rgba(79,124,255,.08), transparent 72%);
-      pointer-events:none;
-    }
-
-    .feature-icon{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:rgba(79,124,255,.10);
-      border:1px solid rgba(79,124,255,.12);
-      font-size:20px;
-      margin-bottom:14px;
-    }
-
-    .feature-box h3{
-      font-size:22px;
-      margin-bottom:8px;
-      color:#1b2738;
-    }
-
-    .feature-box p{
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    /* PAGE CARDS */
-    .pages-grid{
+    .mini-link-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:14px;
     }
 
-    .page-card{
-      padding:22px;
-      min-height:130px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:8px;
+    .mini-link{
+      padding:18px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      text-align:left;
+      cursor:pointer;
+      transition:.2s ease;
     }
 
-    .page-card strong{
-      font-size:18px;
-      font-weight:900;
+    .mini-link:hover{
+      background:#f6f9ff;
+      transform:translateY(-1px);
     }
 
-    .page-card span{
+    .mini-link strong{
+      display:block;
+      font-size:16px;
+      margin-bottom:8px;
+      color:#21324d;
+    }
+
+    .mini-link span{
+      font-size:13px;
       color:var(--muted);
-      font-size:14px;
     }
 
-    .under-construction{
-      display:inline-block;
-      padding:9px 12px;
-      border-radius:12px;
-      background:rgba(255,209,102,.16);
-      border:1px solid rgba(255,209,102,.20);
-      color:#8b670f;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    /* SPLIT */
-    .split{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .text-box{
-      padding:26px;
-    }
-
-    .text-box h3{
-      font-size:24px;
-      margin-bottom:12px;
-    }
-
-    .text-box p{
-      color:var(--muted);
-      font-size:15px;
-      margin-bottom:12px;
-    }
-
-    /* PRIVACY */
-    .privacy-box{
-      padding:28px;
-    }
-
-    .privacy-box p{
-      color:#354256;
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .privacy-box a{
-      color:var(--accent);
-      font-weight:800;
-    }
-
-    /* CONTACT */
-    .contact-box{
-      padding:30px;
-      text-align:center;
-    }
-
-    .contact-box h2{
-      font-size:34px;
-      margin-bottom:10px;
-      color:#1a2638;
-    }
-
-    .contact-box p{
-      color:var(--muted);
-      font-size:15px;
-      margin-bottom:14px;
-    }
-
-    .mail{
-      color:var(--accent);
-      font-weight:900;
-      word-break:break-word;
-    }
-
-    .contact-actions{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
-
-    /* FOOTER */
+    /* footer */
     footer{
       padding:24px 0 38px;
     }
@@ -857,8 +652,8 @@
       flex-wrap:wrap;
     }
 
-    .footer-right a,
-    .footer-right button{
+    .footer-right button,
+    .footer-right a{
       border:none;
       cursor:pointer;
       padding:10px 12px;
@@ -867,113 +662,59 @@
       color:#2b3a52;
       font-size:13px;
       font-weight:800;
-      border:1px solid rgba(20,30,50,.06);
+      border:1px solid var(--line);
     }
 
-    /* MODAL */
-    .modal{
-      position:fixed;
-      inset:0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-      background:rgba(20,30,50,.25);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      z-index:200;
-    }
-
-    .modal.show{
-      display:flex;
-    }
-
-    .modal-box{
-      width:min(560px, 100%);
-      padding:30px;
-      border-radius:24px;
-      background:linear-gradient(180deg, #ffffff, #f7fbff);
-      border:1px solid rgba(20,30,50,.08);
-      box-shadow:0 24px 60px rgba(44,62,80,.18);
-    }
-
-    .modal-box h3{
-      font-size:30px;
-      margin-bottom:10px;
-      color:#1b2738;
-    }
-
-    .modal-box p{
-      color:var(--muted);
-      font-size:15px;
-      margin-bottom:18px;
-    }
-
-    .modal-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    /* RESPONSIVE */
+    /* responsive */
     @media (max-width: 1300px){
       .page-layout{
-        grid-template-columns:225px minmax(0,1fr) 225px;
+        grid-template-columns:230px minmax(0,1fr);
+      }
+      .layout-right-hide{
+        display:none;
       }
     }
 
     @media (max-width: 1160px){
+      .layout{
+        grid-template-columns:1fr;
+      }
       .page-layout{
         grid-template-columns:1fr;
       }
-
       .sidebar{
         position:static;
-        grid-template-columns:repeat(2, 1fr);
       }
-
       .hero{
         grid-template-columns:1fr;
       }
-
-      .stats-grid,
-      .info-row{
-        grid-template-columns:repeat(2, 1fr);
+      .dash-grid,
+      .info-grid{
+        grid-template-columns:repeat(2,1fr);
       }
     }
 
     @media (max-width: 860px){
       .grid-2,
-      .split,
-      .pages-grid,
-      .sidebar{
+      .mini-link-grid{
         grid-template-columns:1fr;
       }
-
       .mainnav{
         padding:12px 0;
         align-items:flex-start;
       }
-
       .brand{
         width:100%;
       }
-
-      .nav-links{
+      .top-nav{
         width:100%;
         justify-content:flex-start;
       }
-
       .hero h1{
         font-size:40px;
       }
-
-      .module-head h2{
-        font-size:24px;
-      }
-
-      .stats-grid,
-      .info-row{
+      .dash-grid,
+      .info-grid{
         grid-template-columns:1fr;
       }
     }
@@ -982,38 +723,27 @@
       .container{
         width:min(var(--max), calc(100% - 16px));
       }
-
       .hero,
-      .module,
-      .text-box,
-      .privacy-box,
-      .contact-box,
-      .side-box,
-      .modal-box,
-      .info-box{
+      .content-panel,
+      .info-box,
+      .sidebar,
+      .section-box{
         padding:20px;
       }
-
-      .hero-actions,
-      .contact-actions,
-      .modal-actions{
+      .hero-actions{
         flex-direction:column;
       }
-
       .btn{
         width:100%;
       }
-
       .brand-logo{
         width:60px;
         height:60px;
       }
-
       .brand-title{
         font-size:23px;
       }
-
-      .hero-logo-panel img{
+      .logo-showcase img{
         max-height:74px;
       }
     }
@@ -1024,160 +754,125 @@
     <div class="container topbar-inner">
       <div class="topbar-left">
         <span class="tag"><span class="dot"></span> Premium probna stranica</span>
-        <a href="#home">Početna</a>
-        <a href="#privacy">Privatnost</a>
       </div>
       <div class="topbar-right">
-        <span id="liveDate" class="muted">Datum učitavanje...</span>
-        <span id="liveTime" class="muted">Vreme učitavanje...</span>
+        <span id="liveDate" class="muted">Datum...</span>
+        <span id="liveTime" class="muted">Vreme...</span>
       </div>
     </div>
   </div>
 
   <div class="mainnav-wrap">
-    <div class="container mainnav">
+    <div class="container topbar-inner mainnav">
       <a href="#home" class="brand">
         <div class="brand-logo">
           <img src="logo.png" alt="IT ZONE logo" />
         </div>
-        <div class="brand-text">
+        <div>
           <div class="brand-title">IT ZONE</div>
           <div class="brand-subtitle">WEB & APP DEVELOPMENT</div>
         </div>
       </a>
 
-      <nav class="nav-links">
-        <a href="#home">Početna</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#contact">Kontakt</a>
-        <button class="special-btn" onclick="openInProgress('Play Store link')">Play Store</button>
-      </nav>
-    </div>
-  </div>
-
-  <div class="subnav">
-    <div class="container subnav-inner">
-      <a href="#home">Naslovna</a>
-      <button onclick="openInProgress('AI Blur')">AI Blur</button>
-      <button onclick="openInProgress('Web Development')">Web Development</button>
-      <button onclick="openInProgress('App Development')">App Development</button>
-      <button onclick="openInProgress('Portfolio')">Portfolio</button>
-      <button onclick="openInProgress('Novosti')">Novosti</button>
-      <button onclick="openInProgress('FAQ')">FAQ</button>
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#contact">Podrška</a>
-      <button onclick="openInProgress('Budući sajt')">Budući sajt</button>
+      <div class="top-nav">
+        <button onclick="showPage('home')">Početna</button>
+        <button onclick="showPage('privacy')">Privacy</button>
+        <button onclick="showPage('contact')">Kontakt</button>
+        <button class="primary" onclick="showPage('playstore')">Play Store</button>
+      </div>
     </div>
   </div>
 
   <div class="container page-layout">
-    <aside class="sidebar">
-      <div class="side-box small-card">
-        <h3>Brzi meni</h3>
-        <div class="side-list">
-          <a href="#home">Početna</a>
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#contact">Kontakt</a>
-          <button onclick="openInProgress('Portfolio')">Portfolio</button>
-          <button onclick="openInProgress('Usluge')">Usluge</button>
-          <button onclick="openInProgress('Galerija')">Galerija</button>
-        </div>
+    <aside class="sidebar small-card">
+      <h3>Glavni meni</h3>
+
+      <div class="side-menu">
+        <button class="side-btn active" data-page="home" onclick="showPage('home', this)">Početna</button>
+        <button class="side-btn" data-page="portfolio" onclick="showPage('portfolio', this)">Portfolio</button>
+        <button class="side-btn" data-page="services" onclick="showPage('services', this)">Usluge</button>
+        <button class="side-btn" data-page="web" onclick="showPage('web', this)">Web Development</button>
+        <button class="side-btn" data-page="apps" onclick="showPage('apps', this)">App Development</button>
+        <button class="side-btn" data-page="aiblur" onclick="showPage('aiblur', this)">AI Blur</button>
+        <button class="side-btn" data-page="news" onclick="showPage('news', this)">Novosti</button>
+        <button class="side-btn" data-page="faq" onclick="showPage('faq', this)">FAQ</button>
+        <button class="side-btn" data-page="impressum" onclick="showPage('impressum', this)">Impressum</button>
+        <button class="side-btn" data-page="privacy" onclick="showPage('privacy', this)">Privacy Policy</button>
+        <button class="side-btn" data-page="contact" onclick="showPage('contact', this)">Kontakt</button>
       </div>
 
-      <div class="side-box small-card">
-        <h3>Status</h3>
-        <p>Osnovna premium početna stranica je aktivna. Sve ostale sekcije reaguju na klik i prikazuju status izrade.</p>
-        <div class="status-box">Sajt u izradi</div>
-      </div>
-
-      <div class="side-box small-card">
-        <h3>Aktivno sada</h3>
-        <div class="chip-list">
-          <span>Početna</span>
-          <span>Privacy</span>
-          <span>Kontakt</span>
-          <span>Vreme</span>
-          <span>Datum</span>
-        </div>
+      <div class="sidebar-info">
+        Sve stavke rade. Aktivne stranice se prikazuju u desnom sadržaju. Ostale uredno prikazuju status izrade.
       </div>
     </aside>
 
     <main class="content">
       <section id="home" class="hero card">
-        <div class="hero-copy">
+        <div class="hero-left">
           <span class="tag"><span class="dot"></span> Aktivna premium početna</span>
-
-          <h1>IT ZONE</h1>
-          <div class="hero-subline">WEB & APP DEVELOPMENT</div>
-
-          <div class="hero-status">
-            Sajt u fazi izrade.
-          </div>
+          <div class="hero-title">IT ZONE</div>
+          <div class="hero-sub">WEB & APP DEVELOPMENT</div>
 
           <div class="hero-note">
-            Aktivne sekcije: Početna, Privacy Policy, Kontakt, datum, vreme i vremenska prognoza.
+            Čist premium izgled sa vodoravnim gornjim menijem, uspravnim levim menijem i glavnim sadržajem desno.
           </div>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#privacy">Privacy Policy</a>
-            <a class="btn btn-soft" href="#contact">Kontakt</a>
-            <button class="btn btn-orange" onclick="openInProgress('Portfolio')">Portfolio</button>
+            <button class="btn btn-primary" onclick="showPage('privacy')">Privacy Policy</button>
+            <button class="btn btn-soft" onclick="showPage('contact')">Kontakt</button>
+            <button class="btn btn-green" onclick="showPage('portfolio')">Portfolio</button>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <div class="hero-panel">
-            <div class="hero-logo-panel">
-              <img src="logo.png" alt="IT ZONE logo preview" />
+        <div class="hero-right">
+          <div class="logo-showcase small-card">
+            <img src="logo.png" alt="IT ZONE logo preview" />
+          </div>
+
+          <div class="preview-box">
+            <div class="preview-top">
+              <span>IT ZONE</span>
+              <span>Premium Layout</span>
             </div>
-
-            <div class="mockup">
-              <div class="mock-top">
-                <span>IT ZONE</span>
-                <span>Premium Preview</span>
-              </div>
-
-              <div class="mock-center"></div>
-
-              <div class="mock-bottom">
-                <span class="mock-chip">Web</span>
-                <span class="mock-chip">Apps</span>
-                <span class="mock-chip">Design</span>
-                <span class="mock-chip">U izradi</span>
-              </div>
+            <div class="preview-center"></div>
+            <div class="preview-bottom">
+              <span class="chip">Web</span>
+              <span class="chip">Apps</span>
+              <span class="chip">Design</span>
+              <span class="chip">Premium</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="stats-grid">
-        <div class="stat-box small-card">
+      <section class="dash-grid">
+        <div class="dash-box small-card">
+          <strong>11</strong>
+          <span>stavki menija</span>
+        </div>
+        <div class="dash-box small-card">
           <strong>3</strong>
           <span>aktivne sekcije</span>
         </div>
-        <div class="stat-box small-card">
-          <strong>Premium</strong>
-          <span>veseli dizajn</span>
-        </div>
-        <div class="stat-box small-card">
+        <div class="dash-box small-card">
           <strong id="visitCount">0</strong>
-          <span>demo posete u browseru</span>
+          <span>demo posete</span>
         </div>
-        <div class="stat-box small-card">
-          <strong>Ready</strong>
-          <span>za dalji razvoj</span>
+        <div class="dash-box small-card">
+          <strong>Live</strong>
+          <span>datum i vreme</span>
         </div>
       </section>
 
-      <section class="info-row">
+      <section class="info-grid">
         <div class="info-box small-card">
           <h3>Datum</h3>
-          <p id="fullDate">Učitavanje datuma...</p>
+          <p id="fullDate">Učitavanje...</p>
         </div>
 
         <div class="info-box small-card">
           <h3>Vreme</h3>
-          <p id="fullTime">Učitavanje vremena...</p>
+          <p id="fullTime">Učitavanje...</p>
         </div>
 
         <div class="info-box small-card">
@@ -1187,188 +882,53 @@
         </div>
       </section>
 
-      <section class="module card">
-        <div class="module-head">
+      <section class="content-panel card">
+        <div class="content-head">
           <div>
-            <h2>Glavne sekcije</h2>
-            <p>Čista premium struktura sa aktivnim osnovama i klikabilnim stavkama koje prikazuju status izrade.</p>
+            <h2 id="pageTitle">Početna</h2>
+            <p id="pageSubtitle">Aktivna početna stranica sajta.</p>
           </div>
+          <div class="status-pill" id="pageStatus">Aktivno</div>
         </div>
 
-        <div class="grid-2">
-          <div class="feature-box small-card">
-            <div class="feature-icon">🏠</div>
-            <h3>Početna</h3>
-            <p>Aktivna naslovna sekcija sa osnovnim premium prikazom sajta.</p>
+        <div class="content-body" id="pageContent">
+          <div class="section-box">
+            <h3>IT ZONE</h3>
+            <p>Premium probna početna stranica sa čistim rasporedom i pripremljenom strukturom za budući razvoj.</p>
+            <p>Glavni fokus je uredan izgled, dobra preglednost i jednostavno kretanje kroz meni.</p>
           </div>
 
-          <div class="feature-box small-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Privacy Policy</h3>
-            <p>Aktivna sekcija sa osnovnim informacijama o privatnosti.</p>
+          <div class="grid-2">
+            <div class="section-box">
+              <h3>Aktivno</h3>
+              <p>Početna, Privacy Policy i Kontakt.</p>
+            </div>
+
+            <div class="section-box">
+              <h3>Status</h3>
+              <p>Ostale sekcije su pripremljene i trenutno prikazuju poruku da su u fazi izrade.</p>
+            </div>
           </div>
 
-          <div class="feature-box small-card">
-            <div class="feature-icon">✉️</div>
-            <h3>Kontakt</h3>
-            <p>Aktivna sekcija za podršku, upit i osnovni kontakt.</p>
+          <div class="mini-link-grid">
+            <button class="mini-link" onclick="showPage('portfolio')">
+              <strong>Portfolio</strong>
+              <span>Pripremljena sekcija</span>
+            </button>
+
+            <button class="mini-link" onclick="showPage('services')">
+              <strong>Usluge</strong>
+              <span>Pripremljena sekcija</span>
+            </button>
+
+            <button class="mini-link" onclick="showPage('apps')">
+              <strong>App Development</strong>
+              <span>Pripremljena sekcija</span>
+            </button>
           </div>
-
-          <div class="feature-box small-card">
-            <div class="feature-icon">🛠️</div>
-            <h3>Ostale sekcije</h3>
-            <p>Sve dodatne stavke otvaraju poruku da je stranica u fazi izrade.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="module card">
-        <div class="module-head">
-          <div>
-            <h2>Sve stranice sajta</h2>
-            <p>Pripremljene i klikabilne pozicije za budući sadržaj.</p>
-          </div>
-          <span class="module-link">Sve reaguju na klik</span>
-        </div>
-
-        <div class="pages-grid">
-          <div class="page-card small-card">
-            <strong>Portfolio</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('Portfolio')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>Usluge</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('Usluge')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>Web projekti</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('Web projekti')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>App projekti</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('App projekti')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>Novosti</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('Novosti')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>FAQ</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('FAQ')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>AI Blur</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('AI Blur')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>Download</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('Download')">Otvori</button>
-          </div>
-
-          <div class="page-card small-card">
-            <strong>Impressum</strong>
-            <span>Sajt u izradi</span>
-            <button class="under-construction" onclick="openInProgress('Impressum')">Otvori</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="split">
-        <div class="text-box card">
-          <h3>Informacija</h3>
-          <p>Ova verzija služi kao probna premium osnova za budući redovni web sajt.</p>
-          <p>Sve glavne pozicije su pripremljene. Aktivne stranice rade, a ostale uredno prikazuju status izrade.</p>
-          <div class="status-box">Dalji sadržaj se priprema.</div>
-        </div>
-
-        <div class="text-box card">
-          <h3>Napomena za brojač poseta</h3>
-          <p>Trenutni brojač radi kao demo brojač u browseru.</p>
-          <p>Za pravi globalni brojač svih poseta svim korisnicima kasnije treba backend ili poseban servis.</p>
-          <div class="status-box">Pravi globalni counter: kasnije.</div>
-        </div>
-      </section>
-
-      <section id="privacy" class="privacy-box card">
-        <div class="module-head">
-          <div>
-            <h2>Privacy Policy</h2>
-            <p>Osnovna aktivna sekcija.</p>
-          </div>
-        </div>
-
-        <p><strong>IT ZONE poštuje privatnost korisnika.</strong></p>
-        <p>Ova probna web stranica služi za osnovno predstavljanje projekta i kontakta.</p>
-        <p>Putem ove stranice ne prikupljamo namerno lične podatke osim ako nas korisnik sam kontaktira putem email adrese.</p>
-        <p>Ako se kontakt ostvari putem emaila, možemo primiti email adresu i sadržaj poruke radi odgovora.</p>
-        <p>Kasnije će po potrebi biti dodata proširena verzija Privacy Policy teksta.</p>
-        <p>
-          Kontakt za pitanja o privatnosti:
-          <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-      </section>
-
-      <section id="contact" class="contact-box card">
-        <span class="tag"><span class="dot"></span> Aktivna sekcija</span>
-        <h2 style="margin-top:14px;">Kontakt</h2>
-        <p>Osnovni kontakt za podršku i pitanja.</p>
-        <p>
-          Email:
-          <a class="mail" href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:itzoneapps1@gmail.com">Pošalji email</a>
-          <a class="btn btn-soft" href="#home">Nazad na vrh</a>
         </div>
       </section>
     </main>
-
-    <aside class="sidebar">
-      <div class="side-box small-card">
-        <h3>Desni meni</h3>
-        <div class="side-list">
-          <a href="#home">Početna</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#contact">Kontakt</a>
-          <button onclick="openInProgress('Novosti')">Novosti</button>
-          <button onclick="openInProgress('FAQ')">FAQ</button>
-          <button onclick="openInProgress('Impressum')">Impressum</button>
-        </div>
-      </div>
-
-      <div class="side-box small-card">
-        <h3>Vizuelni smer</h3>
-        <p>Veselije premium boje, svetlija podloga i čist moderni raspored.</p>
-        <div class="chip-list">
-          <span>Light Premium</span>
-          <span>Blue</span>
-          <span>Pink</span>
-          <span>Orange</span>
-        </div>
-      </div>
-
-      <div class="side-box small-card">
-        <h3>Vremenski status</h3>
-        <p id="weatherLocation">Lokacija: učitavanje...</p>
-        <div class="status-box" id="weatherStatus">Čekanje prognoze...</div>
-      </div>
-    </aside>
   </div>
 
   <footer>
@@ -1378,53 +938,248 @@
           © 2026 IT ZONE • Premium probna početna stranica
         </div>
         <div class="footer-right">
-          <a href="#home">Početna</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#contact">Kontakt</a>
+          <button onclick="showPage('home')">Početna</button>
+          <button onclick="showPage('privacy')">Privacy</button>
+          <button onclick="showPage('contact')">Kontakt</button>
         </div>
       </div>
     </div>
   </footer>
 
-  <div class="modal" id="inProgressModal">
-    <div class="modal-box">
-      <h3>Sajt u izradi</h3>
-      <p id="modalText">Ova sekcija je trenutno u fazi izrade.</p>
-      <div class="modal-actions">
-        <button class="btn btn-primary" onclick="closeModal()">U redu</button>
-        <a class="btn btn-soft" href="#home" onclick="closeModal()">Nazad na početnu</a>
-      </div>
-    </div>
-  </div>
-
   <script>
-    function openInProgress(sectionName) {
-      const modal = document.getElementById("inProgressModal");
-      const text = document.getElementById("modalText");
-      text.textContent = sectionName + " — stranica je u fazi izrade.";
-      modal.classList.add("show");
-    }
+    const pages = {
+      home: {
+        title: "Početna",
+        subtitle: "Aktivna početna stranica sajta.",
+        status: "Aktivno",
+        html: `
+          <div class="section-box">
+            <h3>IT ZONE</h3>
+            <p>Premium probna početna stranica sa čistim rasporedom i pripremljenom strukturom za budući razvoj.</p>
+            <p>Glavni fokus je uredan izgled, dobra preglednost i jednostavno kretanje kroz meni.</p>
+          </div>
 
-    function closeModal() {
-      document.getElementById("inProgressModal").classList.remove("show");
-    }
+          <div class="grid-2">
+            <div class="section-box">
+              <h3>Aktivno</h3>
+              <p>Početna, Privacy Policy i Kontakt.</p>
+            </div>
 
-    document.getElementById("inProgressModal").addEventListener("click", function(e) {
-      if (e.target === this) {
-        closeModal();
+            <div class="section-box">
+              <h3>Status</h3>
+              <p>Ostale sekcije su pripremljene i trenutno prikazuju poruku da su u fazi izrade.</p>
+            </div>
+          </div>
+
+          <div class="mini-link-grid">
+            <button class="mini-link" onclick="showPage('portfolio')">
+              <strong>Portfolio</strong>
+              <span>Pripremljena sekcija</span>
+            </button>
+
+            <button class="mini-link" onclick="showPage('services')">
+              <strong>Usluge</strong>
+              <span>Pripremljena sekcija</span>
+            </button>
+
+            <button class="mini-link" onclick="showPage('apps')">
+              <strong>App Development</strong>
+              <span>Pripremljena sekcija</span>
+            </button>
+          </div>
+        `
+      },
+
+      privacy: {
+        title: "Privacy Policy",
+        subtitle: "Aktivna sekcija privatnosti.",
+        status: "Aktivno",
+        html: `
+          <div class="section-box">
+            <h3>Osnovne informacije</h3>
+            <p><strong>IT ZONE poštuje privatnost korisnika.</strong></p>
+            <p>Ova probna web stranica služi za osnovno predstavljanje projekta i kontakta.</p>
+            <p>Putem ove stranice ne prikupljamo namerno lične podatke osim ako nas korisnik sam kontaktira putem email adrese.</p>
+            <p>Ako se kontakt ostvari putem emaila, možemo primiti email adresu i sadržaj poruke radi odgovora.</p>
+            <p>Kasnije će po potrebi biti dodata proširena verzija Privacy Policy teksta.</p>
+          </div>
+
+          <div class="section-box">
+            <h3>Kontakt za privatnost</h3>
+            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#4a7dff;font-weight:800;">itzoneapps1@gmail.com</a></p>
+          </div>
+        `
+      },
+
+      contact: {
+        title: "Kontakt",
+        subtitle: "Aktivna kontakt sekcija.",
+        status: "Aktivno",
+        html: `
+          <div class="section-box">
+            <h3>Osnovni kontakt</h3>
+            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#4a7dff;font-weight:800;">itzoneapps1@gmail.com</a></p>
+            <p>Za podršku i pitanja koristi email kontakt.</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="section-box">
+              <h3>Podrška</h3>
+              <p>Stranica je aktivna i spremna za osnovni kontakt.</p>
+            </div>
+
+            <div class="section-box">
+              <h3>Napomena</h3>
+              <p>Dodatni kontakt podaci mogu biti dodati kasnije.</p>
+            </div>
+          </div>
+        `
+      },
+
+      portfolio: {
+        title: "Portfolio",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("Portfolio")
+      },
+
+      services: {
+        title: "Usluge",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("Usluge")
+      },
+
+      web: {
+        title: "Web Development",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("Web Development")
+      },
+
+      apps: {
+        title: "App Development",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("App Development")
+      },
+
+      aiblur: {
+        title: "AI Blur",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("AI Blur")
+      },
+
+      news: {
+        title: "Novosti",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("Novosti")
+      },
+
+      faq: {
+        title: "FAQ",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("FAQ")
+      },
+
+      impressum: {
+        title: "Impressum",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("Impressum")
+      },
+
+      playstore: {
+        title: "Play Store",
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: constructionHtml("Play Store")
       }
-    });
+    };
+
+    function constructionHtml(name) {
+      return `
+        <div class="construction-box">
+          <h3>${name}</h3>
+          <p>Stranica je u fazi izrade.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="section-box">
+            <h3>Status</h3>
+            <p>Ova sekcija je pripremljena za budući sadržaj.</p>
+          </div>
+
+          <div class="section-box">
+            <h3>Napomena</h3>
+            <p>Sadržaj će biti dodat u narednoj fazi razvoja sajta.</p>
+          </div>
+        </div>
+
+        <div class="mini-link-grid">
+          <button class="mini-link" onclick="showPage('home')">
+            <strong>Nazad na početnu</strong>
+            <span>Povratak na glavnu stranicu</span>
+          </button>
+
+          <button class="mini-link" onclick="showPage('privacy')">
+            <strong>Privacy Policy</strong>
+            <span>Aktivna sekcija</span>
+          </button>
+
+          <button class="mini-link" onclick="showPage('contact')">
+            <strong>Kontakt</strong>
+            <span>Aktivna sekcija</span>
+          </button>
+        </div>
+      `;
+    }
+
+    function showPage(pageKey, btnEl = null) {
+      const page = pages[pageKey];
+      if (!page) return;
+
+      document.getElementById("pageTitle").textContent = page.title;
+      document.getElementById("pageSubtitle").textContent = page.subtitle;
+      document.getElementById("pageStatus").textContent = page.status;
+      document.getElementById("pageContent").innerHTML = page.html;
+
+      document.querySelectorAll(".side-btn").forEach(btn => btn.classList.remove("active"));
+      if (btnEl) {
+        btnEl.classList.add("active");
+      } else {
+        document.querySelectorAll(".side-btn").forEach(btn => {
+          if (btn.dataset.page === pageKey) btn.classList.add("active");
+        });
+      }
+
+      document.getElementById("pageStatus").style.background =
+        page.status === "Aktivno"
+          ? "rgba(48,196,141,.12)"
+          : "rgba(255,209,102,.16)";
+      document.getElementById("pageStatus").style.border =
+        page.status === "Aktivno"
+          ? "1px solid rgba(48,196,141,.16)"
+          : "1px solid rgba(255,209,102,.18)";
+      document.getElementById("pageStatus").style.color =
+        page.status === "Aktivno"
+          ? "#23795b"
+          : "#8b670f";
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
     function updateDateTime() {
       const now = new Date();
-
       const dateOptions = {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric"
       };
-
       const timeOptions = {
         hour: "2-digit",
         minute: "2-digit",
@@ -1445,9 +1200,7 @@
 
     function updateVisitCounter() {
       let visits = localStorage.getItem("itzone_visit_counter");
-      if (!visits) {
-        visits = 0;
-      }
+      if (!visits) visits = 0;
       visits = parseInt(visits, 10) + 1;
       localStorage.setItem("itzone_visit_counter", visits);
       document.getElementById("visitCount").textContent = visits;
@@ -1458,7 +1211,6 @@
     async function loadWeather(lat, lon) {
       const weatherText = document.getElementById("weatherText");
       const weatherTemp = document.getElementById("weatherTemp");
-      const weatherStatus = document.getElementById("weatherStatus");
 
       try {
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&timezone=auto`;
@@ -1466,16 +1218,15 @@
         const data = await response.json();
 
         if (!data.current) {
-          weatherText.textContent = "Prognoza trenutno nije dostupna.";
+          weatherText.textContent = "Prognoza nije dostupna.";
           weatherTemp.textContent = "--°C";
-          weatherStatus.textContent = "Prognoza nije dostupna";
           return;
         }
 
         const temp = data.current.temperature_2m;
         const code = data.current.weather_code;
 
-        let description = "Vreme učitano";
+        let description = "Trenutni uslovi";
         if (code === 0) description = "Vedro";
         else if ([1,2,3].includes(code)) description = "Delimično oblačno";
         else if ([45,48].includes(code)) description = "Magla";
@@ -1484,41 +1235,27 @@
         else if ([71,73,75,77].includes(code)) description = "Sneg";
         else if ([80,81,82].includes(code)) description = "Pljuskovi";
         else if ([95,96,99].includes(code)) description = "Nevreme";
-        else description = "Trenutni uslovi";
 
         weatherText.textContent = description;
         weatherTemp.textContent = `${temp}°C`;
-        weatherStatus.textContent = "Prognoza učitana";
-      } catch (error) {
+      } catch (e) {
         weatherText.textContent = "Greška pri učitavanju prognoze.";
         weatherTemp.textContent = "--°C";
-        weatherStatus.textContent = "Greška prognoze";
       }
     }
 
     function getWeather() {
-      const locationText = document.getElementById("weatherLocation");
-      const weatherStatus = document.getElementById("weatherStatus");
-
       if (!navigator.geolocation) {
-        locationText.textContent = "Lokacija nije podržana";
-        weatherStatus.textContent = "Geolokacija nije podržana";
+        document.getElementById("weatherText").textContent = "Geolokacija nije podržana.";
         return;
       }
 
-      weatherStatus.textContent = "Traženje lokacije...";
-
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const lat = position.coords.latitude.toFixed(2);
-          const lon = position.coords.longitude.toFixed(2);
-          locationText.textContent = `Lokacija: ${lat}, ${lon}`;
           loadWeather(position.coords.latitude, position.coords.longitude);
         },
         () => {
-          locationText.textContent = "Lokacija nije odobrena";
-          weatherStatus.textContent = "Dozvoli lokaciju za prognozu";
-          document.getElementById("weatherText").textContent = "Dozvoli pristup lokaciji.";
+          document.getElementById("weatherText").textContent = "Dozvoli lokaciju za prognozu.";
           document.getElementById("weatherTemp").textContent = "--°C";
         }
       );
