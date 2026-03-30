@@ -303,6 +303,48 @@
       border:1px solid rgba(255,255,255,.15);
     }
 
+    /* ELEGANT INFO STRIP */
+    .stats-strip{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+
+    .stat-card{
+      padding:18px 20px;
+      background:linear-gradient(180deg, #ffffff, #f9fbff);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .stat-label{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:.6px;
+    }
+
+    .stat-value{
+      font-size:28px;
+      line-height:1.1;
+      font-weight:900;
+      color:var(--blue);
+    }
+
+    .stat-value.small{
+      font-size:20px;
+      font-weight:800;
+      color:#243754;
+    }
+
+    .stat-value.orange{
+      color:var(--orange);
+    }
+
     /* MAIN LAYOUT */
     .layout{
       display:grid;
@@ -365,66 +407,10 @@
       font-weight:700;
     }
 
-    .sidebar-mini{
-      margin-top:18px;
-      display:grid;
-      gap:12px;
-    }
-
-    .mini-box{
-      padding:14px;
-      border-radius:14px;
-      background:#fff;
-      border:1px solid var(--line);
-    }
-
-    .mini-box strong{
-      display:block;
-      font-size:15px;
-      margin-bottom:6px;
-    }
-
-    .mini-box span{
-      color:var(--muted);
-      font-size:13px;
-    }
-
     /* RIGHT CONTENT */
     .content{
       display:grid;
       gap:18px;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:16px;
-    }
-
-    .info-box{
-      padding:20px;
-    }
-
-    .info-box h3{
-      font-size:17px;
-      margin-bottom:8px;
-      color:#223146;
-    }
-
-    .info-box p{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .big-value{
-      margin-top:6px;
-      font-size:30px;
-      font-weight:900;
-      color:var(--blue);
-    }
-
-    .counter-value{
-      color:var(--orange);
     }
 
     .content-panel{
@@ -722,7 +708,7 @@
         grid-template-columns:1fr;
       }
 
-      .info-grid{
+      .stats-strip{
         grid-template-columns:repeat(2,1fr);
       }
     }
@@ -752,7 +738,7 @@
         font-size:34px;
       }
 
-      .info-grid{
+      .stats-strip{
         grid-template-columns:1fr;
       }
     }
@@ -763,11 +749,11 @@
       }
 
       .content-panel,
-      .info-box,
       .sidebar,
       .section-box,
       .construction-hero,
-      .banner-inner{
+      .banner-inner,
+      .stat-card{
         padding:20px;
       }
 
@@ -783,6 +769,10 @@
       .banner-logo-box{
         width:100%;
         max-width:220px;
+      }
+
+      .stat-value{
+        font-size:24px;
       }
     }
   </style>
@@ -828,6 +818,28 @@
         </div>
       </div>
     </section>
+
+    <section class="stats-strip">
+      <div class="stat-card">
+        <div class="stat-label">Datum</div>
+        <div class="stat-value small" id="topDate">Učitavanje...</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Vreme</div>
+        <div class="stat-value" id="topTime">--:--:--</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Sat</div>
+        <div class="stat-value" id="topClock">--:--:--</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Broj poseta</div>
+        <div class="stat-value orange" id="topVisitCount">0</div>
+      </div>
+    </section>
   </div>
 
   <div class="container layout">
@@ -846,95 +858,57 @@
       <div class="sidebar-note">
         Aktivne sekcije su Privacy Policy, Impressum i Kontakt. Ostale stranice su pripremljene i prikazuju status izrade.
       </div>
-
-      <div class="sidebar-mini">
-        <div class="mini-box">
-          <strong>Datum</strong>
-          <span id="fullDate">Učitavanje...</span>
-        </div>
-
-        <div class="mini-box">
-          <strong>Vreme</strong>
-          <span id="fullTime">Učitavanje...</span>
-        </div>
-
-        <div class="mini-box">
-          <strong>Sat</strong>
-          <span id="clockOnly">Učitavanje...</span>
-        </div>
-
-        <div class="mini-box">
-          <strong>Posete</strong>
-          <span id="visitCount">0</span>
-        </div>
-      </div>
     </aside>
 
     <main class="content">
-      <section class="info-grid">
-        <div class="info-box small-card">
-          <h3>Datum</h3>
-          <p id="topDate">Učitavanje...</p>
-        </div>
-
-        <div class="info-box small-card">
-          <h3>Vreme</h3>
-          <p id="topTime">Učitavanje...</p>
-        </div>
-
-        <div class="info-box small-card">
-          <h3>Sat</h3>
-          <div class="big-value" id="topClock">--:--:--</div>
-        </div>
-
-        <div class="info-box small-card">
-          <h3>Posete</h3>
-          <div class="big-value counter-value" id="topVisitCount">0</div>
-        </div>
-      </section>
-
       <section class="content-panel card">
         <div class="content-head">
           <div>
             <h2 id="pageTitle">Početna</h2>
-            <p id="pageSubtitle">Aktivna početna stranica sajta.</p>
+            <p id="pageSubtitle">Početna stranica sajta.</p>
           </div>
-          <div class="status-pill" id="pageStatus">Aktivno</div>
+          <div class="status-pill" id="pageStatus">U izradi</div>
         </div>
 
         <div class="content-body" id="pageContent">
-          <div class="section-box">
-            <h3>IT ZONE</h3>
-            <p>Premium probna početna stranica sa urednim rasporedom i pripremljenom strukturom za dalji razvoj.</p>
-          </div>
+          <div class="construction-wrap">
+            <div class="construction-hero">
+              <div class="construction-text">
+                <h3>Početna</h3>
+                <p>Stranica je u fazi izrade.</p>
+                <div class="construction-label">U izradi</div>
+              </div>
 
-          <div class="grid-2">
-            <div class="section-box">
-              <h3>Aktivne sekcije</h3>
-              <p>Kontakt, Privacy Policy i Impressum.</p>
+              <div class="crane-scene">
+                <div class="crane-foot"></div>
+                <div class="crane-base"></div>
+                <div class="crane-top"></div>
+                <div class="crane-arm"></div>
+                <div class="crane-hook"></div>
+
+                <div class="build-box">
+                  <strong>Početna</strong>
+                  <span>Sajt u izradi</span>
+                </div>
+              </div>
             </div>
 
-            <div class="section-box">
-              <h3>Status sajta</h3>
-              <p>Početna, Naše aplikacije i Novosti su pripremljene i trenutno prikazuju status izrade unutar glavnog sadržaja.</p>
+            <div class="construction-grid">
+              <div class="section-box">
+                <h3>Status</h3>
+                <p>Stranica je pripremljena za budući sadržaj.</p>
+              </div>
+
+              <div class="section-box">
+                <h3>Napomena</h3>
+                <p>Sadržaj će biti dodat u narednoj fazi razvoja sajta.</p>
+              </div>
+
+              <div class="section-box">
+                <h3>Dostupno sada</h3>
+                <p>Kontakt, Privacy Policy i Impressum.</p>
+              </div>
             </div>
-          </div>
-
-          <div class="mini-link-grid">
-            <button class="mini-link" onclick="showPage('apps')">
-              <strong>Naše aplikacije</strong>
-              <span>Prikaži pripremljenu stranicu</span>
-            </button>
-
-            <button class="mini-link" onclick="showPage('news')">
-              <strong>Novosti</strong>
-              <span>Prikaži pripremljenu stranicu</span>
-            </button>
-
-            <button class="mini-link" onclick="showPage('contact')">
-              <strong>Kontakt</strong>
-              <span>Otvori aktivnu stranicu</span>
-            </button>
           </div>
         </div>
       </section>
@@ -1157,6 +1131,12 @@
         day: "numeric"
       };
 
+      const dateShortOptions = {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      };
+
       const timeOptions = {
         hour: "2-digit",
         minute: "2-digit",
@@ -1164,12 +1144,10 @@
       };
 
       const fullDate = now.toLocaleDateString("sr-RS", dateOptions);
+      const shortDate = now.toLocaleDateString("sr-RS", dateShortOptions);
       const fullTime = now.toLocaleTimeString("sr-RS", timeOptions);
 
-      document.getElementById("fullDate").textContent = fullDate;
-      document.getElementById("fullTime").textContent = fullTime;
-      document.getElementById("clockOnly").textContent = fullTime;
-      document.getElementById("topDate").textContent = fullDate;
+      document.getElementById("topDate").textContent = shortDate;
       document.getElementById("topTime").textContent = fullTime;
       document.getElementById("topClock").textContent = fullTime;
     }
@@ -1182,7 +1160,6 @@
       if (!visits) visits = 0;
       visits = parseInt(visits, 10) + 1;
       localStorage.setItem("itzone_visit_counter", visits);
-      document.getElementById("visitCount").textContent = visits;
       document.getElementById("topVisitCount").textContent = visits;
     }
 
