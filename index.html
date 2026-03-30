@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IT ZONE | Web & App Development</title>
-  <meta name="description" content="IT Zone apps" />
+  <meta name="description" content="IT ZONE premium probna web stranica." />
   <style>
     :root{
       --bg:#eef4fb;
@@ -74,47 +74,6 @@
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-    }
-
-    .btn{
-      min-height:46px;
-      padding:11px 16px;
-      border-radius:12px;
-      border:none;
-      cursor:pointer;
-      font-size:14px;
-      font-weight:800;
-      transition:.2s ease;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg, var(--blue), #2d7bd4);
-      color:#fff;
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.03);
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:#e7f2ff;
-      border:1px solid #d2e5ff;
-      color:#265fa9;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--blue);
     }
 
     .muted{
@@ -216,18 +175,18 @@
       border-color:transparent;
     }
 
-    /* BLUE BANNER */
+    /* BANNER */
     .banner{
       margin-top:18px;
-      min-height:180px;
+      min-height:220px;
       border-radius:22px;
       overflow:hidden;
-      background:
-        linear-gradient(135deg, rgba(15,94,168,.94), rgba(13,73,134,.94)),
-        linear-gradient(180deg, #0f5ea8, #0c4b86);
       position:relative;
       border:1px solid rgba(255,255,255,.10);
       box-shadow:0 18px 40px rgba(15,94,168,.20);
+      background:
+        linear-gradient(rgba(7, 23, 49, 0.40), rgba(7, 23, 49, 0.40)),
+        url('logo3.jpg') center center / cover no-repeat;
     }
 
     .banner::before{
@@ -235,55 +194,29 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 18% 30%, rgba(255,255,255,.14), transparent 18%),
-        radial-gradient(circle at 86% 18%, rgba(255,255,255,.10), transparent 16%),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+        radial-gradient(circle at 18% 30%, rgba(255,255,255,.12), transparent 18%),
+        radial-gradient(circle at 86% 18%, rgba(255,255,255,.08), transparent 16%);
       pointer-events:none;
     }
 
     .banner-inner{
       position:relative;
       z-index:1;
-      min-height:180px;
+      min-height:220px;
       display:grid;
-      grid-template-columns:260px 1fr;
+      grid-template-columns:1fr 280px;
       gap:24px;
       align-items:center;
-      padding:26px 30px;
-    }
-
-    .banner-logo-wrap{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    .banner-logo-box{
-      width:200px;
-      height:120px;
-      border-radius:20px;
-      background:rgba(255,255,255,.94);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px;
-      box-shadow:0 10px 28px rgba(0,0,0,.14);
-    }
-
-    .banner-logo-box img{
-      max-height:92px;
-      object-fit:contain;
-      background:#fff;
-      border-radius:10px;
-      padding:4px;
+      padding:30px 34px;
     }
 
     .banner-text h1{
-      font-size:48px;
+      font-size:56px;
       line-height:1.02;
       font-weight:300;
       color:#ffffff;
       letter-spacing:-1.2px;
+      text-shadow:0 4px 18px rgba(0,0,0,.22);
     }
 
     .banner-breadcrumb{
@@ -301,6 +234,35 @@
       font-size:13px;
       font-weight:800;
       border:1px solid rgba(255,255,255,.15);
+      backdrop-filter:blur(6px);
+    }
+
+    .banner-logo-wrap{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    .banner-logo-box{
+      width:240px;
+      height:150px;
+      border-radius:24px;
+      background:rgba(255,255,255,.90);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      box-shadow:0 16px 34px rgba(0,0,0,.18);
+      backdrop-filter:blur(6px);
+    }
+
+    .banner-logo-box img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      background:#fff;
+      border-radius:16px;
+      padding:10px;
     }
 
     /* ELEGANT INFO STRIP */
@@ -343,6 +305,10 @@
 
     .stat-value.orange{
       color:var(--orange);
+    }
+
+    .stat-value.green{
+      color:var(--green);
     }
 
     /* MAIN LAYOUT */
@@ -405,6 +371,30 @@
       color:#45627f;
       font-size:13px;
       font-weight:700;
+    }
+
+    .sidebar-mini{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+    }
+
+    .mini-box{
+      padding:14px;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+
+    .mini-box strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .mini-box span{
+      color:var(--muted);
+      font-size:13px;
     }
 
     /* RIGHT CONTENT */
@@ -711,6 +701,10 @@
       .stats-strip{
         grid-template-columns:repeat(2,1fr);
       }
+
+      .banner-logo-wrap{
+        justify-content:flex-start;
+      }
     }
 
     @media (max-width: 860px){
@@ -768,7 +762,8 @@
 
       .banner-logo-box{
         width:100%;
-        max-width:220px;
+        max-width:230px;
+        height:140px;
       }
 
       .stat-value{
@@ -782,7 +777,7 @@
     <div class="container topbar-inner">
       <a href="#home" class="brand">
         <div class="brand-logo">
-          <img src="logo2.jpg" alt="IT ZONE logo" />
+          <img src="logo.jpg" alt="IT ZONE logo" />
         </div>
         <div>
           <div class="brand-title">IT ZONE</div>
@@ -803,17 +798,17 @@
   <div class="container">
     <section class="banner card">
       <div class="banner-inner">
-        <div class="banner-logo-wrap">
-          <div class="banner-logo-box">
-            <img src="logo3.jpg" alt="IT ZONE logo banner" />
-          </div>
-        </div>
-
         <div class="banner-text">
           <h1 id="bannerTitle">IT ZONE</h1>
           <div class="banner-breadcrumb">
             <span class="crumb">Početna</span>
             <span class="crumb" id="bannerCrumb">Aktivna stranica</span>
+          </div>
+        </div>
+
+        <div class="banner-logo-wrap">
+          <div class="banner-logo-box">
+            <img src="logo2.jpg" alt="IT ZONE logo banner" />
           </div>
         </div>
       </div>
@@ -831,8 +826,8 @@
       </div>
 
       <div class="stat-card">
-        <div class="stat-label">Sat</div>
-        <div class="stat-value" id="topClock">--:--:--</div>
+        <div class="stat-label">Temperatura</div>
+        <div class="stat-value green" id="topTemperature">-- °C</div>
       </div>
 
       <div class="stat-card">
@@ -857,6 +852,28 @@
 
       <div class="sidebar-note">
         Aktivne sekcije su Privacy Policy, Impressum i Kontakt. Ostale stranice su pripremljene i prikazuju status izrade.
+      </div>
+
+      <div class="sidebar-mini">
+        <div class="mini-box">
+          <strong>Datum</strong>
+          <span id="fullDate">Učitavanje...</span>
+        </div>
+
+        <div class="mini-box">
+          <strong>Vreme</strong>
+          <span id="fullTime">Učitavanje...</span>
+        </div>
+
+        <div class="mini-box">
+          <strong>Temperatura</strong>
+          <span id="temperature">-- °C</span>
+        </div>
+
+        <div class="mini-box">
+          <strong>Posete</strong>
+          <span id="visitCount">0</span>
+        </div>
       </div>
     </aside>
 
@@ -1125,16 +1142,16 @@
       const now = new Date();
 
       const dateOptions = {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      };
+
+      const dateLongOptions = {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric"
-      };
-
-      const dateShortOptions = {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric"
       };
 
       const timeOptions = {
@@ -1143,13 +1160,14 @@
         second: "2-digit"
       };
 
-      const fullDate = now.toLocaleDateString("sr-RS", dateOptions);
-      const shortDate = now.toLocaleDateString("sr-RS", dateShortOptions);
+      const shortDate = now.toLocaleDateString("sr-RS", dateOptions);
+      const fullDate = now.toLocaleDateString("sr-RS", dateLongOptions);
       const fullTime = now.toLocaleTimeString("sr-RS", timeOptions);
 
+      document.getElementById("fullDate").textContent = fullDate;
+      document.getElementById("fullTime").textContent = fullTime;
       document.getElementById("topDate").textContent = shortDate;
       document.getElementById("topTime").textContent = fullTime;
-      document.getElementById("topClock").textContent = fullTime;
     }
 
     updateDateTime();
@@ -1160,10 +1178,44 @@
       if (!visits) visits = 0;
       visits = parseInt(visits, 10) + 1;
       localStorage.setItem("itzone_visit_counter", visits);
+      document.getElementById("visitCount").textContent = visits;
       document.getElementById("topVisitCount").textContent = visits;
     }
 
     updateVisitCounter();
+
+    async function getWeather(lat, lon) {
+      try {
+        const res = await fetch(
+          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+        );
+        const data = await res.json();
+        const temp = Math.round(data.current_weather.temperature);
+
+        document.getElementById("temperature").textContent = temp + " °C";
+        document.getElementById("topTemperature").textContent = temp + " °C";
+      } catch (e) {
+        document.getElementById("temperature").textContent = "N/A";
+        document.getElementById("topTemperature").textContent = "N/A";
+      }
+    }
+
+    function initWeather() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          pos => {
+            getWeather(pos.coords.latitude, pos.coords.longitude);
+          },
+          () => {
+            getWeather(48.2082, 16.3738);
+          }
+        );
+      } else {
+        getWeather(48.2082, 16.3738);
+      }
+    }
+
+    initWeather();
 
     showPage("home");
   </script>
