@@ -40,43 +40,31 @@
       align-items:start;
     }
 
-    /* HERO */
+    /* 🔥 HERO BEZ PLAVE BOJE */
     .hero{
       margin:20px 20px 0;
       min-height:300px;
       border-radius:28px;
       overflow:hidden;
       position:relative;
-      background:linear-gradient(135deg, #234c92 0%, #4d82d1 100%);
+
+      background:url("logo3.jpg") center center / cover no-repeat;
+
       box-shadow:var(--shadow);
       border:1px solid rgba(255,255,255,.18);
-      isolation:isolate;
     }
 
-    /* blagi svetlosni efekat */
+    /* blagi shadow za čitljivost */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        radial-gradient(circle at 18% 30%, rgba(255,255,255,.12), transparent 22%),
-        radial-gradient(circle at 82% 24%, rgba(255,255,255,.08), transparent 18%);
+      background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15),
+        rgba(0,0,0,0.35)
+      );
       z-index:0;
-      pointer-events:none;
-    }
-
-    /* crni logo preko cele plave pozadine - jasniji */
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url("logo3.jpg") center center / cover no-repeat;
-      opacity:.42;
-      mix-blend-mode:multiply;
-      filter:contrast(1.16) saturate(.9);
-      z-index:1;
-      pointer-events:none;
-      transform:scale(1.02);
     }
 
     .hero-inner{
@@ -106,14 +94,12 @@
       gap:8px;
       padding:9px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.16);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(6px);
       color:#fff;
       font-size:13px;
       font-weight:800;
-      text-shadow:0 2px 8px rgba(0,0,0,.18);
     }
 
     .meta-green{ color:#bff0cf; }
@@ -174,7 +160,6 @@
       font-size:36px;
       color:#1d2b40;
       font-weight:900;
-      letter-spacing:-.8px;
       margin-bottom:8px;
     }
 
@@ -218,41 +203,6 @@
         right:auto;
         bottom:auto;
         margin-top:18px;
-      }
-    }
-
-    @media (max-width: 560px){
-      .hero,
-      .sidebar,
-      .content{
-        border-radius:18px;
-      }
-
-      .hero{
-        min-height:250px;
-      }
-
-      .hero-inner{
-        padding:22px 20px 20px;
-        min-height:250px;
-      }
-
-      .hero-meta{
-        gap:10px;
-      }
-
-      .meta-pill{
-        font-size:12px;
-        padding:8px 12px;
-      }
-
-      .content h2{
-        font-size:28px;
-      }
-
-      .hero::after{
-        background-position:center;
-        opacity:.38;
       }
     }
   </style>
