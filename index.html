@@ -13,8 +13,6 @@
       --text:#223146;
       --muted:#6c7b91;
       --blue:#0f5ea8;
-      --glass:rgba(255,255,255,.14);
-      --glass-line:rgba(255,255,255,.18);
       --shadow:0 20px 50px rgba(20, 55, 95, .16);
     }
 
@@ -42,18 +40,42 @@
       align-items:start;
     }
 
-    /* 🔥 HERO IZMENJEN */
+    /* HERO */
     .hero{
       margin:20px 20px 0;
       min-height:300px;
       border-radius:28px;
       overflow:hidden;
       position:relative;
-      background:
-        linear-gradient(rgba(15,59,117,.7), rgba(47,128,220,.7)),
-        url("logo3.jpg") center center / cover no-repeat;
+      background:linear-gradient(135deg, #22498c 0%, #4d82d1 100%);
       box-shadow:var(--shadow);
       border:1px solid rgba(255,255,255,.18);
+      isolation:isolate;
+    }
+
+    /* plavi glow sloj */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(255,255,255,.10), transparent 20%),
+        radial-gradient(circle at 82% 24%, rgba(255,255,255,.08), transparent 18%);
+      z-index:0;
+      pointer-events:none;
+    }
+
+    /* crni logo preko cele plave pozadine */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("logo3.jpg") center center / cover no-repeat;
+      opacity:.28;
+      mix-blend-mode:multiply;
+      filter:contrast(1.08);
+      z-index:1;
+      pointer-events:none;
     }
 
     .hero-inner{
@@ -86,9 +108,11 @@
       background:rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.16);
       backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
       color:#fff;
       font-size:13px;
       font-weight:800;
+      text-shadow:0 2px 8px rgba(0,0,0,.18);
     }
 
     .meta-green{ color:#bff0cf; }
@@ -117,12 +141,22 @@
       border-radius:12px;
       border:1px solid var(--line);
       background:#fff;
-      font-weight:800;
+      color:#2d3c55;
       cursor:pointer;
+      font-size:14px;
+      font-weight:800;
+      transition:.2s ease;
+      text-align:left;
+    }
+
+    .sidebar button:hover{
+      background:#f5f9ff;
+      transform:translateY(-1px);
     }
 
     .sidebar button.active{
       background:#eef5ff;
+      color:#2455b2;
     }
 
     /* CONTENT */
@@ -135,6 +169,20 @@
       min-height:560px;
     }
 
+    .content h2{
+      font-size:36px;
+      color:#1d2b40;
+      font-weight:900;
+      letter-spacing:-.8px;
+      margin-bottom:8px;
+    }
+
+    .content p{
+      color:#6b7b91;
+      font-size:15px;
+    }
+
+    /* FOOTER */
     footer{
       padding:0 20px 34px;
     }
@@ -145,6 +193,61 @@
       border-radius:18px;
       padding:18px;
       text-align:center;
+      box-shadow:0 12px 30px rgba(40,72,110,.07);
+    }
+
+    .footer-box span{
+      color:#72839a;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    @media (max-width: 1180px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        position:static;
+      }
+
+      .hero-meta{
+        position:relative;
+        left:auto;
+        right:auto;
+        bottom:auto;
+        margin-top:18px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .hero,
+      .sidebar,
+      .content{
+        border-radius:18px;
+      }
+
+      .hero{
+        min-height:250px;
+      }
+
+      .hero-inner{
+        padding:22px 20px 20px;
+        min-height:250px;
+      }
+
+      .hero-meta{
+        gap:10px;
+      }
+
+      .meta-pill{
+        font-size:12px;
+        padding:8px 12px;
+      }
+
+      .content h2{
+        font-size:28px;
+      }
     }
   </style>
 </head>
@@ -180,7 +283,7 @@
 
   <footer>
     <div class="footer-box">
-      © 2026 IT ZONE. Sva prava zadržana.
+      <span>© 2026 IT ZONE. Sva prava zadržana.</span>
     </div>
   </footer>
 
@@ -209,6 +312,9 @@
     .then(d=>{
       document.getElementById("temp").innerText =
         Math.round(d.current_weather.temperature)+" °C";
+    })
+    .catch(()=>{
+      document.getElementById("temp").innerText = "N/A";
     });
   </script>
 
