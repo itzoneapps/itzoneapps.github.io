@@ -4,31 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IT ZONE</title>
-  <meta name="description" content="IT ZONE premium probna web stranica." />
+
   <style>
     :root{
-      --bg:#eef4fb;
-      --white:#ffffff;
       --line:#d8e3f0;
-      --text:#223146;
-      --muted:#6c7b91;
-      --shadow:0 20px 50px rgba(20, 55, 95, .16);
+      --shadow:0 20px 50px rgba(20,55,95,.16);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
 
     body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:linear-gradient(180deg, #f7fbff 0%, #eef4fb 100%);
-      color:var(--text);
-    }
-
-    button{
-      font-family:inherit;
+      font-family:Arial, sans-serif;
+      background:linear-gradient(180deg,#f7fbff,#eef4fb);
     }
 
     .layout{
@@ -36,68 +23,34 @@
       grid-template-columns:250px 1fr;
       gap:20px;
       padding:20px;
-      align-items:start;
     }
 
     /* HERO */
     .hero{
-      margin:20px 20px 0;
+      margin:20px;
       min-height:300px;
       border-radius:28px;
       overflow:hidden;
       position:relative;
-      background:url("logo3.jpg") center center / cover no-repeat;
+      background:url("logo3.jpg") center/cover no-repeat;
       box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,.18);
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to bottom, rgba(255,255,255,.10), rgba(255,255,255,.22));
-      z-index:0;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at center,
-          rgba(255,255,255,0) 0%,
-          rgba(255,255,255,0) 34%,
-          rgba(0,0,0,.03) 62%,
-          rgba(0,0,0,.10) 100%);
-      z-index:1;
     }
 
     .hero-inner{
       position:relative;
-      z-index:2;
       min-height:300px;
-      padding:40px 38px 26px;
+      padding:40px;
     }
 
-    /* META BEZ OKVIRA - CRNA SLOVA */
+    /* META */
     .hero-meta{
       position:absolute;
-      left:38px;
-      right:38px;
-      bottom:18px;
+      left:40px;
+      bottom:20px;
       display:flex;
-      gap:22px;
-      flex-wrap:wrap;
-      color:#111111;
-      font-size:14px;
+      gap:20px;
       font-weight:700;
-      letter-spacing:0.3px;
-      text-shadow:0 1px 4px rgba(255,255,255,.55);
-      z-index:3;
-    }
-
-    .hero-meta div{
-      color:#111111;
+      color:#111;
     }
 
     /* SIDEBAR */
@@ -106,33 +59,19 @@
       border:1px solid var(--line);
       border-radius:18px;
       padding:20px;
-      box-shadow:0 12px 30px rgba(40,72,110,.07);
-      position:sticky;
-      top:20px;
     }
 
-    .sidebar h3{
-      font-size:18px;
-      margin-bottom:14px;
-      color:#24344b;
-    }
+    .sidebar h3{margin-bottom:10px;}
 
     .sidebar button{
       width:100%;
-      display:block;
-      padding:13px 16px;
+      padding:14px;
       margin-bottom:10px;
       border-radius:12px;
       border:1px solid var(--line);
       background:#fff;
-      color:#2d3c55;
-      cursor:pointer;
-      font-size:14px;
-      font-weight:800;
       text-align:left;
-      line-height:1.2;
-      appearance:none;
-      -webkit-appearance:none;
+      font-weight:700;
     }
 
     .sidebar button.active{
@@ -146,167 +85,72 @@
       border:1px solid var(--line);
       border-radius:18px;
       padding:30px;
-      box-shadow:0 12px 30px rgba(40,72,110,.07);
-      min-height:560px;
+      min-height:500px;
     }
 
     .content h2{
-      font-size:36px;
-      font-weight:900;
-      margin-bottom:8px;
-      color:#1d2b40;
-    }
-
-    .content p{
-      color:#6b7b91;
-      font-size:15px;
+      font-size:32px;
+      margin-bottom:10px;
     }
 
     /* FOOTER */
     footer{
-      padding:0 20px 34px;
-    }
-
-    .footer-box{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px;
+      padding:20px;
       text-align:center;
-      box-shadow:0 12px 30px rgba(40,72,110,.07);
     }
 
-    .footer-box span{
-      font-size:14px;
-      color:#72839a;
-      font-weight:700;
-    }
+    /* 🔥 MOBILE FIX */
+    @media (max-width:768px){
 
-    @media (max-width: 1180px){
       .layout{
         grid-template-columns:1fr;
       }
 
-      .sidebar{
-        position:static;
-      }
-
-      .hero-meta{
-        position:relative;
-        left:auto;
-        right:auto;
-        bottom:auto;
-        margin-top:18px;
-      }
-    }
-
-    @media (max-width: 768px){
-      .layout{
-        gap:16px;
-        padding:16px;
-      }
-
       .hero{
-        margin:16px 16px 0;
-        min-height:230px;
+        min-height:220px;
       }
 
       .hero-inner{
-        min-height:230px;
-        padding:20px 20px 16px;
+        padding:20px;
+        min-height:220px;
       }
 
+      /* 👇 KLJUČNO */
       .hero-meta{
+        position:static;
+        margin-top:140px;
+        justify-content:flex-start;
         gap:14px;
         font-size:13px;
       }
-
-      .sidebar{
-        padding:16px;
-      }
-
-      .sidebar h3{
-        margin-bottom:12px;
-      }
-
-      .sidebar button{
-        padding:14px 16px;
-        font-size:14px;
-        text-align:left !important;
-        justify-content:flex-start;
-      }
-
-      .content{
-        padding:22px 20px;
-        min-height:420px;
-      }
-
-      .content h2{
-        font-size:28px;
-      }
     }
 
-    @media (max-width: 480px){
-      .hero{
-        border-radius:22px;
-      }
-
-      .hero-inner{
-        padding:18px 18px 14px;
-      }
-
-      .hero-meta{
-        gap:10px 16px;
-        font-size:12px;
-      }
-
-      .sidebar{
-        border-radius:18px;
-      }
-
-      .sidebar button{
-        padding:13px 14px;
-        font-size:14px;
-        text-align:left !important;
-      }
-
-      .content{
-        border-radius:18px;
-        padding:20px 18px;
-      }
-
-      .content h2{
-        font-size:26px;
-      }
-
-      footer{
-        padding:0 16px 24px;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="hero">
     <div class="hero-inner">
+
       <div class="hero-meta">
-        <div id="date">--</div>
-        <div id="time">--</div>
-        <div id="temp">-- °C</div>
-        <div id="visits">0</div>
+        <div id="date"></div>
+        <div id="time"></div>
+        <div id="temp"></div>
+        <div id="visits"></div>
       </div>
+
     </div>
   </div>
 
   <div class="layout">
     <aside class="sidebar">
       <h3>Glavni meni</h3>
-      <button class="active" onclick="show('Početna', this)">Početna</button>
-      <button onclick="show('Naše aplikacije', this)">Naše aplikacije</button>
-      <button onclick="show('Novosti', this)">Novosti</button>
-      <button onclick="show('Privacy Policy', this)">Privacy Policy</button>
-      <button onclick="show('Impressum', this)">Impressum</button>
-      <button onclick="show('Kontakt', this)">Kontakt</button>
+      <button class="active" onclick="show('Početna',this)">Početna</button>
+      <button onclick="show('Naše aplikacije',this)">Naše aplikacije</button>
+      <button onclick="show('Novosti',this)">Novosti</button>
+      <button onclick="show('Privacy Policy',this)">Privacy Policy</button>
+      <button onclick="show('Impressum',this)">Impressum</button>
+      <button onclick="show('Kontakt',this)">Kontakt</button>
     </aside>
 
     <main class="content">
@@ -316,39 +160,36 @@
   </div>
 
   <footer>
-    <div class="footer-box">
-      <span>© 2026 IT ZONE. Sva prava zadržana.</span>
-    </div>
+    © 2026 IT ZONE. Sva prava zadržana.
   </footer>
 
   <script>
-    function show(name, btn){
-      document.getElementById("title").innerText = name;
-      document.querySelectorAll(".sidebar button").forEach(b => b.classList.remove("active"));
+    function show(name,btn){
+      document.getElementById("title").innerText=name;
+      document.querySelectorAll(".sidebar button").forEach(b=>b.classList.remove("active"));
       btn.classList.add("active");
     }
 
     function updateTime(){
-      const now = new Date();
-      document.getElementById("time").innerText = now.toLocaleTimeString("sr-RS");
-      document.getElementById("date").innerText = now.toLocaleDateString("sr-RS");
+      const now=new Date();
+      document.getElementById("time").innerText=now.toLocaleTimeString("sr-RS");
+      document.getElementById("date").innerText=now.toLocaleDateString("sr-RS");
     }
     setInterval(updateTime,1000);
     updateTime();
 
-    let v = localStorage.getItem("visits") || 0;
+    let v=localStorage.getItem("visits")||0;
     v++;
-    localStorage.setItem("visits", v);
-    document.getElementById("visits").innerText = "Posete: " + v;
+    localStorage.setItem("visits",v);
+    document.getElementById("visits").innerText="Posete: "+v;
 
     fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
     .then(r=>r.json())
     .then(d=>{
-      document.getElementById("temp").innerText =
-        Math.round(d.current_weather.temperature)+" °C";
+      document.getElementById("temp").innerText=Math.round(d.current_weather.temperature)+"°C";
     })
     .catch(()=>{
-      document.getElementById("temp").innerText = "N/A";
+      document.getElementById("temp").innerText="N/A";
     });
   </script>
 
