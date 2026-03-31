@@ -1,200 +1,777 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>IT ZONE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT ZONE</title>
+  <meta name="description" content="IT ZONE premium probna web stranica." />
+  <style>
+    :root{
+      --bg:#eef4fb;
+      --white:#ffffff;
+      --line:#d8e3f0;
+      --text:#223146;
+      --muted:#6c7b91;
+      --blue:#0f5ea8;
+      --glass:rgba(255,255,255,.14);
+      --glass-line:rgba(255,255,255,.18);
+      --shadow:0 20px 50px rgba(20, 55, 95, .16);
+    }
 
-<style>
-:root{
-  --bg:#eef4fb;
-  --white:#ffffff;
-  --line:#d8e3f0;
-  --text:#223146;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg, #f7fbff 0%, #eef4fb 100%);
+      color:var(--text);
+    }
 
-body{
-  font-family:Arial;
-  background:var(--bg);
-}
+    button{
+      font-family:inherit;
+    }
 
-/* ===== BANNER ===== */
-.banner{
-  margin:20px;
-  height:300px;
-  border-radius:20px;
-  position:relative;
-  overflow:hidden;
+    .layout{
+      display:grid;
+      grid-template-columns:250px 1fr;
+      gap:20px;
+      padding:20px;
+      align-items:start;
+    }
 
-  background:
-    linear-gradient(rgba(15,50,100,.6), rgba(15,50,100,.6)),
-    url("logo3.jpg") center/cover;
-}
+    /* HERO */
+    .hero{
+      margin:20px 20px 0;
+      min-height:300px;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(110deg, rgba(10,42,80,.68) 0%, rgba(17,58,105,.40) 38%, rgba(255,255,255,.08) 100%),
+        url("logo3.jpg") center center / cover no-repeat;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.18);
+    }
 
-.banner-content{
-  position:absolute;
-  left:40px;
-  top:40px;
-  color:white;
-}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 14% 22%, rgba(255,255,255,.10), transparent 20%),
+        radial-gradient(circle at 86% 24%, rgba(255,255,255,.08), transparent 16%);
+      pointer-events:none;
+    }
 
-.banner h1{
-  font-size:50px;
-}
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      min-height:300px;
+      padding:40px 38px 26px;
+      display:flex;
+      align-items:flex-start;
+    }
 
-.banner p{
-  margin-top:10px;
-}
+    .hero-left{
+      max-width:560px;
+      padding:22px 24px;
+      border-radius:24px;
+      background:var(--glass);
+      border:1px solid var(--glass-line);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,.10);
+    }
 
-/* LOGO DESNO */
-.banner-logo{
-  position:absolute;
-  right:40px;
-  bottom:40px;
-  width:260px;
-}
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      color:#fff;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
 
-.banner-logo img{
-  width:100%;
-  filter:drop-shadow(0 10px 20px rgba(0,0,0,.4));
-}
+    .hero-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#6ee7a6;
+      box-shadow:0 0 10px rgba(110,231,166,.6);
+    }
 
-/* META (datum, vreme...) */
-.banner-meta{
-  position:absolute;
-  left:40px;
-  bottom:20px;
-  color:white;
-  font-size:13px;
-  display:flex;
-  gap:20px;
-}
+    .hero h1{
+      color:#fff;
+      font-size:68px;
+      line-height:.98;
+      font-weight:300;
+      letter-spacing:-1.8px;
+      text-shadow:0 4px 18px rgba(0,0,0,.18);
+    }
 
-/* ===== LAYOUT ===== */
-.layout{
-  display:grid;
-  grid-template-columns:250px 1fr;
-  gap:20px;
-  padding:20px;
-}
+    .hero p{
+      color:rgba(255,255,255,.94);
+      margin-top:16px;
+      font-size:18px;
+      line-height:1.45;
+      font-weight:700;
+      max-width:420px;
+    }
 
-/* SIDEBAR */
-.sidebar{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  border:1px solid var(--line);
-}
+    .hero-meta{
+      position:absolute;
+      left:38px;
+      right:38px;
+      bottom:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:center;
+      z-index:3;
+      padding:0 2px;
+    }
 
-.sidebar button{
-  width:100%;
-  padding:12px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:white;
-  cursor:pointer;
-  font-weight:bold;
-}
+    .meta-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+      text-shadow:0 2px 8px rgba(0,0,0,.18);
+    }
 
-/* CONTENT */
-.content{
-  background:white;
-  padding:30px;
-  border-radius:15px;
-  border:1px solid var(--line);
-}
+    .meta-pill .label{
+      opacity:.86;
+      font-weight:700;
+    }
 
-.badge{
-  background:#ffe9b3;
-  padding:5px 10px;
-  border-radius:10px;
-  font-size:12px;
-  display:inline-block;
-  margin:10px 0;
-}
+    .meta-green{
+      color:#bff0cf;
+    }
 
-</style>
+    .meta-orange{
+      color:#ffd2a0;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 12px 30px rgba(40,72,110,.07);
+      position:sticky;
+      top:20px;
+    }
+
+    .sidebar h3{
+      font-size:18px;
+      margin-bottom:14px;
+      color:#1c2b40;
+    }
+
+    .sidebar button{
+      width:100%;
+      padding:13px 14px;
+      margin-bottom:10px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:#2d3c55;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:800;
+      transition:.2s ease;
+      text-align:left;
+    }
+
+    .sidebar button:hover{
+      background:#f5f9ff;
+      transform:translateY(-1px);
+    }
+
+    .sidebar button.active{
+      background:linear-gradient(135deg, #edf5ff, #f8fbff);
+      border-color:#c5dcff;
+      color:#2455b2;
+    }
+
+    .side-note{
+      margin-top:14px;
+      padding:14px;
+      border-radius:14px;
+      background:#eef7ff;
+      border:1px solid #d7e9ff;
+      color:#45627f;
+      font-size:13px;
+      line-height:1.5;
+      font-weight:700;
+    }
+
+    /* CONTENT */
+    .content{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:30px;
+      box-shadow:0 12px 30px rgba(40,72,110,.07);
+      min-height:560px;
+    }
+
+    .content-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .content-head h2{
+      font-size:36px;
+      color:#1d2b40;
+      font-weight:900;
+      letter-spacing:-.8px;
+    }
+
+    .content-head p{
+      color:#6b7b91;
+      margin-top:8px;
+      font-size:15px;
+    }
+
+    .badge{
+      background:#fff3cf;
+      border:1px solid #ffe19c;
+      color:#8b670f;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space:nowrap;
+    }
+
+    .construction{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      margin-bottom:18px;
+    }
+
+    .box{
+      padding:24px;
+      border-radius:18px;
+      background:linear-gradient(180deg, #f9fbff, #ffffff);
+      border:1px solid var(--line);
+    }
+
+    .box h3{
+      font-size:28px;
+      margin-bottom:12px;
+      color:#1f2d42;
+    }
+
+    .box p{
+      font-size:15px;
+      color:#5f7189;
+      line-height:1.6;
+    }
+
+    .under-construction{
+      display:inline-block;
+      margin-top:14px;
+      padding:10px 14px;
+      border-radius:12px;
+      background:rgba(255,209,102,.18);
+      border:1px solid rgba(255,209,102,.28);
+      color:#8b670f;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .crane{
+      min-height:280px;
+      position:relative;
+      border-radius:18px;
+      background:linear-gradient(180deg, #f8fbff, #eef5ff);
+      border:1px solid var(--line);
+      overflow:hidden;
+    }
+
+    .crane-base{
+      position:absolute;
+      left:50px;
+      bottom:28px;
+      width:34px;
+      height:150px;
+      background:#7d8ea7;
+      border-radius:4px;
+    }
+
+    .crane-foot{
+      position:absolute;
+      left:32px;
+      bottom:22px;
+      width:76px;
+      height:10px;
+      background:#586a84;
+      border-radius:6px;
+    }
+
+    .crane-top{
+      position:absolute;
+      left:62px;
+      top:60px;
+      width:190px;
+      height:10px;
+      background:#667a97;
+      border-radius:6px;
+      transform:rotate(-6deg);
+      transform-origin:left center;
+    }
+
+    .crane-arm{
+      position:absolute;
+      left:145px;
+      top:78px;
+      width:2px;
+      height:124px;
+      background:#667a97;
+    }
+
+    .crane-hook{
+      position:absolute;
+      left:136px;
+      top:196px;
+      width:18px;
+      height:22px;
+      border:4px solid #ff9f43;
+      border-top:none;
+      border-radius:0 0 14px 14px;
+      background:transparent;
+    }
+
+    .crane-box{
+      position:absolute;
+      right:30px;
+      bottom:28px;
+      width:180px;
+      height:126px;
+      border-radius:18px;
+      background:linear-gradient(180deg, #ffffff, #f6f9ff);
+      border:1px solid var(--line);
+      box-shadow:0 12px 24px rgba(40,72,110,.08);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:18px;
+    }
+
+    .crane-box strong{
+      font-size:18px;
+      color:#20406a;
+      margin-bottom:8px;
+    }
+
+    .crane-box span{
+      font-size:13px;
+      color:#6d7d92;
+      font-weight:700;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .mini{
+      padding:20px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+
+    .mini h4{
+      font-size:18px;
+      margin-bottom:8px;
+      color:#21324d;
+    }
+
+    .mini p{
+      font-size:14px;
+      color:#66778e;
+      line-height:1.55;
+    }
+
+    footer{
+      padding:0 20px 34px;
+    }
+
+    .footer-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 22px;
+      box-shadow:0 12px 30px rgba(40,72,110,.07);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .footer-box span{
+      color:#72839a;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    @media (max-width: 1180px){
+      .layout{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        position:static;
+      }
+
+      .construction{
+        grid-template-columns:1fr;
+      }
+
+      .hero-meta{
+        position:relative;
+        left:auto;
+        right:auto;
+        bottom:auto;
+        margin-top:18px;
+      }
+    }
+
+    @media (max-width: 860px){
+      .grid3{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .hero,
+      .sidebar,
+      .content,
+      .mini,
+      .box{
+        border-radius:18px;
+      }
+
+      .hero{
+        min-height:360px;
+      }
+
+      .hero-inner{
+        padding:22px 20px 20px;
+      }
+
+      .hero-left{
+        padding:18px;
+      }
+
+      .hero h1{
+        font-size:36px;
+      }
+
+      .meta-pill{
+        font-size:12px;
+        padding:8px 12px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- BANNER -->
-<div class="banner">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-dot"></span>
+          Premium probna stranica
+        </div>
+        <h1>IT ZONE</h1>
+        <p>Web & App Development</p>
+      </div>
 
-  <div class="banner-content">
-    <h1>IT ZONE</h1>
-    <p>Web & App Development</p>
+      <div class="hero-meta">
+        <div class="meta-pill"><span class="label">Datum:</span> <span id="date">--</span></div>
+        <div class="meta-pill"><span class="label">Vreme:</span> <span id="time">--</span></div>
+        <div class="meta-pill meta-green"><span class="label">Temperatura:</span> <span id="temp">-- °C</span></div>
+        <div class="meta-pill meta-orange"><span class="label">Posete:</span> <span id="visits">0</span></div>
+      </div>
+    </div>
   </div>
 
-  <div class="banner-logo">
-    <img src="logo2.jpg">
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Glavni meni</h3>
+      <button class="active" onclick="show('Početna', this)">Početna</button>
+      <button onclick="show('Naše aplikacije', this)">Naše aplikacije</button>
+      <button onclick="show('Novosti', this)">Novosti</button>
+      <button onclick="show('Privacy Policy', this)">Privacy Policy</button>
+      <button onclick="show('Impressum', this)">Impressum</button>
+      <button onclick="show('Kontakt', this)">Kontakt</button>
+
+      <div class="side-note">
+        Aktivne sekcije su Privacy Policy, Impressum i Kontakt. Ostale stranice su pripremljene i prikazuju status izrade.
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="content-head">
+        <div>
+          <h2 id="title">Početna</h2>
+          <p id="subtitle">Početna stranica sajta.</p>
+        </div>
+        <div class="badge" id="statusBadge">U izradi</div>
+      </div>
+
+      <div id="contentArea">
+        <div class="construction">
+          <div class="box">
+            <h3>Početna</h3>
+            <p>Stranica je u fazi izrade.</p>
+            <div class="under-construction">U izradi</div>
+          </div>
+
+          <div class="crane">
+            <div class="crane-foot"></div>
+            <div class="crane-base"></div>
+            <div class="crane-top"></div>
+            <div class="crane-arm"></div>
+            <div class="crane-hook"></div>
+
+            <div class="crane-box">
+              <strong>Početna</strong>
+              <span>Sajt u izradi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="mini">
+            <h4>Status</h4>
+            <p>Stranica je pripremljena za budući sadržaj.</p>
+          </div>
+          <div class="mini">
+            <h4>Napomena</h4>
+            <p>Sadržaj će biti dodat u narednoj fazi razvoja sajta.</p>
+          </div>
+          <div class="mini">
+            <h4>Dostupno sada</h4>
+            <p>Kontakt, Privacy Policy i Impressum.</p>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <div class="banner-meta">
-    <div id="date"></div>
-    <div id="time"></div>
-    <div id="temp"></div>
-    <div id="visits"></div>
-  </div>
+  <footer>
+    <div class="footer-box">
+      <span>© 2026 IT ZONE. Sva prava zadržana.</span>
+    </div>
+  </footer>
 
-</div>
+  <script>
+    function makeConstruction(name){
+      return `
+        <div class="construction">
+          <div class="box">
+            <h3>${name}</h3>
+            <p>Stranica je u fazi izrade.</p>
+            <div class="under-construction">U izradi</div>
+          </div>
 
-<!-- MAIN -->
-<div class="layout">
+          <div class="crane">
+            <div class="crane-foot"></div>
+            <div class="crane-base"></div>
+            <div class="crane-top"></div>
+            <div class="crane-arm"></div>
+            <div class="crane-hook"></div>
 
-  <div class="sidebar">
-    <button onclick="show('Početna')">Početna</button>
-    <button onclick="show('Aplikacije')">Naše aplikacije</button>
-    <button onclick="show('Novosti')">Novosti</button>
-    <button onclick="show('Privacy')">Privacy</button>
-    <button onclick="show('Impressum')">Impressum</button>
-    <button onclick="show('Kontakt')">Kontakt</button>
-  </div>
+            <div class="crane-box">
+              <strong>${name}</strong>
+              <span>Sajt u izradi</span>
+            </div>
+          </div>
+        </div>
 
-  <div class="content">
-    <h2 id="title">Početna</h2>
-    <div class="badge">U izradi</div>
-    <p>Stranica je u fazi izrade.</p>
-  </div>
+        <div class="grid3">
+          <div class="mini">
+            <h4>Status</h4>
+            <p>Stranica je pripremljena za budući sadržaj.</p>
+          </div>
+          <div class="mini">
+            <h4>Napomena</h4>
+            <p>Sadržaj će biti dodat u narednoj fazi razvoja sajta.</p>
+          </div>
+          <div class="mini">
+            <h4>Dostupno sada</h4>
+            <p>Kontakt, Privacy Policy i Impressum.</p>
+          </div>
+        </div>
+      `;
+    }
 
-</div>
+    const pages = {
+      "Početna": {
+        subtitle: "Početna stranica sajta.",
+        status: "U izradi",
+        html: makeConstruction("Početna")
+      },
+      "Naše aplikacije": {
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: makeConstruction("Naše aplikacije")
+      },
+      "Novosti": {
+        subtitle: "Pripremljena sekcija.",
+        status: "U izradi",
+        html: makeConstruction("Novosti")
+      },
+      "Privacy Policy": {
+        subtitle: "Aktivna sekcija privatnosti.",
+        status: "Aktivno",
+        html: `
+          <div class="box">
+            <h3>Osnovne informacije</h3>
+            <p><strong>IT ZONE poštuje privatnost korisnika.</strong></p>
+            <p>Ova probna web stranica služi za osnovno predstavljanje projekta i kontakta.</p>
+            <p>Putem ove stranice ne prikupljamo namerno lične podatke osim ako nas korisnik sam kontaktira putem email adrese.</p>
+            <p>Ako se kontakt ostvari putem emaila, možemo primiti email adresu i sadržaj poruke radi odgovora.</p>
+            <p>Kasnije će po potrebi biti dodata proširena verzija Privacy Policy teksta.</p>
+          </div>
 
-<script>
-// vreme + datum
-function updateTime(){
-  const now = new Date();
+          <div class="mini" style="margin-top:18px;">
+            <h4>Kontakt za privatnost</h4>
+            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#0f5ea8;font-weight:800;">itzoneapps1@gmail.com</a></p>
+          </div>
+        `
+      },
+      "Impressum": {
+        subtitle: "Aktivna pravna sekcija.",
+        status: "Aktivno",
+        html: `
+          <div class="box">
+            <h3>Impressum</h3>
+            <p>IT ZONE</p>
+            <p>Wien, Österreich</p>
+            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#0f5ea8;font-weight:800;">itzoneapps1@gmail.com</a></p>
+          </div>
 
-  document.getElementById("time").innerText =
-    now.toLocaleTimeString("sr-RS");
+          <div class="mini" style="margin-top:18px;">
+            <h4>Napomena</h4>
+            <p>Po potrebi se kasnije može dodati proširena Impressum verzija sa dodatnim podacima.</p>
+          </div>
+        `
+      },
+      "Kontakt": {
+        subtitle: "Aktivna kontakt sekcija.",
+        status: "Aktivno",
+        html: `
+          <div class="box">
+            <h3>Osnovni kontakt</h3>
+            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#0f5ea8;font-weight:800;">itzoneapps1@gmail.com</a></p>
+            <p>Za podršku i pitanja koristi email kontakt.</p>
+          </div>
 
-  document.getElementById("date").innerText =
-    now.toLocaleDateString("sr-RS");
-}
-setInterval(updateTime,1000);
-updateTime();
+          <div class="grid3" style="margin-top:18px;">
+            <div class="mini">
+              <h4>Podrška</h4>
+              <p>Stranica je aktivna i spremna za osnovni kontakt.</p>
+            </div>
+            <div class="mini">
+              <h4>Napomena</h4>
+              <p>Dodatni kontakt podaci mogu biti dodati kasnije.</p>
+            </div>
+            <div class="mini">
+              <h4>Status</h4>
+              <p>Kontakt sekcija je aktivna.</p>
+            </div>
+          </div>
+        `
+      }
+    };
 
-// posete
-let v = localStorage.getItem("visits") || 0;
-v++;
-localStorage.setItem("visits", v);
-document.getElementById("visits").innerText = "Posete: " + v;
+    function show(name, btn){
+      document.getElementById("title").innerText = name;
+      document.getElementById("subtitle").innerText = pages[name].subtitle;
+      document.getElementById("statusBadge").innerText = pages[name].status;
+      document.getElementById("contentArea").innerHTML = pages[name].html;
 
-// temperatura
-fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
-.then(r=>r.json())
-.then(d=>{
-  document.getElementById("temp").innerText =
-    Math.round(d.current_weather.temperature)+"°C";
-});
+      const badge = document.getElementById("statusBadge");
+      if(pages[name].status === "Aktivno"){
+        badge.style.background = "#e8f6ef";
+        badge.style.border = "1px solid #cfeede";
+        badge.style.color = "#237758";
+      } else {
+        badge.style.background = "#fff3cf";
+        badge.style.border = "1px solid #ffe19c";
+        badge.style.color = "#8b670f";
+      }
 
-// navigacija
-function show(name){
-  document.getElementById("title").innerText = name;
-}
-</script>
+      document.querySelectorAll(".sidebar button").forEach(b => b.classList.remove("active"));
+      if(btn) btn.classList.add("active");
+    }
 
+    function updateTime(){
+      const now = new Date();
+      document.getElementById("time").innerText = now.toLocaleTimeString("sr-RS");
+      document.getElementById("date").innerText = now.toLocaleDateString("sr-RS");
+    }
+    setInterval(updateTime,1000);
+    updateTime();
+
+    let v = localStorage.getItem("visits") || 0;
+    v++;
+    localStorage.setItem("visits", v);
+    document.getElementById("visits").innerText = v;
+
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
+    .then(r=>r.json())
+    .then(d=>{
+      document.getElementById("temp").innerText =
+        Math.round(d.current_weather.temperature)+" °C";
+    })
+    .catch(()=>{
+      document.getElementById("temp").innerText = "N/A";
+    });
+  </script>
 </body>
 </html>
