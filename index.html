@@ -1,1138 +1,200 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT ZONE</title>
-  <meta name="description" content="IT ZONE premium probna web stranica." />
-  <style>
-    :root{
-      --bg:#eef4fb;
-      --white:#ffffff;
-      --line:#d8e3f0;
-      --text:#223146;
-      --muted:#6c7b91;
-      --blue:#0f5ea8;
-      --blue-dark:#0c4b86;
-      --orange:#ff9f43;
-      --green:#2fbe7f;
-      --yellow:#ffd56a;
-      --shadow:0 14px 36px rgba(40, 72, 110, 0.10);
-      --radius:18px;
-      --radius-lg:24px;
-      --max:1480px;
-      --sidebar:250px;
-      --topbar:84px;
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background:linear-gradient(180deg, #f7fbff 0%, #eef4fb 100%);
-      min-height:100vh;
-      overflow-x:hidden;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    button{
-      font-family:inherit;
-    }
-
-    img{
-      display:block;
-      max-width:100%;
-    }
-
-    .container{
-      width:min(var(--max), calc(100% - 24px));
-      margin:0 auto;
-    }
-
-    .card{
-      background:var(--white);
-      border:1px solid var(--line);
-      border-radius:var(--radius-lg);
-      box-shadow:var(--shadow);
-    }
-
-    .small-card{
-      background:var(--white);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    .muted{
-      color:var(--muted);
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      min-height:var(--topbar);
-      display:flex;
-      align-items:center;
-      background:rgba(255,255,255,.94);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .topbar-inner{
-      min-height:var(--topbar);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:18px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      min-width:0;
-    }
-
-    .brand-logo{
-      width:70px;
-      height:70px;
-      border-radius:18px;
-      overflow:hidden;
-      background:linear-gradient(180deg, #ffffff, #f7fbff);
-      border:1px solid #dbe6f2;
-      box-shadow:0 10px 24px rgba(40,72,110,.10);
-      flex-shrink:0;
-      padding:8px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .brand-logo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      background:#fff;
-      border-radius:12px;
-    }
-
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .brand-title{
-      font-size:30px;
-      font-weight:900;
-      letter-spacing:-1px;
-      line-height:1;
-      color:#1d2b40;
-    }
-
-    .brand-subtitle{
-      margin-top:7px;
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-    }
-
-    .top-nav{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .top-nav button{
-      padding:11px 15px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:#283954;
-      font-size:14px;
-      font-weight:800;
-      cursor:pointer;
-      transition:.2s ease;
-    }
-
-    .top-nav button:hover{
-      background:#f5f9ff;
-      transform:translateY(-1px);
-    }
-
-    .top-nav .active-top{
-      background:linear-gradient(135deg, var(--blue), #2f80dc);
-      color:#fff;
-      border-color:transparent;
-    }
-
-    .banner{
-      margin-top:18px;
-      min-height:300px;
-      border-radius:22px;
-      overflow:hidden;
-      position:relative;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 18px 40px rgba(15,94,168,.16);
-      background:
-        linear-gradient(90deg, rgba(18,61,113,.72) 0%, rgba(18,61,113,.42) 35%, rgba(255,255,255,.10) 100%),
-        linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.06)),
-        url('logo3.jpg') center center / cover no-repeat;
-    }
-
-    .banner::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 12% 28%, rgba(255,255,255,.12), transparent 22%),
-        radial-gradient(circle at 86% 20%, rgba(255,255,255,.08), transparent 18%);
-      pointer-events:none;
-    }
-
-    .banner-inner{
-      position:relative;
-      z-index:1;
-      min-height:300px;
-      display:grid;
-      grid-template-columns:1fr 290px;
-      gap:28px;
-      align-items:start;
-      padding:34px 34px 26px 34px;
-    }
-
-    .banner-copy{
-      max-width:520px;
-      padding-top:12px;
-    }
-
-    .banner-text h1{
-      font-size:56px;
-      line-height:1.02;
-      font-weight:300;
-      color:#ffffff;
-      letter-spacing:-1.2px;
-      text-shadow:0 4px 18px rgba(0,0,0,.18);
-    }
-
-    .banner-sub{
-      margin-top:12px;
-      color:rgba(255,255,255,.92);
-      font-size:16px;
-      line-height:1.5;
-    }
-
-    .banner-breadcrumb{
-      margin-top:18px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .crumb{
-      padding:10px 14px;
-      border-radius:12px;
-      background:rgba(255,255,255,.16);
-      color:#fff;
-      font-size:13px;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,.15);
-      backdrop-filter:blur(6px);
-    }
-
-    .banner-logo-wrap{
-      display:flex;
-      justify-content:flex-end;
-      align-items:flex-start;
-      padding-top:42px;
-    }
-
-    .banner-logo-box{
-      width:260px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:0;
-      background:transparent;
-      box-shadow:none;
-      border:none;
-    }
-
-    .banner-logo-box img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      background:transparent;
-      border-radius:0;
-      padding:0;
-      box-shadow:none;
-      filter:drop-shadow(0 10px 18px rgba(0,0,0,.18));
-    }
-
-    .banner-meta{
-      position:absolute;
-      left:34px;
-      right:34px;
-      bottom:20px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:18px;
-      align-items:center;
-      z-index:2;
-    }
-
-    .meta-item{
-      color:rgba(255,255,255,.94);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.2px;
-      text-shadow:0 2px 8px rgba(0,0,0,.16);
-    }
-
-    .meta-item strong{
-      font-weight:900;
-      margin-right:6px;
-    }
-
-    .meta-orange{
-      color:#ffd29a;
-    }
-
-    .meta-green{
-      color:#bdf1cf;
-    }
-
-    .layout{
-      display:grid;
-      grid-template-columns:var(--sidebar) minmax(0,1fr);
-      gap:18px;
-      padding:18px 0 34px;
-      align-items:start;
-    }
-
-    .sidebar{
-      position:sticky;
-      top:calc(var(--topbar) + 18px);
-      padding:18px;
-    }
-
-    .sidebar h3{
-      font-size:17px;
-      margin-bottom:14px;
-      color:#1c2b40;
-    }
-
-    .side-menu{
-      display:grid;
-      gap:10px;
-    }
-
-    .side-btn{
-      width:100%;
-      text-align:left;
-      padding:13px 14px;
-      border-radius:13px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:#2d3c55;
-      font-size:14px;
-      font-weight:800;
-      cursor:pointer;
-      transition:.2s ease;
-    }
-
-    .side-btn:hover{
-      background:#f5f9ff;
-    }
-
-    .side-btn.active{
-      background:linear-gradient(135deg, #edf5ff, #f7fbff);
-      border-color:#bcd7ff;
-      color:#2455b2;
-    }
-
-    .sidebar-note{
-      margin-top:18px;
-      padding:14px;
-      border-radius:14px;
-      background:#eef7ff;
-      border:1px solid #d7e9ff;
-      color:#45627f;
-      font-size:13px;
-      font-weight:700;
-    }
-
-    .content{
-      display:grid;
-      gap:18px;
-    }
-
-    .content-panel{
-      padding:28px;
-      min-height:540px;
-    }
-
-    .content-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:22px;
-    }
-
-    .content-head h2{
-      font-size:34px;
-      font-weight:900;
-      letter-spacing:-.8px;
-      color:#1d2b40;
-    }
-
-    .content-head p{
-      color:var(--muted);
-      font-size:15px;
-      max-width:760px;
-    }
-
-    .status-pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 14px;
-      border-radius:999px;
-      background:#eef7ff;
-      border:1px solid #d6e8ff;
-      color:#245bb9;
-      font-size:12px;
-      font-weight:800;
-      white-space:nowrap;
-    }
-
-    .content-body{
-      display:grid;
-      gap:18px;
-    }
-
-    .section-box{
-      padding:22px;
-      border-radius:18px;
-      background:#fff;
-      border:1px solid var(--line);
-    }
-
-    .section-box h3{
-      font-size:20px;
-      margin-bottom:10px;
-      color:#1f2d42;
-    }
-
-    .section-box p{
-      color:#5e7088;
-      font-size:15px;
-      margin-bottom:10px;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:16px;
-    }
-
-    .construction-wrap{
-      display:grid;
-      gap:18px;
-    }
-
-    .construction-hero{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
-      align-items:center;
-      padding:22px;
-      border-radius:20px;
-      background:linear-gradient(180deg, #f5f9ff, #ffffff);
-      border:1px solid var(--line);
-    }
-
-    .construction-text h3{
-      font-size:28px;
-      margin-bottom:10px;
-      color:#1f2d42;
-    }
-
-    .construction-text p{
-      font-size:15px;
-      color:#5f7189;
-    }
-
-    .construction-label{
-      display:inline-block;
-      margin-top:14px;
-      padding:10px 14px;
-      border-radius:12px;
-      background:rgba(255,209,102,.18);
-      border:1px solid rgba(255,209,102,.28);
-      color:#8b670f;
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .crane-scene{
-      min-height:260px;
-      position:relative;
-      border-radius:18px;
-      overflow:hidden;
-      background:linear-gradient(180deg, #f8fbff, #eef5ff);
-      border:1px solid var(--line);
-    }
-
-    .crane-base{
-      position:absolute;
-      left:46px;
-      bottom:26px;
-      width:34px;
-      height:140px;
-      background:#7d8ea7;
-      border-radius:4px;
-    }
-
-    .crane-foot{
-      position:absolute;
-      left:28px;
-      bottom:20px;
-      width:74px;
-      height:10px;
-      background:#586a84;
-      border-radius:6px;
-    }
-
-    .crane-top{
-      position:absolute;
-      left:58px;
-      top:56px;
-      width:180px;
-      height:10px;
-      background:#667a97;
-      border-radius:6px;
-      transform:rotate(-6deg);
-      transform-origin:left center;
-    }
-
-    .crane-arm{
-      position:absolute;
-      left:138px;
-      top:72px;
-      width:2px;
-      height:118px;
-      background:#667a97;
-    }
-
-    .crane-hook{
-      position:absolute;
-      left:130px;
-      top:184px;
-      width:18px;
-      height:22px;
-      border:4px solid #ff9f43;
-      border-top:none;
-      border-radius:0 0 14px 14px;
-      background:transparent;
-    }
-
-    .build-box{
-      position:absolute;
-      right:32px;
-      bottom:30px;
-      width:170px;
-      height:120px;
-      border-radius:18px;
-      background:linear-gradient(180deg, #ffffff, #f6f9ff);
-      border:1px solid var(--line);
-      box-shadow:0 12px 24px rgba(40,72,110,.08);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:18px;
-    }
-
-    .build-box strong{
-      font-size:18px;
-      color:#20406a;
-      margin-bottom:8px;
-    }
-
-    .build-box span{
-      font-size:13px;
-      color:#6d7d92;
-      font-weight:700;
-    }
-
-    .construction-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-
-    footer{
-      padding:24px 0 38px;
-    }
-
-    .footer-card{
-      padding:20px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .footer-left{
-      color:#75849a;
-      font-size:14px;
-    }
-
-    .footer-right{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .footer-right button,
-    .footer-right a{
-      border:none;
-      cursor:pointer;
-      padding:10px 12px;
-      border-radius:12px;
-      background:#fff;
-      color:#2b3a52;
-      font-size:13px;
-      font-weight:800;
-      border:1px solid var(--line);
-    }
-
-    @media (max-width: 1180px){
-      .layout{
-        grid-template-columns:1fr;
-      }
-
-      .sidebar{
-        position:static;
-      }
-
-      .banner-inner,
-      .construction-hero{
-        grid-template-columns:1fr;
-      }
-
-      .banner-logo-wrap{
-        justify-content:flex-start;
-        padding-top:0;
-      }
-
-      .banner-meta{
-        position:relative;
-        left:auto;
-        right:auto;
-        bottom:auto;
-        margin-top:18px;
-      }
-    }
-
-    @media (max-width: 860px){
-      .grid-2,
-      .construction-grid{
-        grid-template-columns:1fr;
-      }
-
-      .topbar-inner{
-        padding:12px 0;
-        align-items:flex-start;
-      }
-
-      .brand{
-        width:100%;
-      }
-
-      .top-nav{
-        width:100%;
-        justify-content:flex-start;
-      }
-
-      .banner-text h1{
-        font-size:34px;
-      }
-
-      .banner-copy{
-        max-width:100%;
-      }
-
-      .banner-logo-box{
-        width:220px;
-      }
-
-      .banner{
-        min-height:340px;
-      }
-    }
-
-    @media (max-width: 560px){
-      .container{
-        width:min(var(--max), calc(100% - 16px));
-      }
-
-      .content-panel,
-      .sidebar,
-      .section-box,
-      .construction-hero,
-      .banner-inner{
-        padding:20px;
-      }
-
-      .brand-logo{
-        width:60px;
-        height:60px;
-        padding:7px;
-      }
-
-      .brand-title{
-        font-size:24px;
-      }
-
-      .brand-subtitle{
-        font-size:11px;
-        letter-spacing:1px;
-      }
-
-      .banner-logo-box{
-        width:180px;
-      }
-
-      .banner-meta{
-        gap:10px 14px;
-      }
-
-      .meta-item{
-        font-size:12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IT ZONE</title>
+
+<style>
+:root{
+  --bg:#eef4fb;
+  --white:#ffffff;
+  --line:#d8e3f0;
+  --text:#223146;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:Arial;
+  background:var(--bg);
+}
+
+/* ===== BANNER ===== */
+.banner{
+  margin:20px;
+  height:300px;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    linear-gradient(rgba(15,50,100,.6), rgba(15,50,100,.6)),
+    url("logo3.jpg") center/cover;
+}
+
+.banner-content{
+  position:absolute;
+  left:40px;
+  top:40px;
+  color:white;
+}
+
+.banner h1{
+  font-size:50px;
+}
+
+.banner p{
+  margin-top:10px;
+}
+
+/* LOGO DESNO */
+.banner-logo{
+  position:absolute;
+  right:40px;
+  bottom:40px;
+  width:260px;
+}
+
+.banner-logo img{
+  width:100%;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.4));
+}
+
+/* META (datum, vreme...) */
+.banner-meta{
+  position:absolute;
+  left:40px;
+  bottom:20px;
+  color:white;
+  font-size:13px;
+  display:flex;
+  gap:20px;
+}
+
+/* ===== LAYOUT ===== */
+.layout{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:20px;
+  padding:20px;
+}
+
+/* SIDEBAR */
+.sidebar{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  border:1px solid var(--line);
+}
+
+.sidebar button{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* CONTENT */
+.content{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  border:1px solid var(--line);
+}
+
+.badge{
+  background:#ffe9b3;
+  padding:5px 10px;
+  border-radius:10px;
+  font-size:12px;
+  display:inline-block;
+  margin:10px 0;
+}
+
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="#home" class="brand">
-        <div class="brand-logo">
-          <img src="logo.jpg" alt="IT ZONE logo" />
-        </div>
-        <div class="brand-text">
-          <div class="brand-title">IT ZONE</div>
-          <div class="brand-subtitle">WEB & APP DEVELOPMENT</div>
-        </div>
-      </a>
 
-      <nav class="top-nav">
-        <button class="active-top" onclick="showPage('home', null, this)">Početna</button>
-        <button onclick="showPage('privacy', null, this)">Privacy</button>
-        <button onclick="showPage('contact', null, this)">Kontakt</button>
-        <button onclick="showPage('apps', null, this)">Naše aplikacije</button>
-        <button onclick="showPage('news', null, this)">Novosti</button>
-      </nav>
-    </div>
-  </header>
+<!-- BANNER -->
+<div class="banner">
 
-  <div class="container">
-    <section class="banner card">
-      <div class="banner-inner">
-        <div class="banner-copy banner-text">
-          <h1 id="bannerTitle">IT ZONE</h1>
-          <div class="banner-sub">Web & App Development</div>
-          <div class="banner-breadcrumb">
-            <span class="crumb">Početna</span>
-            <span class="crumb" id="bannerCrumb">Aktivna stranica</span>
-          </div>
-        </div>
-
-        <div class="banner-logo-wrap">
-          <div class="banner-logo-box">
-            <img src="logo2.jpg" alt="IT ZONE logo banner" />
-          </div>
-        </div>
-
-        <div class="banner-meta">
-          <div class="meta-item"><strong>Datum:</strong><span id="topDate">Učitavanje...</span></div>
-          <div class="meta-item"><strong>Vreme:</strong><span id="topTime">--:--:--</span></div>
-          <div class="meta-item meta-green"><strong>Temperatura:</strong><span id="topTemperature">-- °C</span></div>
-          <div class="meta-item meta-orange"><strong>Posete:</strong><span id="topVisitCount">0</span></div>
-        </div>
-      </div>
-    </section>
+  <div class="banner-content">
+    <h1>IT ZONE</h1>
+    <p>Web & App Development</p>
   </div>
 
-  <div class="container layout">
-    <aside class="sidebar small-card">
-      <h3>Glavni meni</h3>
-
-      <div class="side-menu">
-        <button class="side-btn active" data-page="home" onclick="showPage('home', this)">Početna</button>
-        <button class="side-btn" data-page="apps" onclick="showPage('apps', this)">Naše aplikacije</button>
-        <button class="side-btn" data-page="news" onclick="showPage('news', this)">Novosti</button>
-        <button class="side-btn" data-page="privacy" onclick="showPage('privacy', this)">Privacy Policy</button>
-        <button class="side-btn" data-page="impressum" onclick="showPage('impressum', this)">Impressum</button>
-        <button class="side-btn" data-page="contact" onclick="showPage('contact', this)">Kontakt</button>
-      </div>
-
-      <div class="sidebar-note">
-        Aktivne sekcije su Privacy Policy, Impressum i Kontakt. Ostale stranice su pripremljene i prikazuju status izrade.
-      </div>
-    </aside>
-
-    <main class="content">
-      <section class="content-panel card">
-        <div class="content-head">
-          <div>
-            <h2 id="pageTitle">Početna</h2>
-            <p id="pageSubtitle">Početna stranica sajta.</p>
-          </div>
-          <div class="status-pill" id="pageStatus">U izradi</div>
-        </div>
-
-        <div class="content-body" id="pageContent">
-          <div class="construction-wrap">
-            <div class="construction-hero">
-              <div class="construction-text">
-                <h3>Početna</h3>
-                <p>Stranica je u fazi izrade.</p>
-                <div class="construction-label">U izradi</div>
-              </div>
-
-              <div class="crane-scene">
-                <div class="crane-foot"></div>
-                <div class="crane-base"></div>
-                <div class="crane-top"></div>
-                <div class="crane-arm"></div>
-                <div class="crane-hook"></div>
-
-                <div class="build-box">
-                  <strong>Početna</strong>
-                  <span>Sajt u izradi</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="construction-grid">
-              <div class="section-box">
-                <h3>Status</h3>
-                <p>Stranica je pripremljena za budući sadržaj.</p>
-              </div>
-
-              <div class="section-box">
-                <h3>Napomena</h3>
-                <p>Sadržaj će biti dodat u narednoj fazi razvoja sajta.</p>
-              </div>
-
-              <div class="section-box">
-                <h3>Dostupno sada</h3>
-                <p>Kontakt, Privacy Policy i Impressum.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+  <div class="banner-logo">
+    <img src="logo2.jpg">
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="footer-card small-card">
-        <div class="footer-left">
-          © 2026 IT ZONE • Premium probna početna stranica
-        </div>
-        <div class="footer-right">
-          <button onclick="showPage('home')">Početna</button>
-          <button onclick="showPage('privacy')">Privacy</button>
-          <button onclick="showPage('contact')">Kontakt</button>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div class="banner-meta">
+    <div id="date"></div>
+    <div id="time"></div>
+    <div id="temp"></div>
+    <div id="visits"></div>
+  </div>
 
-  <script>
-    function constructionTemplate(name){
-      return `
-        <div class="construction-wrap">
-          <div class="construction-hero">
-            <div class="construction-text">
-              <h3>${name}</h3>
-              <p>Stranica je u fazi izrade.</p>
-              <div class="construction-label">U izradi</div>
-            </div>
+</div>
 
-            <div class="crane-scene">
-              <div class="crane-foot"></div>
-              <div class="crane-base"></div>
-              <div class="crane-top"></div>
-              <div class="crane-arm"></div>
-              <div class="crane-hook"></div>
+<!-- MAIN -->
+<div class="layout">
 
-              <div class="build-box">
-                <strong>${name}</strong>
-                <span>Sajt u izradi</span>
-              </div>
-            </div>
-          </div>
+  <div class="sidebar">
+    <button onclick="show('Početna')">Početna</button>
+    <button onclick="show('Aplikacije')">Naše aplikacije</button>
+    <button onclick="show('Novosti')">Novosti</button>
+    <button onclick="show('Privacy')">Privacy</button>
+    <button onclick="show('Impressum')">Impressum</button>
+    <button onclick="show('Kontakt')">Kontakt</button>
+  </div>
 
-          <div class="construction-grid">
-            <div class="section-box">
-              <h3>Status</h3>
-              <p>Stranica je pripremljena za budući sadržaj.</p>
-            </div>
+  <div class="content">
+    <h2 id="title">Početna</h2>
+    <div class="badge">U izradi</div>
+    <p>Stranica je u fazi izrade.</p>
+  </div>
 
-            <div class="section-box">
-              <h3>Napomena</h3>
-              <p>Sadržaj će biti dodat u narednoj fazi razvoja sajta.</p>
-            </div>
+</div>
 
-            <div class="section-box">
-              <h3>Dostupno sada</h3>
-              <p>Kontakt, Privacy Policy i Impressum.</p>
-            </div>
-          </div>
-        </div>
-      `;
-    }
+<script>
+// vreme + datum
+function updateTime(){
+  const now = new Date();
 
-    const pages = {
-      home: {
-        title: "Početna",
-        subtitle: "Početna stranica sajta.",
-        status: "U izradi",
-        banner: "IT ZONE",
-        html: constructionTemplate("Početna")
-      },
+  document.getElementById("time").innerText =
+    now.toLocaleTimeString("sr-RS");
 
-      apps: {
-        title: "Naše aplikacije",
-        subtitle: "Pripremljena sekcija.",
-        status: "U izradi",
-        banner: "Naše aplikacije",
-        html: constructionTemplate("Naše aplikacije")
-      },
+  document.getElementById("date").innerText =
+    now.toLocaleDateString("sr-RS");
+}
+setInterval(updateTime,1000);
+updateTime();
 
-      news: {
-        title: "Novosti",
-        subtitle: "Pripremljena sekcija.",
-        status: "U izradi",
-        banner: "Novosti",
-        html: constructionTemplate("Novosti")
-      },
+// posete
+let v = localStorage.getItem("visits") || 0;
+v++;
+localStorage.setItem("visits", v);
+document.getElementById("visits").innerText = "Posete: " + v;
 
-      privacy: {
-        title: "Privacy Policy",
-        subtitle: "Aktivna sekcija privatnosti.",
-        status: "Aktivno",
-        banner: "Privacy Policy",
-        html: `
-          <div class="section-box">
-            <h3>Osnovne informacije</h3>
-            <p><strong>IT ZONE poštuje privatnost korisnika.</strong></p>
-            <p>Ova probna web stranica služi za osnovno predstavljanje projekta i kontakta.</p>
-            <p>Putem ove stranice ne prikupljamo namerno lične podatke osim ako nas korisnik sam kontaktira putem email adrese.</p>
-            <p>Ako se kontakt ostvari putem emaila, možemo primiti email adresu i sadržaj poruke radi odgovora.</p>
-            <p>Kasnije će po potrebi biti dodata proširena verzija Privacy Policy teksta.</p>
-          </div>
+// temperatura
+fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
+.then(r=>r.json())
+.then(d=>{
+  document.getElementById("temp").innerText =
+    Math.round(d.current_weather.temperature)+"°C";
+});
 
-          <div class="section-box">
-            <h3>Kontakt za privatnost</h3>
-            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#0f5ea8;font-weight:800;">itzoneapps1@gmail.com</a></p>
-          </div>
-        `
-      },
+// navigacija
+function show(name){
+  document.getElementById("title").innerText = name;
+}
+</script>
 
-      impressum: {
-        title: "Impressum",
-        subtitle: "Aktivna pravna sekcija.",
-        status: "Aktivno",
-        banner: "Impressum",
-        html: `
-          <div class="section-box">
-            <h3>Impressum</h3>
-            <p>IT ZONE</p>
-            <p>Wien, Österreich</p>
-            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#0f5ea8;font-weight:800;">itzoneapps1@gmail.com</a></p>
-          </div>
-
-          <div class="section-box">
-            <h3>Napomena</h3>
-            <p>Po potrebi se kasnije može dodati proširena Impressum verzija sa dodatnim podacima.</p>
-          </div>
-        `
-      },
-
-      contact: {
-        title: "Kontakt",
-        subtitle: "Aktivna kontakt sekcija.",
-        status: "Aktivno",
-        banner: "Kontakt",
-        html: `
-          <div class="section-box">
-            <h3>Osnovni kontakt</h3>
-            <p>Email: <a href="mailto:itzoneapps1@gmail.com" style="color:#0f5ea8;font-weight:800;">itzoneapps1@gmail.com</a></p>
-            <p>Za podršku i pitanja koristi email kontakt.</p>
-          </div>
-
-          <div class="grid-2">
-            <div class="section-box">
-              <h3>Podrška</h3>
-              <p>Stranica je aktivna i spremna za osnovni kontakt.</p>
-            </div>
-
-            <div class="section-box">
-              <h3>Napomena</h3>
-              <p>Dodatni kontakt podaci mogu biti dodati kasnije.</p>
-            </div>
-          </div>
-        `
-      }
-    };
-
-    function setTopNavActive(pageKey) {
-      document.querySelectorAll(".top-nav button").forEach(btn => btn.classList.remove("active-top"));
-      const labels = {
-        home: "Početna",
-        privacy: "Privacy",
-        contact: "Kontakt",
-        apps: "Naše aplikacije",
-        news: "Novosti"
-      };
-      document.querySelectorAll(".top-nav button").forEach(btn => {
-        if (btn.textContent.trim() === labels[pageKey]) {
-          btn.classList.add("active-top");
-        }
-      });
-    }
-
-    function showPage(pageKey, btnEl = null){
-      const page = pages[pageKey];
-      if (!page) return;
-
-      document.getElementById("pageTitle").textContent = page.title;
-      document.getElementById("pageSubtitle").textContent = page.subtitle;
-      document.getElementById("pageStatus").textContent = page.status;
-      document.getElementById("pageContent").innerHTML = page.html;
-      document.getElementById("bannerTitle").textContent = page.banner;
-      document.getElementById("bannerCrumb").textContent = page.title;
-
-      document.querySelectorAll(".side-btn").forEach(btn => btn.classList.remove("active"));
-      if (btnEl) {
-        btnEl.classList.add("active");
-      } else {
-        document.querySelectorAll(".side-btn").forEach(btn => {
-          if (btn.dataset.page === pageKey) btn.classList.add("active");
-        });
-      }
-
-      setTopNavActive(pageKey);
-
-      const status = document.getElementById("pageStatus");
-      if (page.status === "Aktivno") {
-        status.style.background = "#e8f6ef";
-        status.style.border = "1px solid #cfeede";
-        status.style.color = "#237758";
-      } else {
-        status.style.background = "rgba(255,209,102,.16)";
-        status.style.border = "1px solid rgba(255,209,102,.20)";
-        status.style.color = "#8b670f";
-      }
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function updateDateTime() {
-      const now = new Date();
-
-      const dateOptions = {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric"
-      };
-
-      const timeOptions = {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-      };
-
-      const shortDate = now.toLocaleDateString("sr-RS", dateOptions);
-      const fullTime = now.toLocaleTimeString("sr-RS", timeOptions);
-
-      document.getElementById("topDate").textContent = shortDate;
-      document.getElementById("topTime").textContent = fullTime;
-    }
-
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-
-    function updateVisitCounter() {
-      let visits = localStorage.getItem("itzone_visit_counter");
-      if (!visits) visits = 0;
-      visits = parseInt(visits, 10) + 1;
-      localStorage.setItem("itzone_visit_counter", visits);
-      document.getElementById("topVisitCount").textContent = visits;
-    }
-
-    updateVisitCounter();
-
-    async function getWeather(lat, lon) {
-      try {
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
-        );
-        const data = await res.json();
-        const temp = Math.round(data.current_weather.temperature);
-        document.getElementById("topTemperature").textContent = temp + " °C";
-      } catch (e) {
-        document.getElementById("topTemperature").textContent = "N/A";
-      }
-    }
-
-    function initWeather() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          pos => {
-            getWeather(pos.coords.latitude, pos.coords.longitude);
-          },
-          () => {
-            getWeather(48.2082, 16.3738);
-          }
-        );
-      } else {
-        getWeather(48.2082, 16.3738);
-      }
-    }
-
-    initWeather();
-
-    showPage("home");
-  </script>
 </body>
 </html>
