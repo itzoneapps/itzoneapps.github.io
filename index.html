@@ -1,186 +1,216 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>IT ZONE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT ZONE</title>
+  <meta name="description" content="IT ZONE premium probna web stranica." />
+  <style>
+    :root{
+      --bg:#eef4fb;
+      --white:#ffffff;
+      --line:#d8e3f0;
+      --text:#223146;
+      --muted:#6c7b91;
+      --blue:#0f5ea8;
+      --glass:rgba(255,255,255,.14);
+      --glass-line:rgba(255,255,255,.18);
+      --shadow:0 20px 50px rgba(20, 55, 95, .16);
+    }
 
-<style>
-:root{
-  --bg:#eef4fb;
-  --white:#ffffff;
-  --line:#d8e3f0;
-  --text:#223146;
-  --muted:#6c7b91;
-  --blue:#0f5ea8;
-  --glass:rgba(255,255,255,.14);
-  --glass-line:rgba(255,255,255,.18);
-  --shadow:0 20px 50px rgba(20, 55, 95, .16);
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg, #f7fbff 0%, #eef4fb 100%);
+      color:var(--text);
+    }
 
-body{
-  font-family:Arial;
-  background:linear-gradient(180deg, #f7fbff 0%, #eef4fb 100%);
-  color:var(--text);
-}
+    button{
+      font-family:inherit;
+    }
 
-.layout{
-  display:grid;
-  grid-template-columns:250px 1fr;
-  gap:20px;
-  padding:20px;
-}
+    .layout{
+      display:grid;
+      grid-template-columns:250px 1fr;
+      gap:20px;
+      padding:20px;
+      align-items:start;
+    }
 
-/* HERO */
-.hero{
-  margin:20px 20px 0;
-  min-height:240px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
+    /* 🔥 HERO IZMENJEN */
+    .hero{
+      margin:20px 20px 0;
+      min-height:300px;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(rgba(15,59,117,.7), rgba(47,128,220,.7)),
+        url("logo3.jpg") center center / cover no-repeat;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.18);
+    }
 
-  /* 🔥 OVDE SAM UKLONIO SLIKU */
-  background:linear-gradient(135deg, #0f3b75, #2f80dc);
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      min-height:300px;
+      padding:40px 38px 26px;
+      display:flex;
+      align-items:flex-start;
+    }
 
-  box-shadow:var(--shadow);
-}
+    .hero-meta{
+      position:absolute;
+      left:38px;
+      right:38px;
+      bottom:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:center;
+      z-index:3;
+    }
 
-/* uklonjen hero-left skroz */
-.hero-inner{
-  position:relative;
-  min-height:240px;
-}
+    .meta-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(8px);
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+    }
 
-/* META dole */
-.hero-meta{
-  position:absolute;
-  left:20px;
-  bottom:12px;
-  display:flex;
-  gap:15px;
-  color:#fff;
-  font-size:13px;
-  opacity:0.9;
-}
+    .meta-green{ color:#bff0cf; }
+    .meta-orange{ color:#ffd2a0; }
 
-/* SIDEBAR */
-.sidebar{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 12px 30px rgba(40,72,110,.07);
-}
+    /* SIDEBAR */
+    .sidebar{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 12px 30px rgba(40,72,110,.07);
+      position:sticky;
+      top:20px;
+    }
 
-.sidebar button{
-  width:100%;
-  padding:13px;
-  margin-bottom:10px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#fff;
-  cursor:pointer;
-  font-weight:bold;
-}
+    .sidebar h3{
+      font-size:18px;
+      margin-bottom:14px;
+    }
 
-.sidebar button.active{
-  background:#eef5ff;
-}
+    .sidebar button{
+      width:100%;
+      padding:13px;
+      margin-bottom:10px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:800;
+      cursor:pointer;
+    }
 
-/* CONTENT */
-.content{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:30px;
-}
+    .sidebar button.active{
+      background:#eef5ff;
+    }
 
-/* FOOTER */
-footer{
-  padding:20px;
-}
+    /* CONTENT */
+    .content{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:30px;
+      box-shadow:0 12px 30px rgba(40,72,110,.07);
+      min-height:560px;
+    }
 
-.footer-box{
-  background:#fff;
-  border-radius:18px;
-  padding:15px;
-  text-align:center;
-  border:1px solid var(--line);
-}
-</style>
+    footer{
+      padding:0 20px 34px;
+    }
+
+    .footer-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      text-align:center;
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-meta">
-      <div id="date"></div>
-      <div id="time"></div>
-      <div id="temp"></div>
-      <div id="visits"></div>
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-meta">
+        <div class="meta-pill"><span id="date">--</span></div>
+        <div class="meta-pill"><span id="time">--</span></div>
+        <div class="meta-pill meta-green"><span id="temp">-- °C</span></div>
+        <div class="meta-pill meta-orange"><span id="visits">0</span></div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="layout">
-  <aside class="sidebar">
-    <button class="active" onclick="show('Početna', this)">Početna</button>
-    <button onclick="show('Naše aplikacije', this)">Naše aplikacije</button>
-    <button onclick="show('Novosti', this)">Novosti</button>
-    <button onclick="show('Privacy Policy', this)">Privacy Policy</button>
-    <button onclick="show('Impressum', this)">Impressum</button>
-    <button onclick="show('Kontakt', this)">Kontakt</button>
-  </aside>
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Glavni meni</h3>
+      <button class="active" onclick="show('Početna', this)">Početna</button>
+      <button onclick="show('Naše aplikacije', this)">Naše aplikacije</button>
+      <button onclick="show('Novosti', this)">Novosti</button>
+      <button onclick="show('Privacy Policy', this)">Privacy Policy</button>
+      <button onclick="show('Impressum', this)">Impressum</button>
+      <button onclick="show('Kontakt', this)">Kontakt</button>
+    </aside>
 
-  <main class="content">
-    <h2 id="title">Početna</h2>
-    <p>Stranica je u fazi izrade.</p>
-  </main>
-</div>
-
-<footer>
-  <div class="footer-box">
-    © 2026 IT ZONE. Sva prava zadržana.
+    <main class="content">
+      <h2 id="title">Početna</h2>
+      <p>Stranica je u fazi izrade.</p>
+    </main>
   </div>
-</footer>
 
-<script>
-function show(name, btn){
-  document.getElementById("title").innerText = name;
-  document.querySelectorAll(".sidebar button")
-    .forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-}
+  <footer>
+    <div class="footer-box">
+      © 2026 IT ZONE. Sva prava zadržana.
+    </div>
+  </footer>
 
-// vreme
-function updateTime(){
-  const now = new Date();
-  document.getElementById("time").innerText =
-    now.toLocaleTimeString("sr-RS");
-  document.getElementById("date").innerText =
-    now.toLocaleDateString("sr-RS");
-}
-setInterval(updateTime,1000);
-updateTime();
+  <script>
+    function show(name, btn){
+      document.getElementById("title").innerText = name;
+      document.querySelectorAll(".sidebar button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
 
-// posete
-let v = localStorage.getItem("visits") || 0;
-v++;
-localStorage.setItem("visits", v);
-document.getElementById("visits").innerText = v;
+    function updateTime(){
+      const now = new Date();
+      document.getElementById("time").innerText = now.toLocaleTimeString("sr-RS");
+      document.getElementById("date").innerText = now.toLocaleDateString("sr-RS");
+    }
+    setInterval(updateTime,1000);
+    updateTime();
 
-// temp
-fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
-.then(r=>r.json())
-.then(d=>{
-  document.getElementById("temp").innerText =
-    Math.round(d.current_weather.temperature)+"°C";
-});
-</script>
+    let v = localStorage.getItem("visits") || 0;
+    v++;
+    localStorage.setItem("visits", v);
+    document.getElementById("visits").innerText = v;
+
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
+    .then(r=>r.json())
+    .then(d=>{
+      document.getElementById("temp").innerText =
+        Math.round(d.current_weather.temperature)+" °C";
+    });
+  </script>
 
 </body>
 </html>
