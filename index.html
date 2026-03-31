@@ -47,35 +47,36 @@
       border-radius:28px;
       overflow:hidden;
       position:relative;
-      background:linear-gradient(135deg, #22498c 0%, #4d82d1 100%);
+      background:linear-gradient(135deg, #234c92 0%, #4d82d1 100%);
       box-shadow:var(--shadow);
       border:1px solid rgba(255,255,255,.18);
       isolation:isolate;
     }
 
-    /* plavi glow sloj */
+    /* blagi svetlosni efekat */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 18% 30%, rgba(255,255,255,.10), transparent 20%),
+        radial-gradient(circle at 18% 30%, rgba(255,255,255,.12), transparent 22%),
         radial-gradient(circle at 82% 24%, rgba(255,255,255,.08), transparent 18%);
       z-index:0;
       pointer-events:none;
     }
 
-    /* crni logo preko cele plave pozadine */
+    /* crni logo preko cele plave pozadine - jasniji */
     .hero::after{
       content:"";
       position:absolute;
       inset:0;
       background:url("logo3.jpg") center center / cover no-repeat;
-      opacity:.28;
+      opacity:.42;
       mix-blend-mode:multiply;
-      filter:contrast(1.08);
+      filter:contrast(1.16) saturate(.9);
       z-index:1;
       pointer-events:none;
+      transform:scale(1.02);
     }
 
     .hero-inner{
@@ -247,6 +248,11 @@
 
       .content h2{
         font-size:28px;
+      }
+
+      .hero::after{
+        background-position:center;
+        opacity:.38;
       }
     }
   </style>
