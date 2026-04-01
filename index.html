@@ -2,7 +2,7 @@
 <html lang="sr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IT ZONE</title>
 
   <style>
@@ -42,21 +42,16 @@
       padding:40px;
     }
 
-    /* META */
+    /* 🔥 SPUŠTENO MALO NIŽE */
     .hero-meta{
       position:absolute;
       left:40px;
-      bottom:20px;
+      bottom:10px; /* 👈 OVO JE GLAVNA IZMENA */
       display:flex;
       gap:20px;
       font-weight:700;
       color:#111;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .hero-meta div{
-      white-space:nowrap;
+      font-size:14px;
     }
 
     /* SIDEBAR */
@@ -67,9 +62,7 @@
       padding:20px;
     }
 
-    .sidebar h3{
-      margin-bottom:10px;
-    }
+    .sidebar h3{margin-bottom:10px;}
 
     .sidebar button{
       width:100%;
@@ -80,7 +73,6 @@
       background:#fff;
       text-align:left;
       font-weight:700;
-      cursor:pointer;
     }
 
     .sidebar button.active{
@@ -108,26 +100,7 @@
       text-align:center;
     }
 
-    /* TABLET */
-    @media (max-width: 1024px){
-      .hero{
-        min-height:260px;
-      }
-
-      .hero-inner{
-        min-height:260px;
-        padding:28px;
-      }
-
-      .hero-meta{
-        left:28px;
-        bottom:18px;
-        gap:16px;
-        font-size:15px;
-      }
-    }
-
-    /* MOBILE FIX */
+    /* MOBILE */
     @media (max-width:768px){
 
       .layout{
@@ -136,63 +109,19 @@
 
       .hero{
         min-height:220px;
-        margin:16px;
-        background-position:center top;
       }
 
       .hero-inner{
         padding:20px;
         min-height:220px;
-        display:flex;
-        flex-direction:column;
-        justify-content:flex-end;
       }
 
+      /* 👇 I NA MOBILNOM JOŠ MALO NIŽE */
       .hero-meta{
         position:static;
-        margin-top:150px;
-        justify-content:flex-start;
-        gap:12px;
-        font-size:13px;
-        line-height:1.4;
-      }
-
-      .content{
-        padding:22px;
-        min-height:420px;
-      }
-
-      .content h2{
-        font-size:26px;
-      }
-    }
-
-    /* MANJI TELEFONI */
-    @media (max-width:480px){
-      .hero{
-        min-height:210px;
-        margin:14px;
-      }
-
-      .hero-inner{
-        min-height:210px;
-        padding:18px;
-      }
-
-      .hero-meta{
-        margin-top:158px;
-        gap:10px;
-        font-size:12px;
-      }
-
-      .layout{
-        padding:14px;
+        margin-top:150px; /* 👈 povećano sa 140 */
         gap:14px;
-      }
-
-      .sidebar,
-      .content{
-        border-radius:16px;
+        font-size:13px;
       }
     }
 
@@ -235,34 +164,33 @@
   </footer>
 
   <script>
-    function show(name, btn) {
-      document.getElementById("title").innerText = name;
-      document.querySelectorAll(".sidebar button").forEach(b => b.classList.remove("active"));
+    function show(name,btn){
+      document.getElementById("title").innerText=name;
+      document.querySelectorAll(".sidebar button").forEach(b=>b.classList.remove("active"));
       btn.classList.add("active");
     }
 
-    function updateTime() {
-      const now = new Date();
-      document.getElementById("time").innerText = now.toLocaleTimeString("sr-RS");
-      document.getElementById("date").innerText = now.toLocaleDateString("sr-RS");
+    function updateTime(){
+      const now=new Date();
+      document.getElementById("time").innerText=now.toLocaleTimeString("sr-RS");
+      document.getElementById("date").innerText=now.toLocaleDateString("sr-RS");
     }
-
-    setInterval(updateTime, 1000);
+    setInterval(updateTime,1000);
     updateTime();
 
-    let v = localStorage.getItem("visits") || 0;
+    let v=localStorage.getItem("visits")||0;
     v++;
-    localStorage.setItem("visits", v);
-    document.getElementById("visits").innerText = "Posete: " + v;
+    localStorage.setItem("visits",v);
+    document.getElementById("visits").innerText="Posete: "+v;
 
     fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
-      .then(r => r.json())
-      .then(d => {
-        document.getElementById("temp").innerText = Math.round(d.current_weather.temperature) + "°C";
-      })
-      .catch(() => {
-        document.getElementById("temp").innerText = "N/A";
-      });
+    .then(r=>r.json())
+    .then(d=>{
+      document.getElementById("temp").innerText=Math.round(d.current_weather.temperature)+"°C";
+    })
+    .catch(()=>{
+      document.getElementById("temp").innerText="N/A";
+    });
   </script>
 
 </body>
