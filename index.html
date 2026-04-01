@@ -1,197 +1,189 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IT ZONE</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IT ZONE</title>
 
-  <style>
-    :root{
-      --line:#d8e3f0;
-      --shadow:0 20px 50px rgba(20,55,95,.16);
-    }
+<style>
+:root{
+  --line:#d8e3f0;
+  --shadow:0 20px 50px rgba(20,55,95,.16);
+}
 
-    *{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body{
-      font-family:Arial, sans-serif;
-      background:linear-gradient(180deg,#f7fbff,#eef4fb);
-    }
+body{
+  font-family:Arial, sans-serif;
+  background:linear-gradient(180deg,#f7fbff,#eef4fb);
+}
 
-    .layout{
-      display:grid;
-      grid-template-columns:250px 1fr;
-      gap:20px;
-      padding:20px;
-    }
+.layout{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:20px;
+  padding:20px;
+}
 
-    /* HERO */
-    .hero{
-      margin:20px;
-      min-height:300px;
-      border-radius:28px;
-      overflow:hidden;
-      position:relative;
-      background:url("logo3.jpg") center/cover no-repeat;
-      box-shadow:var(--shadow);
-    }
+/* HERO */
+.hero{
+  margin:20px;
+  min-height:300px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  background:url("logo3.jpg") center/cover no-repeat;
+  box-shadow:var(--shadow);
+}
 
-    .hero-inner{
-      position:relative;
-      min-height:300px;
-      padding:40px;
-    }
+.hero-inner{
+  position:relative;
+  min-height:300px;
+  padding:40px;
+}
 
-    /* 🔥 SPUŠTENO MALO NIŽE */
-    .hero-meta{
-      position:absolute;
-      left:40px;
-      bottom:10px; /* 👈 OVO JE GLAVNA IZMENA */
-      display:flex;
-      gap:20px;
-      font-weight:700;
-      color:#111;
-      font-size:14px;
-    }
+/* 🔥 DESKTOP POZICIJA */
+.hero-meta{
+  position:absolute;
+  left:40px;
+  bottom:18px; /* 👈 BALANSIRANO */
+  display:flex;
+  gap:20px;
+  font-weight:700;
+  color:#111;
+  font-size:14px;
+}
 
-    /* SIDEBAR */
-    .sidebar{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px;
-    }
+/* SIDEBAR */
+.sidebar{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+}
 
-    .sidebar h3{margin-bottom:10px;}
+.sidebar button{
+  width:100%;
+  padding:14px;
+  margin-bottom:10px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#fff;
+  text-align:left;
+  font-weight:700;
+}
 
-    .sidebar button{
-      width:100%;
-      padding:14px;
-      margin-bottom:10px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#fff;
-      text-align:left;
-      font-weight:700;
-    }
+.sidebar button.active{
+  background:#eef5ff;
+  color:#2455b2;
+}
 
-    .sidebar button.active{
-      background:#eef5ff;
-      color:#2455b2;
-    }
+/* CONTENT */
+.content{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:30px;
+  min-height:500px;
+}
 
-    /* CONTENT */
-    .content{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:30px;
-      min-height:500px;
-    }
+/* FOOTER */
+footer{
+  padding:20px;
+  text-align:center;
+}
 
-    .content h2{
-      font-size:32px;
-      margin-bottom:10px;
-    }
+/* 🔥 MOBILE FIX (POSEBNO) */
+@media (max-width:768px){
 
-    /* FOOTER */
-    footer{
-      padding:20px;
-      text-align:center;
-    }
+  .layout{
+    grid-template-columns:1fr;
+  }
 
-    /* MOBILE */
-    @media (max-width:768px){
+  .hero{
+    min-height:220px;
+  }
 
-      .layout{
-        grid-template-columns:1fr;
-      }
+  .hero-inner{
+    padding:20px;
+    min-height:220px;
+  }
 
-      .hero{
-        min-height:220px;
-      }
-
-      .hero-inner{
-        padding:20px;
-        min-height:220px;
-      }
-
-      /* 👇 I NA MOBILNOM JOŠ MALO NIŽE */
-      .hero-meta{
-        position:static;
-        margin-top:150px; /* 👈 povećano sa 140 */
-        gap:14px;
-        font-size:13px;
-      }
-    }
-
-  </style>
+  .hero-meta{
+    position:absolute;   /* 👈 ostaje absolute */
+    bottom:8px;          /* 👈 SPUŠTENO dole */
+    left:20px;
+    gap:12px;
+    font-size:12px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <div class="hero">
-    <div class="hero-inner">
+<div class="hero">
+  <div class="hero-inner">
 
-      <div class="hero-meta">
-        <div id="date"></div>
-        <div id="time"></div>
-        <div id="temp"></div>
-        <div id="visits"></div>
-      </div>
-
+    <div class="hero-meta">
+      <div id="date"></div>
+      <div id="time"></div>
+      <div id="temp"></div>
+      <div id="visits"></div>
     </div>
+
   </div>
+</div>
 
-  <div class="layout">
-    <aside class="sidebar">
-      <h3>Glavni meni</h3>
-      <button class="active" onclick="show('Početna',this)">Početna</button>
-      <button onclick="show('Naše aplikacije',this)">Naše aplikacije</button>
-      <button onclick="show('Novosti',this)">Novosti</button>
-      <button onclick="show('Privacy Policy',this)">Privacy Policy</button>
-      <button onclick="show('Impressum',this)">Impressum</button>
-      <button onclick="show('Kontakt',this)">Kontakt</button>
-    </aside>
+<div class="layout">
+  <aside class="sidebar">
+    <button class="active" onclick="show('Početna',this)">Početna</button>
+    <button onclick="show('Naše aplikacije',this)">Naše aplikacije</button>
+    <button onclick="show('Novosti',this)">Novosti</button>
+    <button onclick="show('Privacy Policy',this)">Privacy Policy</button>
+    <button onclick="show('Impressum',this)">Impressum</button>
+    <button onclick="show('Kontakt',this)">Kontakt</button>
+  </aside>
 
-    <main class="content">
-      <h2 id="title">Početna</h2>
-      <p>Stranica je u fazi izrade.</p>
-    </main>
-  </div>
+  <main class="content">
+    <h2 id="title">Početna</h2>
+    <p>Stranica je u fazi izrade.</p>
+  </main>
+</div>
 
-  <footer>
-    © 2026 IT ZONE. Sva prava zadržana.
-  </footer>
+<footer>
+  © 2026 IT ZONE. Sva prava zadržana.
+</footer>
 
-  <script>
-    function show(name,btn){
-      document.getElementById("title").innerText=name;
-      document.querySelectorAll(".sidebar button").forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-    }
+<script>
+function show(name,btn){
+  document.getElementById("title").innerText=name;
+  document.querySelectorAll(".sidebar button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+}
 
-    function updateTime(){
-      const now=new Date();
-      document.getElementById("time").innerText=now.toLocaleTimeString("sr-RS");
-      document.getElementById("date").innerText=now.toLocaleDateString("sr-RS");
-    }
-    setInterval(updateTime,1000);
-    updateTime();
+function updateTime(){
+  const now=new Date();
+  document.getElementById("time").innerText=now.toLocaleTimeString("sr-RS");
+  document.getElementById("date").innerText=now.toLocaleDateString("sr-RS");
+}
+setInterval(updateTime,1000);
+updateTime();
 
-    let v=localStorage.getItem("visits")||0;
-    v++;
-    localStorage.setItem("visits",v);
-    document.getElementById("visits").innerText="Posete: "+v;
+let v=localStorage.getItem("visits")||0;
+v++;
+localStorage.setItem("visits",v);
+document.getElementById("visits").innerText="Posete: "+v;
 
-    fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
-    .then(r=>r.json())
-    .then(d=>{
-      document.getElementById("temp").innerText=Math.round(d.current_weather.temperature)+"°C";
-    })
-    .catch(()=>{
-      document.getElementById("temp").innerText="N/A";
-    });
-  </script>
+fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
+.then(r=>r.json())
+.then(d=>{
+  document.getElementById("temp").innerText=Math.round(d.current_weather.temperature)+"°C";
+})
+.catch(()=>{
+  document.getElementById("temp").innerText="N/A";
+});
+</script>
 
 </body>
 </html>
