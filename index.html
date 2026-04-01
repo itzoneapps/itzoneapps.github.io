@@ -42,11 +42,11 @@ body{
   padding:40px;
 }
 
-/* 🔥 DESKTOP POZICIJA */
+/* 🔥 SAVRŠENO PORAVNANJE */
 .hero-meta{
   position:absolute;
   left:40px;
-  bottom:18px; /* 👈 BALANSIRANO */
+  bottom:6px; /* 👈 KLJUČ */
   display:flex;
   gap:20px;
   font-weight:700;
@@ -87,13 +87,18 @@ body{
   min-height:500px;
 }
 
+.content h2{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
 /* FOOTER */
 footer{
   padding:20px;
   text-align:center;
 }
 
-/* 🔥 MOBILE FIX (POSEBNO) */
+/* 🔥 MOBILE ISTA LOGIKA */
 @media (max-width:768px){
 
   .layout{
@@ -110,13 +115,13 @@ footer{
   }
 
   .hero-meta{
-    position:absolute;   /* 👈 ostaje absolute */
-    bottom:8px;          /* 👈 SPUŠTENO dole */
     left:20px;
+    bottom:6px; /* 👈 ISTO kao desktop */
     gap:12px;
     font-size:12px;
   }
 }
+
 </style>
 </head>
 
