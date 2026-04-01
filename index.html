@@ -42,19 +42,19 @@ body{
   padding:40px;
 }
 
-/* language switch */
+/* jezik */
 .lang-wrap{
   position:absolute;
-  top:18px;
-  right:20px;
+  top:16px;
+  right:18px;
   z-index:5;
 }
 
 .lang-select{
-  height:40px;
-  min-width:94px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,.12);
+  height:42px;
+  min-width:108px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
   background:rgba(255,255,255,.88);
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
@@ -64,6 +64,7 @@ body{
   color:#111;
   outline:none;
   cursor:pointer;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
 }
 
 /* meta */
@@ -125,8 +126,8 @@ body{
 }
 
 .content p{
-  font-size:15px;
   color:#5f6f86;
+  font-size:15px;
 }
 
 /* FOOTER */
@@ -138,6 +139,7 @@ footer{
 
 /* MOBILE */
 @media (max-width:768px){
+
   .layout{
     grid-template-columns:1fr;
   }
@@ -161,19 +163,19 @@ footer{
   }
 
   .lang-wrap{
-    top:14px;
-    right:14px;
+    top:12px;
+    right:12px;
   }
 
   .lang-select{
-    height:36px;
-    min-width:84px;
+    height:38px;
+    min-width:94px;
     font-size:13px;
+    border-radius:12px;
   }
 }
 </style>
 </head>
-
 <body>
 
 <div class="hero">
@@ -181,10 +183,10 @@ footer{
 
     <div class="lang-wrap">
       <select id="langSelect" class="lang-select">
-        <option value="sr">SR</option>
-        <option value="de">AT / DE</option>
-        <option value="hu">HU</option>
-        <option value="en">EN</option>
+        <option value="sr">🇷🇸 SR</option>
+        <option value="de">🇦🇹 AT</option>
+        <option value="hu">🇭🇺 HU</option>
+        <option value="en">🇬🇧 EN</option>
       </select>
     </div>
 
@@ -272,6 +274,15 @@ const i18n = {
 
 let currentLang = localStorage.getItem("site_lang") || "sr";
 let currentPage = "home";
+let visitCount = Number(localStorage.getItem("visits") || 0) + 1;
+localStorage.setItem("visits", visitCount);
+
+function localeForLang(lang){
+  if(lang === "de") return "de-AT";
+  if(lang === "hu") return "hu-HU";
+  if(lang === "en") return "en-GB";
+  return "sr-RS";
+}
 
 function applyLanguage() {
   const t = i18n[currentLang];
@@ -316,17 +327,9 @@ function show(pageKey, btn, updateActive = true){
 
 function updateTime(){
   const now = new Date();
-  document.getElementById("time").innerText = now.toLocaleTimeString(
-    currentLang === "de" ? "de-AT" : currentLang === "hu" ? "hu-HU" : currentLang === "en" ? "en-GB" : "sr-RS"
-  );
-  document.getElementById("date").innerText = now.toLocaleDateString(
-    currentLang === "de" ? "de-AT" : currentLang === "hu" ? "hu-HU" : currentLang === "en" ? "en-GB" : "sr-RS"
-  );
+  document.getElementById("time").innerText = now.toLocaleTimeString(localeForLang(currentLang));
+  document.getElementById("date").innerText = now.toLocaleDateString(localeForLang(currentLang));
 }
-
-const savedVisits = localStorage.getItem("visits") || 0;
-const visitCount = Number(savedVisits) + 1;
-localStorage.setItem("visits", visitCount);
 
 fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
 .then(r=>r.json())
