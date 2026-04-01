@@ -42,16 +42,41 @@ body{
   padding:40px;
 }
 
-/* 🔥 SAVRŠENO PORAVNANJE */
+/* language switch */
+.lang-wrap{
+  position:absolute;
+  top:18px;
+  right:20px;
+  z-index:5;
+}
+
+.lang-select{
+  height:40px;
+  min-width:94px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  padding:0 12px;
+  font-size:14px;
+  font-weight:700;
+  color:#111;
+  outline:none;
+  cursor:pointer;
+}
+
+/* meta */
 .hero-meta{
   position:absolute;
   left:40px;
-  bottom:6px; /* 👈 KLJUČ */
+  bottom:6px;
   display:flex;
   gap:20px;
   font-weight:700;
   color:#111;
   font-size:14px;
+  z-index:4;
 }
 
 /* SIDEBAR */
@@ -60,6 +85,11 @@ body{
   border:1px solid var(--line);
   border-radius:18px;
   padding:20px;
+}
+
+.sidebar h3{
+  margin-bottom:10px;
+  font-size:18px;
 }
 
 .sidebar button{
@@ -71,6 +101,8 @@ body{
   background:#fff;
   text-align:left;
   font-weight:700;
+  font-size:14px;
+  cursor:pointer;
 }
 
 .sidebar button.active{
@@ -92,15 +124,20 @@ body{
   margin-bottom:10px;
 }
 
+.content p{
+  font-size:15px;
+  color:#5f6f86;
+}
+
 /* FOOTER */
 footer{
   padding:20px;
   text-align:center;
+  color:#5f6f86;
 }
 
-/* 🔥 MOBILE ISTA LOGIKA */
+/* MOBILE */
 @media (max-width:768px){
-
   .layout{
     grid-template-columns:1fr;
   }
@@ -116,12 +153,24 @@ footer{
 
   .hero-meta{
     left:20px;
-    bottom:6px; /* 👈 ISTO kao desktop */
+    bottom:6px;
     gap:12px;
     font-size:12px;
+    flex-wrap:wrap;
+    max-width:calc(100% - 40px);
+  }
+
+  .lang-wrap{
+    top:14px;
+    right:14px;
+  }
+
+  .lang-select{
+    height:36px;
+    min-width:84px;
+    font-size:13px;
   }
 }
-
 </style>
 </head>
 
@@ -129,6 +178,15 @@ footer{
 
 <div class="hero">
   <div class="hero-inner">
+
+    <div class="lang-wrap">
+      <select id="langSelect" class="lang-select">
+        <option value="sr">SR</option>
+        <option value="de">AT / DE</option>
+        <option value="hu">HU</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
 
     <div class="hero-meta">
       <div id="date"></div>
@@ -142,52 +200,154 @@ footer{
 
 <div class="layout">
   <aside class="sidebar">
-    <button class="active" onclick="show('Početna',this)">Početna</button>
-    <button onclick="show('Naše aplikacije',this)">Naše aplikacije</button>
-    <button onclick="show('Novosti',this)">Novosti</button>
-    <button onclick="show('Privacy Policy',this)">Privacy Policy</button>
-    <button onclick="show('Impressum',this)">Impressum</button>
-    <button onclick="show('Kontakt',this)">Kontakt</button>
+    <h3 id="menuTitle">Glavni meni</h3>
+
+    <button class="nav-btn active" data-key="home" onclick="show('home',this)"></button>
+    <button class="nav-btn" data-key="apps" onclick="show('apps',this)"></button>
+    <button class="nav-btn" data-key="news" onclick="show('news',this)"></button>
+    <button class="nav-btn" data-key="privacy" onclick="show('privacy',this)"></button>
+    <button class="nav-btn" data-key="impressum" onclick="show('impressum',this)"></button>
+    <button class="nav-btn" data-key="contact" onclick="show('contact',this)"></button>
   </aside>
 
   <main class="content">
-    <h2 id="title">Početna</h2>
-    <p>Stranica je u fazi izrade.</p>
+    <h2 id="title"></h2>
+    <p id="subtitle"></p>
   </main>
 </div>
 
-<footer>
-  © 2026 IT ZONE. Sva prava zadržana.
-</footer>
+<footer id="footerText"></footer>
 
 <script>
-function show(name,btn){
-  document.getElementById("title").innerText=name;
-  document.querySelectorAll(".sidebar button").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
+const i18n = {
+  sr: {
+    menuTitle: "Glavni meni",
+    home: "Početna",
+    apps: "Naše aplikacije",
+    news: "Novosti",
+    privacy: "Privacy Policy",
+    impressum: "Impressum",
+    contact: "Kontakt",
+    underConstruction: "Stranica je u fazi izrade.",
+    visits: "Posete",
+    footer: "© 2026 IT ZONE. Sva prava zadržana."
+  },
+  de: {
+    menuTitle: "Hauptmenü",
+    home: "Startseite",
+    apps: "Unsere Apps",
+    news: "Neuigkeiten",
+    privacy: "Datenschutz",
+    impressum: "Impressum",
+    contact: "Kontakt",
+    underConstruction: "Die Seite befindet sich im Aufbau.",
+    visits: "Besuche",
+    footer: "© 2026 IT ZONE. Alle Rechte vorbehalten."
+  },
+  hu: {
+    menuTitle: "Főmenü",
+    home: "Kezdőlap",
+    apps: "Alkalmazásaink",
+    news: "Hírek",
+    privacy: "Adatvédelem",
+    impressum: "Impresszum",
+    contact: "Kapcsolat",
+    underConstruction: "Az oldal fejlesztés alatt áll.",
+    visits: "Látogatások",
+    footer: "© 2026 IT ZONE. Minden jog fenntartva."
+  },
+  en: {
+    menuTitle: "Main menu",
+    home: "Home",
+    apps: "Our apps",
+    news: "News",
+    privacy: "Privacy Policy",
+    impressum: "Impressum",
+    contact: "Contact",
+    underConstruction: "This page is under construction.",
+    visits: "Visits",
+    footer: "© 2026 IT ZONE. All rights reserved."
+  }
+};
+
+let currentLang = localStorage.getItem("site_lang") || "sr";
+let currentPage = "home";
+
+function applyLanguage() {
+  const t = i18n[currentLang];
+
+  document.documentElement.lang = currentLang;
+  document.getElementById("menuTitle").innerText = t.menuTitle;
+  document.getElementById("footerText").innerText = t.footer;
+
+  document.querySelector('.nav-btn[data-key="home"]').innerText = t.home;
+  document.querySelector('.nav-btn[data-key="apps"]').innerText = t.apps;
+  document.querySelector('.nav-btn[data-key="news"]').innerText = t.news;
+  document.querySelector('.nav-btn[data-key="privacy"]').innerText = t.privacy;
+  document.querySelector('.nav-btn[data-key="impressum"]').innerText = t.impressum;
+  document.querySelector('.nav-btn[data-key="contact"]').innerText = t.contact;
+
+  document.getElementById("visits").innerText = `${t.visits}: ${visitCount}`;
+  show(currentPage, document.querySelector(`.nav-btn[data-key="${currentPage}"]`), false);
+}
+
+function show(pageKey, btn, updateActive = true){
+  currentPage = pageKey;
+  const t = i18n[currentLang];
+
+  let titleText = "";
+  switch(pageKey){
+    case "home": titleText = t.home; break;
+    case "apps": titleText = t.apps; break;
+    case "news": titleText = t.news; break;
+    case "privacy": titleText = t.privacy; break;
+    case "impressum": titleText = t.impressum; break;
+    case "contact": titleText = t.contact; break;
+  }
+
+  document.getElementById("title").innerText = titleText;
+  document.getElementById("subtitle").innerText = t.underConstruction;
+
+  if(updateActive){
+    document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+  }
 }
 
 function updateTime(){
-  const now=new Date();
-  document.getElementById("time").innerText=now.toLocaleTimeString("sr-RS");
-  document.getElementById("date").innerText=now.toLocaleDateString("sr-RS");
+  const now = new Date();
+  document.getElementById("time").innerText = now.toLocaleTimeString(
+    currentLang === "de" ? "de-AT" : currentLang === "hu" ? "hu-HU" : currentLang === "en" ? "en-GB" : "sr-RS"
+  );
+  document.getElementById("date").innerText = now.toLocaleDateString(
+    currentLang === "de" ? "de-AT" : currentLang === "hu" ? "hu-HU" : currentLang === "en" ? "en-GB" : "sr-RS"
+  );
 }
-setInterval(updateTime,1000);
-updateTime();
 
-let v=localStorage.getItem("visits")||0;
-v++;
-localStorage.setItem("visits",v);
-document.getElementById("visits").innerText="Posete: "+v;
+const savedVisits = localStorage.getItem("visits") || 0;
+const visitCount = Number(savedVisits) + 1;
+localStorage.setItem("visits", visitCount);
 
 fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
 .then(r=>r.json())
 .then(d=>{
-  document.getElementById("temp").innerText=Math.round(d.current_weather.temperature)+"°C";
+  document.getElementById("temp").innerText = Math.round(d.current_weather.temperature) + "°C";
 })
 .catch(()=>{
-  document.getElementById("temp").innerText="N/A";
+  document.getElementById("temp").innerText = "N/A";
 });
+
+document.getElementById("langSelect").value = currentLang;
+document.getElementById("langSelect").addEventListener("change", function(){
+  currentLang = this.value;
+  localStorage.setItem("site_lang", currentLang);
+  applyLanguage();
+  updateTime();
+});
+
+setInterval(updateTime, 1000);
+applyLanguage();
+updateTime();
 </script>
 
 </body>
