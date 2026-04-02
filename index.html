@@ -4,14 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>IT ZONE</title>
+<meta name="description" content="IT ZONE premium probna web stranica." />
 
-<!-- 🔥 PLAUSIBLE ANALYTICS -->
+<!-- Plausible Analytics -->
 <script defer data-domain="tvojdomen.com" src="https://plausible.io/js/script.js"></script>
 
 <style>
 :root{
   --line:#d8e3f0;
   --shadow:0 20px 50px rgba(20,55,95,.16);
+  --text:#223146;
+  --muted:#5f6f86;
+  --blue:#2455b2;
+  --bg:#f7fbff;
+  --card:#ffffff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -19,6 +25,16 @@
 body{
   font-family:Arial, sans-serif;
   background:linear-gradient(180deg,#f7fbff,#eef4fb);
+  color:var(--text);
+}
+
+a{
+  color:var(--blue);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
 }
 
 .layout{
@@ -45,7 +61,7 @@ body{
   padding:40px;
 }
 
-/* jezik */
+/* language */
 .lang-wrap{
   position:absolute;
   top:16px;
@@ -60,6 +76,7 @@ body{
   border:1px solid rgba(0,0,0,.10);
   background:rgba(255,255,255,.88);
   backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   padding:0 12px;
   font-size:14px;
   font-weight:700;
@@ -76,6 +93,8 @@ body{
   font-weight:700;
   color:#111;
   font-size:14px;
+  z-index:4;
+  flex-wrap:wrap;
 }
 
 /* SIDEBAR */
@@ -88,6 +107,7 @@ body{
 
 .sidebar h3{
   margin-bottom:10px;
+  font-size:18px;
 }
 
 .sidebar button{
@@ -99,7 +119,9 @@ body{
   background:#fff;
   text-align:left;
   font-weight:700;
+  font-size:14px;
   cursor:pointer;
+  color:var(--text);
 }
 
 .sidebar button.active{
@@ -118,10 +140,80 @@ body{
 
 .content h2{
   font-size:32px;
+  margin-bottom:8px;
+}
+
+.content-subtitle{
+  color:var(--muted);
+  font-size:15px;
+  margin-bottom:22px;
+}
+
+.section{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:16px;
+}
+
+.section h3{
+  font-size:20px;
   margin-bottom:10px;
 }
 
-/* FOOTER */
+.section p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.65;
+  margin-bottom:10px;
+}
+
+.section ul{
+  margin-left:18px;
+  color:var(--muted);
+}
+
+.section li{
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.app-card{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  background:linear-gradient(180deg, #ffffff, #fbfdff);
+}
+
+.app-card h4{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.app-card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+.note{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:999px;
+  background:#eef5ff;
+  color:#2455b2;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
 footer{
   padding:20px;
   text-align:center;
@@ -129,11 +221,17 @@ footer{
 }
 
 /* MOBILE */
-@media (max-width:768px){
+@media (max-width:900px){
   .layout{
     grid-template-columns:1fr;
   }
 
+  .grid-2{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:768px){
   .hero{
     min-height:220px;
   }
@@ -148,12 +246,30 @@ footer{
     bottom:6px;
     gap:12px;
     font-size:12px;
-    flex-wrap:wrap;
+    max-width:calc(100% - 40px);
+  }
+
+  .lang-wrap{
+    top:12px;
+    right:12px;
+  }
+
+  .lang-select{
+    height:38px;
+    min-width:94px;
+    font-size:13px;
+  }
+
+  .content{
+    padding:20px;
+  }
+
+  .content h2{
+    font-size:26px;
   }
 }
 </style>
 </head>
-
 <body>
 
 <div class="hero">
@@ -191,7 +307,8 @@ footer{
 
   <main class="content">
     <h2 id="title"></h2>
-    <p id="subtitle"></p>
+    <div class="content-subtitle" id="subtitle"></div>
+    <div id="contentArea"></div>
   </main>
 </div>
 
@@ -207,9 +324,151 @@ const i18n = {
     privacy: "Privacy Policy",
     impressum: "Impressum",
     contact: "Kontakt",
-    underConstruction: "Stranica je u fazi izrade.",
-    footer: "© 2026 IT ZONE. Sva prava zadržana."
+    homeSubtitle: "Dobrodošli na IT ZONE web stranicu.",
+    appsSubtitle: "Pregled aplikacija i projekata.",
+    newsSubtitle: "Aktuelnosti i objave.",
+    privacySubtitle: "Zaštita podataka i privatnost.",
+    impressumSubtitle: "Zakonske informacije o operatoru sajta.",
+    contactSubtitle: "Kontakt informacije.",
+    footer: "© 2026 IT ZONE. Sva prava zadržana.",
+    homeHtml: `
+      <div class="section">
+        <span class="note">IT ZONE</span>
+        <h3>Digitalna rešenja, aplikacije i web razvoj</h3>
+        <p>Dobrodošli na zvaničnu stranicu projekta IT ZONE. Ova stranica služi za predstavljanje aplikacija, informacija o projektu, kontakt podataka i pravnih informacija.</p>
+        <p>Sadržaj se postepeno dopunjava. U narednim verzijama biće dodati detaljni opisi aplikacija, galerije, reference i dodatne funkcije.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="section">
+          <h3>Šta radimo</h3>
+          <ul>
+            <li>Razvoj mobilnih aplikacija</li>
+            <li>Razvoj web stranica i internih sistema</li>
+            <li>UI / UX prilagođavanje za više jezika</li>
+            <li>Digitalna rešenja za male biznise i privatne projekte</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>Status sajta</h3>
+          <p>Stranica je aktivna i predstavlja osnovu za dalje širenje sadržaja. Pravne sekcije, kontakt podaci i višejezična podrška su pripremljeni.</p>
+        </div>
+      </div>
+    `,
+    appsHtml: `
+      <div class="section">
+        <h3>Naše aplikacije</h3>
+        <p>Ovde će biti prikazane aktuelne i buduće aplikacije, sa opisom funkcija, slikama ekrana i osnovnim informacijama.</p>
+      </div>
+      <div class="grid-2">
+        <div class="app-card">
+          <h4>App 1</h4>
+          <p>Ovde možeš uneti naziv aplikacije, kratki opis, glavne funkcije i link ka prodavnici ili stranici proizvoda.</p>
+        </div>
+        <div class="app-card">
+          <h4>App 2</h4>
+          <p>Ovde možeš dodati drugu aplikaciju, preview, status razvoja i planirane funkcije.</p>
+        </div>
+      </div>
+    `,
+    newsHtml: `
+      <div class="section">
+        <h3>Novosti</h3>
+        <p>Na ovoj stranici možeš objavljivati novosti o aplikacijama, ažuriranjima, novim verzijama, planovima i važnim obaveštenjima.</p>
+      </div>
+      <div class="section">
+        <h3>Primer objave</h3>
+        <p><strong>Datum:</strong> [unesi datum]</p>
+        <p><strong>Naslov:</strong> [unesi naslov novosti]</p>
+        <p><strong>Tekst:</strong> Ovde dodaj sadržaj objave.</p>
+      </div>
+    `,
+    privacyHtml: `
+      <div class="section">
+        <h3>1. Opšte informacije</h3>
+        <p>Zaštita vaših podataka nam je važna. Ova Privacy Policy stranica objašnjava koje informacije se obrađuju kada posetite ovu web stranicu i u koje svrhe.</p>
+      </div>
+
+      <div class="section">
+        <h3>2. Odgovorno lice</h3>
+        <p><strong>[NAZIV / IME]</strong><br>[ADRESA]<br>[POSTANSKI BROJ I GRAD]<br>[DRZAVA]</p>
+        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+      </div>
+
+      <div class="section">
+        <h3>3. Hosting i tehnički logovi</h3>
+        <p>Prilikom posete ovoj stranici, hosting provajder može tehnički obrađivati podatke koji su potrebni za isporuku sajta, bezbednost sistema i otkrivanje grešaka. To može obuhvatiti IP adresu, datum i vreme zahteva, vrstu browsera, operativni sistem i tehničke informacije o uređaju.</p>
+      </div>
+
+      <div class="section">
+        <h3>4. Plausible Analytics</h3>
+        <p>Ova stranica koristi Plausible Analytics za statističku analizu posećenosti. Plausible se koristi u privacy-friendly režimu. Ne koriste se kolačići za analitiku i ne kreiraju se individualni korisnički profili.</p>
+        <p>Analitika služi isključivo za agregirane statističke podatke, kao što su broj poseta, pregledanih stranica, država, tip uređaja, browser i trajanje posete.</p>
+      </div>
+
+      <div class="section">
+        <h3>5. Kontakt putem emaila</h3>
+        <p>Ako nas kontaktirate putem email adrese navedene na sajtu, obrađujemo podatke koje nam dobrovoljno pošaljete, kao što su ime, email adresa i sadržaj poruke, isključivo radi obrade vašeg upita.</p>
+      </div>
+
+      <div class="section">
+        <h3>6. Pravna osnova</h3>
+        <p>Obrada podataka vrši se na osnovu važećih propisa o zaštiti podataka, posebno kada je obrada potrebna radi tehničkog funkcionisanja sajta, odgovora na upite ili legitimnog interesa za osnovnu statistiku i bezbednost web stranice.</p>
+      </div>
+
+      <div class="section">
+        <h3>7. Vaša prava</h3>
+        <p>U skladu sa važećim propisima, imate pravo na pristup podacima, ispravku, brisanje, ograničenje obrade, prenosivost podataka i prigovor, ukoliko su za to ispunjeni zakonski uslovi.</p>
+      </div>
+
+      <div class="section">
+        <h3>8. Kontakt za pitanja o privatnosti</h3>
+        <p>Za pitanja u vezi sa zaštitom podataka možete se obratiti na: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+      </div>
+    `,
+    impressumHtml: `
+      <div class="section">
+        <h3>Impressum</h3>
+        <p><strong>Operator sajta:</strong><br>[NAZIV / IME]</p>
+        <p><strong>Pravna forma:</strong><br>[PRAVNA FORMA]</p>
+        <p><strong>Adresa:</strong><br>[ADRESA]<br>[POSTANSKI BROJ I GRAD]<br>[DRZAVA]</p>
+      </div>
+
+      <div class="section">
+        <h3>Kontakt</h3>
+        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+      </div>
+
+      <div class="section">
+        <h3>Dodatne zakonske informacije</h3>
+        <p><strong>Predmet poslovanja:</strong> [POSLOVNA DELATNOST]</p>
+        <p><strong>Nadležni organ:</strong> [NADLEZNI ORGAN]</p>
+        <p><strong>UID broj:</strong> [UID]</p>
+        <p><strong>Registar:</strong> [FIRMENBUCH / REGISTAR]</p>
+        <p><strong>Broj registra:</strong> [BROJ REGISTRA]</p>
+      </div>
+
+      <div class="section">
+        <h3>Odgovornost za sadržaj</h3>
+        <p>Uprkos pažljivom praćenju sadržaja, ne preuzima se odgovornost za sadržaj eksternih linkova. Za sadržaj povezanih stranica odgovorni su isključivo njihovi operatori.</p>
+      </div>
+    `,
+    contactHtml: `
+      <div class="section">
+        <h3>Kontakt</h3>
+        <p><strong>[NAZIV / IME]</strong></p>
+        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <p>Telefon: [TELEFON]</p>
+        <p>Adresa: [ADRESA], [POSTANSKI BROJ I GRAD], [DRZAVA]</p>
+      </div>
+
+      <div class="section">
+        <h3>Radno vreme</h3>
+        <p>[OVDE UNESI RADNO VREME AKO ŽELIŠ]</p>
+      </div>
+    `
   },
+
   de: {
     menuTitle: "Hauptmenü",
     home: "Startseite",
@@ -218,9 +477,151 @@ const i18n = {
     privacy: "Datenschutz",
     impressum: "Impressum",
     contact: "Kontakt",
-    underConstruction: "Die Seite befindet sich im Aufbau.",
-    footer: "© 2026 IT ZONE. Alle Rechte vorbehalten."
+    homeSubtitle: "Willkommen auf der IT ZONE Website.",
+    appsSubtitle: "Übersicht über Apps und Projekte.",
+    newsSubtitle: "Aktuelles und Mitteilungen.",
+    privacySubtitle: "Datenschutz und Privatsphäre.",
+    impressumSubtitle: "Gesetzliche Informationen über den Websitebetreiber.",
+    contactSubtitle: "Kontaktinformationen.",
+    footer: "© 2026 IT ZONE. Alle Rechte vorbehalten.",
+    homeHtml: `
+      <div class="section">
+        <span class="note">IT ZONE</span>
+        <h3>Digitale Lösungen, Apps und Webentwicklung</h3>
+        <p>Willkommen auf der offiziellen IT ZONE Website. Diese Seite dient zur Präsentation von Apps, Projektinformationen, Kontaktdaten und rechtlichen Informationen.</p>
+        <p>Die Inhalte werden schrittweise erweitert. In künftigen Versionen werden detaillierte App-Beschreibungen, Screenshots, Referenzen und zusätzliche Funktionen hinzugefügt.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="section">
+          <h3>Was wir machen</h3>
+          <ul>
+            <li>Entwicklung mobiler Apps</li>
+            <li>Entwicklung von Websites und internen Systemen</li>
+            <li>UI / UX Anpassung für mehrere Sprachen</li>
+            <li>Digitale Lösungen für kleine Unternehmen und Privatprojekte</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>Status der Website</h3>
+          <p>Die Website ist aktiv und bildet die Grundlage für weitere Inhalte. Rechtliche Seiten, Kontaktinformationen und Mehrsprachigkeit sind vorbereitet.</p>
+        </div>
+      </div>
+    `,
+    appsHtml: `
+      <div class="section">
+        <h3>Unsere Apps</h3>
+        <p>Hier werden aktuelle und zukünftige Apps mit Funktionsbeschreibung, Screenshots und Basisinformationen dargestellt.</p>
+      </div>
+      <div class="grid-2">
+        <div class="app-card">
+          <h4>App 1</h4>
+          <p>Hier kannst du den Namen der App, eine Kurzbeschreibung, Hauptfunktionen und einen Link zum Store oder zur Produktseite einfügen.</p>
+        </div>
+        <div class="app-card">
+          <h4>App 2</h4>
+          <p>Hier kannst du eine zweite App, eine Vorschau, den Entwicklungsstatus und geplante Funktionen eintragen.</p>
+        </div>
+      </div>
+    `,
+    newsHtml: `
+      <div class="section">
+        <h3>Neuigkeiten</h3>
+        <p>Auf dieser Seite kannst du Neuigkeiten zu Apps, Updates, neuen Versionen, Plänen und wichtigen Mitteilungen veröffentlichen.</p>
+      </div>
+      <div class="section">
+        <h3>Beispielbeitrag</h3>
+        <p><strong>Datum:</strong> [Datum eintragen]</p>
+        <p><strong>Titel:</strong> [Titel eintragen]</p>
+        <p><strong>Text:</strong> Hier den Inhalt der Meldung eintragen.</p>
+      </div>
+    `,
+    privacyHtml: `
+      <div class="section">
+        <h3>1. Allgemeine Informationen</h3>
+        <p>Der Schutz Ihrer Daten ist uns wichtig. Diese Datenschutzerklärung erklärt, welche Informationen verarbeitet werden, wenn Sie diese Website besuchen, und zu welchen Zwecken dies geschieht.</p>
+      </div>
+
+      <div class="section">
+        <h3>2. Verantwortliche Stelle</h3>
+        <p><strong>[NAME / BEZEICHNUNG]</strong><br>[ADRESSE]<br>[PLZ UND ORT]<br>[LAND]</p>
+        <p>E-Mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+      </div>
+
+      <div class="section">
+        <h3>3. Hosting und technische Logs</h3>
+        <p>Beim Besuch dieser Website kann der Hosting-Anbieter technische Daten verarbeiten, die für die Auslieferung der Website, Systemsicherheit und Fehleranalyse erforderlich sind. Dazu können IP-Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem und technische Geräteinformationen gehören.</p>
+      </div>
+
+      <div class="section">
+        <h3>4. Plausible Analytics</h3>
+        <p>Diese Website verwendet Plausible Analytics zur statistischen Auswertung der Nutzung. Plausible wird in einer datenschutzfreundlichen Konfiguration eingesetzt. Es werden keine Analyse-Cookies verwendet und keine individuellen Nutzerprofile erstellt.</p>
+        <p>Die Statistik dient ausschließlich aggregierten Auswertungen, zum Beispiel Seitenaufrufen, Ländern, Gerätetypen, Browsern und Besuchsdauer.</p>
+      </div>
+
+      <div class="section">
+        <h3>5. Kontakt per E-Mail</h3>
+        <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir jene Daten, die Sie uns freiwillig übermitteln, insbesondere Name, E-Mail-Adresse und Inhalt Ihrer Nachricht, ausschließlich zur Bearbeitung Ihrer Anfrage.</p>
+      </div>
+
+      <div class="section">
+        <h3>6. Rechtsgrundlagen</h3>
+        <p>Die Datenverarbeitung erfolgt auf Grundlage der jeweils anwendbaren Datenschutzvorschriften, insbesondere soweit die Verarbeitung für den technischen Betrieb der Website, die Beantwortung von Anfragen oder ein berechtigtes Interesse an grundlegender Statistik und Sicherheit erforderlich ist.</p>
+      </div>
+
+      <div class="section">
+        <h3>7. Ihre Rechte</h3>
+        <p>Sie haben nach Maßgabe der gesetzlichen Voraussetzungen insbesondere das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch.</p>
+      </div>
+
+      <div class="section">
+        <h3>8. Kontakt zum Datenschutz</h3>
+        <p>Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+      </div>
+    `,
+    impressumHtml: `
+      <div class="section">
+        <h3>Impressum</h3>
+        <p><strong>Websitebetreiber:</strong><br>[NAME / BEZEICHNUNG]</p>
+        <p><strong>Rechtsform:</strong><br>[RECHTSFORM]</p>
+        <p><strong>Adresse:</strong><br>[ADRESSE]<br>[PLZ UND ORT]<br>[LAND]</p>
+      </div>
+
+      <div class="section">
+        <h3>Kontakt</h3>
+        <p>E-Mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+      </div>
+
+      <div class="section">
+        <h3>Weitere gesetzliche Angaben</h3>
+        <p><strong>Unternehmensgegenstand:</strong> [GESCHÄFTSTÄTIGKEIT]</p>
+        <p><strong>Zuständige Behörde:</strong> [BEHÖRDE]</p>
+        <p><strong>UID-Nummer:</strong> [UID]</p>
+        <p><strong>Register:</strong> [FIRMENBUCH / REGISTER]</p>
+        <p><strong>Registernummer:</strong> [REGISTERNUMMER]</p>
+      </div>
+
+      <div class="section">
+        <h3>Haftung für Inhalte</h3>
+        <p>Trotz sorgfältiger inhaltlicher Kontrolle wird keine Haftung für die Inhalte externer Links übernommen. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+      </div>
+    `,
+    contactHtml: `
+      <div class="section">
+        <h3>Kontakt</h3>
+        <p><strong>[NAME / BEZEICHNUNG]</strong></p>
+        <p>E-Mail: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <p>Telefon: [TELEFON]</p>
+        <p>Adresse: [ADRESSE], [PLZ UND ORT], [LAND]</p>
+      </div>
+
+      <div class="section">
+        <h3>Öffnungszeiten</h3>
+        <p>[HIER ÖFFNUNGSZEITEN EINTRAGEN, WENN GEWÜNSCHT]</p>
+      </div>
+    `
   },
+
   hu: {
     menuTitle: "Főmenü",
     home: "Kezdőlap",
@@ -229,9 +630,119 @@ const i18n = {
     privacy: "Adatvédelem",
     impressum: "Impresszum",
     contact: "Kapcsolat",
-    underConstruction: "Az oldal fejlesztés alatt áll.",
-    footer: "© 2026 IT ZONE. Minden jog fenntartva."
+    homeSubtitle: "Üdvözöljük az IT ZONE weboldalán.",
+    appsSubtitle: "Alkalmazások és projektek áttekintése.",
+    newsSubtitle: "Aktuális hírek és közlemények.",
+    privacySubtitle: "Adatvédelem és magánszféra.",
+    impressumSubtitle: "Jogi információk a weboldal üzemeltetőjéről.",
+    contactSubtitle: "Kapcsolati adatok.",
+    footer: "© 2026 IT ZONE. Minden jog fenntartva.",
+    homeHtml: `
+      <div class="section">
+        <span class="note">IT ZONE</span>
+        <h3>Digitális megoldások, alkalmazások és webfejlesztés</h3>
+        <p>Üdvözöljük az IT ZONE hivatalos weboldalán. Ez az oldal az alkalmazások, projektinformációk, kapcsolati adatok és jogi információk bemutatására szolgál.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="section">
+          <h3>Mit csinálunk</h3>
+          <ul>
+            <li>Mobilalkalmazás-fejlesztés</li>
+            <li>Weboldalak és belső rendszerek fejlesztése</li>
+            <li>Többnyelvű UI / UX testreszabás</li>
+            <li>Digitális megoldások kisvállalkozásoknak és privát projektekhez</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>Weboldal státusza</h3>
+          <p>Az oldal aktív, és alapot ad a további tartalmi bővítéshez. A jogi oldalak, a kapcsolat és a többnyelvű támogatás előkészítve vannak.</p>
+        </div>
+      </div>
+    `,
+    appsHtml: `
+      <div class="section">
+        <h3>Alkalmazásaink</h3>
+        <p>Itt jelennek meg a jelenlegi és jövőbeli alkalmazások leírással, képernyőképekkel és alapinformációkkal.</p>
+      </div>
+      <div class="grid-2">
+        <div class="app-card">
+          <h4>App 1</h4>
+          <p>Itt megadhatod az alkalmazás nevét, rövid leírását, fő funkcióit és az áruház vagy termékoldal linkjét.</p>
+        </div>
+        <div class="app-card">
+          <h4>App 2</h4>
+          <p>Itt megadhatsz egy második alkalmazást, előnézetet, fejlesztési állapotot és tervezett funkciókat.</p>
+        </div>
+      </div>
+    `,
+    newsHtml: `
+      <div class="section">
+        <h3>Hírek</h3>
+        <p>Ezen az oldalon közzéteheted az alkalmazásokkal, frissítésekkel, új verziókkal, tervekkel és fontos közleményekkel kapcsolatos híreket.</p>
+      </div>
+    `,
+    privacyHtml: `
+      <div class="section">
+        <h3>1. Általános információk</h3>
+        <p>Fontos számunkra az Ön adatainak védelme. Ez az adatvédelmi tájékoztató ismerteti, milyen információk kerülnek feldolgozásra a weboldal látogatása során, és milyen célból.</p>
+      </div>
+
+      <div class="section">
+        <h3>2. Adatkezelő</h3>
+        <p><strong>[NÉV / MEGNEVEZÉS]</strong><br>[CÍM]<br>[IRÁNYÍTÓSZÁM ÉS VÁROS]<br>[ORSZÁG]</p>
+        <p>E-mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+      </div>
+
+      <div class="section">
+        <h3>3. Tárhely és technikai naplók</h3>
+        <p>A weboldal látogatásakor a tárhelyszolgáltató technikai adatokat kezelhet a weboldal működtetése, a rendszerbiztonság és a hibák felderítése érdekében.</p>
+      </div>
+
+      <div class="section">
+        <h3>4. Plausible Analytics</h3>
+        <p>Ez a weboldal Plausible Analytics szolgáltatást használ statisztikai célból, adatbarát beállításban. Nem használ analitikai sütiket, és nem hoz létre egyéni felhasználói profilokat.</p>
+      </div>
+
+      <div class="section">
+        <h3>5. E-mail kapcsolat</h3>
+        <p>Ha e-mailben kapcsolatba lép velünk, az Ön által önként megadott adatokat kizárólag az üzenet feldolgozása céljából használjuk fel.</p>
+      </div>
+
+      <div class="section">
+        <h3>6. Jogalap</h3>
+        <p>Az adatkezelés a hatályos adatvédelmi szabályok alapján történik, különösen a weboldal technikai működtetése, a megkeresések megválaszolása és az alapvető statisztika biztosítása érdekében.</p>
+      </div>
+
+      <div class="section">
+        <h3>7. Az Ön jogai</h3>
+        <p>Jogszabályi feltételek fennállása esetén Ön jogosult hozzáférést, helyesbítést, törlést, korlátozást, adathordozhatóságot és tiltakozást kérni.</p>
+      </div>
+    `,
+    impressumHtml: `
+      <div class="section">
+        <h3>Impresszum</h3>
+        <p><strong>Üzemeltető:</strong><br>[NÉV / MEGNEVEZÉS]</p>
+        <p><strong>Jogi forma:</strong><br>[JOGI FORMA]</p>
+        <p><strong>Cím:</strong><br>[CÍM]<br>[IRÁNYÍTÓSZÁM ÉS VÁROS]<br>[ORSZÁG]</p>
+      </div>
+
+      <div class="section">
+        <h3>Kapcsolat</h3>
+        <p>E-mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+      </div>
+    `,
+    contactHtml: `
+      <div class="section">
+        <h3>Kapcsolat</h3>
+        <p><strong>[NÉV / MEGNEVEZÉS]</strong></p>
+        <p>E-mail: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <p>Telefon: [TELEFON]</p>
+        <p>Cím: [CÍM], [IRÁNYÍTÓSZÁM ÉS VÁROS], [ORSZÁG]</p>
+      </div>
+    `
   },
+
   en: {
     menuTitle: "Main menu",
     home: "Home",
@@ -240,8 +751,126 @@ const i18n = {
     privacy: "Privacy Policy",
     impressum: "Impressum",
     contact: "Contact",
-    underConstruction: "This page is under construction.",
-    footer: "© 2026 IT ZONE. All rights reserved."
+    homeSubtitle: "Welcome to the IT ZONE website.",
+    appsSubtitle: "Overview of apps and projects.",
+    newsSubtitle: "Updates and announcements.",
+    privacySubtitle: "Data protection and privacy.",
+    impressumSubtitle: "Legal information about the website operator.",
+    contactSubtitle: "Contact information.",
+    footer: "© 2026 IT ZONE. All rights reserved.",
+    homeHtml: `
+      <div class="section">
+        <span class="note">IT ZONE</span>
+        <h3>Digital solutions, apps and web development</h3>
+        <p>Welcome to the official IT ZONE website. This page is used to present apps, project information, contact details and legal information.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="section">
+          <h3>What we do</h3>
+          <ul>
+            <li>Mobile app development</li>
+            <li>Website and internal system development</li>
+            <li>Multilingual UI / UX customization</li>
+            <li>Digital solutions for small businesses and private projects</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>Website status</h3>
+          <p>The website is active and serves as a base for further expansion. Legal pages, contact information and multilingual support are prepared.</p>
+        </div>
+      </div>
+    `,
+    appsHtml: `
+      <div class="section">
+        <h3>Our apps</h3>
+        <p>This page will present current and future apps with descriptions, screenshots and basic information.</p>
+      </div>
+      <div class="grid-2">
+        <div class="app-card">
+          <h4>App 1</h4>
+          <p>You can add the app name, a short description, key features and a link to the app store or product page here.</p>
+        </div>
+        <div class="app-card">
+          <h4>App 2</h4>
+          <p>You can add a second app, preview, development status and planned features here.</p>
+        </div>
+      </div>
+    `,
+    newsHtml: `
+      <div class="section">
+        <h3>News</h3>
+        <p>You can publish updates about apps, releases, plans and important announcements here.</p>
+      </div>
+    `,
+    privacyHtml: `
+      <div class="section">
+        <h3>1. General information</h3>
+        <p>Protecting your data is important to us. This privacy policy explains what information may be processed when you visit this website and for what purposes.</p>
+      </div>
+
+      <div class="section">
+        <h3>2. Controller</h3>
+        <p><strong>[NAME / BUSINESS NAME]</strong><br>[ADDRESS]<br>[POSTAL CODE AND CITY]<br>[COUNTRY]</p>
+        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Phone: [PHONE]</p>
+      </div>
+
+      <div class="section">
+        <h3>3. Hosting and technical logs</h3>
+        <p>When you visit this website, the hosting provider may process technical data required to deliver the site, ensure system security and identify errors.</p>
+      </div>
+
+      <div class="section">
+        <h3>4. Plausible Analytics</h3>
+        <p>This website uses Plausible Analytics for privacy-friendly statistical measurement. No analytics cookies are used and no individual user profiles are created.</p>
+      </div>
+
+      <div class="section">
+        <h3>5. Contact by email</h3>
+        <p>If you contact us by email, we process the data you voluntarily provide, such as your name, email address and message content, solely to handle your request.</p>
+      </div>
+
+      <div class="section">
+        <h3>6. Legal basis</h3>
+        <p>Data processing is carried out on the basis of applicable data protection law, especially where processing is necessary for the technical operation of the website, responding to inquiries or basic statistics and security.</p>
+      </div>
+
+      <div class="section">
+        <h3>7. Your rights</h3>
+        <p>Subject to legal requirements, you may have the right to access, rectification, erasure, restriction, portability and objection.</p>
+      </div>
+    `,
+    impressumHtml: `
+      <div class="section">
+        <h3>Impressum</h3>
+        <p><strong>Website operator:</strong><br>[NAME / BUSINESS NAME]</p>
+        <p><strong>Legal form:</strong><br>[LEGAL FORM]</p>
+        <p><strong>Address:</strong><br>[ADDRESS]<br>[POSTAL CODE AND CITY]<br>[COUNTRY]</p>
+      </div>
+
+      <div class="section">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Phone: [PHONE]</p>
+      </div>
+
+      <div class="section">
+        <h3>Additional legal information</h3>
+        <p><strong>Business activity:</strong> [BUSINESS ACTIVITY]</p>
+        <p><strong>Supervisory authority:</strong> [AUTHORITY]</p>
+        <p><strong>VAT / UID:</strong> [UID]</p>
+        <p><strong>Register:</strong> [COMPANY REGISTER]</p>
+        <p><strong>Register number:</strong> [REGISTER NUMBER]</p>
+      </div>
+    `,
+    contactHtml: `
+      <div class="section">
+        <h3>Contact</h3>
+        <p><strong>[NAME / BUSINESS NAME]</strong></p>
+        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <p>Phone: [PHONE]</p>
+        <p>Address: [ADDRESS], [POSTAL CODE AND CITY], [COUNTRY]</p>
+      </div>
+    `
   }
 };
 
@@ -255,9 +884,30 @@ function localeForLang(lang){
   return "sr-RS";
 }
 
+function pageSubtitle(t, key){
+  if(key === "home") return t.homeSubtitle;
+  if(key === "apps") return t.appsSubtitle;
+  if(key === "news") return t.newsSubtitle;
+  if(key === "privacy") return t.privacySubtitle;
+  if(key === "impressum") return t.impressumSubtitle;
+  if(key === "contact") return t.contactSubtitle;
+  return "";
+}
+
+function pageHtml(t, key){
+  if(key === "home") return t.homeHtml;
+  if(key === "apps") return t.appsHtml;
+  if(key === "news") return t.newsHtml;
+  if(key === "privacy") return t.privacyHtml;
+  if(key === "impressum") return t.impressumHtml;
+  if(key === "contact") return t.contactHtml;
+  return "";
+}
+
 function applyLanguage() {
   const t = i18n[currentLang];
 
+  document.documentElement.lang = currentLang;
   document.getElementById("menuTitle").innerText = t.menuTitle;
   document.getElementById("footerText").innerText = t.footer;
 
@@ -276,7 +926,8 @@ function show(pageKey, btn, updateActive = true){
   const t = i18n[currentLang];
 
   document.getElementById("title").innerText = t[pageKey];
-  document.getElementById("subtitle").innerText = t.underConstruction;
+  document.getElementById("subtitle").innerText = pageSubtitle(t, pageKey);
+  document.getElementById("contentArea").innerHTML = pageHtml(t, pageKey);
 
   if(updateActive){
     document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
