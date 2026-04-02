@@ -16,8 +16,6 @@
   --text:#223146;
   --muted:#5f6f86;
   --blue:#2455b2;
-  --bg:#f7fbff;
-  --card:#ffffff;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -324,34 +322,34 @@ const i18n = {
     privacy: "Privacy Policy",
     impressum: "Impressum",
     contact: "Kontakt",
-    homeSubtitle: "Dobrodošli na IT ZONE web stranicu.",
+    homeSubtitle: "Privatna informativna stranica u razvoju.",
     appsSubtitle: "Pregled aplikacija i projekata.",
     newsSubtitle: "Aktuelnosti i objave.",
     privacySubtitle: "Zaštita podataka i privatnost.",
-    impressumSubtitle: "Zakonske informacije o operatoru sajta.",
+    impressumSubtitle: "Osnovne informacije o privatnoj stranici.",
     contactSubtitle: "Kontakt informacije.",
     footer: "© 2026 IT ZONE. Sva prava zadržana.",
     homeHtml: `
       <div class="section">
         <span class="note">IT ZONE</span>
-        <h3>Digitalna rešenja, aplikacije i web razvoj</h3>
-        <p>Dobrodošli na zvaničnu stranicu projekta IT ZONE. Ova stranica služi za predstavljanje aplikacija, informacija o projektu, kontakt podataka i pravnih informacija.</p>
-        <p>Sadržaj se postepeno dopunjava. U narednim verzijama biće dodati detaljni opisi aplikacija, galerije, reference i dodatne funkcije.</p>
+        <h3>Privatna informativna stranica</h3>
+        <p>Dobrodošli na IT ZONE. Ovo je privatna, probna i informativna web stranica u razvoju, namenjena predstavljanju ideja, aplikacija, projekata i osnovnih informacija.</p>
+        <p>Stranica trenutno ne predstavlja registrovanu poslovnu prezentaciju niti zvaničnu ponudu usluga. Sadržaj se postepeno dopunjava i služi kao osnova za budući razvoj.</p>
       </div>
 
       <div class="grid-2">
         <div class="section">
-          <h3>Šta radimo</h3>
+          <h3>Šta je planirano</h3>
           <ul>
-            <li>Razvoj mobilnih aplikacija</li>
-            <li>Razvoj web stranica i internih sistema</li>
-            <li>UI / UX prilagođavanje za više jezika</li>
-            <li>Digitalna rešenja za male biznise i privatne projekte</li>
+            <li>Predstavljanje aplikacija i projekata</li>
+            <li>Višejezična podrška</li>
+            <li>Novosti i ažuriranja</li>
+            <li>Kasniji prelazak na poslovnu verziju sajta, po potrebi</li>
           </ul>
         </div>
         <div class="section">
           <h3>Status sajta</h3>
-          <p>Stranica je aktivna i predstavlja osnovu za dalje širenje sadržaja. Pravne sekcije, kontakt podaci i višejezična podrška su pripremljeni.</p>
+          <p>Sajt je trenutno privatan / probni i služi za predstavljanje koncepta i osnovnih informacija. Ako projekat pređe u komercijalnu fazu, pravni i poslovni podaci će biti ažurirani.</p>
         </div>
       </div>
     `,
@@ -363,108 +361,92 @@ const i18n = {
       <div class="grid-2">
         <div class="app-card">
           <h4>App 1</h4>
-          <p>Ovde možeš uneti naziv aplikacije, kratki opis, glavne funkcije i link ka prodavnici ili stranici proizvoda.</p>
+          <p>Ovde možeš uneti naziv aplikacije, kratak opis, glavne funkcije i status razvoja.</p>
         </div>
         <div class="app-card">
           <h4>App 2</h4>
-          <p>Ovde možeš dodati drugu aplikaciju, preview, status razvoja i planirane funkcije.</p>
+          <p>Ovde možeš dodati drugu aplikaciju, preview i planirane funkcije.</p>
         </div>
       </div>
     `,
     newsHtml: `
       <div class="section">
         <h3>Novosti</h3>
-        <p>Na ovoj stranici možeš objavljivati novosti o aplikacijama, ažuriranjima, novim verzijama, planovima i važnim obaveštenjima.</p>
+        <p>Na ovoj stranici možeš objavljivati novosti o aplikacijama, novim verzijama, planovima i važnim obaveštenjima.</p>
       </div>
       <div class="section">
         <h3>Primer objave</h3>
         <p><strong>Datum:</strong> [unesi datum]</p>
-        <p><strong>Naslov:</strong> [unesi naslov novosti]</p>
+        <p><strong>Naslov:</strong> [unesi naslov]</p>
         <p><strong>Tekst:</strong> Ovde dodaj sadržaj objave.</p>
       </div>
     `,
     privacyHtml: `
       <div class="section">
         <h3>1. Opšte informacije</h3>
-        <p>Zaštita vaših podataka nam je važna. Ova Privacy Policy stranica objašnjava koje informacije se obrađuju kada posetite ovu web stranicu i u koje svrhe.</p>
+        <p>Zaštita privatnosti je važna. Ova stranica je privatna informativna stranica i služi za osnovno predstavljanje projekta i kontakt podataka.</p>
       </div>
 
       <div class="section">
-        <h3>2. Odgovorno lice</h3>
-        <p><strong>[NAZIV / IME]</strong><br>[ADRESA]<br>[POSTANSKI BROJ I GRAD]<br>[DRZAVA]</p>
-        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+        <h3>2. Kontakt</h3>
+        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
+        <p>Email: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
 
       <div class="section">
-        <h3>3. Hosting i tehnički logovi</h3>
-        <p>Prilikom posete ovoj stranici, hosting provajder može tehnički obrađivati podatke koji su potrebni za isporuku sajta, bezbednost sistema i otkrivanje grešaka. To može obuhvatiti IP adresu, datum i vreme zahteva, vrstu browsera, operativni sistem i tehničke informacije o uređaju.</p>
+        <h3>3. Tehnički podaci</h3>
+        <p>Prilikom posete sajtu hosting provajder može tehnički obrađivati osnovne podatke potrebne za isporuku stranice, stabilnost sistema i bezbednost.</p>
       </div>
 
       <div class="section">
         <h3>4. Plausible Analytics</h3>
-        <p>Ova stranica koristi Plausible Analytics za statističku analizu posećenosti. Plausible se koristi u privacy-friendly režimu. Ne koriste se kolačići za analitiku i ne kreiraju se individualni korisnički profili.</p>
-        <p>Analitika služi isključivo za agregirane statističke podatke, kao što su broj poseta, pregledanih stranica, država, tip uređaja, browser i trajanje posete.</p>
+        <p>Ova stranica koristi Plausible Analytics za osnovnu statistiku posećenosti u privacy-friendly režimu. Ne koriste se analitički kolačići i ne prave se individualni korisnički profili.</p>
+        <p>Statistika se koristi samo za agregirane podatke, kao što su pregled stranica, zemlja, uređaj i browser.</p>
       </div>
 
       <div class="section">
         <h3>5. Kontakt putem emaila</h3>
-        <p>Ako nas kontaktirate putem email adrese navedene na sajtu, obrađujemo podatke koje nam dobrovoljno pošaljete, kao što su ime, email adresa i sadržaj poruke, isključivo radi obrade vašeg upita.</p>
+        <p>Ako pošaljete email, obrađuju se samo podaci koje sami pošaljete, i to isključivo radi odgovora na upit.</p>
       </div>
 
       <div class="section">
-        <h3>6. Pravna osnova</h3>
-        <p>Obrada podataka vrši se na osnovu važećih propisa o zaštiti podataka, posebno kada je obrada potrebna radi tehničkog funkcionisanja sajta, odgovora na upite ili legitimnog interesa za osnovnu statistiku i bezbednost web stranice.</p>
-      </div>
-
-      <div class="section">
-        <h3>7. Vaša prava</h3>
-        <p>U skladu sa važećim propisima, imate pravo na pristup podacima, ispravku, brisanje, ograničenje obrade, prenosivost podataka i prigovor, ukoliko su za to ispunjeni zakonski uslovi.</p>
-      </div>
-
-      <div class="section">
-        <h3>8. Kontakt za pitanja o privatnosti</h3>
-        <p>Za pitanja u vezi sa zaštitom podataka možete se obratiti na: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <h3>6. Pitanja o privatnosti</h3>
+        <p>Za pitanja vezana za privatnost i podatke, kontakt: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
     `,
     impressumHtml: `
       <div class="section">
         <h3>Impressum</h3>
-        <p><strong>Operator sajta:</strong><br>[NAZIV / IME]</p>
-        <p><strong>Pravna forma:</strong><br>[PRAVNA FORMA]</p>
-        <p><strong>Adresa:</strong><br>[ADRESA]<br>[POSTANSKI BROJ I GRAD]<br>[DRZAVA]</p>
+        <p><strong>Privatna informativna stranica</strong></p>
+        <p>Lenard Zivanović<br>Wien, Österreich</p>
       </div>
 
       <div class="section">
         <h3>Kontakt</h3>
-        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+        <p>Email: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
 
       <div class="section">
-        <h3>Dodatne zakonske informacije</h3>
-        <p><strong>Predmet poslovanja:</strong> [POSLOVNA DELATNOST]</p>
-        <p><strong>Nadležni organ:</strong> [NADLEZNI ORGAN]</p>
-        <p><strong>UID broj:</strong> [UID]</p>
-        <p><strong>Registar:</strong> [FIRMENBUCH / REGISTAR]</p>
-        <p><strong>Broj registra:</strong> [BROJ REGISTRA]</p>
+        <h3>Napomena</h3>
+        <p>Ova web stranica je trenutno privatna, informativna i u razvoju. Ne predstavlja zvaničnu registrovanu poslovnu prezentaciju niti javnu komercijalnu ponudu.</p>
       </div>
 
       <div class="section">
         <h3>Odgovornost za sadržaj</h3>
-        <p>Uprkos pažljivom praćenju sadržaja, ne preuzima se odgovornost za sadržaj eksternih linkova. Za sadržaj povezanih stranica odgovorni su isključivo njihovi operatori.</p>
+        <p>Sadržaj ove stranice je pažljivo pripremljen. Uprkos tome, ne može se garantovati potpuna ažurnost, tačnost i potpunost svih informacija.</p>
       </div>
     `,
     contactHtml: `
       <div class="section">
         <h3>Kontakt</h3>
-        <p><strong>[NAZIV / IME]</strong></p>
-        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
-        <p>Telefon: [TELEFON]</p>
-        <p>Adresa: [ADRESA], [POSTANSKI BROJ I GRAD], [DRZAVA]</p>
+        <p><strong>Lenard Zivanović</strong></p>
+        <p>Email: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
+        <p>Lokacija: Wien, Österreich</p>
       </div>
 
       <div class="section">
-        <h3>Radno vreme</h3>
-        <p>[OVDE UNESI RADNO VREME AKO ŽELIŠ]</p>
+        <h3>Napomena</h3>
+        <p>Za sada je komunikacija predviđena putem emaila.</p>
       </div>
     `
   },
@@ -477,34 +459,34 @@ const i18n = {
     privacy: "Datenschutz",
     impressum: "Impressum",
     contact: "Kontakt",
-    homeSubtitle: "Willkommen auf der IT ZONE Website.",
+    homeSubtitle: "Private Informationsseite in Entwicklung.",
     appsSubtitle: "Übersicht über Apps und Projekte.",
     newsSubtitle: "Aktuelles und Mitteilungen.",
     privacySubtitle: "Datenschutz und Privatsphäre.",
-    impressumSubtitle: "Gesetzliche Informationen über den Websitebetreiber.",
+    impressumSubtitle: "Grundlegende Informationen über die private Website.",
     contactSubtitle: "Kontaktinformationen.",
     footer: "© 2026 IT ZONE. Alle Rechte vorbehalten.",
     homeHtml: `
       <div class="section">
         <span class="note">IT ZONE</span>
-        <h3>Digitale Lösungen, Apps und Webentwicklung</h3>
-        <p>Willkommen auf der offiziellen IT ZONE Website. Diese Seite dient zur Präsentation von Apps, Projektinformationen, Kontaktdaten und rechtlichen Informationen.</p>
-        <p>Die Inhalte werden schrittweise erweitert. In künftigen Versionen werden detaillierte App-Beschreibungen, Screenshots, Referenzen und zusätzliche Funktionen hinzugefügt.</p>
+        <h3>Private Informationsseite</h3>
+        <p>Willkommen bei IT ZONE. Diese Website ist derzeit eine private, informative und sich im Aufbau befindliche Website zur Präsentation von Ideen, Apps, Projekten und grundlegenden Informationen.</p>
+        <p>Die Website stellt derzeit keine offizielle registrierte Unternehmenspräsenz und kein verbindliches kommerzielles Angebot dar.</p>
       </div>
 
       <div class="grid-2">
         <div class="section">
-          <h3>Was wir machen</h3>
+          <h3>Geplant</h3>
           <ul>
-            <li>Entwicklung mobiler Apps</li>
-            <li>Entwicklung von Websites und internen Systemen</li>
-            <li>UI / UX Anpassung für mehrere Sprachen</li>
-            <li>Digitale Lösungen für kleine Unternehmen und Privatprojekte</li>
+            <li>Vorstellung von Apps und Projekten</li>
+            <li>Mehrsprachige Unterstützung</li>
+            <li>Neuigkeiten und Updates</li>
+            <li>Späterer Übergang zu einer geschäftlichen Version der Website bei Bedarf</li>
           </ul>
         </div>
         <div class="section">
           <h3>Status der Website</h3>
-          <p>Die Website ist aktiv und bildet die Grundlage für weitere Inhalte. Rechtliche Seiten, Kontaktinformationen und Mehrsprachigkeit sind vorbereitet.</p>
+          <p>Die Website ist derzeit privat / testweise und dient der Präsentation des Konzepts und grundlegender Informationen. Wenn das Projekt kommerziell wird, werden die rechtlichen und geschäftlichen Angaben aktualisiert.</p>
         </div>
       </div>
     `,
@@ -516,108 +498,75 @@ const i18n = {
       <div class="grid-2">
         <div class="app-card">
           <h4>App 1</h4>
-          <p>Hier kannst du den Namen der App, eine Kurzbeschreibung, Hauptfunktionen und einen Link zum Store oder zur Produktseite einfügen.</p>
+          <p>Hier kannst du den Namen der App, eine Kurzbeschreibung, Hauptfunktionen und den Entwicklungsstatus eintragen.</p>
         </div>
         <div class="app-card">
           <h4>App 2</h4>
-          <p>Hier kannst du eine zweite App, eine Vorschau, den Entwicklungsstatus und geplante Funktionen eintragen.</p>
+          <p>Hier kannst du eine zweite App, eine Vorschau und geplante Funktionen eintragen.</p>
         </div>
       </div>
     `,
     newsHtml: `
       <div class="section">
         <h3>Neuigkeiten</h3>
-        <p>Auf dieser Seite kannst du Neuigkeiten zu Apps, Updates, neuen Versionen, Plänen und wichtigen Mitteilungen veröffentlichen.</p>
-      </div>
-      <div class="section">
-        <h3>Beispielbeitrag</h3>
-        <p><strong>Datum:</strong> [Datum eintragen]</p>
-        <p><strong>Titel:</strong> [Titel eintragen]</p>
-        <p><strong>Text:</strong> Hier den Inhalt der Meldung eintragen.</p>
+        <p>Auf dieser Seite kannst du Neuigkeiten zu Apps, neuen Versionen, Plänen und wichtigen Mitteilungen veröffentlichen.</p>
       </div>
     `,
     privacyHtml: `
       <div class="section">
         <h3>1. Allgemeine Informationen</h3>
-        <p>Der Schutz Ihrer Daten ist uns wichtig. Diese Datenschutzerklärung erklärt, welche Informationen verarbeitet werden, wenn Sie diese Website besuchen, und zu welchen Zwecken dies geschieht.</p>
+        <p>Der Schutz der Privatsphäre ist wichtig. Diese Website ist eine private Informationsseite und dient der grundlegenden Präsentation eines Projekts und von Kontaktinformationen.</p>
       </div>
 
       <div class="section">
-        <h3>2. Verantwortliche Stelle</h3>
-        <p><strong>[NAME / BEZEICHNUNG]</strong><br>[ADRESSE]<br>[PLZ UND ORT]<br>[LAND]</p>
-        <p>E-Mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+        <h3>2. Kontakt</h3>
+        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
+        <p>E-Mail: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
 
       <div class="section">
-        <h3>3. Hosting und technische Logs</h3>
-        <p>Beim Besuch dieser Website kann der Hosting-Anbieter technische Daten verarbeiten, die für die Auslieferung der Website, Systemsicherheit und Fehleranalyse erforderlich sind. Dazu können IP-Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem und technische Geräteinformationen gehören.</p>
+        <h3>3. Technische Daten</h3>
+        <p>Beim Besuch der Website kann der Hosting-Anbieter grundlegende technische Daten verarbeiten, die für die Auslieferung, Stabilität und Sicherheit der Website erforderlich sind.</p>
       </div>
 
       <div class="section">
         <h3>4. Plausible Analytics</h3>
-        <p>Diese Website verwendet Plausible Analytics zur statistischen Auswertung der Nutzung. Plausible wird in einer datenschutzfreundlichen Konfiguration eingesetzt. Es werden keine Analyse-Cookies verwendet und keine individuellen Nutzerprofile erstellt.</p>
-        <p>Die Statistik dient ausschließlich aggregierten Auswertungen, zum Beispiel Seitenaufrufen, Ländern, Gerätetypen, Browsern und Besuchsdauer.</p>
+        <p>Diese Website verwendet Plausible Analytics in einer datenschutzfreundlichen Konfiguration zur grundlegenden Statistik. Es werden keine Analyse-Cookies verwendet und keine individuellen Nutzerprofile erstellt.</p>
       </div>
 
       <div class="section">
         <h3>5. Kontakt per E-Mail</h3>
-        <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir jene Daten, die Sie uns freiwillig übermitteln, insbesondere Name, E-Mail-Adresse und Inhalt Ihrer Nachricht, ausschließlich zur Bearbeitung Ihrer Anfrage.</p>
+        <p>Wenn du eine E-Mail sendest, werden nur die von dir freiwillig übermittelten Daten verarbeitet, und zwar ausschließlich zur Beantwortung der Anfrage.</p>
       </div>
 
       <div class="section">
-        <h3>6. Rechtsgrundlagen</h3>
-        <p>Die Datenverarbeitung erfolgt auf Grundlage der jeweils anwendbaren Datenschutzvorschriften, insbesondere soweit die Verarbeitung für den technischen Betrieb der Website, die Beantwortung von Anfragen oder ein berechtigtes Interesse an grundlegender Statistik und Sicherheit erforderlich ist.</p>
-      </div>
-
-      <div class="section">
-        <h3>7. Ihre Rechte</h3>
-        <p>Sie haben nach Maßgabe der gesetzlichen Voraussetzungen insbesondere das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch.</p>
-      </div>
-
-      <div class="section">
-        <h3>8. Kontakt zum Datenschutz</h3>
-        <p>Bei Fragen zum Datenschutz kontaktieren Sie uns bitte unter: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <h3>6. Fragen zum Datenschutz</h3>
+        <p>Kontakt für Datenschutzfragen: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
     `,
     impressumHtml: `
       <div class="section">
         <h3>Impressum</h3>
-        <p><strong>Websitebetreiber:</strong><br>[NAME / BEZEICHNUNG]</p>
-        <p><strong>Rechtsform:</strong><br>[RECHTSFORM]</p>
-        <p><strong>Adresse:</strong><br>[ADRESSE]<br>[PLZ UND ORT]<br>[LAND]</p>
+        <p><strong>Private Informationswebsite</strong></p>
+        <p>Lenard Zivanović<br>Wien, Österreich</p>
       </div>
 
       <div class="section">
         <h3>Kontakt</h3>
-        <p>E-Mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+        <p>E-Mail: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
 
       <div class="section">
-        <h3>Weitere gesetzliche Angaben</h3>
-        <p><strong>Unternehmensgegenstand:</strong> [GESCHÄFTSTÄTIGKEIT]</p>
-        <p><strong>Zuständige Behörde:</strong> [BEHÖRDE]</p>
-        <p><strong>UID-Nummer:</strong> [UID]</p>
-        <p><strong>Register:</strong> [FIRMENBUCH / REGISTER]</p>
-        <p><strong>Registernummer:</strong> [REGISTERNUMMER]</p>
-      </div>
-
-      <div class="section">
-        <h3>Haftung für Inhalte</h3>
-        <p>Trotz sorgfältiger inhaltlicher Kontrolle wird keine Haftung für die Inhalte externer Links übernommen. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+        <h3>Hinweis</h3>
+        <p>Diese Website ist derzeit privat, informativ und im Aufbau. Sie stellt keine offizielle registrierte Unternehmenspräsenz und kein öffentliches kommerzielles Angebot dar.</p>
       </div>
     `,
     contactHtml: `
       <div class="section">
         <h3>Kontakt</h3>
-        <p><strong>[NAME / BEZEICHNUNG]</strong></p>
-        <p>E-Mail: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
-        <p>Telefon: [TELEFON]</p>
-        <p>Adresse: [ADRESSE], [PLZ UND ORT], [LAND]</p>
-      </div>
-
-      <div class="section">
-        <h3>Öffnungszeiten</h3>
-        <p>[HIER ÖFFNUNGSZEITEN EINTRAGEN, WENN GEWÜNSCHT]</p>
+        <p><strong>Lenard Zivanović</strong></p>
+        <p>E-Mail: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
+        <p>Standort: Wien, Österreich</p>
       </div>
     `
   },
@@ -630,115 +579,71 @@ const i18n = {
     privacy: "Adatvédelem",
     impressum: "Impresszum",
     contact: "Kapcsolat",
-    homeSubtitle: "Üdvözöljük az IT ZONE weboldalán.",
+    homeSubtitle: "Privát tájékoztató oldal fejlesztés alatt.",
     appsSubtitle: "Alkalmazások és projektek áttekintése.",
     newsSubtitle: "Aktuális hírek és közlemények.",
     privacySubtitle: "Adatvédelem és magánszféra.",
-    impressumSubtitle: "Jogi információk a weboldal üzemeltetőjéről.",
+    impressumSubtitle: "Alapvető információk a privát weboldalról.",
     contactSubtitle: "Kapcsolati adatok.",
     footer: "© 2026 IT ZONE. Minden jog fenntartva.",
     homeHtml: `
       <div class="section">
         <span class="note">IT ZONE</span>
-        <h3>Digitális megoldások, alkalmazások és webfejlesztés</h3>
-        <p>Üdvözöljük az IT ZONE hivatalos weboldalán. Ez az oldal az alkalmazások, projektinformációk, kapcsolati adatok és jogi információk bemutatására szolgál.</p>
+        <h3>Privát tájékoztató oldal</h3>
+        <p>Üdvözöljük az IT ZONE oldalán. Ez jelenleg egy privát, tájékoztató jellegű, fejlesztés alatt álló weboldal, amely ötletek, alkalmazások, projektek és alapinformációk bemutatására szolgál.</p>
       </div>
-
-      <div class="grid-2">
-        <div class="section">
-          <h3>Mit csinálunk</h3>
-          <ul>
-            <li>Mobilalkalmazás-fejlesztés</li>
-            <li>Weboldalak és belső rendszerek fejlesztése</li>
-            <li>Többnyelvű UI / UX testreszabás</li>
-            <li>Digitális megoldások kisvállalkozásoknak és privát projektekhez</li>
-          </ul>
-        </div>
-        <div class="section">
-          <h3>Weboldal státusza</h3>
-          <p>Az oldal aktív, és alapot ad a további tartalmi bővítéshez. A jogi oldalak, a kapcsolat és a többnyelvű támogatás előkészítve vannak.</p>
-        </div>
+      <div class="section">
+        <p>Az oldal jelenleg nem minősül hivatalos, bejegyzett üzleti bemutatkozásnak vagy nyilvános kereskedelmi ajánlatnak.</p>
       </div>
     `,
     appsHtml: `
       <div class="section">
         <h3>Alkalmazásaink</h3>
-        <p>Itt jelennek meg a jelenlegi és jövőbeli alkalmazások leírással, képernyőképekkel és alapinformációkkal.</p>
-      </div>
-      <div class="grid-2">
-        <div class="app-card">
-          <h4>App 1</h4>
-          <p>Itt megadhatod az alkalmazás nevét, rövid leírását, fő funkcióit és az áruház vagy termékoldal linkjét.</p>
-        </div>
-        <div class="app-card">
-          <h4>App 2</h4>
-          <p>Itt megadhatsz egy második alkalmazást, előnézetet, fejlesztési állapotot és tervezett funkciókat.</p>
-        </div>
+        <p>Itt jelennek meg a jelenlegi és jövőbeli alkalmazások leírással és alapinformációkkal.</p>
       </div>
     `,
     newsHtml: `
       <div class="section">
         <h3>Hírek</h3>
-        <p>Ezen az oldalon közzéteheted az alkalmazásokkal, frissítésekkel, új verziókkal, tervekkel és fontos közleményekkel kapcsolatos híreket.</p>
+        <p>Ezen az oldalon jelenhetnek meg hírek, tervek és frissítések.</p>
       </div>
     `,
     privacyHtml: `
       <div class="section">
         <h3>1. Általános információk</h3>
-        <p>Fontos számunkra az Ön adatainak védelme. Ez az adatvédelmi tájékoztató ismerteti, milyen információk kerülnek feldolgozásra a weboldal látogatása során, és milyen célból.</p>
+        <p>Ez a weboldal egy privát tájékoztató oldal. Az adatvédelem fontos számunkra.</p>
       </div>
-
       <div class="section">
-        <h3>2. Adatkezelő</h3>
-        <p><strong>[NÉV / MEGNEVEZÉS]</strong><br>[CÍM]<br>[IRÁNYÍTÓSZÁM ÉS VÁROS]<br>[ORSZÁG]</p>
-        <p>E-mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+        <h3>2. Kapcsolat</h3>
+        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
+        <p>E-mail: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
-
       <div class="section">
-        <h3>3. Tárhely és technikai naplók</h3>
-        <p>A weboldal látogatásakor a tárhelyszolgáltató technikai adatokat kezelhet a weboldal működtetése, a rendszerbiztonság és a hibák felderítése érdekében.</p>
-      </div>
-
-      <div class="section">
-        <h3>4. Plausible Analytics</h3>
-        <p>Ez a weboldal Plausible Analytics szolgáltatást használ statisztikai célból, adatbarát beállításban. Nem használ analitikai sütiket, és nem hoz létre egyéni felhasználói profilokat.</p>
-      </div>
-
-      <div class="section">
-        <h3>5. E-mail kapcsolat</h3>
-        <p>Ha e-mailben kapcsolatba lép velünk, az Ön által önként megadott adatokat kizárólag az üzenet feldolgozása céljából használjuk fel.</p>
-      </div>
-
-      <div class="section">
-        <h3>6. Jogalap</h3>
-        <p>Az adatkezelés a hatályos adatvédelmi szabályok alapján történik, különösen a weboldal technikai működtetése, a megkeresések megválaszolása és az alapvető statisztika biztosítása érdekében.</p>
-      </div>
-
-      <div class="section">
-        <h3>7. Az Ön jogai</h3>
-        <p>Jogszabályi feltételek fennállása esetén Ön jogosult hozzáférést, helyesbítést, törlést, korlátozást, adathordozhatóságot és tiltakozást kérni.</p>
+        <h3>3. Plausible Analytics</h3>
+        <p>Az oldal Plausible Analytics szolgáltatást használ alapstatisztikai célra, adatbarát beállításban, analitikai sütik nélkül.</p>
       </div>
     `,
     impressumHtml: `
       <div class="section">
         <h3>Impresszum</h3>
-        <p><strong>Üzemeltető:</strong><br>[NÉV / MEGNEVEZÉS]</p>
-        <p><strong>Jogi forma:</strong><br>[JOGI FORMA]</p>
-        <p><strong>Cím:</strong><br>[CÍM]<br>[IRÁNYÍTÓSZÁM ÉS VÁROS]<br>[ORSZÁG]</p>
+        <p><strong>Privát tájékoztató weboldal</strong></p>
+        <p>Lenard Zivanović<br>Wien, Österreich</p>
       </div>
-
       <div class="section">
         <h3>Kapcsolat</h3>
-        <p>E-mail: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Telefon: [TELEFON]</p>
+        <p>E-mail: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
+      </div>
+      <div class="section">
+        <h3>Megjegyzés</h3>
+        <p>Ez a weboldal jelenleg privát, tájékoztató jellegű és fejlesztés alatt áll. Nem minősül hivatalos üzleti megjelenésnek vagy nyilvános kereskedelmi ajánlatnak.</p>
       </div>
     `,
     contactHtml: `
       <div class="section">
         <h3>Kapcsolat</h3>
-        <p><strong>[NÉV / MEGNEVEZÉS]</strong></p>
-        <p>E-mail: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
-        <p>Telefon: [TELEFON]</p>
-        <p>Cím: [CÍM], [IRÁNYÍTÓSZÁM ÉS VÁROS], [ORSZÁG]</p>
+        <p><strong>Lenard Zivanović</strong></p>
+        <p>E-mail: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
+        <p>Helyszín: Wien, Österreich</p>
       </div>
     `
   },
@@ -751,124 +656,73 @@ const i18n = {
     privacy: "Privacy Policy",
     impressum: "Impressum",
     contact: "Contact",
-    homeSubtitle: "Welcome to the IT ZONE website.",
+    homeSubtitle: "Private informational website in development.",
     appsSubtitle: "Overview of apps and projects.",
     newsSubtitle: "Updates and announcements.",
     privacySubtitle: "Data protection and privacy.",
-    impressumSubtitle: "Legal information about the website operator.",
+    impressumSubtitle: "Basic information about the private website.",
     contactSubtitle: "Contact information.",
     footer: "© 2026 IT ZONE. All rights reserved.",
     homeHtml: `
       <div class="section">
         <span class="note">IT ZONE</span>
-        <h3>Digital solutions, apps and web development</h3>
-        <p>Welcome to the official IT ZONE website. This page is used to present apps, project information, contact details and legal information.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="section">
-          <h3>What we do</h3>
-          <ul>
-            <li>Mobile app development</li>
-            <li>Website and internal system development</li>
-            <li>Multilingual UI / UX customization</li>
-            <li>Digital solutions for small businesses and private projects</li>
-          </ul>
-        </div>
-        <div class="section">
-          <h3>Website status</h3>
-          <p>The website is active and serves as a base for further expansion. Legal pages, contact information and multilingual support are prepared.</p>
-        </div>
+        <h3>Private informational website</h3>
+        <p>Welcome to IT ZONE. This is currently a private, informational website under development, intended to present ideas, apps, projects and basic information.</p>
+        <p>The website does not currently represent an official registered business presence or a public commercial offer.</p>
       </div>
     `,
     appsHtml: `
       <div class="section">
         <h3>Our apps</h3>
-        <p>This page will present current and future apps with descriptions, screenshots and basic information.</p>
-      </div>
-      <div class="grid-2">
-        <div class="app-card">
-          <h4>App 1</h4>
-          <p>You can add the app name, a short description, key features and a link to the app store or product page here.</p>
-        </div>
-        <div class="app-card">
-          <h4>App 2</h4>
-          <p>You can add a second app, preview, development status and planned features here.</p>
-        </div>
+        <p>This page will present current and future apps with descriptions and basic information.</p>
       </div>
     `,
     newsHtml: `
       <div class="section">
         <h3>News</h3>
-        <p>You can publish updates about apps, releases, plans and important announcements here.</p>
+        <p>This page can be used for updates, plans and announcements.</p>
       </div>
     `,
     privacyHtml: `
       <div class="section">
         <h3>1. General information</h3>
-        <p>Protecting your data is important to us. This privacy policy explains what information may be processed when you visit this website and for what purposes.</p>
+        <p>This website is a private informational page. Privacy is important to us.</p>
       </div>
-
       <div class="section">
-        <h3>2. Controller</h3>
-        <p><strong>[NAME / BUSINESS NAME]</strong><br>[ADDRESS]<br>[POSTAL CODE AND CITY]<br>[COUNTRY]</p>
-        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Phone: [PHONE]</p>
+        <h3>2. Contact</h3>
+        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
+        <p>Email: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
-
       <div class="section">
-        <h3>3. Hosting and technical logs</h3>
-        <p>When you visit this website, the hosting provider may process technical data required to deliver the site, ensure system security and identify errors.</p>
+        <h3>3. Plausible Analytics</h3>
+        <p>This website uses Plausible Analytics for basic privacy-friendly statistics. No analytics cookies are used and no individual profiles are created.</p>
       </div>
-
       <div class="section">
-        <h3>4. Plausible Analytics</h3>
-        <p>This website uses Plausible Analytics for privacy-friendly statistical measurement. No analytics cookies are used and no individual user profiles are created.</p>
-      </div>
-
-      <div class="section">
-        <h3>5. Contact by email</h3>
-        <p>If you contact us by email, we process the data you voluntarily provide, such as your name, email address and message content, solely to handle your request.</p>
-      </div>
-
-      <div class="section">
-        <h3>6. Legal basis</h3>
-        <p>Data processing is carried out on the basis of applicable data protection law, especially where processing is necessary for the technical operation of the website, responding to inquiries or basic statistics and security.</p>
-      </div>
-
-      <div class="section">
-        <h3>7. Your rights</h3>
-        <p>Subject to legal requirements, you may have the right to access, rectification, erasure, restriction, portability and objection.</p>
+        <h3>4. Email contact</h3>
+        <p>If you contact us by email, only the information you voluntarily provide is processed, solely for replying to your message.</p>
       </div>
     `,
     impressumHtml: `
       <div class="section">
         <h3>Impressum</h3>
-        <p><strong>Website operator:</strong><br>[NAME / BUSINESS NAME]</p>
-        <p><strong>Legal form:</strong><br>[LEGAL FORM]</p>
-        <p><strong>Address:</strong><br>[ADDRESS]<br>[POSTAL CODE AND CITY]<br>[COUNTRY]</p>
+        <p><strong>Private informational website</strong></p>
+        <p>Lenard Zivanović<br>Wien, Österreich</p>
       </div>
-
       <div class="section">
         <h3>Contact</h3>
-        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a><br>Phone: [PHONE]</p>
+        <p>Email: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
       </div>
-
       <div class="section">
-        <h3>Additional legal information</h3>
-        <p><strong>Business activity:</strong> [BUSINESS ACTIVITY]</p>
-        <p><strong>Supervisory authority:</strong> [AUTHORITY]</p>
-        <p><strong>VAT / UID:</strong> [UID]</p>
-        <p><strong>Register:</strong> [COMPANY REGISTER]</p>
-        <p><strong>Register number:</strong> [REGISTER NUMBER]</p>
+        <h3>Note</h3>
+        <p>This website is currently private, informational and under development. It does not represent an official registered business presence or a public commercial offer.</p>
       </div>
     `,
     contactHtml: `
       <div class="section">
         <h3>Contact</h3>
-        <p><strong>[NAME / BUSINESS NAME]</strong></p>
-        <p>Email: <a href="mailto:[EMAIL]">[EMAIL]</a></p>
-        <p>Phone: [PHONE]</p>
-        <p>Address: [ADDRESS], [POSTAL CODE AND CITY], [COUNTRY]</p>
+        <p><strong>Lenard Zivanović</strong></p>
+        <p>Email: <a href="mailto:zivanoviclenard1@gmail.com">zivanoviclenard1@gmail.com</a></p>
+        <p>Location: Wien, Österreich</p>
       </div>
     `
   }
