@@ -28,9 +28,7 @@ a{
   text-decoration:none;
 }
 
-a:hover{
-  text-decoration:underline;
-}
+a:hover{text-decoration:underline;}
 
 /* HERO */
 .hero{
@@ -137,7 +135,7 @@ a:hover{
   margin-bottom:18px;
 }
 
-/* ANIMATED CONSTRUCTION */
+/* CONSTRUCTION */
 .construction-box{
   min-height:560px;
   border:1px solid var(--line);
@@ -230,9 +228,7 @@ a:hover{
   animation:letterBuild 3.8s infinite ease-in-out;
 }
 
-.building-text .space{
-  width:15px;
-}
+.building-text .space{width:15px;}
 
 .building-text span:nth-child(1){animation-delay:.05s}
 .building-text span:nth-child(2){animation-delay:.18s}
@@ -362,9 +358,7 @@ a:hover{
   text-decoration:underline;
 }
 
-.footer-nav span{
-  color:#aab4c2;
-}
+.footer-nav span{color:#aab4c2;}
 
 /* ANIMATIONS */
 @keyframes craneMove{
@@ -383,18 +377,9 @@ a:hover{
 }
 
 @keyframes letterBuild{
-  0%{
-    opacity:0;
-    transform:translateY(35px) rotate(-12deg) scale(.75);
-  }
-  35%,75%{
-    opacity:1;
-    transform:translateY(0) rotate(0deg) scale(1);
-  }
-  100%{
-    opacity:0;
-    transform:translateY(-12px) rotate(8deg) scale(1);
-  }
+  0%{opacity:0; transform:translateY(35px) rotate(-12deg) scale(.75);}
+  35%,75%{opacity:1; transform:translateY(0) rotate(0deg) scale(1);}
+  100%{opacity:0; transform:translateY(-12px) rotate(8deg) scale(1);}
 }
 
 @keyframes workerMove{
@@ -408,21 +393,10 @@ a:hover{
 }
 
 @keyframes letterThrow{
-  0%{
-    opacity:0;
-    transform:translate(0,0) scale(.7) rotate(-10deg);
-  }
-  25%{
-    opacity:1;
-  }
-  70%{
-    opacity:1;
-    transform:translate(70px,45px) scale(1.1) rotate(12deg);
-  }
-  100%{
-    opacity:0;
-    transform:translate(95px,62px) scale(.6) rotate(20deg);
-  }
+  0%{opacity:0; transform:translate(0,0) scale(.7) rotate(-10deg);}
+  25%{opacity:1;}
+  70%{opacity:1; transform:translate(70px,45px) scale(1.1) rotate(12deg);}
+  100%{opacity:0; transform:translate(95px,62px) scale(.6) rotate(20deg);}
 }
 
 @keyframes mixerSpin{
@@ -446,7 +420,7 @@ a:hover{
   50%{transform:scale(1.08); opacity:1;}
 }
 
-/* MOBILE */
+/* MOBILE LEVEL 2 */
 @media (max-width:900px){
   .layout{
     grid-template-columns:1fr;
@@ -456,20 +430,36 @@ a:hover{
 }
 
 @media (max-width:768px){
+  body{
+    background:linear-gradient(180deg,#eef4fb,#f7fbff);
+  }
+
   .hero{
-    margin:0 0 16px 0;
+    margin:0;
     width:100%;
-    min-height:240px;
+    min-height:235px;
     border-radius:0;
     background-size:contain;
     background-position:center center;
     background-repeat:no-repeat;
     background-color:#fff;
-    box-shadow:0 12px 35px rgba(20,55,95,.12);
+    box-shadow:none;
+    border-bottom:1px solid var(--line);
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:70px;
+    background:linear-gradient(180deg,transparent,rgba(255,255,255,.92));
+    pointer-events:none;
   }
 
   .hero-inner{
-    min-height:240px;
+    min-height:235px;
     padding:14px;
   }
 
@@ -479,10 +469,11 @@ a:hover{
   }
 
   .lang-select{
-    height:42px;
-    min-width:108px;
-    border-radius:16px;
-    font-size:15px;
+    height:40px;
+    min-width:104px;
+    border-radius:15px;
+    font-size:14px;
+    background:#fff;
   }
 
   .hero-meta{
@@ -490,148 +481,170 @@ a:hover{
     right:18px;
     bottom:10px;
     gap:12px;
-    font-size:14px;
+    font-size:13px;
     font-weight:800;
   }
 
   .layout{
     padding:14px;
-    gap:16px;
+    gap:14px;
   }
 
   .sidebar{
-    border-radius:22px;
-    padding:20px 18px;
+    border-radius:20px;
+    padding:16px;
+    min-height:auto;
+    box-shadow:0 10px 30px rgba(20,55,95,.08);
   }
 
   .sidebar h3{
-    font-size:22px;
-    margin-bottom:14px;
-  }
-
-  .sidebar button{
-    font-size:17px;
-    padding:15px 16px;
-    border-radius:16px;
+    font-size:20px;
     margin-bottom:12px;
   }
 
+  .sidebar button{
+    position:relative;
+    font-size:16px;
+    padding:14px 14px 14px 46px;
+    border-radius:15px;
+    margin-bottom:10px;
+    background:#fff;
+  }
+
+  .sidebar button::before{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:18px;
+  }
+
+  .sidebar button[data-key="home"]::before{content:"🏠";}
+  .sidebar button[data-key="apps"]::before{content:"📱";}
+  .sidebar button[data-key="news"]::before{content:"📰";}
+
+  .sidebar button.active{
+    background:linear-gradient(90deg,#eef5ff,#ffffff);
+    box-shadow:inset 4px 0 0 #2455b2;
+  }
+
   .content{
-    padding:20px 18px;
-    min-height:650px;
-    border-radius:22px;
+    padding:18px;
+    min-height:620px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(20,55,95,.08);
   }
 
   .content h2{
-    font-size:28px;
-    margin-bottom:18px;
+    font-size:26px;
+    margin-bottom:16px;
   }
 
   .construction-box{
-    min-height:520px;
-    border-radius:22px;
-    padding:20px 12px 30px;
+    min-height:500px;
+    border-radius:18px;
+    padding:18px 10px 28px;
     overflow:hidden;
   }
 
   .site-scene{
     width:100%;
-    height:310px;
+    height:300px;
     max-width:100%;
     transform:none;
-    margin:0 auto 18px;
+    margin:0 auto 16px;
   }
 
   .sun{
     top:22px;
-    right:28px;
-    width:40px;
-    height:40px;
+    right:24px;
+    width:38px;
+    height:38px;
   }
 
   .crane-tower{
-    left:34px;
+    left:30px;
     bottom:46px;
     width:13px;
-    height:198px;
+    height:190px;
   }
 
   .crane-arm{
-    left:40px;
-    top:58px;
-    width:235px;
+    left:36px;
+    top:62px;
+    width:225px;
     height:11px;
   }
 
   .crane-cable{
-    left:252px;
-    top:69px;
-    height:78px;
+    left:240px;
+    top:72px;
+    height:76px;
   }
 
   .crane-hook{
-    left:240px;
-    top:145px;
-    font-size:28px;
+    left:228px;
+    top:147px;
+    font-size:27px;
   }
 
   .building-text{
-    left:58px;
+    left:50px;
     top:180px;
-    font-size:21px;
+    font-size:20px;
     gap:3px;
     letter-spacing:0;
   }
 
   .building-text .space{
-    width:8px;
+    width:7px;
   }
 
   .worker{
-    left:166px;
+    left:154px;
     bottom:72px;
-    font-size:42px;
+    font-size:40px;
   }
 
   .shovel{
-    left:203px;
+    left:190px;
     bottom:104px;
-    font-size:28px;
+    font-size:27px;
   }
 
   .flying-letter{
-    left:215px;
-    bottom:143px;
-    font-size:22px;
+    left:201px;
+    bottom:142px;
+    font-size:21px;
   }
 
   .mixer{
-    left:252px;
+    left:232px;
     bottom:70px;
-    font-size:42px;
+    font-size:40px;
   }
 
   .truck{
     left:0;
     bottom:58px;
-    font-size:50px;
+    font-size:48px;
   }
 
   .dust{
-    left:82px;
+    left:78px;
     bottom:68px;
-    font-size:18px;
+    font-size:17px;
   }
 
   .ground{
-    left:14px;
-    right:14px;
+    left:12px;
+    right:12px;
     bottom:48px;
   }
 
   .construction-box h3{
-    font-size:23px;
-    margin-bottom:12px;
+    font-size:22px;
+    margin-bottom:10px;
   }
 
   .construction-box p{
@@ -641,8 +654,12 @@ a:hover{
   }
 
   .footer-links{
-    padding:26px 16px 38px;
+    padding:24px 16px 36px;
     font-size:11px;
+  }
+
+  .footer-nav{
+    gap:6px;
   }
 
   .footer-nav button{
@@ -652,11 +669,11 @@ a:hover{
 
 @media (max-width:420px){
   .hero{
-    min-height:225px;
+    min-height:220px;
   }
 
   .hero-inner{
-    min-height:225px;
+    min-height:220px;
   }
 
   .hero-meta{
@@ -666,37 +683,41 @@ a:hover{
   }
 
   .sidebar h3{
-    font-size:21px;
+    font-size:19px;
   }
 
   .sidebar button{
-    font-size:16px;
-    padding:14px 15px;
+    font-size:15px;
+    padding:13px 13px 13px 44px;
   }
 
   .content h2{
-    font-size:26px;
+    font-size:24px;
+  }
+
+  .site-scene{
+    height:285px;
   }
 
   .building-text{
-    left:48px;
-    font-size:20px;
+    left:42px;
+    font-size:19px;
   }
 
   .worker{
-    left:154px;
+    left:144px;
   }
 
   .shovel{
-    left:190px;
+    left:178px;
   }
 
   .flying-letter{
-    left:202px;
+    left:190px;
   }
 
   .mixer{
-    left:236px;
+    left:220px;
   }
 }
 </style>
