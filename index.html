@@ -454,6 +454,8 @@ a:hover{
 @media (max-width:900px){
   .layout{
     grid-template-columns:1fr;
+    gap:18px;
+    padding:16px;
   }
 
   .site-scene{
@@ -464,52 +466,252 @@ a:hover{
 }
 
 @media (max-width:768px){
+  body{
+    background:linear-gradient(180deg,#f7fbff,#eef4fb);
+  }
+
   .hero{
-    min-height:220px;
+    margin:16px;
+    min-height:330px;
+    border-radius:30px;
+    background-size:contain;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-color:#fff;
   }
 
   .hero-inner{
-    min-height:220px;
-    padding:20px;
-  }
-
-  .hero-meta{
-    left:20px;
-    bottom:6px;
-    gap:12px;
-    font-size:12px;
+    min-height:330px;
+    padding:18px;
   }
 
   .lang-wrap{
-    top:12px;
-    right:12px;
+    top:18px;
+    right:18px;
+  }
+
+  .lang-select{
+    height:54px;
+    min-width:132px;
+    border-radius:20px;
+    font-size:18px;
+  }
+
+  .hero-meta{
+    left:34px;
+    right:20px;
+    bottom:14px;
+    gap:18px;
+    font-size:20px;
+    font-weight:800;
+  }
+
+  .layout{
+    padding:16px;
+    gap:18px;
+  }
+
+  .sidebar{
+    border-radius:28px;
+    padding:28px 22px;
+  }
+
+  .sidebar h3{
+    font-size:30px;
+    margin-bottom:20px;
+  }
+
+  .sidebar button{
+    font-size:25px;
+    padding:24px 24px;
+    border-radius:20px;
+    margin-bottom:18px;
   }
 
   .content{
-    padding:20px;
-    min-height:620px;
+    padding:28px 22px;
+    min-height:720px;
+    border-radius:28px;
   }
 
   .content h2{
-    font-size:26px;
+    font-size:42px;
+    margin-bottom:26px;
   }
 
   .construction-box{
-    min-height:500px;
-  }
-
-  .construction-box h3{
-    font-size:23px;
-  }
-
-  .construction-box p{
-    font-size:16px;
+    min-height:560px;
+    border-radius:24px;
+    padding:22px 14px 34px;
+    overflow:hidden;
   }
 
   .site-scene{
-    transform:scale(.68);
-    margin-left:-72px;
-    height:230px;
+    width:100%;
+    height:330px;
+    max-width:100%;
+    transform:none;
+    margin:0 auto 20px;
+  }
+
+  .sun{
+    top:22px;
+    right:32px;
+    width:44px;
+    height:44px;
+  }
+
+  .crane-tower{
+    left:38px;
+    bottom:46px;
+    width:14px;
+    height:210px;
+  }
+
+  .crane-arm{
+    left:44px;
+    top:54px;
+    width:250px;
+    height:12px;
+  }
+
+  .crane-cable{
+    left:270px;
+    top:66px;
+    height:82px;
+  }
+
+  .crane-hook{
+    left:258px;
+    top:145px;
+    font-size:30px;
+  }
+
+  .building-text{
+    left:74px;
+    top:178px;
+    font-size:24px;
+    gap:4px;
+    letter-spacing:0;
+  }
+
+  .building-text .space{
+    width:9px;
+  }
+
+  .worker{
+    left:185px;
+    bottom:72px;
+    font-size:46px;
+  }
+
+  .shovel{
+    left:226px;
+    bottom:106px;
+    font-size:30px;
+  }
+
+  .flying-letter{
+    left:238px;
+    bottom:146px;
+    font-size:24px;
+  }
+
+  .mixer{
+    left:285px;
+    bottom:70px;
+    font-size:46px;
+  }
+
+  .truck{
+    left:4px;
+    bottom:58px;
+    font-size:54px;
+  }
+
+  .dust{
+    left:90px;
+    bottom:68px;
+    font-size:20px;
+  }
+
+  .ground{
+    left:16px;
+    right:16px;
+    bottom:48px;
+  }
+
+  .construction-box h3{
+    font-size:27px;
+    margin-bottom:12px;
+  }
+
+  .construction-box p{
+    font-size:18px;
+    line-height:1.55;
+    padding:0 4px;
+  }
+
+  .footer-links{
+    padding:28px 16px 40px;
+    font-size:12px;
+  }
+
+  .footer-nav{
+    gap:7px;
+  }
+
+  .footer-nav button{
+    font-size:12px;
+  }
+}
+
+@media (max-width:420px){
+  .hero{
+    min-height:315px;
+  }
+
+  .hero-inner{
+    min-height:315px;
+  }
+
+  .hero-meta{
+    font-size:18px;
+    gap:14px;
+    left:32px;
+  }
+
+  .sidebar h3{
+    font-size:28px;
+  }
+
+  .sidebar button{
+    font-size:23px;
+  }
+
+  .content h2{
+    font-size:39px;
+  }
+
+  .building-text{
+    left:58px;
+    font-size:22px;
+  }
+
+  .worker{
+    left:172px;
+  }
+
+  .shovel{
+    left:213px;
+  }
+
+  .flying-letter{
+    left:225px;
+  }
+
+  .mixer{
+    left:267px;
   }
 }
 </style>
