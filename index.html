@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>IT ZONE</title>
+<meta name="description" content="IT ZONE privatna informativna web stranica u razvoju." />
 
 <style>
 :root{
@@ -22,6 +23,15 @@ body{
   color:var(--text);
 }
 
+a{
+  color:var(--blue);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
 /* HERO */
 .hero{
   margin:20px;
@@ -37,6 +47,25 @@ body{
   position:relative;
   min-height:300px;
   padding:40px;
+}
+
+.lang-wrap{
+  position:absolute;
+  top:16px;
+  right:18px;
+  z-index:5;
+}
+
+.lang-select{
+  height:42px;
+  min-width:108px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
+  background:rgba(255,255,255,.88);
+  padding:0 12px;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
 }
 
 .hero-meta{
@@ -66,6 +95,12 @@ body{
   border:1px solid var(--line);
   border-radius:18px;
   padding:20px;
+  min-height:220px;
+}
+
+.sidebar h3{
+  margin-bottom:10px;
+  font-size:18px;
 }
 
 .sidebar button{
@@ -77,12 +112,15 @@ body{
   background:#fff;
   text-align:left;
   font-weight:700;
+  font-size:14px;
   cursor:pointer;
+  color:var(--text);
 }
 
 .sidebar button.active{
   background:#eef5ff;
   color:#2455b2;
+  border-color:#2455b2;
 }
 
 /* CONTENT */
@@ -91,37 +129,69 @@ body{
   border:1px solid var(--line);
   border-radius:18px;
   padding:30px;
+  min-height:430px;
 }
 
-.section{
+.content h2{
+  font-size:32px;
+  margin-bottom:14px;
+}
+
+.construction-box{
+  min-height:280px;
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:15px;
+  border-radius:18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:35px 20px;
+  background:linear-gradient(180deg,#ffffff,#fbfdff);
+}
+
+.crane{
+  font-size:76px;
+  margin-bottom:18px;
+}
+
+.construction-box h3{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.construction-box p{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.6;
+  max-width:700px;
 }
 
 /* FOOTER */
 .footer-links{
-  padding:20px;
+  padding:28px 20px 36px;
   text-align:center;
-  font-size:11px;
   color:#8a96a8;
+  font-size:11px;
 }
 
 .footer-nav{
   display:flex;
   justify-content:center;
+  align-items:center;
   gap:8px;
-  opacity:.6;
-  margin-bottom:6px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+  opacity:.55;
 }
 
 .footer-nav button{
   border:0;
-  background:none;
+  background:transparent;
+  color:#7d899a;
   font-size:11px;
   cursor:pointer;
-  color:#7d899a;
+  padding:2px 3px;
 }
 
 .footer-nav button:hover{
@@ -130,16 +200,75 @@ body{
 }
 
 .footer-nav span{
-  color:#aaa;
+  color:#aab4c2;
+}
+
+/* MOBILE */
+@media (max-width:900px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:768px){
+  .hero{
+    min-height:220px;
+  }
+
+  .hero-inner{
+    min-height:220px;
+    padding:20px;
+  }
+
+  .hero-meta{
+    left:20px;
+    bottom:6px;
+    gap:12px;
+    font-size:12px;
+  }
+
+  .lang-wrap{
+    top:12px;
+    right:12px;
+  }
+
+  .content{
+    padding:20px;
+    min-height:390px;
+  }
+
+  .content h2{
+    font-size:26px;
+  }
+
+  .construction-box{
+    min-height:260px;
+  }
+
+  .crane{
+    font-size:62px;
+  }
+
+  .construction-box h3{
+    font-size:23px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
+
+    <div class="lang-wrap">
+      <select id="langSelect" class="lang-select">
+        <option value="sr">🇷🇸 SR</option>
+        <option value="de">🇦🇹 AT</option>
+        <option value="hu">🇭🇺 HU</option>
+        <option value="en">🇬🇧 EN</option>
+      </select>
+    </div>
 
     <div class="hero-meta">
       <div id="date"></div>
@@ -151,121 +280,258 @@ body{
 </div>
 
 <div class="layout">
+  <aside class="sidebar">
+    <h3 id="menuTitle">Glavni meni</h3>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <button class="nav-btn active" onclick="show('home',this)">Početna</button>
-  <button class="nav-btn" onclick="show('apps',this)">Naše aplikacije</button>
-  <button class="nav-btn" onclick="show('news',this)">Novosti</button>
-</aside>
+    <button class="nav-btn active" data-key="home" onclick="show('home',this)">Početna</button>
+    <button class="nav-btn" data-key="apps" onclick="show('apps',this)">Aplikacije</button>
+    <button class="nav-btn" data-key="news" onclick="show('news',this)">Novosti</button>
+  </aside>
 
-<!-- CONTENT -->
-<main class="content">
-  <h2 id="title"></h2>
-  <div id="content"></div>
-</main>
-
+  <main class="content">
+    <h2 id="title"></h2>
+    <div id="contentArea"></div>
+  </main>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer-links">
   <div class="footer-nav">
-    <button onclick="showFooter('contact')">Kontakt</button>
+    <button onclick="showFooterPage('contact')">Kontakt</button>
     <span>•</span>
-    <button onclick="showFooter('privacy')">Privacy</button>
+    <button onclick="showFooterPage('privacy')">Privacy Policy</button>
     <span>•</span>
-    <button onclick="showFooter('agb')">AGB</button>
+    <button onclick="showFooterPage('datenschutz')">Datenschutz</button>
     <span>•</span>
-    <button onclick="showFooter('impressum')">Impressum</button>
+    <button onclick="showFooterPage('agb')">AGB</button>
+    <span>•</span>
+    <button onclick="showFooterPage('impressum')">Impressum</button>
   </div>
-  © 2026 IT ZONE
+  <div id="footerText">© 2026 IT ZONE. Sva prava zadržana.</div>
 </footer>
 
 <script>
-let currentPage="home";
-
-/* NAV */
-function show(page,btn){
-  currentPage=page;
-
-  if(btn){
-    document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
+const i18n = {
+  sr: {
+    menuTitle: "Glavni meni",
+    home: "Početna",
+    apps: "Aplikacije",
+    news: "Novosti",
+    footer: "© 2026 IT ZONE. Sva prava zadržana.",
+    constructionTitle: "Stranica je u fazi izrade",
+    constructionText: "Ovaj deo sajta se trenutno priprema. Uskoro će biti dodate nove informacije, aplikacije i objave.",
+    contact: "Kontakt",
+    privacy: "Privacy Policy",
+    datenschutz: "Datenschutz",
+    agb: "AGB",
+    impressum: "Impressum"
+  },
+  de: {
+    menuTitle: "Hauptmenü",
+    home: "Startseite",
+    apps: "Apps",
+    news: "Neuigkeiten",
+    footer: "© 2026 IT ZONE. Alle Rechte vorbehalten.",
+    constructionTitle: "Seite befindet sich im Aufbau",
+    constructionText: "Dieser Bereich der Website wird derzeit vorbereitet. Neue Informationen, Apps und Beiträge werden später ergänzt.",
+    contact: "Kontakt",
+    privacy: "Privacy Policy",
+    datenschutz: "Datenschutz",
+    agb: "AGB",
+    impressum: "Impressum"
+  },
+  hu: {
+    menuTitle: "Főmenü",
+    home: "Kezdőlap",
+    apps: "Alkalmazások",
+    news: "Hírek",
+    footer: "© 2026 IT ZONE. Minden jog fenntartva.",
+    constructionTitle: "Az oldal fejlesztés alatt áll",
+    constructionText: "Ez a rész jelenleg készül. Hamarosan új információk, alkalmazások és hírek kerülnek ide.",
+    contact: "Kapcsolat",
+    privacy: "Privacy Policy",
+    datenschutz: "Adatvédelem",
+    agb: "AGB",
+    impressum: "Impresszum"
+  },
+  en: {
+    menuTitle: "Main menu",
+    home: "Home",
+    apps: "Apps",
+    news: "News",
+    footer: "© 2026 IT ZONE. All rights reserved.",
+    constructionTitle: "Page under construction",
+    constructionText: "This section of the website is currently being prepared. New information, apps and updates will be added soon.",
+    contact: "Contact",
+    privacy: "Privacy Policy",
+    datenschutz: "Data Protection",
+    agb: "Terms",
+    impressum: "Impressum"
   }
+};
 
-  render(page);
+let currentLang = localStorage.getItem("site_lang") || "sr";
+let currentPage = "home";
+
+function localeForLang(lang){
+  if(lang === "de") return "de-AT";
+  if(lang === "hu") return "hu-HU";
+  if(lang === "en") return "en-GB";
+  return "sr-RS";
 }
 
-function showFooter(page){
-  currentPage=page;
-  render(page);
+function constructionHtml(){
+  const t = i18n[currentLang];
+
+  return `
+    <div class="construction-box">
+      <div class="crane">🏗️</div>
+      <h3>${t.constructionTitle}</h3>
+      <p>${t.constructionText}</p>
+    </div>
+  `;
+}
+
+function footerPageHtml(page){
+  if(page === "contact"){
+    return `
+      <div class="construction-box">
+        <h3>Kontakt</h3>
+        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>Wien, Österreich</p>
+      </div>
+    `;
+  }
+
+  if(page === "privacy"){
+    return `
+      <div class="construction-box">
+        <h3>Privacy Policy</h3>
+        <p>Ova stranica je privatna informativna stranica. Detaljna pravila privatnosti biće dopunjena po potrebi.</p>
+      </div>
+    `;
+  }
+
+  if(page === "datenschutz"){
+    return `
+      <div class="construction-box">
+        <h3>Datenschutz</h3>
+        <p>Diese Website ist derzeit eine private Informationsseite. Datenschutzinformationen werden bei Bedarf ergänzt.</p>
+      </div>
+    `;
+  }
+
+  if(page === "agb"){
+    return `
+      <div class="construction-box">
+        <h3>AGB</h3>
+        <p>Diese Website befindet sich im Aufbau und stellt derzeit kein verbindliches kommerzielles Angebot dar.</p>
+      </div>
+    `;
+  }
+
+  if(page === "impressum"){
+    return `
+      <div class="construction-box">
+        <h3>Impressum</h3>
+        <p>Lenard Zivanović<br>Wien, Österreich<br>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
+      </div>
+    `;
+  }
+
+  return constructionHtml();
+}
+
+function applyLanguage(){
+  const t = i18n[currentLang];
+
+  document.documentElement.lang = currentLang;
+  document.getElementById("menuTitle").innerText = t.menuTitle;
+  document.getElementById("footerText").innerText = t.footer;
+
+  document.querySelector('[data-key="home"]').innerText = t.home;
+  document.querySelector('[data-key="apps"]').innerText = t.apps;
+  document.querySelector('[data-key="news"]').innerText = t.news;
+
+  render(currentPage);
+  updateTime();
+}
+
+function show(pageKey, btn){
+  currentPage = pageKey;
 
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+
+  render(pageKey);
+}
+
+function showFooterPage(pageKey){
+  currentPage = pageKey;
+
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+  render(pageKey);
 
   window.scrollTo({
-    top:document.querySelector(".content").offsetTop-20,
-    behavior:"smooth"
+    top: document.querySelector(".content").offsetTop - 20,
+    behavior: "smooth"
   });
 }
 
-/* CONTENT */
-function render(page){
-  const title=document.getElementById("title");
-  const content=document.getElementById("content");
+function render(pageKey){
+  const t = i18n[currentLang];
 
-  if(page==="home"){
-    title.innerText="Početna";
-    content.innerHTML=`<div class="section">Privatna informativna stranica u razvoju.</div>`;
+  if(pageKey === "home"){
+    document.getElementById("title").innerText = t.home;
+    document.getElementById("contentArea").innerHTML = constructionHtml();
+    return;
   }
 
-  if(page==="apps"){
-    title.innerText="Naše aplikacije";
-    content.innerHTML=`<div class="section">Ovde dolaze tvoje aplikacije.</div>`;
+  if(pageKey === "apps"){
+    document.getElementById("title").innerText = t.apps;
+    document.getElementById("contentArea").innerHTML = constructionHtml();
+    return;
   }
 
-  if(page==="news"){
-    title.innerText="Novosti";
-    content.innerHTML=`<div class="section">Novosti i update.</div>`;
+  if(pageKey === "news"){
+    document.getElementById("title").innerText = t.news;
+    document.getElementById("contentArea").innerHTML = constructionHtml();
+    return;
   }
 
-  if(page==="privacy"){
-    title.innerText="Privacy Policy";
-    content.innerHTML=`<div class="section">Privacy tekst...</div>`;
-  }
-
-  if(page==="agb"){
-    title.innerText="AGB";
-    content.innerHTML=`<div class="section">Uslovi korišćenja...</div>`;
-  }
-
-  if(page==="impressum"){
-    title.innerText="Impressum";
-    content.innerHTML=`<div class="section">Lenard Zivanović<br>Wien</div>`;
-  }
-
-  if(page==="contact"){
-    title.innerText="Kontakt";
-    content.innerHTML=`<div class="section">itzoneapps1@gmail.com</div>`;
-  }
+  document.getElementById("title").innerText = t[pageKey] || pageKey;
+  document.getElementById("contentArea").innerHTML = footerPageHtml(pageKey);
 }
 
-/* DATUM / VREME */
 function updateTime(){
   const now = new Date();
 
   document.getElementById("date").innerText =
-    now.toLocaleDateString("sr-RS");
+    now.toLocaleDateString(localeForLang(currentLang));
 
   document.getElementById("time").innerText =
-    now.toLocaleTimeString("sr-RS");
-
-  document.getElementById("temp").innerText = "24°C";
+    now.toLocaleTimeString(localeForLang(currentLang));
 }
 
-setInterval(updateTime,1000);
-updateTime();
+fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
+.then(r=>r.json())
+.then(d=>{
+  document.getElementById("temp").innerText = Math.round(d.current_weather.temperature) + "°C";
+})
+.catch(()=>{
+  document.getElementById("temp").innerText = "24°C";
+});
 
-render("home");
+document.getElementById("langSelect").value = currentLang;
+
+document.getElementById("langSelect").addEventListener("change", function(){
+  currentLang = this.value;
+  localStorage.setItem("site_lang", currentLang);
+  applyLanguage();
+});
+
+setInterval(updateTime, 1000);
+
+applyLanguage();
+updateTime();
 </script>
 
 </body>
