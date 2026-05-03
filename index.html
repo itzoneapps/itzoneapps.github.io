@@ -890,20 +890,134 @@ function newsHtml(){
 function footerPageHtml(page){
 
   if(page === "contact"){
+  if(currentLang === "sr"){
     return `
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - POČETAK -->
-      <!-- Ako menjaš Kontakt, pošalji deo odavde do KRAJA KONTAKT -->
+      <!-- DONJA STRANICA / KONTAKT - SRPSKI - POČETAK -->
       <!-- ===================================================== -->
       <div class="construction-box">
         <h3>Kontakt</h3>
-        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>Wien, Österreich</p>
+
+        <p><strong>Opšte informacije</strong></p>
+        <p>
+          Ova web stranica je privatna informativna stranica namenjena predstavljanju
+          aplikacija, projekata i digitalnih alata u razvoju.
+        </p>
+
+        <p><strong>Kontakt podaci</strong></p>
+        <p>
+          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
+          Lokacija: Wien, Österreich
+        </p>
+
+        <p><strong>Napomena</strong></p>
+        <p>
+          Upiti poslati putem emaila koriste se isključivo za komunikaciju i neće
+          biti prosleđivani trećim licima.
+        </p>
       </div>
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - KRAJ -->
+      <!-- DONJA STRANICA / KONTAKT - SRPSKI - KRAJ -->
       <!-- ===================================================== -->
     `;
   }
+
+  if(currentLang === "de"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - NEMAČKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Kontakt</h3>
+
+        <p><strong>Allgemeine Informationen</strong></p>
+        <p>
+          Diese Website ist eine private Informationsseite zur Darstellung von
+          Projekten, Apps und digitalen Lösungen in Entwicklung.
+        </p>
+
+        <p><strong>Kontaktdaten</strong></p>
+        <p>
+          E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
+          Standort: Wien, Österreich
+        </p>
+
+        <p><strong>Hinweis</strong></p>
+        <p>
+          Übermittelte Anfragen werden ausschließlich zur Kommunikation verwendet
+          und nicht an Dritte weitergegeben.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - NEMAČKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "hu"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - MAĐARSKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Kapcsolat</h3>
+
+        <p><strong>Általános információk</strong></p>
+        <p>
+          Ez a weboldal egy privát információs oldal, amely projektek, alkalmazások
+          és fejlesztés alatt álló digitális eszközök bemutatására szolgál.
+        </p>
+
+        <p><strong>Kapcsolati adatok</strong></p>
+        <p>
+          E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
+          Helyszín: Bécs, Ausztria
+        </p>
+
+        <p><strong>Megjegyzés</strong></p>
+        <p>
+          Az elküldött üzeneteket kizárólag kapcsolattartás céljából használjuk,
+          és nem adjuk tovább harmadik félnek.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - MAĐARSKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "en"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - ENGLESKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Contact</h3>
+
+        <p><strong>General information</strong></p>
+        <p>
+          This website is a private informational page intended to present projects,
+          applications and digital tools in development.
+        </p>
+
+        <p><strong>Contact details</strong></p>
+        <p>
+          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
+          Location: Vienna, Austria
+        </p>
+
+        <p><strong>Note</strong></p>
+        <p>
+          Messages sent via email are used only for communication purposes and are
+          not shared with third parties.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - ENGLESKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+}
 
   if(page === "privacy"){
     return `
@@ -1280,36 +1394,343 @@ function footerPageHtml(page){
 }
 
   if(page === "agb"){
+  if(currentLang === "sr"){
     return `
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - POČETAK -->
-      <!-- Ako menjaš AGB, pošalji deo odavde do KRAJA AGB -->
+      <!-- DONJA STRANICA / AGB - SRPSKI - POČETAK -->
       <!-- ===================================================== -->
       <div class="construction-box">
-        <h3>AGB</h3>
-        <p>Diese Website befindet sich im Aufbau und stellt derzeit kein verbindliches kommerzielles Angebot dar.</p>
+        <h3>Opšti uslovi (AGB)</h3>
+
+        <p><strong>1. Opšte informacije</strong></p>
+        <p>
+          Ova web stranica predstavlja privatni projekat i služi isključivo u informativne svrhe.
+          Ne predstavlja pravno obavezujuću ponudu niti komercijalnu uslugu.
+        </p>
+
+        <p><strong>2. Korišćenje sadržaja</strong></p>
+        <p>
+          Sav sadržaj na ovoj stranici koristi se na sopstvenu odgovornost korisnika.
+          Autor ne garantuje tačnost, potpunost ili ažurnost informacija.
+        </p>
+
+        <p><strong>3. Ograničenje odgovornosti</strong></p>
+        <p>
+          Ne preuzima se odgovornost za eventualnu štetu nastalu korišćenjem ove stranice
+          ili njenih informacija.
+        </p>
+
+        <p><strong>4. Autorska prava</strong></p>
+        <p>
+          Svi sadržaji (tekst, dizajn, aplikacije) su zaštićeni i ne smeju se kopirati
+          ili koristiti bez dozvole.
+        </p>
+
+        <p><strong>5. Završne odredbe</strong></p>
+        <p>
+          Autor zadržava pravo izmene sadržaja u bilo kom trenutku bez prethodne najave.
+        </p>
       </div>
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - KRAJ -->
+      <!-- DONJA STRANICA / AGB - SRPSKI - KRAJ -->
       <!-- ===================================================== -->
     `;
   }
 
-  if(page === "impressum"){
+  if(currentLang === "de"){
     return `
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - POČETAK -->
-      <!-- Ako menjaš Impressum, pošalji deo odavde do KRAJA IMPRESSUM -->
+      <!-- DONJA STRANICA / AGB - NEMAČKI - POČETAK -->
       <!-- ===================================================== -->
       <div class="construction-box">
-        <h3>Impressum</h3>
-        <p>Lenard Zivanović<br>Wien, Österreich<br>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
+        <h3>Allgemeine Geschäftsbedingungen (AGB)</h3>
+
+        <p><strong>1. Allgemeines</strong></p>
+        <p>
+          Diese Website ist ein privates Projekt und dient ausschließlich zu Informationszwecken.
+          Sie stellt kein rechtlich bindendes Angebot dar.
+        </p>
+
+        <p><strong>2. Nutzung der Inhalte</strong></p>
+        <p>
+          Die Nutzung der Inhalte erfolgt auf eigene Verantwortung.
+          Es wird keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität übernommen.
+        </p>
+
+        <p><strong>3. Haftungsausschluss</strong></p>
+        <p>
+          Für Schäden, die durch die Nutzung dieser Website entstehen,
+          wird keine Haftung übernommen.
+        </p>
+
+        <p><strong>4. Urheberrecht</strong></p>
+        <p>
+          Alle Inhalte dieser Website sind urheberrechtlich geschützt
+          und dürfen ohne Zustimmung nicht verwendet werden.
+        </p>
+
+        <p><strong>5. Schlussbestimmungen</strong></p>
+        <p>
+          Der Betreiber behält sich das Recht vor, Inhalte jederzeit zu ändern.
+        </p>
       </div>
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - KRAJ -->
+      <!-- DONJA STRANICA / AGB - NEMAČKI - KRAJ -->
       <!-- ===================================================== -->
     `;
   }
+
+  if(currentLang === "hu"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / AGB - MAĐARSKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Általános szerződési feltételek (AGB)</h3>
+
+        <p><strong>1. Általános információk</strong></p>
+        <p>
+          Ez a weboldal egy privát projekt, amely kizárólag tájékoztató jellegű.
+          Nem minősül jogilag kötelező érvényű ajánlatnak.
+        </p>
+
+        <p><strong>2. Tartalom használata</strong></p>
+        <p>
+          A tartalom használata a felhasználó saját felelősségére történik.
+          Nem vállalunk garanciát a pontosságra vagy teljességre.
+        </p>
+
+        <p><strong>3. Felelősség kizárása</strong></p>
+        <p>
+          Nem vállalunk felelősséget az oldal használatából eredő károkért.
+        </p>
+
+        <p><strong>4. Szerzői jogok</strong></p>
+        <p>
+          A weboldal tartalma szerzői jogi védelem alatt áll,
+          és engedély nélkül nem használható fel.
+        </p>
+
+        <p><strong>5. Záró rendelkezések</strong></p>
+        <p>
+          A tulajdonos fenntartja a jogot a tartalom módosítására.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / AGB - MAĐARSKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "en"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / AGB - ENGLESKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Terms and Conditions (AGB)</h3>
+
+        <p><strong>1. General information</strong></p>
+        <p>
+          This website is a private project intended for informational purposes only.
+          It does not constitute a legally binding offer.
+        </p>
+
+        <p><strong>2. Use of content</strong></p>
+        <p>
+          All content is used at your own risk.
+          No guarantee is given for accuracy or completeness.
+        </p>
+
+        <p><strong>3. Limitation of liability</strong></p>
+        <p>
+          The operator is not liable for any damages resulting from the use of this website.
+        </p>
+
+        <p><strong>4. Copyright</strong></p>
+        <p>
+          All content is protected and may not be used without permission.
+        </p>
+
+        <p><strong>5. Final provisions</strong></p>
+        <p>
+          The operator reserves the right to modify content at any time.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / AGB - ENGLESKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+}
+
+  if(page === "impressum"){
+  if(currentLang === "sr"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - SRPSKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Impressum</h3>
+
+        <p><strong>Vlasnik stranice</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Wien, Österreich
+        </p>
+
+        <p><strong>Kontakt</strong></p>
+        <p>
+          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+
+        <p><strong>Napomena</strong></p>
+        <p>
+          Ova web stranica je privatni projekat i služi isključivo u informativne svrhe.
+          Ne predstavlja komercijalnu ponudu niti registrovanu firmu.
+        </p>
+
+        <p><strong>Odgovornost za sadržaj</strong></p>
+        <p>
+          Sav sadržaj je kreiran pažljivo, ali ne garantujemo potpunost ili tačnost informacija.
+        </p>
+
+        <p><strong>Autorska prava</strong></p>
+        <p>
+          Svi sadržaji (tekst, dizajn, aplikacije) su zaštićeni i ne smeju se koristiti bez dozvole.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - SRPSKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "de"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - NEMAČKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Impressum</h3>
+
+        <p><strong>Betreiber der Website</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Wien, Österreich
+        </p>
+
+        <p><strong>Kontakt</strong></p>
+        <p>
+          E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+
+        <p><strong>Hinweis</strong></p>
+        <p>
+          Diese Website ist ein privates Projekt und dient ausschließlich zu Informationszwecken.
+          Es handelt sich nicht um ein kommerzielles Angebot oder ein registriertes Unternehmen.
+        </p>
+
+        <p><strong>Haftung für Inhalte</strong></p>
+        <p>
+          Die Inhalte wurden mit größter Sorgfalt erstellt, jedoch wird keine Gewähr für
+          Richtigkeit, Vollständigkeit oder Aktualität übernommen.
+        </p>
+
+        <p><strong>Urheberrecht</strong></p>
+        <p>
+          Alle Inhalte dieser Website sind urheberrechtlich geschützt und dürfen ohne Zustimmung
+          nicht verwendet werden.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - NEMAČKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "hu"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - MAĐARSKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Impresszum</h3>
+
+        <p><strong>Weboldal tulajdonosa</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Bécs, Ausztria
+        </p>
+
+        <p><strong>Kapcsolat</strong></p>
+        <p>
+          E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+
+        <p><strong>Megjegyzés</strong></p>
+        <p>
+          Ez a weboldal egy privát projekt, amely kizárólag tájékoztató jellegű.
+          Nem minősül kereskedelmi ajánlatnak vagy hivatalos vállalkozásnak.
+        </p>
+
+        <p><strong>Felelősség a tartalomért</strong></p>
+        <p>
+          A tartalmak gondosan készültek, de nem vállalunk garanciát azok pontosságára.
+        </p>
+
+        <p><strong>Szerzői jogok</strong></p>
+        <p>
+          A weboldal minden tartalma szerzői jogi védelem alatt áll.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - MAĐARSKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "en"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - ENGLESKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Impressum</h3>
+
+        <p><strong>Website owner</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Vienna, Austria
+        </p>
+
+        <p><strong>Contact</strong></p>
+        <p>
+          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+
+        <p><strong>Notice</strong></p>
+        <p>
+          This website is a private project for informational purposes only.
+          It does not represent a commercial offer or registered business.
+        </p>
+
+        <p><strong>Liability for content</strong></p>
+        <p>
+          Content has been created with care, but no guarantee is given for accuracy or completeness.
+        </p>
+
+        <p><strong>Copyright</strong></p>
+        <p>
+          All content is protected and may not be used without permission.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - ENGLESKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+}
 
   return constructionHtml();
 }
