@@ -22,7 +22,7 @@ body{
   color:var(--text);
 }
 
-/* HERO - NE DIRAJ */
+/* HERO */
 .hero{
   margin:20px;
   min-height:300px;
@@ -39,7 +39,20 @@ body{
   padding:40px;
 }
 
-/* SIDEBAR */
+.hero-meta{
+  position:absolute;
+  left:40px;
+  bottom:6px;
+  display:flex;
+  gap:20px;
+  font-weight:700;
+  color:#111;
+  font-size:14px;
+  z-index:4;
+  flex-wrap:wrap;
+}
+
+/* LAYOUT */
 .layout{
   display:grid;
   grid-template-columns:250px 1fr;
@@ -47,6 +60,7 @@ body{
   padding:20px;
 }
 
+/* SIDEBAR */
 .sidebar{
   background:#fff;
   border:1px solid var(--line);
@@ -86,7 +100,7 @@ body{
   margin-bottom:15px;
 }
 
-/* FOOTER - DISKRETAN */
+/* FOOTER */
 .footer-links{
   padding:20px;
   text-align:center;
@@ -123,17 +137,25 @@ body{
 
 <body>
 
-<!-- HERO OSTAO ISTI -->
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-inner"></div>
+  <div class="hero-inner">
+
+    <div class="hero-meta">
+      <div id="date"></div>
+      <div id="time"></div>
+      <div id="temp"></div>
+    </div>
+
+  </div>
 </div>
 
 <div class="layout">
 
-<!-- SIDEBAR - OČIŠĆEN -->
+<!-- SIDEBAR -->
 <aside class="sidebar">
   <button class="nav-btn active" onclick="show('home',this)">Početna</button>
-  <button class="nav-btn" onclick="show('apps',this)">Aplikacije</button>
+  <button class="nav-btn" onclick="show('apps',this)">Naše aplikacije</button>
   <button class="nav-btn" onclick="show('news',this)">Novosti</button>
 </aside>
 
@@ -162,6 +184,7 @@ body{
 <script>
 let currentPage="home";
 
+/* NAV */
 function show(page,btn){
   currentPage=page;
 
@@ -185,17 +208,18 @@ function showFooter(page){
   });
 }
 
+/* CONTENT */
 function render(page){
   const title=document.getElementById("title");
   const content=document.getElementById("content");
 
   if(page==="home"){
     title.innerText="Početna";
-    content.innerHTML=`<div class="section">Privatna IT stranica u razvoju.</div>`;
+    content.innerHTML=`<div class="section">Privatna informativna stranica u razvoju.</div>`;
   }
 
   if(page==="apps"){
-    title.innerText="Aplikacije";
+    title.innerText="Naše aplikacije";
     content.innerHTML=`<div class="section">Ovde dolaze tvoje aplikacije.</div>`;
   }
 
@@ -224,6 +248,22 @@ function render(page){
     content.innerHTML=`<div class="section">itzoneapps1@gmail.com</div>`;
   }
 }
+
+/* DATUM / VREME */
+function updateTime(){
+  const now = new Date();
+
+  document.getElementById("date").innerText =
+    now.toLocaleDateString("sr-RS");
+
+  document.getElementById("time").innerText =
+    now.toLocaleTimeString("sr-RS");
+
+  document.getElementById("temp").innerText = "24°C";
+}
+
+setInterval(updateTime,1000);
+updateTime();
 
 render("home");
 </script>
