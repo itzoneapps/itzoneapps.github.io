@@ -299,7 +299,6 @@ a:hover{text-decoration:underline;}
   margin:0 auto;
 }
 
-/* APP CARDS */
 .apps-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -414,7 +413,6 @@ a:hover{text-decoration:underline;}
 @keyframes dustMove{0%,100%{opacity:.15;transform:translateX(0) scale(.8);}50%{opacity:.55;transform:translateX(40px) scale(1.15);}}
 @keyframes sunPulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(1.08);opacity:1;}}
 
-/* MOBILE LEVEL 2 */
 @media (max-width:900px){
   .layout{
     grid-template-columns:1fr;
@@ -780,9 +778,38 @@ function constructionHtml(){
   `;
 }
 
+/* ===================================================== */
+/* POČETNA STRANICA - POČETAK */
+/* Sve što je između ovog POČETKA i KRAJA pripada stranici "Početna" */
+/* ===================================================== */
+function homeHtml(){
+  return `
+    <div class="construction-box">
+      <h3>IT ZONE</h3>
+      <p>
+        Dobrodošli na IT ZONE. Ovo je informativna stranica za aplikacije,
+        projekte i digitalne alate u razvoju.
+      </p>
+    </div>
+  `;
+}
+/* ===================================================== */
+/* POČETNA STRANICA - KRAJ */
+/* ===================================================== */
+
+
+/* ===================================================== */
+/* APLIKACIJE STRANICA - POČETAK */
+/* Sve kartice aplikacija se nalaze između ovog POČETKA i KRAJA */
+/* ===================================================== */
 function appsHtml(){
   return `
     <div class="apps-grid">
+
+      <!-- ===================================================== -->
+      <!-- APLIKACIJE / KARTICA 1 - SKEKI APP - POČETAK -->
+      <!-- Ako menjaš samo prvu karticu, pošalji deo odavde do KRAJA KARTICE 1 -->
+      <!-- ===================================================== -->
       <div class="app-card">
         <span class="app-badge">PHOTO • PDF • QR • AI</span>
         <h3>Skeki App</h3>
@@ -802,7 +829,15 @@ function appsHtml(){
 
         <a class="app-button" href="#">Google Play uskoro</a>
       </div>
+      <!-- ===================================================== -->
+      <!-- APLIKACIJE / KARTICA 1 - SKEKI APP - KRAJ -->
+      <!-- ===================================================== -->
 
+
+      <!-- ===================================================== -->
+      <!-- APLIKACIJE / KARTICA 2 - IT ZONE TOOLS - POČETAK -->
+      <!-- Ako menjaš samo drugu karticu, pošalji deo odavde do KRAJA KARTICE 2 -->
+      <!-- ===================================================== -->
       <div class="app-card">
         <span class="app-badge">IN DEVELOPMENT</span>
         <h3>IT Zone Tools</h3>
@@ -819,22 +854,22 @@ function appsHtml(){
 
         <a class="app-button" href="#" onclick="return false;">U pripremi</a>
       </div>
+      <!-- ===================================================== -->
+      <!-- APLIKACIJE / KARTICA 2 - IT ZONE TOOLS - KRAJ -->
+      <!-- ===================================================== -->
+
     </div>
   `;
 }
+/* ===================================================== */
+/* APLIKACIJE STRANICA - KRAJ */
+/* ===================================================== */
 
-function homeHtml(){
-  return `
-    <div class="construction-box">
-      <h3>IT ZONE</h3>
-      <p>
-        Dobrodošli na IT ZONE. Ovo je informativna stranica za aplikacije,
-        projekte i digitalne alate u razvoju.
-      </p>
-    </div>
-  `;
-}
 
+/* ===================================================== */
+/* NOVOSTI STRANICA - POČETAK */
+/* Sve što je između ovog POČETKA i KRAJA pripada stranici "Novosti" */
+/* ===================================================== */
 function newsHtml(){
   return `
     <div class="construction-box">
@@ -843,55 +878,102 @@ function newsHtml(){
     </div>
   `;
 }
+/* ===================================================== */
+/* NOVOSTI STRANICA - KRAJ */
+/* ===================================================== */
 
+
+/* ===================================================== */
+/* DONJE STRANICE - POČETAK */
+/* Ovde su stranice koje su dole u footeru: Kontakt, Privacy, Datenschutz, AGB, Impressum */
+/* ===================================================== */
 function footerPageHtml(page){
+
   if(page === "contact"){
     return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - POČETAK -->
+      <!-- Ako menjaš Kontakt, pošalji deo odavde do KRAJA KONTAKT -->
+      <!-- ===================================================== -->
       <div class="construction-box">
         <h3>Kontakt</h3>
         <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>Wien, Österreich</p>
       </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / KONTAKT - KRAJ -->
+      <!-- ===================================================== -->
     `;
   }
 
   if(page === "privacy"){
     return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - POČETAK -->
+      <!-- Ako menjaš Privacy Policy, pošalji deo odavde do KRAJA PRIVACY POLICY -->
+      <!-- ===================================================== -->
       <div class="construction-box">
         <h3>Privacy Policy</h3>
         <p>Ova stranica je privatna informativna stranica. Detaljna pravila privatnosti biće dopunjena po potrebi.</p>
       </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - KRAJ -->
+      <!-- ===================================================== -->
     `;
   }
 
   if(page === "datenschutz"){
     return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - POČETAK -->
+      <!-- Ako menjaš Datenschutz, pošalji deo odavde do KRAJA DATENSCHUTZ -->
+      <!-- ===================================================== -->
       <div class="construction-box">
         <h3>Datenschutz</h3>
         <p>Diese Website ist derzeit eine private Informationsseite. Datenschutzinformationen werden bei Bedarf ergänzt.</p>
       </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - KRAJ -->
+      <!-- ===================================================== -->
     `;
   }
 
   if(page === "agb"){
     return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / AGB - POČETAK -->
+      <!-- Ako menjaš AGB, pošalji deo odavde do KRAJA AGB -->
+      <!-- ===================================================== -->
       <div class="construction-box">
         <h3>AGB</h3>
         <p>Diese Website befindet sich im Aufbau und stellt derzeit kein verbindliches kommerzielles Angebot dar.</p>
       </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / AGB - KRAJ -->
+      <!-- ===================================================== -->
     `;
   }
 
   if(page === "impressum"){
     return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - POČETAK -->
+      <!-- Ako menjaš Impressum, pošalji deo odavde do KRAJA IMPRESSUM -->
+      <!-- ===================================================== -->
       <div class="construction-box">
         <h3>Impressum</h3>
         <p>Lenard Zivanović<br>Wien, Österreich<br>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
       </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / IMPRESSUM - KRAJ -->
+      <!-- ===================================================== -->
     `;
   }
 
   return constructionHtml();
 }
+/* ===================================================== */
+/* DONJE STRANICE - KRAJ */
+/* ===================================================== */
 
 function applyLanguage(){
   const t = i18n[currentLang];
