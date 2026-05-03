@@ -17,23 +17,34 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:Arial;
+  font-family:Arial, sans-serif;
   background:linear-gradient(180deg,#f7fbff,#eef4fb);
   color:var(--text);
 }
 
+/* HERO - NE DIRAJ */
+.hero{
+  margin:20px;
+  min-height:300px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  background:url("logo3.jpg") center/cover no-repeat;
+  box-shadow:var(--shadow);
+}
+
+.hero-inner{
+  position:relative;
+  min-height:300px;
+  padding:40px;
+}
+
+/* SIDEBAR */
 .layout{
   display:grid;
   grid-template-columns:250px 1fr;
   gap:20px;
   padding:20px;
-}
-
-.hero{
-  margin:20px;
-  height:260px;
-  border-radius:28px;
-  background:#000;
 }
 
 .sidebar{
@@ -60,6 +71,7 @@ body{
   color:#2455b2;
 }
 
+/* CONTENT */
 .content{
   background:#fff;
   border:1px solid var(--line);
@@ -74,8 +86,9 @@ body{
   margin-bottom:15px;
 }
 
+/* FOOTER - DISKRETAN */
 .footer-links{
-  padding:25px;
+  padding:20px;
   text-align:center;
   font-size:11px;
   color:#8a96a8;
@@ -99,6 +112,7 @@ body{
 
 .footer-nav button:hover{
   color:#2455b2;
+  text-decoration:underline;
 }
 
 .footer-nav span{
@@ -109,16 +123,21 @@ body{
 
 <body>
 
-<div class="hero"></div>
+<!-- HERO OSTAO ISTI -->
+<div class="hero">
+  <div class="hero-inner"></div>
+</div>
 
 <div class="layout">
 
+<!-- SIDEBAR - OČIŠĆEN -->
 <aside class="sidebar">
   <button class="nav-btn active" onclick="show('home',this)">Početna</button>
   <button class="nav-btn" onclick="show('apps',this)">Aplikacije</button>
   <button class="nav-btn" onclick="show('news',this)">Novosti</button>
 </aside>
 
+<!-- CONTENT -->
 <main class="content">
   <h2 id="title"></h2>
   <div id="content"></div>
@@ -126,6 +145,7 @@ body{
 
 </div>
 
+<!-- FOOTER -->
 <footer class="footer-links">
   <div class="footer-nav">
     <button onclick="showFooter('contact')">Kontakt</button>
@@ -185,7 +205,7 @@ function render(page){
   }
 
   if(page==="privacy"){
-    title.innerText="Privacy";
+    title.innerText="Privacy Policy";
     content.innerHTML=`<div class="section">Privacy tekst...</div>`;
   }
 
