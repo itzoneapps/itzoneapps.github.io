@@ -153,8 +153,8 @@ a:hover{
 
 .site-scene{
   position:relative;
-  height:300px;
-  max-width:780px;
+  height:315px;
+  max-width:860px;
   margin:0 auto 22px;
 }
 
@@ -172,19 +172,19 @@ a:hover{
 
 .crane-tower{
   position:absolute;
-  left:120px;
+  left:105px;
   bottom:38px;
   width:18px;
-  height:210px;
+  height:220px;
   background:#223146;
   border-radius:8px;
 }
 
 .crane-arm{
   position:absolute;
-  left:126px;
-  top:54px;
-  width:310px;
+  left:111px;
+  top:48px;
+  width:360px;
   height:14px;
   background:#223146;
   border-radius:999px;
@@ -194,8 +194,8 @@ a:hover{
 
 .crane-cable{
   position:absolute;
-  left:405px;
-  top:66px;
+  left:445px;
+  top:60px;
   width:3px;
   height:88px;
   background:#223146;
@@ -204,67 +204,104 @@ a:hover{
 
 .crane-hook{
   position:absolute;
-  left:392px;
-  top:150px;
+  left:432px;
+  top:144px;
   font-size:34px;
   animation:hookMove 4s infinite ease-in-out;
 }
 
 .building-text{
   position:absolute;
-  left:255px;
-  top:168px;
+  left:220px;
+  top:165px;
   display:flex;
-  gap:7px;
+  gap:6px;
   font-weight:900;
-  font-size:36px;
+  font-size:34px;
   color:#2455b2;
-  letter-spacing:2px;
+  letter-spacing:1px;
+  white-space:nowrap;
 }
 
 .building-text span{
   display:inline-block;
   opacity:0;
-  transform:translateY(25px);
-  animation:letterBuild 2.8s infinite ease-in-out;
+  transform:translateY(30px) rotate(-8deg);
+  animation:letterBuild 3.8s infinite ease-in-out;
 }
 
-.building-text span:nth-child(1){animation-delay:.1s}
-.building-text span:nth-child(2){animation-delay:.25s}
-.building-text span:nth-child(3){animation-delay:.4s}
-.building-text span:nth-child(4){animation-delay:.55s}
-.building-text span:nth-child(5){animation-delay:.7s}
-.building-text span:nth-child(6){animation-delay:.85s}
-.building-text span:nth-child(7){animation-delay:1s}
+.building-text .space{
+  width:15px;
+}
+
+.building-text span:nth-child(1){animation-delay:.05s}
+.building-text span:nth-child(2){animation-delay:.18s}
+.building-text span:nth-child(4){animation-delay:.34s}
+.building-text span:nth-child(5){animation-delay:.48s}
+.building-text span:nth-child(6){animation-delay:.62s}
+.building-text span:nth-child(7){animation-delay:.76s}
+.building-text span:nth-child(9){animation-delay:.92s}
+.building-text span:nth-child(10){animation-delay:1.06s}
+.building-text span:nth-child(11){animation-delay:1.20s}
+.building-text span:nth-child(12){animation-delay:1.34s}
 
 .worker{
   position:absolute;
   left:455px;
   bottom:60px;
-  font-size:52px;
+  font-size:54px;
   animation:workerMove 1.2s infinite ease-in-out;
+}
+
+.shovel{
+  position:absolute;
+  left:500px;
+  bottom:100px;
+  font-size:36px;
+  transform-origin:left bottom;
+  animation:shovelThrow 1.4s infinite ease-in-out;
+}
+
+.flying-letter{
+  position:absolute;
+  left:515px;
+  bottom:148px;
+  font-size:28px;
+  font-weight:900;
+  color:#2455b2;
+  animation:letterThrow 1.4s infinite ease-in-out;
+}
+
+.flying-letter.two{
+  animation-delay:.45s;
+  color:#223146;
+}
+
+.flying-letter.three{
+  animation-delay:.9s;
+  color:#2455b2;
 }
 
 .mixer{
   position:absolute;
-  left:525px;
+  left:585px;
   bottom:58px;
-  font-size:54px;
+  font-size:58px;
   animation:mixerSpin 1.4s infinite ease-in-out;
 }
 
 .truck{
   position:absolute;
-  left:35px;
+  left:25px;
   bottom:42px;
-  font-size:66px;
+  font-size:68px;
   animation:truckMove 6s infinite ease-in-out;
 }
 
 .ground{
   position:absolute;
-  left:40px;
-  right:40px;
+  left:35px;
+  right:35px;
   bottom:30px;
   height:10px;
   border-radius:999px;
@@ -346,19 +383,55 @@ a:hover{
 }
 
 @keyframes letterBuild{
-  0%{opacity:0; transform:translateY(28px) scale(.85);}
-  35%,75%{opacity:1; transform:translateY(0) scale(1);}
-  100%{opacity:0; transform:translateY(-8px) scale(1);}
+  0%{
+    opacity:0;
+    transform:translateY(35px) rotate(-12deg) scale(.75);
+  }
+  35%,75%{
+    opacity:1;
+    transform:translateY(0) rotate(0deg) scale(1);
+  }
+  100%{
+    opacity:0;
+    transform:translateY(-12px) rotate(8deg) scale(1);
+  }
 }
 
 @keyframes workerMove{
-  0%,100%{transform:rotate(-4deg) translateY(0);}
-  50%{transform:rotate(6deg) translateY(-5px);}
+  0%,100%{transform:rotate(-5deg) translateY(0);}
+  50%{transform:rotate(7deg) translateY(-5px);}
+}
+
+@keyframes shovelThrow{
+  0%,100%{
+    transform:rotate(-35deg);
+  }
+  50%{
+    transform:rotate(35deg) translateY(-8px);
+  }
+}
+
+@keyframes letterThrow{
+  0%{
+    opacity:0;
+    transform:translate(0,0) scale(.7) rotate(-10deg);
+  }
+  25%{
+    opacity:1;
+  }
+  70%{
+    opacity:1;
+    transform:translate(70px,45px) scale(1.1) rotate(12deg);
+  }
+  100%{
+    opacity:0;
+    transform:translate(95px,62px) scale(.6) rotate(20deg);
+  }
 }
 
 @keyframes mixerSpin{
-  0%,100%{transform:rotate(-3deg);}
-  50%{transform:rotate(6deg);}
+  0%,100%{transform:rotate(-4deg);}
+  50%{transform:rotate(8deg);}
 }
 
 @keyframes truckMove{
@@ -434,8 +507,8 @@ a:hover{
   }
 
   .site-scene{
-    transform:scale(.72);
-    margin-left:-40px;
+    transform:scale(.68);
+    margin-left:-72px;
     height:230px;
   }
 }
@@ -578,10 +651,18 @@ function constructionHtml(){
         <div class="crane-hook">🪝</div>
 
         <div class="building-text">
-          <span>I</span><span>T</span><span>Z</span><span>O</span><span>N</span><span>E</span>
+          <span>I</span><span>T</span>
+          <span class="space"></span>
+          <span>Z</span><span>o</span><span>n</span><span>e</span>
+          <span class="space"></span>
+          <span>A</span><span>p</span><span>p</span><span>s</span>
         </div>
 
-        <div class="worker">👷</div>
+        <div class="worker">👷‍♂️</div>
+        <div class="shovel">⛏️</div>
+        <div class="flying-letter">I</div>
+        <div class="flying-letter two">T</div>
+        <div class="flying-letter three">A</div>
         <div class="mixer">⚙️</div>
         <div class="truck">🚚</div>
         <div class="dust">💨</div>
@@ -599,7 +680,9 @@ function footerPageHtml(page){
     return `
       <div class="construction-box">
         <div class="site-scene">
-          <div class="worker">👷</div>
+          <div class="worker">👷‍♂️</div>
+          <div class="shovel">⛏️</div>
+          <div class="mixer">⚙️</div>
           <div class="truck">🚚</div>
           <div class="ground"></div>
         </div>
