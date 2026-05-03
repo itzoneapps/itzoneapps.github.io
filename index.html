@@ -23,14 +23,9 @@ body{
   color:var(--text);
 }
 
-a{
-  color:var(--blue);
-  text-decoration:none;
-}
-
+a{color:var(--blue);text-decoration:none;}
 a:hover{text-decoration:underline;}
 
-/* HERO */
 .hero{
   margin:20px;
   min-height:300px;
@@ -79,7 +74,6 @@ a:hover{text-decoration:underline;}
   flex-wrap:wrap;
 }
 
-/* LAYOUT */
 .layout{
   display:grid;
   grid-template-columns:250px 1fr;
@@ -87,7 +81,6 @@ a:hover{text-decoration:underline;}
   padding:20px;
 }
 
-/* SIDEBAR */
 .sidebar{
   background:#fff;
   border:1px solid var(--line);
@@ -121,7 +114,6 @@ a:hover{text-decoration:underline;}
   border-color:#2455b2;
 }
 
-/* CONTENT */
 .content{
   background:#fff;
   border:1px solid var(--line);
@@ -135,7 +127,6 @@ a:hover{text-decoration:underline;}
   margin-bottom:18px;
 }
 
-/* CONSTRUCTION */
 .construction-box{
   min-height:560px;
   border:1px solid var(--line);
@@ -230,17 +221,6 @@ a:hover{text-decoration:underline;}
 
 .building-text .space{width:15px;}
 
-.building-text span:nth-child(1){animation-delay:.05s}
-.building-text span:nth-child(2){animation-delay:.18s}
-.building-text span:nth-child(4){animation-delay:.34s}
-.building-text span:nth-child(5){animation-delay:.48s}
-.building-text span:nth-child(6){animation-delay:.62s}
-.building-text span:nth-child(7){animation-delay:.76s}
-.building-text span:nth-child(9){animation-delay:.92s}
-.building-text span:nth-child(10){animation-delay:1.06s}
-.building-text span:nth-child(11){animation-delay:1.20s}
-.building-text span:nth-child(12){animation-delay:1.34s}
-
 .worker{
   position:absolute;
   left:455px;
@@ -268,15 +248,8 @@ a:hover{text-decoration:underline;}
   animation:letterThrow 1.4s infinite ease-in-out;
 }
 
-.flying-letter.two{
-  animation-delay:.45s;
-  color:#223146;
-}
-
-.flying-letter.three{
-  animation-delay:.9s;
-  color:#2455b2;
-}
+.flying-letter.two{animation-delay:.45s;color:#223146;}
+.flying-letter.three{animation-delay:.9s;color:#2455b2;}
 
 .mixer{
   position:absolute;
@@ -326,7 +299,76 @@ a:hover{text-decoration:underline;}
   margin:0 auto;
 }
 
-/* FOOTER */
+/* APP CARDS */
+.apps-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.app-card{
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px;
+  background:linear-gradient(180deg,#ffffff,#fbfdff);
+  box-shadow:0 14px 35px rgba(20,55,95,.10);
+}
+
+.app-badge{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:999px;
+  background:#eef5ff;
+  color:#2455b2;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.app-card h3{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.app-card p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:16px;
+}
+
+.app-features{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.app-features span{
+  border:1px solid var(--line);
+  background:#fff;
+  color:#5f6f86;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.app-button{
+  display:inline-block;
+  padding:12px 16px;
+  border-radius:14px;
+  background:#2455b2;
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+}
+
+.app-button:hover{
+  text-decoration:none;
+  background:#1f4897;
+}
+
 .footer-links{
   padding:32px 20px 46px;
   text-align:center;
@@ -360,65 +402,17 @@ a:hover{text-decoration:underline;}
 
 .footer-nav span{color:#aab4c2;}
 
-/* ANIMATIONS */
-@keyframes craneMove{
-  0%,100%{transform:rotate(-1deg);}
-  50%{transform:rotate(4deg);}
-}
-
-@keyframes cableMove{
-  0%,100%{height:88px; transform:translateX(0);}
-  50%{height:112px; transform:translateX(22px);}
-}
-
-@keyframes hookMove{
-  0%,100%{transform:translateX(0) translateY(0);}
-  50%{transform:translateX(22px) translateY(24px);}
-}
-
-@keyframes letterBuild{
-  0%{opacity:0; transform:translateY(35px) rotate(-12deg) scale(.75);}
-  35%,75%{opacity:1; transform:translateY(0) rotate(0deg) scale(1);}
-  100%{opacity:0; transform:translateY(-12px) rotate(8deg) scale(1);}
-}
-
-@keyframes workerMove{
-  0%,100%{transform:rotate(-5deg) translateY(0);}
-  50%{transform:rotate(7deg) translateY(-5px);}
-}
-
-@keyframes shovelThrow{
-  0%,100%{transform:rotate(-35deg);}
-  50%{transform:rotate(35deg) translateY(-8px);}
-}
-
-@keyframes letterThrow{
-  0%{opacity:0; transform:translate(0,0) scale(.7) rotate(-10deg);}
-  25%{opacity:1;}
-  70%{opacity:1; transform:translate(70px,45px) scale(1.1) rotate(12deg);}
-  100%{opacity:0; transform:translate(95px,62px) scale(.6) rotate(20deg);}
-}
-
-@keyframes mixerSpin{
-  0%,100%{transform:rotate(-4deg);}
-  50%{transform:rotate(8deg);}
-}
-
-@keyframes truckMove{
-  0%{transform:translateX(-25px);}
-  45%,65%{transform:translateX(85px);}
-  100%{transform:translateX(-25px);}
-}
-
-@keyframes dustMove{
-  0%,100%{opacity:.15; transform:translateX(0) scale(.8);}
-  50%{opacity:.55; transform:translateX(40px) scale(1.15);}
-}
-
-@keyframes sunPulse{
-  0%,100%{transform:scale(1); opacity:.8;}
-  50%{transform:scale(1.08); opacity:1;}
-}
+@keyframes craneMove{0%,100%{transform:rotate(-1deg);}50%{transform:rotate(4deg);}}
+@keyframes cableMove{0%,100%{height:88px;transform:translateX(0);}50%{height:112px;transform:translateX(22px);}}
+@keyframes hookMove{0%,100%{transform:translateX(0) translateY(0);}50%{transform:translateX(22px) translateY(24px);}}
+@keyframes letterBuild{0%{opacity:0;transform:translateY(35px) rotate(-12deg) scale(.75);}35%,75%{opacity:1;transform:translateY(0) rotate(0deg) scale(1);}100%{opacity:0;transform:translateY(-12px) rotate(8deg) scale(1);}}
+@keyframes workerMove{0%,100%{transform:rotate(-5deg) translateY(0);}50%{transform:rotate(7deg) translateY(-5px);}}
+@keyframes shovelThrow{0%,100%{transform:rotate(-35deg);}50%{transform:rotate(35deg) translateY(-8px);}}
+@keyframes letterThrow{0%{opacity:0;transform:translate(0,0) scale(.7) rotate(-10deg);}25%{opacity:1;}70%{opacity:1;transform:translate(70px,45px) scale(1.1) rotate(12deg);}100%{opacity:0;transform:translate(95px,62px) scale(.6) rotate(20deg);}}
+@keyframes mixerSpin{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(8deg);}}
+@keyframes truckMove{0%{transform:translateX(-25px);}45%,65%{transform:translateX(85px);}100%{transform:translateX(-25px);}}
+@keyframes dustMove{0%,100%{opacity:.15;transform:translateX(0) scale(.8);}50%{opacity:.55;transform:translateX(40px) scale(1.15);}}
+@keyframes sunPulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(1.08);opacity:1;}}
 
 /* MOBILE LEVEL 2 */
 @media (max-width:900px){
@@ -426,6 +420,10 @@ a:hover{text-decoration:underline;}
     grid-template-columns:1fr;
     gap:16px;
     padding:16px;
+  }
+
+  .apps-grid{
+    grid-template-columns:1fr;
   }
 }
 
@@ -463,10 +461,7 @@ a:hover{text-decoration:underline;}
     padding:14px;
   }
 
-  .lang-wrap{
-    top:14px;
-    right:14px;
-  }
+  .lang-wrap{top:14px;right:14px;}
 
   .lang-select{
     height:40px;
@@ -555,92 +550,20 @@ a:hover{text-decoration:underline;}
     margin:0 auto 16px;
   }
 
-  .sun{
-    top:22px;
-    right:24px;
-    width:38px;
-    height:38px;
-  }
-
-  .crane-tower{
-    left:30px;
-    bottom:46px;
-    width:13px;
-    height:190px;
-  }
-
-  .crane-arm{
-    left:36px;
-    top:62px;
-    width:225px;
-    height:11px;
-  }
-
-  .crane-cable{
-    left:240px;
-    top:72px;
-    height:76px;
-  }
-
-  .crane-hook{
-    left:228px;
-    top:147px;
-    font-size:27px;
-  }
-
-  .building-text{
-    left:50px;
-    top:180px;
-    font-size:20px;
-    gap:3px;
-    letter-spacing:0;
-  }
-
-  .building-text .space{
-    width:7px;
-  }
-
-  .worker{
-    left:154px;
-    bottom:72px;
-    font-size:40px;
-  }
-
-  .shovel{
-    left:190px;
-    bottom:104px;
-    font-size:27px;
-  }
-
-  .flying-letter{
-    left:201px;
-    bottom:142px;
-    font-size:21px;
-  }
-
-  .mixer{
-    left:232px;
-    bottom:70px;
-    font-size:40px;
-  }
-
-  .truck{
-    left:0;
-    bottom:58px;
-    font-size:48px;
-  }
-
-  .dust{
-    left:78px;
-    bottom:68px;
-    font-size:17px;
-  }
-
-  .ground{
-    left:12px;
-    right:12px;
-    bottom:48px;
-  }
+  .sun{top:22px;right:24px;width:38px;height:38px;}
+  .crane-tower{left:30px;bottom:46px;width:13px;height:190px;}
+  .crane-arm{left:36px;top:62px;width:225px;height:11px;}
+  .crane-cable{left:240px;top:72px;height:76px;}
+  .crane-hook{left:228px;top:147px;font-size:27px;}
+  .building-text{left:50px;top:180px;font-size:20px;gap:3px;letter-spacing:0;}
+  .building-text .space{width:7px;}
+  .worker{left:154px;bottom:72px;font-size:40px;}
+  .shovel{left:190px;bottom:104px;font-size:27px;}
+  .flying-letter{left:201px;bottom:142px;font-size:21px;}
+  .mixer{left:232px;bottom:70px;font-size:40px;}
+  .truck{left:0;bottom:58px;font-size:48px;}
+  .dust{left:78px;bottom:68px;font-size:17px;}
+  .ground{left:12px;right:12px;bottom:48px;}
 
   .construction-box h3{
     font-size:22px;
@@ -651,6 +574,19 @@ a:hover{text-decoration:underline;}
     font-size:15px;
     line-height:1.55;
     padding:0 4px;
+  }
+
+  .app-card{
+    padding:20px;
+    border-radius:20px;
+  }
+
+  .app-card h3{
+    font-size:22px;
+  }
+
+  .app-card p{
+    font-size:15px;
   }
 
   .footer-links{
@@ -668,57 +604,18 @@ a:hover{text-decoration:underline;}
 }
 
 @media (max-width:420px){
-  .hero{
-    min-height:220px;
-  }
-
-  .hero-inner{
-    min-height:220px;
-  }
-
-  .hero-meta{
-    font-size:13px;
-    gap:10px;
-    left:16px;
-  }
-
-  .sidebar h3{
-    font-size:19px;
-  }
-
-  .sidebar button{
-    font-size:15px;
-    padding:13px 13px 13px 44px;
-  }
-
-  .content h2{
-    font-size:24px;
-  }
-
-  .site-scene{
-    height:285px;
-  }
-
-  .building-text{
-    left:42px;
-    font-size:19px;
-  }
-
-  .worker{
-    left:144px;
-  }
-
-  .shovel{
-    left:178px;
-  }
-
-  .flying-letter{
-    left:190px;
-  }
-
-  .mixer{
-    left:220px;
-  }
+  .hero{min-height:220px;}
+  .hero-inner{min-height:220px;}
+  .hero-meta{font-size:13px;gap:10px;left:16px;}
+  .sidebar h3{font-size:19px;}
+  .sidebar button{font-size:15px;padding:13px 13px 13px 44px;}
+  .content h2{font-size:24px;}
+  .site-scene{height:285px;}
+  .building-text{left:42px;font-size:19px;}
+  .worker{left:144px;}
+  .shovel{left:178px;}
+  .flying-letter{left:190px;}
+  .mixer{left:220px;}
 }
 </style>
 </head>
@@ -883,17 +780,74 @@ function constructionHtml(){
   `;
 }
 
+function appsHtml(){
+  return `
+    <div class="apps-grid">
+      <div class="app-card">
+        <span class="app-badge">PHOTO • PDF • QR • AI</span>
+        <h3>Skeki App</h3>
+        <p>
+          PDF scanner, blur, QR i photo tools u jednoj aplikaciji.
+          Aplikacija je namenjena za brzo uređivanje slika, skeniranje dokumenata,
+          kreiranje QR kodova i pripremu fajlova za slanje.
+        </p>
+
+        <div class="app-features">
+          <span>PDF Scanner</span>
+          <span>Blur Tool</span>
+          <span>QR Code</span>
+          <span>Photo Tools</span>
+          <span>AI Effects</span>
+        </div>
+
+        <a class="app-button" href="#">Google Play uskoro</a>
+      </div>
+
+      <div class="app-card">
+        <span class="app-badge">IN DEVELOPMENT</span>
+        <h3>IT Zone Tools</h3>
+        <p>
+          Ovde će kasnije biti prikazani dodatni projekti, alati i aplikacije
+          koje su trenutno u pripremi.
+        </p>
+
+        <div class="app-features">
+          <span>Apps</span>
+          <span>Tools</span>
+          <span>Updates</span>
+        </div>
+
+        <a class="app-button" href="#" onclick="return false;">U pripremi</a>
+      </div>
+    </div>
+  `;
+}
+
+function homeHtml(){
+  return `
+    <div class="construction-box">
+      <h3>IT ZONE</h3>
+      <p>
+        Dobrodošli na IT ZONE. Ovo je informativna stranica za aplikacije,
+        projekte i digitalne alate u razvoju.
+      </p>
+    </div>
+  `;
+}
+
+function newsHtml(){
+  return `
+    <div class="construction-box">
+      <h3>Novosti uskoro</h3>
+      <p>Ovde će biti objave, nove verzije aplikacija i važna obaveštenja.</p>
+    </div>
+  `;
+}
+
 function footerPageHtml(page){
   if(page === "contact"){
     return `
       <div class="construction-box">
-        <div class="site-scene">
-          <div class="worker">👷‍♂️</div>
-          <div class="shovel">⛏️</div>
-          <div class="mixer">⚙️</div>
-          <div class="truck">🚚</div>
-          <div class="ground"></div>
-        </div>
         <h3>Kontakt</h3>
         <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>Wien, Österreich</p>
       </div>
@@ -980,19 +934,19 @@ function render(pageKey){
 
   if(pageKey === "home"){
     document.getElementById("title").innerText = t.home;
-    document.getElementById("contentArea").innerHTML = constructionHtml();
+    document.getElementById("contentArea").innerHTML = homeHtml();
     return;
   }
 
   if(pageKey === "apps"){
     document.getElementById("title").innerText = t.apps;
-    document.getElementById("contentArea").innerHTML = constructionHtml();
+    document.getElementById("contentArea").innerHTML = appsHtml();
     return;
   }
 
   if(pageKey === "news"){
     document.getElementById("title").innerText = t.news;
-    document.getElementById("contentArea").innerHTML = constructionHtml();
+    document.getElementById("contentArea").innerHTML = newsHtml();
     return;
   }
 
