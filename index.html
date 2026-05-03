@@ -1020,20 +1020,197 @@ function footerPageHtml(page){
 }
 
   if(page === "privacy"){
+  if(currentLang === "sr"){
     return `
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - POČETAK -->
-      <!-- Ako menjaš Privacy Policy, pošalji deo odavde do KRAJA PRIVACY POLICY -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - SRPSKI - POČETAK -->
       <!-- ===================================================== -->
       <div class="construction-box">
         <h3>Privacy Policy</h3>
-        <p>Ova stranica je privatna informativna stranica. Detaljna pravila privatnosti biće dopunjena po potrebi.</p>
+
+        <p><strong>1. Opšte informacije</strong></p>
+        <p>
+          Ova web stranica je privatni projekat i ne prikuplja lične podatke korisnika
+          osim u slučajevima direktne komunikacije putem emaila.
+        </p>
+
+        <p><strong>2. Prikupljanje podataka</strong></p>
+        <p>
+          Stranica ne koristi registraciju korisnika, baze podataka niti aktivno
+          prikuplja lične informacije.
+        </p>
+
+        <p><strong>3. Tehnički podaci</strong></p>
+        <p>
+          Prilikom posete stranici, mogu se automatski obrađivati tehnički podaci
+          (npr. IP adresa, vreme pristupa) od strane hosting provajdera.
+        </p>
+
+        <p><strong>4. Kolačići (Cookies)</strong></p>
+        <p>
+          Stranica može koristiti osnovne kolačiće (npr. za čuvanje jezika).
+          Ne koriste se kolačići za praćenje ili marketing.
+        </p>
+
+        <p><strong>5. Kontakt</strong></p>
+        <p>
+          Ako nas kontaktirate putem emaila, vaši podaci će se koristiti isključivo
+          za odgovor na vaš upit i neće biti prosleđeni trećim licima.
+        </p>
+
+        <p><strong>6. Prava korisnika</strong></p>
+        <p>
+          Imate pravo na uvid, ispravku ili brisanje vaših podataka u skladu sa GDPR regulativom.
+        </p>
       </div>
       <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - KRAJ -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - SRPSKI - KRAJ -->
       <!-- ===================================================== -->
     `;
   }
+
+  if(currentLang === "de"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - NEMAČKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Privacy Policy</h3>
+
+        <p><strong>1. Allgemeine Informationen</strong></p>
+        <p>
+          Diese Website ist ein privates Projekt und erhebt keine personenbezogenen Daten,
+          außer bei direkter Kontaktaufnahme per E-Mail.
+        </p>
+
+        <p><strong>2. Datenerhebung</strong></p>
+        <p>
+          Es erfolgt keine Registrierung, keine Datenbankverarbeitung und keine aktive Datensammlung.
+        </p>
+
+        <p><strong>3. Technische Daten</strong></p>
+        <p>
+          Beim Besuch können technische Daten (z. B. IP-Adresse) automatisch
+          durch den Hosting-Anbieter verarbeitet werden.
+        </p>
+
+        <p><strong>4. Cookies</strong></p>
+        <p>
+          Es werden nur notwendige Cookies verwendet (z. B. Spracheinstellung).
+          Kein Tracking oder Marketing.
+        </p>
+
+        <p><strong>5. Kontakt</strong></p>
+        <p>
+          Bei Kontaktaufnahme per E-Mail werden Ihre Daten ausschließlich zur Bearbeitung
+          der Anfrage verwendet.
+        </p>
+
+        <p><strong>6. Rechte der Nutzer</strong></p>
+        <p>
+          Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten gemäß DSGVO.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - NEMAČKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "hu"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - MAĐARSKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Adatvédelmi szabályzat</h3>
+
+        <p><strong>1. Általános információk</strong></p>
+        <p>
+          Ez a weboldal egy privát projekt, és nem gyűjt személyes adatokat,
+          kivéve az e-mailen keresztüli kapcsolatfelvételt.
+        </p>
+
+        <p><strong>2. Adatgyűjtés</strong></p>
+        <p>
+          Nincs regisztráció, nincs adatbázis-kezelés és nincs aktív adatgyűjtés.
+        </p>
+
+        <p><strong>3. Technikai adatok</strong></p>
+        <p>
+          A weboldal látogatásakor technikai adatok (pl. IP-cím)
+          feldolgozásra kerülhetnek a tárhelyszolgáltató által.
+        </p>
+
+        <p><strong>4. Sütik (Cookies)</strong></p>
+        <p>
+          Csak alapvető sütik kerülnek használatra (pl. nyelvi beállítás).
+          Nincs követés vagy marketing.
+        </p>
+
+        <p><strong>5. Kapcsolat</strong></p>
+        <p>
+          Az e-mailen küldött adatokat kizárólag a megkeresés feldolgozására használjuk.
+        </p>
+
+        <p><strong>6. Felhasználói jogok</strong></p>
+        <p>
+          A felhasználóknak joguk van az adataik megtekintésére, módosítására vagy törlésére (GDPR).
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - MAĐARSKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "en"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - ENGLESKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Privacy Policy</h3>
+
+        <p><strong>1. General information</strong></p>
+        <p>
+          This website is a private project and does not collect personal data,
+          except when contacting via email.
+        </p>
+
+        <p><strong>2. Data collection</strong></p>
+        <p>
+          No user registration, database storage or active data collection is performed.
+        </p>
+
+        <p><strong>3. Technical data</strong></p>
+        <p>
+          When visiting the site, technical data (e.g. IP address) may be processed
+          by the hosting provider.
+        </p>
+
+        <p><strong>4. Cookies</strong></p>
+        <p>
+          Only essential cookies are used (e.g. language settings).
+          No tracking or marketing cookies are used.
+        </p>
+
+        <p><strong>5. Contact</strong></p>
+        <p>
+          Data sent via email is used only for responding to your request.
+        </p>
+
+        <p><strong>6. User rights</strong></p>
+        <p>
+          You have the right to access, correct or delete your data in accordance with GDPR.
+        </p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / PRIVACY POLICY - ENGLESKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+}
 
   if(page === "datenschutz"){
   if(currentLang === "sr"){
