@@ -128,48 +128,174 @@ a:hover{
   background:#fff;
   border:1px solid var(--line);
   border-radius:18px;
-  padding:30px;
-  min-height:430px;
+  padding:34px;
+  min-height:720px;
 }
 
 .content h2{
-  font-size:32px;
-  margin-bottom:14px;
-}
-
-.construction-box{
-  min-height:280px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:35px 20px;
-  background:linear-gradient(180deg,#ffffff,#fbfdff);
-}
-
-.crane{
-  font-size:76px;
+  font-size:34px;
   margin-bottom:18px;
 }
 
+/* ANIMATED CONSTRUCTION */
+.construction-box{
+  min-height:560px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:40px 20px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,251,255,.98)),
+    repeating-linear-gradient(45deg,rgba(36,85,178,.035) 0 12px,transparent 12px 24px);
+}
+
+.site-scene{
+  position:relative;
+  height:300px;
+  max-width:780px;
+  margin:0 auto 22px;
+}
+
+.sun{
+  position:absolute;
+  top:18px;
+  right:70px;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  background:#fff4b8;
+  box-shadow:0 0 35px rgba(255,210,80,.55);
+  animation:sunPulse 3s infinite ease-in-out;
+}
+
+.crane-tower{
+  position:absolute;
+  left:120px;
+  bottom:38px;
+  width:18px;
+  height:210px;
+  background:#223146;
+  border-radius:8px;
+}
+
+.crane-arm{
+  position:absolute;
+  left:126px;
+  top:54px;
+  width:310px;
+  height:14px;
+  background:#223146;
+  border-radius:999px;
+  transform-origin:left center;
+  animation:craneMove 4s infinite ease-in-out;
+}
+
+.crane-cable{
+  position:absolute;
+  left:405px;
+  top:66px;
+  width:3px;
+  height:88px;
+  background:#223146;
+  animation:cableMove 4s infinite ease-in-out;
+}
+
+.crane-hook{
+  position:absolute;
+  left:392px;
+  top:150px;
+  font-size:34px;
+  animation:hookMove 4s infinite ease-in-out;
+}
+
+.building-text{
+  position:absolute;
+  left:255px;
+  top:168px;
+  display:flex;
+  gap:7px;
+  font-weight:900;
+  font-size:36px;
+  color:#2455b2;
+  letter-spacing:2px;
+}
+
+.building-text span{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(25px);
+  animation:letterBuild 2.8s infinite ease-in-out;
+}
+
+.building-text span:nth-child(1){animation-delay:.1s}
+.building-text span:nth-child(2){animation-delay:.25s}
+.building-text span:nth-child(3){animation-delay:.4s}
+.building-text span:nth-child(4){animation-delay:.55s}
+.building-text span:nth-child(5){animation-delay:.7s}
+.building-text span:nth-child(6){animation-delay:.85s}
+.building-text span:nth-child(7){animation-delay:1s}
+
+.worker{
+  position:absolute;
+  left:455px;
+  bottom:60px;
+  font-size:52px;
+  animation:workerMove 1.2s infinite ease-in-out;
+}
+
+.mixer{
+  position:absolute;
+  left:525px;
+  bottom:58px;
+  font-size:54px;
+  animation:mixerSpin 1.4s infinite ease-in-out;
+}
+
+.truck{
+  position:absolute;
+  left:35px;
+  bottom:42px;
+  font-size:66px;
+  animation:truckMove 6s infinite ease-in-out;
+}
+
+.ground{
+  position:absolute;
+  left:40px;
+  right:40px;
+  bottom:30px;
+  height:10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#d8e3f0,#b9c9db,#d8e3f0);
+}
+
+.dust{
+  position:absolute;
+  left:180px;
+  bottom:52px;
+  font-size:22px;
+  opacity:.45;
+  animation:dustMove 2s infinite ease-in-out;
+}
+
 .construction-box h3{
-  font-size:28px;
+  font-size:30px;
   margin-bottom:10px;
 }
 
 .construction-box p{
   color:var(--muted);
-  font-size:17px;
+  font-size:18px;
   line-height:1.6;
-  max-width:700px;
+  max-width:760px;
+  margin:0 auto;
 }
 
 /* FOOTER */
 .footer-links{
-  padding:28px 20px 36px;
+  padding:32px 20px 46px;
   text-align:center;
   color:#8a96a8;
   font-size:11px;
@@ -203,10 +329,64 @@ a:hover{
   color:#aab4c2;
 }
 
+/* ANIMATIONS */
+@keyframes craneMove{
+  0%,100%{transform:rotate(-1deg);}
+  50%{transform:rotate(4deg);}
+}
+
+@keyframes cableMove{
+  0%,100%{height:88px; transform:translateX(0);}
+  50%{height:112px; transform:translateX(22px);}
+}
+
+@keyframes hookMove{
+  0%,100%{transform:translateX(0) translateY(0);}
+  50%{transform:translateX(22px) translateY(24px);}
+}
+
+@keyframes letterBuild{
+  0%{opacity:0; transform:translateY(28px) scale(.85);}
+  35%,75%{opacity:1; transform:translateY(0) scale(1);}
+  100%{opacity:0; transform:translateY(-8px) scale(1);}
+}
+
+@keyframes workerMove{
+  0%,100%{transform:rotate(-4deg) translateY(0);}
+  50%{transform:rotate(6deg) translateY(-5px);}
+}
+
+@keyframes mixerSpin{
+  0%,100%{transform:rotate(-3deg);}
+  50%{transform:rotate(6deg);}
+}
+
+@keyframes truckMove{
+  0%{transform:translateX(-25px);}
+  45%,65%{transform:translateX(85px);}
+  100%{transform:translateX(-25px);}
+}
+
+@keyframes dustMove{
+  0%,100%{opacity:.15; transform:translateX(0) scale(.8);}
+  50%{opacity:.55; transform:translateX(40px) scale(1.15);}
+}
+
+@keyframes sunPulse{
+  0%,100%{transform:scale(1); opacity:.8;}
+  50%{transform:scale(1.08); opacity:1;}
+}
+
 /* MOBILE */
 @media (max-width:900px){
   .layout{
     grid-template-columns:1fr;
+  }
+
+  .site-scene{
+    transform:scale(.82);
+    transform-origin:center;
+    height:250px;
   }
 }
 
@@ -234,7 +414,7 @@ a:hover{
 
   .content{
     padding:20px;
-    min-height:390px;
+    min-height:620px;
   }
 
   .content h2{
@@ -242,15 +422,21 @@ a:hover{
   }
 
   .construction-box{
-    min-height:260px;
-  }
-
-  .crane{
-    font-size:62px;
+    min-height:500px;
   }
 
   .construction-box h3{
     font-size:23px;
+  }
+
+  .construction-box p{
+    font-size:16px;
+  }
+
+  .site-scene{
+    transform:scale(.72);
+    margin-left:-40px;
+    height:230px;
   }
 }
 </style>
@@ -318,7 +504,7 @@ const i18n = {
     news: "Novosti",
     footer: "© 2026 IT ZONE. Sva prava zadržana.",
     constructionTitle: "Stranica je u fazi izrade",
-    constructionText: "Ovaj deo sajta se trenutno priprema. Uskoro će biti dodate nove informacije, aplikacije i objave.",
+    constructionText: "Ovaj deo sajta se trenutno gradi. Uskoro će biti dodate nove informacije, aplikacije i objave.",
     contact: "Kontakt",
     privacy: "Privacy Policy",
     datenschutz: "Datenschutz",
@@ -332,7 +518,7 @@ const i18n = {
     news: "Neuigkeiten",
     footer: "© 2026 IT ZONE. Alle Rechte vorbehalten.",
     constructionTitle: "Seite befindet sich im Aufbau",
-    constructionText: "Dieser Bereich der Website wird derzeit vorbereitet. Neue Informationen, Apps und Beiträge werden später ergänzt.",
+    constructionText: "Dieser Bereich der Website wird derzeit aufgebaut. Neue Informationen, Apps und Beiträge werden später ergänzt.",
     contact: "Kontakt",
     privacy: "Privacy Policy",
     datenschutz: "Datenschutz",
@@ -360,7 +546,7 @@ const i18n = {
     news: "News",
     footer: "© 2026 IT ZONE. All rights reserved.",
     constructionTitle: "Page under construction",
-    constructionText: "This section of the website is currently being prepared. New information, apps and updates will be added soon.",
+    constructionText: "This section of the website is currently being built. New information, apps and updates will be added soon.",
     contact: "Contact",
     privacy: "Privacy Policy",
     datenschutz: "Data Protection",
@@ -384,7 +570,24 @@ function constructionHtml(){
 
   return `
     <div class="construction-box">
-      <div class="crane">🏗️</div>
+      <div class="site-scene">
+        <div class="sun"></div>
+        <div class="crane-tower"></div>
+        <div class="crane-arm"></div>
+        <div class="crane-cable"></div>
+        <div class="crane-hook">🪝</div>
+
+        <div class="building-text">
+          <span>I</span><span>T</span><span>Z</span><span>O</span><span>N</span><span>E</span>
+        </div>
+
+        <div class="worker">👷</div>
+        <div class="mixer">⚙️</div>
+        <div class="truck">🚚</div>
+        <div class="dust">💨</div>
+        <div class="ground"></div>
+      </div>
+
       <h3>${t.constructionTitle}</h3>
       <p>${t.constructionText}</p>
     </div>
@@ -395,6 +598,11 @@ function footerPageHtml(page){
   if(page === "contact"){
     return `
       <div class="construction-box">
+        <div class="site-scene">
+          <div class="worker">👷</div>
+          <div class="truck">🚚</div>
+          <div class="ground"></div>
+        </div>
         <h3>Kontakt</h3>
         <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>Wien, Österreich</p>
       </div>
