@@ -4,10 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>IT ZONE</title>
-<meta name="description" content="IT ZONE premium probna web stranica." />
-
-<!-- Plausible Analytics -->
-<script async defer data-domain="itzoneapps.info" src="https://plausible.io/js/script.js"></script>
 
 <style>
 :root{
@@ -21,18 +17,9 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial;
   background:linear-gradient(180deg,#f7fbff,#eef4fb);
   color:var(--text);
-}
-
-a{
-  color:var(--blue);
-  text-decoration:none;
-}
-
-a:hover{
-  text-decoration:underline;
 }
 
 .layout{
@@ -42,70 +29,18 @@ a:hover{
   padding:20px;
 }
 
-/* HERO */
 .hero{
   margin:20px;
-  min-height:300px;
+  height:260px;
   border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  background:url("logo3.jpg") center/cover no-repeat;
-  box-shadow:var(--shadow);
+  background:#000;
 }
 
-.hero-inner{
-  position:relative;
-  min-height:300px;
-  padding:40px;
-}
-
-/* language */
-.lang-wrap{
-  position:absolute;
-  top:16px;
-  right:18px;
-  z-index:5;
-}
-
-.lang-select{
-  height:42px;
-  min-width:108px;
-  border-radius:14px;
-  border:1px solid rgba(0,0,0,.10);
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  padding:0 12px;
-  font-size:14px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-/* meta */
-.hero-meta{
-  position:absolute;
-  left:40px;
-  bottom:6px;
-  display:flex;
-  gap:20px;
-  font-weight:700;
-  color:#111;
-  font-size:14px;
-  z-index:4;
-  flex-wrap:wrap;
-}
-
-/* SIDEBAR */
 .sidebar{
   background:#fff;
   border:1px solid var(--line);
   border-radius:18px;
   padding:20px;
-}
-
-.sidebar h3{
-  margin-bottom:10px;
-  font-size:18px;
 }
 
 .sidebar button{
@@ -117,9 +52,7 @@ a:hover{
   background:#fff;
   text-align:left;
   font-weight:700;
-  font-size:14px;
   cursor:pointer;
-  color:var(--text);
 }
 
 .sidebar button.active{
@@ -127,694 +60,152 @@ a:hover{
   color:#2455b2;
 }
 
-/* CONTENT */
 .content{
   background:#fff;
   border:1px solid var(--line);
   border-radius:18px;
   padding:30px;
-  min-height:500px;
-}
-
-.content h2{
-  font-size:32px;
-  margin-bottom:8px;
-}
-
-.content-subtitle{
-  color:var(--muted);
-  font-size:15px;
-  margin-bottom:22px;
 }
 
 .section{
-  background:#fff;
   border:1px solid var(--line);
   border-radius:16px;
   padding:20px;
-  margin-bottom:16px;
+  margin-bottom:15px;
 }
 
-.section h3{
-  font-size:20px;
-  margin-bottom:10px;
-}
-
-.section p{
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.65;
-  margin-bottom:10px;
-}
-
-.section ul{
-  margin-left:18px;
-  color:var(--muted);
-}
-
-.section li{
-  margin-bottom:8px;
-  line-height:1.6;
-}
-
-.grid-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-.app-card{
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:18px;
-  background:linear-gradient(180deg, #ffffff, #fbfdff);
-}
-
-.app-card h4{
-  font-size:18px;
-  margin-bottom:8px;
-}
-
-.app-card p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.6;
-}
-
-.note{
-  display:inline-block;
-  padding:8px 12px;
-  border-radius:999px;
-  background:#eef5ff;
-  color:#2455b2;
-  font-size:12px;
-  font-weight:700;
-  margin-bottom:12px;
-}
-
-footer{
-  padding:20px;
+.footer-links{
+  padding:25px;
   text-align:center;
-  color:#5f6f86;
+  font-size:11px;
+  color:#8a96a8;
 }
 
-/* MOBILE */
-@media (max-width:900px){
-  .layout{
-    grid-template-columns:1fr;
-  }
-
-  .grid-2{
-    grid-template-columns:1fr;
-  }
+.footer-nav{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  opacity:.6;
+  margin-bottom:6px;
 }
 
-@media (max-width:768px){
-  .hero{
-    min-height:220px;
-  }
+.footer-nav button{
+  border:0;
+  background:none;
+  font-size:11px;
+  cursor:pointer;
+  color:#7d899a;
+}
 
-  .hero-inner{
-    padding:20px;
-    min-height:220px;
-  }
+.footer-nav button:hover{
+  color:#2455b2;
+}
 
-  .hero-meta{
-    left:20px;
-    bottom:6px;
-    gap:12px;
-    font-size:12px;
-    max-width:calc(100% - 40px);
-  }
-
-  .lang-wrap{
-    top:12px;
-    right:12px;
-  }
-
-  .lang-select{
-    height:38px;
-    min-width:94px;
-    font-size:13px;
-  }
-
-  .content{
-    padding:20px;
-  }
-
-  .content h2{
-    font-size:26px;
-  }
+.footer-nav span{
+  color:#aaa;
 }
 </style>
 </head>
+
 <body>
 
-<div class="hero">
-  <div class="hero-inner">
-
-    <div class="lang-wrap">
-      <select id="langSelect" class="lang-select">
-        <option value="sr">🇷🇸 SR</option>
-        <option value="de">🇦🇹 AT</option>
-        <option value="hu">🇭🇺 HU</option>
-        <option value="en">🇬🇧 EN</option>
-      </select>
-    </div>
-
-    <div class="hero-meta">
-      <div id="date"></div>
-      <div id="time"></div>
-      <div id="temp"></div>
-    </div>
-
-  </div>
-</div>
+<div class="hero"></div>
 
 <div class="layout">
-  <aside class="sidebar">
-    <h3 id="menuTitle">Glavni meni</h3>
 
-    <button class="nav-btn active" data-key="home" onclick="show('home',this)"></button>
-    <button class="nav-btn" data-key="apps" onclick="show('apps',this)"></button>
-    <button class="nav-btn" data-key="news" onclick="show('news',this)"></button>
-    <button class="nav-btn" data-key="privacy" onclick="show('privacy',this)"></button>
-    <button class="nav-btn" data-key="impressum" onclick="show('impressum',this)"></button>
-    <button class="nav-btn" data-key="contact" onclick="show('contact',this)"></button>
-  </aside>
+<aside class="sidebar">
+  <button class="nav-btn active" onclick="show('home',this)">Početna</button>
+  <button class="nav-btn" onclick="show('apps',this)">Aplikacije</button>
+  <button class="nav-btn" onclick="show('news',this)">Novosti</button>
+</aside>
 
-  <main class="content">
-    <h2 id="title"></h2>
-    <div class="content-subtitle" id="subtitle"></div>
-    <div id="contentArea"></div>
-  </main>
+<main class="content">
+  <h2 id="title"></h2>
+  <div id="content"></div>
+</main>
+
 </div>
 
-<footer id="footerText"></footer>
+<footer class="footer-links">
+  <div class="footer-nav">
+    <button onclick="showFooter('contact')">Kontakt</button>
+    <span>•</span>
+    <button onclick="showFooter('privacy')">Privacy</button>
+    <span>•</span>
+    <button onclick="showFooter('agb')">AGB</button>
+    <span>•</span>
+    <button onclick="showFooter('impressum')">Impressum</button>
+  </div>
+  © 2026 IT ZONE
+</footer>
 
 <script>
-const i18n = {
-  sr: {
-    menuTitle: "Glavni meni",
-    home: "Početna",
-    apps: "Naše aplikacije",
-    news: "Novosti",
-    privacy: "Privacy Policy",
-    impressum: "Impressum",
-    contact: "Kontakt",
-    homeSubtitle: "Privatna informativna stranica u razvoju.",
-    appsSubtitle: "Pregled aplikacija i projekata.",
-    newsSubtitle: "Aktuelnosti i objave.",
-    privacySubtitle: "Zaštita podataka i privatnost.",
-    impressumSubtitle: "Osnovne informacije o privatnoj stranici.",
-    contactSubtitle: "Kontakt informacije.",
-    footer: "© 2026 IT ZONE. Sva prava zadržana.",
-    homeHtml: `
-      <div class="section">
-        <span class="note">IT ZONE</span>
-        <h3>Privatna informativna stranica</h3>
-        <p>Dobrodošli na IT ZONE. Ovo je privatna, probna i informativna web stranica u razvoju, namenjena predstavljanju ideja, aplikacija, projekata i osnovnih informacija.</p>
-        <p>Stranica trenutno ne predstavlja registrovanu poslovnu prezentaciju niti zvaničnu ponudu usluga. Sadržaj se postepeno dopunjava i služi kao osnova za budući razvoj.</p>
-      </div>
+let currentPage="home";
 
-      <div class="grid-2">
-        <div class="section">
-          <h3>Šta je planirano</h3>
-          <ul>
-            <li>Predstavljanje aplikacija i projekata</li>
-            <li>Višejezična podrška</li>
-            <li>Novosti i ažuriranja</li>
-            <li>Kasniji prelazak na poslovnu verziju sajta, po potrebi</li>
-          </ul>
-        </div>
-        <div class="section">
-          <h3>Status sajta</h3>
-          <p>Sajt je trenutno privatan / probni i služi za predstavljanje koncepta i osnovnih informacija. Ako projekat pređe u komercijalnu fazu, pravni i poslovni podaci će biti ažurirani.</p>
-        </div>
-      </div>
-    `,
-    appsHtml: `
-      <div class="section">
-        <h3>Naše aplikacije</h3>
-        <p>Ovde će biti prikazane aktuelne i buduće aplikacije, sa opisom funkcija, slikama ekrana i osnovnim informacijama.</p>
-      </div>
-      <div class="grid-2">
-        <div class="app-card">
-          <h4>App 1</h4>
-          <p>Ovde možeš uneti naziv aplikacije, kratak opis, glavne funkcije i status razvoja.</p>
-        </div>
-        <div class="app-card">
-          <h4>App 2</h4>
-          <p>Ovde možeš dodati drugu aplikaciju, preview i planirane funkcije.</p>
-        </div>
-      </div>
-    `,
-    newsHtml: `
-      <div class="section">
-        <h3>Novosti</h3>
-        <p>Na ovoj stranici možeš objavljivati novosti o aplikacijama, novim verzijama, planovima i važnim obaveštenjima.</p>
-      </div>
-      <div class="section">
-        <h3>Primer objave</h3>
-        <p><strong>Datum:</strong> [unesi datum]</p>
-        <p><strong>Naslov:</strong> [unesi naslov]</p>
-        <p><strong>Tekst:</strong> Ovde dodaj sadržaj objave.</p>
-      </div>
-    `,
-    privacyHtml: `
-      <div class="section">
-        <h3>1. Opšte informacije</h3>
-        <p>Zaštita privatnosti je važna. Ova stranica je privatna informativna stranica i služi za osnovno predstavljanje projekta i kontakt podataka.</p>
-      </div>
+function show(page,btn){
+  currentPage=page;
 
-      <div class="section">
-        <h3>2. Kontakt</h3>
-        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
-        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-
-      <div class="section">
-        <h3>3. Tehnički podaci</h3>
-        <p>Prilikom posete sajtu hosting provajder može tehnički obrađivati osnovne podatke potrebne za isporuku stranice, stabilnost sistema i bezbednost.</p>
-      </div>
-
-      <div class="section">
-        <h3>4. Plausible Analytics</h3>
-        <p>Ova stranica koristi Plausible Analytics za osnovnu statistiku posećenosti u privacy-friendly režimu. Ne koriste se analitički kolačići i ne prave se individualni korisnički profili.</p>
-        <p>Statistika se koristi samo za agregirane podatke, kao što su pregled stranica, zemlja, uređaj i browser.</p>
-      </div>
-
-      <div class="section">
-        <h3>5. Kontakt putem emaila</h3>
-        <p>Ako pošaljete email, obrađuju se samo podaci koje sami pošaljete, i to isključivo radi odgovora na upit.</p>
-      </div>
-
-      <div class="section">
-        <h3>6. Pitanja o privatnosti</h3>
-        <p>Za pitanja vezana za privatnost i podatke, kontakt: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-    `,
-    impressumHtml: `
-      <div class="section">
-        <h3>Impressum</h3>
-        <p><strong>Privatna informativna stranica</strong></p>
-        <p>Lenard Zivanović<br>Wien, Österreich</p>
-      </div>
-
-      <div class="section">
-        <h3>Kontakt</h3>
-        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-
-      <div class="section">
-        <h3>Napomena</h3>
-        <p>Ova web stranica je trenutno privatna, informativna i u razvoju. Ne predstavlja zvaničnu registrovanu poslovnu prezentaciju niti javnu komercijalnu ponudu.</p>
-      </div>
-
-      <div class="section">
-        <h3>Odgovornost za sadržaj</h3>
-        <p>Sadržaj ove stranice je pažljivo pripremljen. Uprkos tome, ne može se garantovati potpuna ažurnost, tačnost i potpunost svih informacija.</p>
-      </div>
-    `,
-    contactHtml: `
-      <div class="section">
-        <h3>Kontakt</h3>
-        <p><strong>Lenard Zivanović</strong></p>
-        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-        <p>Lokacija: Wien, Österreich</p>
-      </div>
-
-      <div class="section">
-        <h3>Napomena</h3>
-        <p>Za sada je komunikacija predviđena putem emaila.</p>
-      </div>
-    `
-  },
-
-  de: {
-    menuTitle: "Hauptmenü",
-    home: "Startseite",
-    apps: "Unsere Apps",
-    news: "Neuigkeiten",
-    privacy: "Datenschutz",
-    impressum: "Impressum",
-    contact: "Kontakt",
-    homeSubtitle: "Private Informationsseite in Entwicklung.",
-    appsSubtitle: "Übersicht über Apps und Projekte.",
-    newsSubtitle: "Aktuelles und Mitteilungen.",
-    privacySubtitle: "Datenschutz und Privatsphäre.",
-    impressumSubtitle: "Grundlegende Informationen über die private Website.",
-    contactSubtitle: "Kontaktinformationen.",
-    footer: "© 2026 IT ZONE. Alle Rechte vorbehalten.",
-    homeHtml: `
-      <div class="section">
-        <span class="note">IT ZONE</span>
-        <h3>Private Informationsseite</h3>
-        <p>Willkommen bei IT ZONE. Diese Website ist derzeit eine private, informative und sich im Aufbau befindliche Website zur Präsentation von Ideen, Apps, Projekten und grundlegenden Informationen.</p>
-        <p>Die Website stellt derzeit keine offizielle registrierte Unternehmenspräsenz und kein verbindliches kommerzielles Angebot dar.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="section">
-          <h3>Geplant</h3>
-          <ul>
-            <li>Vorstellung von Apps und Projekten</li>
-            <li>Mehrsprachige Unterstützung</li>
-            <li>Neuigkeiten und Updates</li>
-            <li>Späterer Übergang zu einer geschäftlichen Version der Website bei Bedarf</li>
-          </ul>
-        </div>
-        <div class="section">
-          <h3>Status der Website</h3>
-          <p>Die Website ist derzeit privat / testweise und dient der Präsentation des Konzepts und grundlegender Informationen. Wenn das Projekt kommerziell wird, werden die rechtlichen und geschäftlichen Angaben aktualisiert.</p>
-        </div>
-      </div>
-    `,
-    appsHtml: `
-      <div class="section">
-        <h3>Unsere Apps</h3>
-        <p>Hier werden aktuelle und zukünftige Apps mit Funktionsbeschreibung, Screenshots und Basisinformationen dargestellt.</p>
-      </div>
-      <div class="grid-2">
-        <div class="app-card">
-          <h4>App 1</h4>
-          <p>Hier kannst du den Namen der App, eine Kurzbeschreibung, Hauptfunktionen und den Entwicklungsstatus eintragen.</p>
-        </div>
-        <div class="app-card">
-          <h4>App 2</h4>
-          <p>Hier kannst du eine zweite App, eine Vorschau und geplante Funktionen eintragen.</p>
-        </div>
-      </div>
-    `,
-    newsHtml: `
-      <div class="section">
-        <h3>Neuigkeiten</h3>
-        <p>Auf dieser Seite kannst du Neuigkeiten zu Apps, neuen Versionen, Plänen und wichtigen Mitteilungen veröffentlichen.</p>
-      </div>
-    `,
-    privacyHtml: `
-      <div class="section">
-        <h3>1. Allgemeine Informationen</h3>
-        <p>Der Schutz der Privatsphäre ist wichtig. Diese Website ist eine private Informationsseite und dient der grundlegenden Präsentation eines Projekts und von Kontaktinformationen.</p>
-      </div>
-
-      <div class="section">
-        <h3>2. Kontakt</h3>
-        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
-        <p>E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-
-      <div class="section">
-        <h3>3. Technische Daten</h3>
-        <p>Beim Besuch der Website kann der Hosting-Anbieter grundlegende technische Daten verarbeiten, die für die Auslieferung, Stabilität und Sicherheit der Website erforderlich sind.</p>
-      </div>
-
-      <div class="section">
-        <h3>4. Plausible Analytics</h3>
-        <p>Diese Website verwendet Plausible Analytics in einer datenschutzfreundlichen Konfiguration zur grundlegenden Statistik. Es werden keine Analyse-Cookies verwendet und keine individuellen Nutzerprofile erstellt.</p>
-      </div>
-
-      <div class="section">
-        <h3>5. Kontakt per E-Mail</h3>
-        <p>Wenn du eine E-Mail sendest, werden nur die von dir freiwillig übermittelten Daten verarbeitet, und zwar ausschließlich zur Beantwortung der Anfrage.</p>
-      </div>
-
-      <div class="section">
-        <h3>6. Fragen zum Datenschutz</h3>
-        <p>Kontakt für Datenschutzfragen: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-    `,
-    impressumHtml: `
-      <div class="section">
-        <h3>Impressum</h3>
-        <p><strong>Private Informationswebsite</strong></p>
-        <p>Lenard Zivanović<br>Wien, Österreich</p>
-      </div>
-
-      <div class="section">
-        <h3>Kontakt</h3>
-        <p>E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-
-      <div class="section">
-        <h3>Hinweis</h3>
-        <p>Diese Website ist derzeit privat, informativ und im Aufbau. Sie stellt keine offizielle registrierte Unternehmenspräsenz und kein öffentliches kommerzielles Angebot dar.</p>
-      </div>
-    `,
-    contactHtml: `
-      <div class="section">
-        <h3>Kontakt</h3>
-        <p><strong>Lenard Zivanović</strong></p>
-        <p>E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-        <p>Standort: Wien, Österreich</p>
-      </div>
-    `
-  },
-
-  hu: {
-    menuTitle: "Főmenü",
-    home: "Kezdőlap",
-    apps: "Alkalmazásaink",
-    news: "Hírek",
-    privacy: "Adatvédelem",
-    impressum: "Impresszum",
-    contact: "Kapcsolat",
-    homeSubtitle: "Privát tájékoztató oldal fejlesztés alatt.",
-    appsSubtitle: "Alkalmazások és projektek áttekintése.",
-    newsSubtitle: "Aktuális hírek és közlemények.",
-    privacySubtitle: "Adatvédelem és magánszféra.",
-    impressumSubtitle: "Alapvető információk a privát weboldalról.",
-    contactSubtitle: "Kapcsolati adatok.",
-    footer: "© 2026 IT ZONE. Minden jog fenntartva.",
-    homeHtml: `
-      <div class="section">
-        <span class="note">IT ZONE</span>
-        <h3>Privát tájékoztató oldal</h3>
-        <p>Üdvözöljük az IT ZONE oldalán. Ez jelenleg egy privát, tájékoztató jellegű, fejlesztés alatt álló weboldal, amely ötletek, alkalmazások, projektek és alapinformációk bemutatására szolgál.</p>
-      </div>
-      <div class="section">
-        <p>Az oldal jelenleg nem minősül hivatalos, bejegyzett üzleti bemutatkozásnak vagy nyilvános kereskedelmi ajánlatnak.</p>
-      </div>
-    `,
-    appsHtml: `
-      <div class="section">
-        <h3>Alkalmazásaink</h3>
-        <p>Itt jelennek meg a jelenlegi és jövőbeli alkalmazások leírással és alapinformációkkal.</p>
-      </div>
-    `,
-    newsHtml: `
-      <div class="section">
-        <h3>Hírek</h3>
-        <p>Ezen az oldalon jelenhetnek meg hírek, tervek és frissítések.</p>
-      </div>
-    `,
-    privacyHtml: `
-      <div class="section">
-        <h3>1. Általános információk</h3>
-        <p>Ez a weboldal egy privát tájékoztató oldal. Az adatvédelem fontos számunkra.</p>
-      </div>
-      <div class="section">
-        <h3>2. Kapcsolat</h3>
-        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
-        <p>E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-      <div class="section">
-        <h3>3. Plausible Analytics</h3>
-        <p>Az oldal Plausible Analytics szolgáltatást használ alapstatisztikai célra, adatbarát beállításban, analitikai sütik nélkül.</p>
-      </div>
-    `,
-    impressumHtml: `
-      <div class="section">
-        <h3>Impresszum</h3>
-        <p><strong>Privát tájékoztató weboldal</strong></p>
-        <p>Lenard Zivanović<br>Wien, Österreich</p>
-      </div>
-      <div class="section">
-        <h3>Kapcsolat</h3>
-        <p>E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-      <div class="section">
-        <h3>Megjegyzés</h3>
-        <p>Ez a weboldal jelenleg privát, tájékoztató jellegű és fejlesztés alatt áll. Nem minősül hivatalos üzleti megjelenésnek vagy nyilvános kereskedelmi ajánlatnak.</p>
-      </div>
-    `,
-    contactHtml: `
-      <div class="section">
-        <h3>Kapcsolat</h3>
-        <p><strong>Lenard Zivanović</strong></p>
-        <p>E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-        <p>Helyszín: Wien, Österreich</p>
-      </div>
-    `
-  },
-
-  en: {
-    menuTitle: "Main menu",
-    home: "Home",
-    apps: "Our apps",
-    news: "News",
-    privacy: "Privacy Policy",
-    impressum: "Impressum",
-    contact: "Contact",
-    homeSubtitle: "Private informational website in development.",
-    appsSubtitle: "Overview of apps and projects.",
-    newsSubtitle: "Updates and announcements.",
-    privacySubtitle: "Data protection and privacy.",
-    impressumSubtitle: "Basic information about the private website.",
-    contactSubtitle: "Contact information.",
-    footer: "© 2026 IT ZONE. All rights reserved.",
-    homeHtml: `
-      <div class="section">
-        <span class="note">IT ZONE</span>
-        <h3>Private informational website</h3>
-        <p>Welcome to IT ZONE. This is currently a private, informational website under development, intended to present ideas, apps, projects and basic information.</p>
-        <p>The website does not currently represent an official registered business presence or a public commercial offer.</p>
-      </div>
-    `,
-    appsHtml: `
-      <div class="section">
-        <h3>Our apps</h3>
-        <p>This page will present current and future apps with descriptions and basic information.</p>
-      </div>
-    `,
-    newsHtml: `
-      <div class="section">
-        <h3>News</h3>
-        <p>This page can be used for updates, plans and announcements.</p>
-      </div>
-    `,
-    privacyHtml: `
-      <div class="section">
-        <h3>1. General information</h3>
-        <p>This website is a private informational page. Privacy is important to us.</p>
-      </div>
-      <div class="section">
-        <h3>2. Contact</h3>
-        <p><strong>Lenard Zivanović</strong><br>Wien, Österreich</p>
-        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-      <div class="section">
-        <h3>3. Plausible Analytics</h3>
-        <p>This website uses Plausible Analytics for basic privacy-friendly statistics. No analytics cookies are used and no individual profiles are created.</p>
-      </div>
-      <div class="section">
-        <h3>4. Email contact</h3>
-        <p>If you contact us by email, only the information you voluntarily provide is processed, solely for replying to your message.</p>
-      </div>
-    `,
-    impressumHtml: `
-      <div class="section">
-        <h3>Impressum</h3>
-        <p><strong>Private informational website</strong></p>
-        <p>Lenard Zivanović<br>Wien, Österreich</p>
-      </div>
-      <div class="section">
-        <h3>Contact</h3>
-        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-      </div>
-      <div class="section">
-        <h3>Note</h3>
-        <p>This website is currently private, informational and under development. It does not represent an official registered business presence or a public commercial offer.</p>
-      </div>
-    `,
-    contactHtml: `
-      <div class="section">
-        <h3>Contact</h3>
-        <p><strong>Lenard Zivanović</strong></p>
-        <p>Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a></p>
-        <p>Location: Wien, Österreich</p>
-      </div>
-    `
-  }
-};
-
-let currentLang = localStorage.getItem("site_lang") || "sr";
-let currentPage = "home";
-
-function localeForLang(lang){
-  if(lang === "de") return "de-AT";
-  if(lang === "hu") return "hu-HU";
-  if(lang === "en") return "en-GB";
-  return "sr-RS";
-}
-
-function pageSubtitle(t, key){
-  if(key === "home") return t.homeSubtitle;
-  if(key === "apps") return t.appsSubtitle;
-  if(key === "news") return t.newsSubtitle;
-  if(key === "privacy") return t.privacySubtitle;
-  if(key === "impressum") return t.impressumSubtitle;
-  if(key === "contact") return t.contactSubtitle;
-  return "";
-}
-
-function pageHtml(t, key){
-  if(key === "home") return t.homeHtml;
-  if(key === "apps") return t.appsHtml;
-  if(key === "news") return t.newsHtml;
-  if(key === "privacy") return t.privacyHtml;
-  if(key === "impressum") return t.impressumHtml;
-  if(key === "contact") return t.contactHtml;
-  return "";
-}
-
-function applyLanguage() {
-  const t = i18n[currentLang];
-
-  document.documentElement.lang = currentLang;
-  document.getElementById("menuTitle").innerText = t.menuTitle;
-  document.getElementById("footerText").innerText = t.footer;
-
-  document.querySelector('[data-key="home"]').innerText = t.home;
-  document.querySelector('[data-key="apps"]').innerText = t.apps;
-  document.querySelector('[data-key="news"]').innerText = t.news;
-  document.querySelector('[data-key="privacy"]').innerText = t.privacy;
-  document.querySelector('[data-key="impressum"]').innerText = t.impressum;
-  document.querySelector('[data-key="contact"]').innerText = t.contact;
-
-  show(currentPage, document.querySelector(`[data-key="${currentPage}"]`), false);
-}
-
-function show(pageKey, btn, updateActive = true){
-  currentPage = pageKey;
-  const t = i18n[currentLang];
-
-  document.getElementById("title").innerText = t[pageKey];
-  document.getElementById("subtitle").innerText = pageSubtitle(t, pageKey);
-  document.getElementById("contentArea").innerHTML = pageHtml(t, pageKey);
-
-  if(updateActive){
+  if(btn){
     document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
   }
+
+  render(page);
 }
 
-function updateTime(){
-  const now = new Date();
-  document.getElementById("time").innerText = now.toLocaleTimeString(localeForLang(currentLang));
-  document.getElementById("date").innerText = now.toLocaleDateString(localeForLang(currentLang));
+function showFooter(page){
+  currentPage=page;
+  render(page);
+
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
+
+  window.scrollTo({
+    top:document.querySelector(".content").offsetTop-20,
+    behavior:"smooth"
+  });
 }
 
-fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
-.then(r=>r.json())
-.then(d=>{
-  document.getElementById("temp").innerText = Math.round(d.current_weather.temperature) + "°C";
-})
-.catch(()=>{
-  document.getElementById("temp").innerText = "N/A";
-});
+function render(page){
+  const title=document.getElementById("title");
+  const content=document.getElementById("content");
 
-document.getElementById("langSelect").value = currentLang;
-document.getElementById("langSelect").addEventListener("change", function(){
-  currentLang = this.value;
-  localStorage.setItem("site_lang", currentLang);
-  applyLanguage();
-  updateTime();
-});
+  if(page==="home"){
+    title.innerText="Početna";
+    content.innerHTML=`<div class="section">Privatna IT stranica u razvoju.</div>`;
+  }
 
-setInterval(updateTime, 1000);
-applyLanguage();
-updateTime();
+  if(page==="apps"){
+    title.innerText="Aplikacije";
+    content.innerHTML=`<div class="section">Ovde dolaze tvoje aplikacije.</div>`;
+  }
+
+  if(page==="news"){
+    title.innerText="Novosti";
+    content.innerHTML=`<div class="section">Novosti i update.</div>`;
+  }
+
+  if(page==="privacy"){
+    title.innerText="Privacy";
+    content.innerHTML=`<div class="section">Privacy tekst...</div>`;
+  }
+
+  if(page==="agb"){
+    title.innerText="AGB";
+    content.innerHTML=`<div class="section">Uslovi korišćenja...</div>`;
+  }
+
+  if(page==="impressum"){
+    title.innerText="Impressum";
+    content.innerHTML=`<div class="section">Lenard Zivanović<br>Wien</div>`;
+  }
+
+  if(page==="contact"){
+    title.innerText="Kontakt";
+    content.innerHTML=`<div class="section">itzoneapps1@gmail.com</div>`;
+  }
+}
+
+render("home");
 </script>
 
 </body>
