@@ -615,6 +615,149 @@ a:hover{text-decoration:underline;}
   .flying-letter{left:190px;}
   .mixer{left:220px;}
 }
+  /* ===== APP FACTORY STYLE ===== */
+
+.app-factory{
+  position:relative;
+  height:280px;
+  margin-top:30px;
+  border-radius:16px;
+  background:#f4f8ff;
+  border:1px solid var(--line);
+}
+
+.factory-logo{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#223146;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.worker-factory{
+  position:absolute;
+  left:80px;
+  top:90px;
+  font-size:40px;
+  animation:workerMove 1.2s infinite;
+}
+
+.belt{
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:80px;
+  height:40px;
+  background:#d8e3f0;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.belt-line{
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(90deg,#999 0 10px,transparent 10px 20px);
+  animation:beltMove 1s linear infinite;
+}
+
+.app-part{
+  position:absolute;
+  top:5px;
+  background:#fff;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:800;
+  animation:moveParts 4s linear infinite;
+}
+
+.part-2{animation-delay:.5s;}
+.part-3{animation-delay:1s;}
+
+.machine{
+  position:absolute;
+  right:120px;
+  bottom:70px;
+  width:100px;
+  height:100px;
+  background:#223146;
+  border-radius:12px;
+}
+
+.machine-top{
+  color:#fff;
+  text-align:center;
+  font-size:10px;
+  margin-top:5px;
+}
+
+.press{
+  width:40px;
+  height:30px;
+  background:#fff;
+  margin:20px auto;
+  animation:press 1.5s infinite;
+}
+
+.finished-app{
+  position:absolute;
+  right:70px;
+  bottom:95px;
+  font-size:35px;
+  animation:appShow 4s infinite;
+}
+
+.mini-crane-hook{
+  position:absolute;
+  right:40px;
+  top:40px;
+  font-size:20px;
+  animation:craneMove 3s infinite;
+}
+
+.train{
+  position:absolute;
+  right:10px;
+  bottom:20px;
+  font-size:40px;
+  animation:trainMove 4s infinite;
+}
+
+/* ANIMACIJE */
+@keyframes beltMove{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(20px);}
+}
+
+@keyframes moveParts{
+  0%{left:0;}
+  100%{left:300px; opacity:0;}
+}
+
+@keyframes press{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(20px);}
+}
+
+@keyframes appShow{
+  0%,50%{opacity:0;}
+  60%,90%{opacity:1;}
+  100%{opacity:0;}
+}
+
+@keyframes craneMove{
+  0%,100%{transform:translateX(0);}
+  50%{transform:translateX(-30px);}
+}
+
+@keyframes trainMove{
+  0%,100%{transform:translateX(0);}
+  50%{transform:translateX(-20px);}
+}
 </style>
 </head>
 
@@ -791,28 +934,37 @@ function homeHtml(){
         projekte i digitalne alate u razvoju.
       </p>
 
-      <!-- ================= ANIMIRANI BANNER ================= -->
-      <div class="dev-banner">
-        <div class="banner-track">
+      <!-- ===== APP FACTORY ANIMACIJA - POČETAK ===== -->
+<div class="app-factory">
 
-          <span>📱 Mobile Apps</span>
-          <span>⚙️ Development</span>
-          <span>🚀 Launching Soon</span>
-          <span>💡 Ideas → Apps</span>
-          <span>🧠 AI Tools</span>
-          <span>📄 PDF • QR • Tools</span>
+  <div class="factory-logo">IT Zone Apps</div>
 
-          <!-- duplirano da ide u loop -->
-          <span>📱 Mobile Apps</span>
-          <span>⚙️ Development</span>
-          <span>🚀 Launching Soon</span>
-          <span>💡 Ideas → Apps</span>
-          <span>🧠 AI Tools</span>
-          <span>📄 PDF • QR • Tools</span>
+  <div class="worker-factory">👷‍♂️</div>
 
-        </div>
-      </div>
-      <!-- ================= KRAJ BANNERA ================= -->
+  <div class="belt">
+    <div class="belt-line"></div>
+    <div class="app-part part-1">PDF</div>
+    <div class="app-part part-2">QR</div>
+    <div class="app-part part-3">AI</div>
+  </div>
+
+  <div class="machine">
+    <div class="machine-top">IT Zone</div>
+    <div class="press"></div>
+  </div>
+
+  <div class="finished-app">📱</div>
+
+  <div class="mini-crane">
+    <div class="mini-crane-arm"></div>
+    <div class="mini-crane-cable"></div>
+    <div class="mini-crane-hook">🪝</div>
+  </div>
+
+  <div class="train">🚆</div>
+
+</div>
+<!-- ===== APP FACTORY ANIMACIJA - KRAJ ===== -->
 
     </div>
   `;
