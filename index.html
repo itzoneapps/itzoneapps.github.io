@@ -780,7 +780,7 @@ function constructionHtml(){
 
 /* ===================================================== */
 /* POČETNA STRANICA - POČETAK */
-/* Sve što je između ovog POČETKA i KRAJA pripada stranici "Početna" */
+
 /* ===================================================== */
 function homeHtml(){
   return `
@@ -790,6 +790,30 @@ function homeHtml(){
         Dobrodošli na IT ZONE. Ovo je informativna stranica za aplikacije,
         projekte i digitalne alate u razvoju.
       </p>
+
+      <!-- ================= ANIMIRANI BANNER ================= -->
+      <div class="dev-banner">
+        <div class="banner-track">
+
+          <span>📱 Mobile Apps</span>
+          <span>⚙️ Development</span>
+          <span>🚀 Launching Soon</span>
+          <span>💡 Ideas → Apps</span>
+          <span>🧠 AI Tools</span>
+          <span>📄 PDF • QR • Tools</span>
+
+          <!-- duplirano da ide u loop -->
+          <span>📱 Mobile Apps</span>
+          <span>⚙️ Development</span>
+          <span>🚀 Launching Soon</span>
+          <span>💡 Ideas → Apps</span>
+          <span>🧠 AI Tools</span>
+          <span>📄 PDF • QR • Tools</span>
+
+        </div>
+      </div>
+      <!-- ================= KRAJ BANNERA ================= -->
+
     </div>
   `;
 }
@@ -800,7 +824,7 @@ function homeHtml(){
 
 /* ===================================================== */
 /* APLIKACIJE STRANICA - POČETAK */
-/* Sve kartice aplikacija se nalaze između ovog POČETKA i KRAJA */
+
 /* ===================================================== */
 function appsHtml(){
   return `
@@ -868,7 +892,7 @@ function appsHtml(){
 
 /* ===================================================== */
 /* NOVOSTI STRANICA - POČETAK */
-/* Sve što je između ovog POČETKA i KRAJA pripada stranici "Novosti" */
+
 /* ===================================================== */
 function newsHtml(){
   return `
