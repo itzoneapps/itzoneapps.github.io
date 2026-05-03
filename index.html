@@ -922,92 +922,362 @@ function footerPageHtml(page){
   }
 
   if(page === "datenschutz"){
+  if(currentLang === "sr"){
     return `
       <!-- ===================================================== -->
-<!-- DONJA STRANICA / DATENSCHUTZ - POČETAK -->
-<!-- ===================================================== -->
-<div class="construction-box">
-  <h3>Datenschutzerklärung</h3>
+      <!-- DONJA STRANICA / DATENSCHUTZ - SRPSKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Zaštita podataka</h3>
 
-  <p><strong>1. Allgemeine Hinweise</strong></p>
-  <p>
-    Der Schutz personenbezogener Daten ist uns wichtig. Diese Website ist derzeit eine private
-    Informationsseite und dient der allgemeinen Darstellung von Projekten, Apps und Kontaktinformationen.
-    Personenbezogene Daten werden nur verarbeitet, soweit dies technisch erforderlich ist oder Sie uns
-    diese Daten freiwillig, zum Beispiel per E-Mail, übermitteln.
-  </p>
+        <p><strong>1. Opšte informacije</strong></p>
+        <p>
+          Zaštita ličnih podataka je važna. Ova web stranica je trenutno privatna
+          informativna stranica i služi za predstavljanje projekata, aplikacija i
+          osnovnih kontakt informacija.
+        </p>
 
-  <p><strong>2. Verantwortliche Person</strong></p>
-  <p>
-    Verantwortlich für diese Website:<br>
-    <strong>Lenard Zivanović</strong><br>
-    Wien, Österreich<br>
-    E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-  </p>
+        <p><strong>2. Odgovorno lice</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Wien, Österreich<br>
+          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
 
-  <p><strong>3. Zugriffsdaten / Server-Logfiles</strong></p>
-  <p>
-    Beim Besuch dieser Website können durch den Hosting-Anbieter technisch notwendige Daten automatisch
-    verarbeitet werden. Dazu können insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene
-    Seiten, Browsertyp, Betriebssystem, Referrer-URL und technische Informationen zum verwendeten Gerät gehören.
-    Diese Verarbeitung dient der sicheren, stabilen und funktionsfähigen Bereitstellung der Website.
-  </p>
+        <p><strong>3. Tehnički podaci / server logovi</strong></p>
+        <p>
+          Prilikom posete web stranici hosting provajder može automatski obrađivati
+          tehnički neophodne podatke, kao što su IP adresa, datum i vreme pristupa,
+          posećene stranice, browser, operativni sistem, referrer URL i informacije
+          o uređaju. Ovi podaci služe za siguran, stabilan i ispravan rad stranice.
+        </p>
 
-  <p><strong>4. Kontaktaufnahme per E-Mail</strong></p>
-  <p>
-    Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Angaben ausschließlich zur
-    Bearbeitung und Beantwortung Ihrer Anfrage verwendet. Eine Weitergabe an Dritte erfolgt nicht, außer
-    wenn dies gesetzlich erforderlich ist.
-  </p>
+        <p><strong>4. Kontakt putem emaila</strong></p>
+        <p>
+          Ako nas kontaktirate putem emaila, obrađuju se samo podaci koje sami
+          pošaljete. Ti podaci se koriste isključivo za obradu i odgovor na vaš upit.
+        </p>
 
-  <p><strong>5. Cookies und Analyse</strong></p>
-  <p>
-    Diese Website verwendet derzeit keine werblichen Tracking-Cookies und erstellt keine persönlichen
-    Nutzerprofile. Sollten künftig datenschutzfreundliche Analysefunktionen eingesetzt werden, erfolgen
-    diese ausschließlich zur technischen Verbesserung und statistischen Auswertung der Website.
-  </p>
+        <p><strong>5. Kolačići i analiza</strong></p>
+        <p>
+          Ova stranica trenutno ne koristi reklamne tracking kolačiće i ne pravi
+          lične korisničke profile. Ako se kasnije koriste analitičke funkcije,
+          koristiće se u meri potrebnoj za statistiku i poboljšanje stranice.
+        </p>
 
-  <p><strong>6. Weitergabe von Daten</strong></p>
-  <p>
-    Personenbezogene Daten werden nicht verkauft und nicht zu Werbezwecken an Dritte weitergegeben.
-    Eine Weitergabe erfolgt nur, wenn dies zur technischen Bereitstellung der Website notwendig ist,
-    eine gesetzliche Verpflichtung besteht oder Sie ausdrücklich eingewilligt haben.
-  </p>
+        <p><strong>6. Prosleđivanje podataka</strong></p>
+        <p>
+          Lični podaci se ne prodaju, ne koriste za reklamno praćenje i ne prosleđuju
+          trećim licima u komercijalne svrhe. Prosleđivanje je moguće samo ako je
+          tehnički neophodno, zakonski propisano ili ako postoji vaša saglasnost.
+        </p>
 
-  <p><strong>7. Speicherdauer</strong></p>
-  <p>
-    Personenbezogene Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck erforderlich
-    ist oder gesetzliche Aufbewahrungspflichten bestehen. E-Mail-Anfragen können so lange gespeichert werden,
-    wie dies zur Bearbeitung der Anfrage oder zur Dokumentation erforderlich ist.
-  </p>
+        <p><strong>7. Vreme čuvanja podataka</strong></p>
+        <p>
+          Podaci se čuvaju samo onoliko dugo koliko je potrebno za odgovarajuću
+          svrhu ili koliko zahtevaju zakonske obaveze. Email upiti mogu biti sačuvani
+          dok je potrebno za obradu i dokumentaciju komunikacije.
+        </p>
 
-  <p><strong>8. Ihre Rechte</strong></p>
-  <p>
-    Sie haben nach Maßgabe der geltenden Datenschutzgesetze grundsätzlich das Recht auf Auskunft,
-    Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen
-    die Verarbeitung personenbezogener Daten. Außerdem haben Sie das Recht, eine erteilte Einwilligung
-    jederzeit mit Wirkung für die Zukunft zu widerrufen.
-  </p>
+        <p><strong>8. Vaša prava</strong></p>
+        <p>
+          Imate pravo na informaciju, ispravku, brisanje, ograničenje obrade,
+          prenosivost podataka i prigovor na obradu ličnih podataka, u skladu sa
+          važećim propisima o zaštiti podataka.
+        </p>
 
-  <p><strong>9. Beschwerderecht</strong></p>
-  <p>
-    Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen geltendes
-    Datenschutzrecht verstößt, können Sie sich an die zuständige Datenschutzbehörde wenden.
-  </p>
+        <p><strong>9. Pravo na žalbu</strong></p>
+        <p>
+          Ako smatrate da se vaši podaci obrađuju protivno važećem pravu, možete se
+          obratiti nadležnom organu za zaštitu podataka.
+        </p>
 
-  <p><strong>10. Änderungen dieser Datenschutzerklärung</strong></p>
-  <p>
-    Diese Datenschutzerklärung kann angepasst werden, wenn sich technische, rechtliche oder inhaltliche
-    Änderungen an dieser Website ergeben.
-  </p>
+        <p><strong>10. Izmene ove izjave</strong></p>
+        <p>
+          Ova izjava o zaštiti podataka može biti izmenjena ako dođe do tehničkih,
+          pravnih ili sadržajnih promena na ovoj web stranici.
+        </p>
 
-  <p><strong>Stand:</strong> Mai 2026</p>
-</div>
-<!-- ===================================================== -->
-<!-- DONJA STRANICA / DATENSCHUTZ - KRAJ -->
-<!-- ===================================================== -->
+        <p><strong>Stanje:</strong> Maj 2026</p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - SRPSKI - KRAJ -->
+      <!-- ===================================================== -->
     `;
   }
+
+  if(currentLang === "de"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - NEMAČKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Datenschutzerklärung</h3>
+
+        <p><strong>1. Allgemeine Hinweise</strong></p>
+        <p>
+          Der Schutz personenbezogener Daten ist uns wichtig. Diese Website ist derzeit
+          eine private Informationsseite und dient der allgemeinen Darstellung von
+          Projekten, Apps und Kontaktinformationen.
+        </p>
+
+        <p><strong>2. Verantwortliche Person</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Wien, Österreich<br>
+          E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+
+        <p><strong>3. Zugriffsdaten / Server-Logfiles</strong></p>
+        <p>
+          Beim Besuch dieser Website können durch den Hosting-Anbieter technisch
+          notwendige Daten automatisch verarbeitet werden. Dazu können insbesondere
+          IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seiten, Browsertyp,
+          Betriebssystem, Referrer-URL und technische Informationen zum verwendeten
+          Gerät gehören. Diese Verarbeitung dient der sicheren, stabilen und
+          funktionsfähigen Bereitstellung der Website.
+        </p>
+
+        <p><strong>4. Kontaktaufnahme per E-Mail</strong></p>
+        <p>
+          Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten
+          Angaben ausschließlich zur Bearbeitung und Beantwortung Ihrer Anfrage
+          verwendet. Eine Weitergabe an Dritte erfolgt nicht, außer wenn dies
+          gesetzlich erforderlich ist.
+        </p>
+
+        <p><strong>5. Cookies und Analyse</strong></p>
+        <p>
+          Diese Website verwendet derzeit keine werblichen Tracking-Cookies und
+          erstellt keine persönlichen Nutzerprofile. Sollten künftig
+          datenschutzfreundliche Analysefunktionen eingesetzt werden, erfolgen diese
+          ausschließlich zur technischen Verbesserung und statistischen Auswertung
+          der Website.
+        </p>
+
+        <p><strong>6. Weitergabe von Daten</strong></p>
+        <p>
+          Personenbezogene Daten werden nicht verkauft und nicht zu Werbezwecken an
+          Dritte weitergegeben. Eine Weitergabe erfolgt nur, wenn dies zur technischen
+          Bereitstellung der Website notwendig ist, eine gesetzliche Verpflichtung
+          besteht oder Sie ausdrücklich eingewilligt haben.
+        </p>
+
+        <p><strong>7. Speicherdauer</strong></p>
+        <p>
+          Personenbezogene Daten werden nur so lange gespeichert, wie dies für den
+          jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten
+          bestehen. E-Mail-Anfragen können so lange gespeichert werden, wie dies zur
+          Bearbeitung der Anfrage oder zur Dokumentation erforderlich ist.
+        </p>
+
+        <p><strong>8. Ihre Rechte</strong></p>
+        <p>
+          Sie haben nach Maßgabe der geltenden Datenschutzgesetze grundsätzlich das
+          Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+          Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung
+          personenbezogener Daten. Außerdem haben Sie das Recht, eine erteilte
+          Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen.
+        </p>
+
+        <p><strong>9. Beschwerderecht</strong></p>
+        <p>
+          Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen
+          Daten gegen geltendes Datenschutzrecht verstößt, können Sie sich an die
+          zuständige Datenschutzbehörde wenden.
+        </p>
+
+        <p><strong>10. Änderungen dieser Datenschutzerklärung</strong></p>
+        <p>
+          Diese Datenschutzerklärung kann angepasst werden, wenn sich technische,
+          rechtliche oder inhaltliche Änderungen an dieser Website ergeben.
+        </p>
+
+        <p><strong>Stand:</strong> Mai 2026</p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - NEMAČKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "hu"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - MAĐARSKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Adatvédelmi tájékoztató</h3>
+
+        <p><strong>1. Általános információk</strong></p>
+        <p>
+          A személyes adatok védelme fontos számunkra. Ez a weboldal jelenleg
+          privát tájékoztató oldal, amely projektek, alkalmazások és kapcsolati
+          információk bemutatására szolgál.
+        </p>
+
+        <p><strong>2. Felelős személy</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Wien, Österreich<br>
+          E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+
+        <p><strong>3. Hozzáférési adatok / szervernaplók</strong></p>
+        <p>
+          A weboldal látogatásakor a tárhelyszolgáltató technikailag szükséges
+          adatokat automatikusan kezelhet. Ezek közé tartozhat az IP-cím, a hozzáférés
+          dátuma és ideje, a meglátogatott oldalak, a böngésző típusa, az operációs
+          rendszer, a hivatkozó URL és az eszköz technikai adatai. Az adatkezelés
+          célja a weboldal biztonságos, stabil és megfelelő működése.
+        </p>
+
+        <p><strong>4. Kapcsolatfelvétel e-mailben</strong></p>
+        <p>
+          Ha e-mailben kapcsolatba lép velünk, az Ön által megadott adatokat kizárólag
+          a megkeresés feldolgozására és megválaszolására használjuk. Harmadik félnek
+          nem adjuk tovább, kivéve ha ezt jogszabály előírja.
+        </p>
+
+        <p><strong>5. Sütik és elemzés</strong></p>
+        <p>
+          Ez a weboldal jelenleg nem használ reklámcélú követő sütiket, és nem hoz
+          létre személyes felhasználói profilokat. Ha a jövőben adatvédelmi szempontból
+          kímélő elemzési funkciók kerülnek alkalmazásra, azok kizárólag technikai
+          javításra és statisztikai célokra szolgálnak.
+        </p>
+
+        <p><strong>6. Adatok továbbítása</strong></p>
+        <p>
+          A személyes adatokat nem értékesítjük, és nem adjuk tovább reklámcélból
+          harmadik félnek. Adattovábbítás csak akkor történik, ha az a weboldal
+          technikai működéséhez szükséges, jogszabály írja elő, vagy Ön kifejezetten
+          hozzájárult.
+        </p>
+
+        <p><strong>7. Adatok megőrzési ideje</strong></p>
+        <p>
+          A személyes adatokat csak addig tároljuk, ameddig az adott célhoz szükséges,
+          vagy ameddig jogszabályi megőrzési kötelezettség fennáll. Az e-mailes
+          megkeresések a feldolgozás és dokumentáció idejéig megőrizhetők.
+        </p>
+
+        <p><strong>8. Az Ön jogai</strong></p>
+        <p>
+          Az alkalmazandó adatvédelmi jogszabályok alapján Ön jogosult tájékoztatást
+          kérni, helyesbítést, törlést, az adatkezelés korlátozását, adathordozhatóságot
+          és tiltakozást kérni a személyes adatok kezelése ellen.
+        </p>
+
+        <p><strong>9. Panasztételi jog</strong></p>
+        <p>
+          Ha úgy véli, hogy személyes adatainak kezelése sérti az alkalmazandó
+          adatvédelmi jogszabályokat, jogosult az illetékes adatvédelmi hatósághoz
+          fordulni.
+        </p>
+
+        <p><strong>10. Az adatvédelmi tájékoztató módosítása</strong></p>
+        <p>
+          Ez az adatvédelmi tájékoztató módosítható, ha technikai, jogi vagy tartalmi
+          változások történnek a weboldalon.
+        </p>
+
+        <p><strong>Állapot:</strong> 2026. május</p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - MAĐARSKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+
+  if(currentLang === "en"){
+    return `
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - ENGLESKI - POČETAK -->
+      <!-- ===================================================== -->
+      <div class="construction-box">
+        <h3>Data Protection Notice</h3>
+
+        <p><strong>1. General information</strong></p>
+        <p>
+          The protection of personal data is important to us. This website is currently
+          a private informational website intended to present projects, apps and
+          contact information.
+        </p>
+
+        <p><strong>2. Responsible person</strong></p>
+        <p>
+          Lenard Zivanović<br>
+          Vienna, Austria<br>
+          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+        </p>
+
+        <p><strong>3. Access data / server log files</strong></p>
+        <p>
+          When visiting this website, the hosting provider may automatically process
+          technically necessary data. This may include IP address, date and time of
+          access, visited pages, browser type, operating system, referrer URL and
+          technical device information. This processing serves the secure, stable and
+          functional operation of the website.
+        </p>
+
+        <p><strong>4. Contact by email</strong></p>
+        <p>
+          If you contact us by email, the information you provide will be used solely
+          to process and respond to your request. Data will not be shared with third
+          parties unless legally required.
+        </p>
+
+        <p><strong>5. Cookies and analytics</strong></p>
+        <p>
+          This website currently does not use advertising tracking cookies and does not
+          create personal user profiles. If privacy-friendly analytics are used in the
+          future, they will be used only for technical improvement and statistical
+          evaluation of the website.
+        </p>
+
+        <p><strong>6. Sharing of data</strong></p>
+        <p>
+          Personal data is not sold and is not shared with third parties for advertising
+          purposes. Data is shared only where technically necessary for providing the
+          website, where legally required, or where you have given explicit consent.
+        </p>
+
+        <p><strong>7. Storage period</strong></p>
+        <p>
+          Personal data is stored only as long as necessary for the respective purpose
+          or as required by statutory retention obligations. Email inquiries may be
+          stored as long as necessary for processing and documentation.
+        </p>
+
+        <p><strong>8. Your rights</strong></p>
+        <p>
+          Under applicable data protection laws, you generally have the right to access,
+          rectification, deletion, restriction of processing, data portability and
+          objection to the processing of personal data. You also have the right to
+          withdraw consent with effect for the future.
+        </p>
+
+        <p><strong>9. Right to lodge a complaint</strong></p>
+        <p>
+          If you believe that the processing of your personal data violates applicable
+          data protection law, you may contact the competent data protection authority.
+        </p>
+
+        <p><strong>10. Changes to this notice</strong></p>
+        <p>
+          This data protection notice may be updated if technical, legal or content-related
+          changes are made to this website.
+        </p>
+
+        <p><strong>Last updated:</strong> May 2026</p>
+      </div>
+      <!-- ===================================================== -->
+      <!-- DONJA STRANICA / DATENSCHUTZ - ENGLESKI - KRAJ -->
+      <!-- ===================================================== -->
+    `;
+  }
+}
 
   if(page === "agb"){
     return `
