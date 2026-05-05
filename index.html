@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>IT ZONE</title>
-<meta name="description" content="IT ZONE privatna informativna web stranica u razvoju." />
+<meta name="description" content="IT ZONE privatna informativna web stranica za aplikacije, projekte i digitalne alate u razvoju." />
 
 <style>
 :root{
@@ -138,6 +138,28 @@ a:hover{text-decoration:underline;}
   background:
     linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,251,255,.98)),
     repeating-linear-gradient(45deg,rgba(36,85,178,.035) 0 12px,transparent 12px 24px);
+}
+
+.legal-box{
+  text-align:left;
+  line-height:1.65;
+}
+
+.legal-box h3{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+.legal-box p{
+  max-width:900px;
+  margin:0 auto 14px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.legal-box strong{
+  color:var(--text);
 }
 
 .site-scene{
@@ -574,6 +596,10 @@ a:hover{text-decoration:underline;}
     padding:0 4px;
   }
 
+  .legal-box p{
+    font-size:14px;
+  }
+
   .app-card{
     padding:20px;
     border-radius:20px;
@@ -615,8 +641,8 @@ a:hover{text-decoration:underline;}
   .flying-letter{left:190px;}
   .mixer{left:220px;}
 }
-  /* ===== APP FACTORY STYLE ===== */
 
+/* ===== APP FACTORY STYLE ===== */
 .app-factory{
   position:relative;
   height:280px;
@@ -727,37 +753,11 @@ a:hover{text-decoration:underline;}
   animation:trainMove 4s infinite;
 }
 
-/* ANIMACIJE */
-@keyframes beltMove{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(20px);}
-}
-
-@keyframes moveParts{
-  0%{left:0;}
-  100%{left:300px; opacity:0;}
-}
-
-@keyframes press{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(20px);}
-}
-
-@keyframes appShow{
-  0%,50%{opacity:0;}
-  60%,90%{opacity:1;}
-  100%{opacity:0;}
-}
-
-@keyframes craneMove{
-  0%,100%{transform:translateX(0);}
-  50%{transform:translateX(-30px);}
-}
-
-@keyframes trainMove{
-  0%,100%{transform:translateX(0);}
-  50%{transform:translateX(-20px);}
-}
+@keyframes beltMove{0%{transform:translateX(0);}100%{transform:translateX(20px);}}
+@keyframes moveParts{0%{left:0;}100%{left:300px;opacity:0;}}
+@keyframes press{0%,100%{transform:translateY(0);}50%{transform:translateY(20px);}}
+@keyframes appShow{0%,50%{opacity:0;}60%,90%{opacity:1;}100%{opacity:0;}}
+@keyframes trainMove{0%,100%{transform:translateX(0);}50%{transform:translateX(-20px);}}
 </style>
 </head>
 
@@ -765,7 +765,6 @@ a:hover{text-decoration:underline;}
 
 <div class="hero">
   <div class="hero-inner">
-
     <div class="lang-wrap">
       <select id="langSelect" class="lang-select">
         <option value="sr">🇷🇸 SR</option>
@@ -780,14 +779,12 @@ a:hover{text-decoration:underline;}
       <div id="time"></div>
       <div id="temp"></div>
     </div>
-
   </div>
 </div>
 
 <div class="layout">
   <aside class="sidebar">
     <h3 id="menuTitle">Glavni meni</h3>
-
     <button class="nav-btn active" data-key="home" onclick="show('home',this)">Početna</button>
     <button class="nav-btn" data-key="apps" onclick="show('apps',this)">Aplikacije</button>
     <button class="nav-btn" data-key="news" onclick="show('news',this)">Novosti</button>
@@ -815,6 +812,8 @@ a:hover{text-decoration:underline;}
 </footer>
 
 <script>
+const SUPPORT_EMAIL = "zivanoviclenard3@gmail.com";
+
 const i18n = {
   sr: {
     menuTitle: "Glavni meni",
@@ -886,7 +885,6 @@ function localeForLang(lang){
 
 function constructionHtml(){
   const t = i18n[currentLang];
-
   return `
     <div class="construction-box">
       <div class="site-scene">
@@ -895,7 +893,6 @@ function constructionHtml(){
         <div class="crane-arm"></div>
         <div class="crane-cable"></div>
         <div class="crane-hook">🪝</div>
-
         <div class="building-text">
           <span>I</span><span>T</span>
           <span class="space"></span>
@@ -903,7 +900,6 @@ function constructionHtml(){
           <span class="space"></span>
           <span>A</span><span>p</span><span>p</span><span>s</span>
         </div>
-
         <div class="worker">👷‍♂️</div>
         <div class="shovel">⛏️</div>
         <div class="flying-letter">I</div>
@@ -914,78 +910,49 @@ function constructionHtml(){
         <div class="dust">💨</div>
         <div class="ground"></div>
       </div>
-
       <h3>${t.constructionTitle}</h3>
       <p>${t.constructionText}</p>
     </div>
   `;
 }
 
-/* ===================================================== */
-/* POČETNA STRANICA - POČETAK */
-
-/* ===================================================== */
 function homeHtml(){
   return `
     <div class="construction-box">
       <h3>IT Zone Apps</h3>
       <p>
-        Dobro došli!  Ovo je informativna stranica za aplikacije,
+        Dobro došli! Ovo je informativna stranica za aplikacije,
         projekte i digitalne alate u razvoju.
       </p>
 
-      <!-- ===== APP FACTORY ANIMACIJA - POČETAK ===== -->
-<div class="app-factory">
-
-  <div class="factory-logo">IT Zone Apps</div>
-
-  <div class="worker-factory">👷‍♂️</div>
-
-  <div class="belt">
-    <div class="belt-line"></div>
-    <div class="app-part part-1">PDF</div>
-    <div class="app-part part-2">QR</div>
-    <div class="app-part part-3">AI</div>
-  </div>
-
-  <div class="machine">
-    <div class="machine-top">IT Zone</div>
-    <div class="press"></div>
-  </div>
-
-  <div class="finished-app">📱</div>
-
-  <div class="mini-crane">
-    <div class="mini-crane-arm"></div>
-    <div class="mini-crane-cable"></div>
-    <div class="mini-crane-hook">🪝</div>
-  </div>
-
-  <div class="train">🚆</div>
-
-</div>
-<!-- ===== APP FACTORY ANIMACIJA - KRAJ ===== -->
-
+      <div class="app-factory">
+        <div class="factory-logo">IT Zone Apps</div>
+        <div class="worker-factory">👷‍♂️</div>
+        <div class="belt">
+          <div class="belt-line"></div>
+          <div class="app-part part-1">PDF</div>
+          <div class="app-part part-2">QR</div>
+          <div class="app-part part-3">AI</div>
+        </div>
+        <div class="machine">
+          <div class="machine-top">IT Zone</div>
+          <div class="press"></div>
+        </div>
+        <div class="finished-app">📱</div>
+        <div class="mini-crane">
+          <div class="mini-crane-arm"></div>
+          <div class="mini-crane-cable"></div>
+          <div class="mini-crane-hook">🪝</div>
+        </div>
+        <div class="train">🚆</div>
+      </div>
     </div>
   `;
 }
-/* ===================================================== */
-/* POČETNA STRANICA - KRAJ */
-/* ===================================================== */
 
-
-/* ===================================================== */
-/* APLIKACIJE STRANICA - POČETAK */
-
-/* ===================================================== */
 function appsHtml(){
   return `
     <div class="apps-grid">
-
-      <!-- ===================================================== -->
-      <!-- APLIKACIJE / KARTICA 1 - SKEKI APP - POČETAK -->
-      <!-- Ako menjaš samo prvu karticu, pošalji deo odavde do KRAJA KARTICE 1 -->
-      <!-- ===================================================== -->
       <div class="app-card">
         <span class="app-badge">PHOTO • PDF • QR • AI</span>
         <h3>Skeki App</h3>
@@ -994,7 +961,6 @@ function appsHtml(){
           Aplikacija je namenjena za brzo uređivanje slika, skeniranje dokumenata,
           kreiranje QR kodova i pripremu fajlova za slanje.
         </p>
-
         <div class="app-features">
           <span>PDF Scanner</span>
           <span>Blur Tool</span>
@@ -1002,50 +968,29 @@ function appsHtml(){
           <span>Photo Tools</span>
           <span>AI Effects</span>
         </div>
-
         <a class="app-button" href="#">Google Play uskoro</a>
       </div>
-      <!-- ===================================================== -->
-      <!-- APLIKACIJE / KARTICA 1 - SKEKI APP - KRAJ -->
-      <!-- ===================================================== -->
 
-
-      <!-- ===================================================== -->
-      <!-- APLIKACIJE / KARTICA 2 - IT ZONE TOOLS - POČETAK -->
-      <!-- Ako menjaš samo drugu karticu, pošalji deo odavde do KRAJA KARTICE 2 -->
-      <!-- ===================================================== -->
       <div class="app-card">
-        <span class="app-badge">IN DEVELOPMENT</span>
-        <h3>IT Zone Tools</h3>
+        <span class="app-badge">HEALTH • TRACKER • HISTORY</span>
+        <h3>Dnevnik zdravlja</h3>
         <p>
-          Ovde će kasnije biti prikazani dodatni projekti, alati i aplikacije
-          koje su trenutno u pripremi.
+          Aplikacija u razvoju za praćenje zdravstvenih unosa kao što su krvni pritisak,
+          šećer, puls, težina i lične napomene.
         </p>
-
         <div class="app-features">
-          <span>Apps</span>
-          <span>Tools</span>
-          <span>Updates</span>
+          <span>Blood Pressure</span>
+          <span>Blood Sugar</span>
+          <span>Weight</span>
+          <span>Pulse</span>
+          <span>History</span>
         </div>
-
         <a class="app-button" href="#" onclick="return false;">U pripremi</a>
       </div>
-      <!-- ===================================================== -->
-      <!-- APLIKACIJE / KARTICA 2 - IT ZONE TOOLS - KRAJ -->
-      <!-- ===================================================== -->
-
     </div>
   `;
 }
-/* ===================================================== */
-/* APLIKACIJE STRANICA - KRAJ */
-/* ===================================================== */
 
-
-/* ===================================================== */
-/* NOVOSTI STRANICA - POČETAK */
-
-/* ===================================================== */
 function newsHtml(){
   return `
     <div class="construction-box">
@@ -1054,1073 +999,383 @@ function newsHtml(){
     </div>
   `;
 }
-/* ===================================================== */
-/* NOVOSTI STRANICA - KRAJ */
-/* ===================================================== */
 
-
-/* ===================================================== */
-/* DONJE STRANICE - POČETAK */
-/* Ovde su stranice koje su dole u footeru: Kontakt, Privacy, Datenschutz, AGB, Impressum */
-/* ===================================================== */
 function footerPageHtml(page){
+  const email = SUPPORT_EMAIL;
 
   if(page === "contact"){
-  if(currentLang === "sr"){
     return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - SRPSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Kontakt</h3>
-
-        <p><strong>Opšte informacije</strong></p>
+      <div class="construction-box legal-box">
+        <h3>Kontakt / Contact</h3>
+        <p><strong>IT Zone Apps</strong></p>
         <p>
-          Ova web stranica je privatna informativna stranica namenjena predstavljanju
-          aplikacija, projekata i digitalnih alata u razvoju.
+          Privatna informativna web stranica za aplikacije, projekte i digitalne alate u razvoju.
         </p>
-
         <p><strong>Kontakt podaci</strong></p>
         <p>
-          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
+          Email: <a href="mailto:${email}">${email}</a><br>
           Lokacija: Wien, Österreich
         </p>
-
-        <p><strong>Napomena</strong></p>
         <p>
-          Upiti poslati putem emaila koriste se isključivo za komunikaciju i neće
-          biti prosleđivani trećim licima.
+          Kontakt putem emaila koristi se isključivo za odgovor na vaš upit.
+          Podaci se ne prodaju i ne prosleđuju trećim licima u marketinške svrhe.
         </p>
       </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - SRPSKI - KRAJ -->
-      <!-- ===================================================== -->
     `;
   }
 
-  if(currentLang === "de"){
+  if(page === "privacy" || page === "datenschutz"){
     return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - NEMAČKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Kontakt</h3>
+      <div class="construction-box legal-box">
+        <h3>Privacy Policy / Datenschutzerklärung</h3>
 
-        <p><strong>Allgemeine Informationen</strong></p>
-        <p>
-          Diese Website ist eine private Informationsseite zur Darstellung von
-          Projekten, Apps und digitalen Lösungen in Entwicklung.
-        </p>
+        <p><strong>Last updated / Stand: May 2026</strong></p>
 
-        <p><strong>Kontaktdaten</strong></p>
-        <p>
-          E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
-          Standort: Wien, Österreich
-        </p>
-
-        <p><strong>Hinweis</strong></p>
-        <p>
-          Übermittelte Anfragen werden ausschließlich zur Kommunikation verwendet
-          und nicht an Dritte weitergegeben.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - NEMAČKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "hu"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - MAĐARSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Kapcsolat</h3>
-
-        <p><strong>Általános információk</strong></p>
-        <p>
-          Ez a weboldal egy privát információs oldal, amely projektek, alkalmazások
-          és fejlesztés alatt álló digitális eszközök bemutatására szolgál.
-        </p>
-
-        <p><strong>Kapcsolati adatok</strong></p>
-        <p>
-          E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
-          Helyszín: Bécs, Ausztria
-        </p>
-
-        <p><strong>Megjegyzés</strong></p>
-        <p>
-          Az elküldött üzeneteket kizárólag kapcsolattartás céljából használjuk,
-          és nem adjuk tovább harmadik félnek.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - MAĐARSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "en"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - ENGLESKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Contact</h3>
-
-        <p><strong>General information</strong></p>
-        <p>
-          This website is a private informational page intended to present projects,
-          applications and digital tools in development.
-        </p>
-
-        <p><strong>Contact details</strong></p>
-        <p>
-          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a><br>
-          Location: Vienna, Austria
-        </p>
-
-        <p><strong>Note</strong></p>
-        <p>
-          Messages sent via email are used only for communication purposes and are
-          not shared with third parties.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / KONTAKT - ENGLESKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-}
-
-  if(page === "privacy"){
-  if(currentLang === "sr"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - SRPSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Privacy Policy</h3>
-
-        <p><strong>1. Opšte informacije</strong></p>
-        <p>
-          Ova web stranica je privatni projekat i ne prikuplja lične podatke korisnika
-          osim u slučajevima direktne komunikacije putem emaila.
-        </p>
-
-        <p><strong>2. Prikupljanje podataka</strong></p>
-        <p>
-          Stranica ne koristi registraciju korisnika, baze podataka niti aktivno
-          prikuplja lične informacije.
-        </p>
-
-        <p><strong>3. Tehnički podaci</strong></p>
-        <p>
-          Prilikom posete stranici, mogu se automatski obrađivati tehnički podaci
-          (npr. IP adresa, vreme pristupa) od strane hosting provajdera.
-        </p>
-
-        <p><strong>4. Kolačići (Cookies)</strong></p>
-        <p>
-          Stranica može koristiti osnovne kolačiće (npr. za čuvanje jezika).
-          Ne koriste se kolačići za praćenje ili marketing.
-        </p>
-
-        <p><strong>5. Kontakt</strong></p>
-        <p>
-          Ako nas kontaktirate putem emaila, vaši podaci će se koristiti isključivo
-          za odgovor na vaš upit i neće biti prosleđeni trećim licima.
-        </p>
-
-        <p><strong>6. Prava korisnika</strong></p>
-        <p>
-          Imate pravo na uvid, ispravku ili brisanje vaših podataka u skladu sa GDPR regulativom.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - SRPSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "de"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - NEMAČKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Privacy Policy</h3>
-
-        <p><strong>1. Allgemeine Informationen</strong></p>
-        <p>
-          Diese Website ist ein privates Projekt und erhebt keine personenbezogenen Daten,
-          außer bei direkter Kontaktaufnahme per E-Mail.
-        </p>
-
-        <p><strong>2. Datenerhebung</strong></p>
-        <p>
-          Es erfolgt keine Registrierung, keine Datenbankverarbeitung und keine aktive Datensammlung.
-        </p>
-
-        <p><strong>3. Technische Daten</strong></p>
-        <p>
-          Beim Besuch können technische Daten (z. B. IP-Adresse) automatisch
-          durch den Hosting-Anbieter verarbeitet werden.
-        </p>
-
-        <p><strong>4. Cookies</strong></p>
-        <p>
-          Es werden nur notwendige Cookies verwendet (z. B. Spracheinstellung).
-          Kein Tracking oder Marketing.
-        </p>
-
-        <p><strong>5. Kontakt</strong></p>
-        <p>
-          Bei Kontaktaufnahme per E-Mail werden Ihre Daten ausschließlich zur Bearbeitung
-          der Anfrage verwendet.
-        </p>
-
-        <p><strong>6. Rechte der Nutzer</strong></p>
-        <p>
-          Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten gemäß DSGVO.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - NEMAČKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "hu"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - MAĐARSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Adatvédelmi szabályzat</h3>
-
-        <p><strong>1. Általános információk</strong></p>
-        <p>
-          Ez a weboldal egy privát projekt, és nem gyűjt személyes adatokat,
-          kivéve az e-mailen keresztüli kapcsolatfelvételt.
-        </p>
-
-        <p><strong>2. Adatgyűjtés</strong></p>
-        <p>
-          Nincs regisztráció, nincs adatbázis-kezelés és nincs aktív adatgyűjtés.
-        </p>
-
-        <p><strong>3. Technikai adatok</strong></p>
-        <p>
-          A weboldal látogatásakor technikai adatok (pl. IP-cím)
-          feldolgozásra kerülhetnek a tárhelyszolgáltató által.
-        </p>
-
-        <p><strong>4. Sütik (Cookies)</strong></p>
-        <p>
-          Csak alapvető sütik kerülnek használatra (pl. nyelvi beállítás).
-          Nincs követés vagy marketing.
-        </p>
-
-        <p><strong>5. Kapcsolat</strong></p>
-        <p>
-          Az e-mailen küldött adatokat kizárólag a megkeresés feldolgozására használjuk.
-        </p>
-
-        <p><strong>6. Felhasználói jogok</strong></p>
-        <p>
-          A felhasználóknak joguk van az adataik megtekintésére, módosítására vagy törlésére (GDPR).
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - MAĐARSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "en"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - ENGLESKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Privacy Policy</h3>
-
-        <p><strong>1. General information</strong></p>
-        <p>
-          This website is a private project and does not collect personal data,
-          except when contacting via email.
-        </p>
-
-        <p><strong>2. Data collection</strong></p>
-        <p>
-          No user registration, database storage or active data collection is performed.
-        </p>
-
-        <p><strong>3. Technical data</strong></p>
-        <p>
-          When visiting the site, technical data (e.g. IP address) may be processed
-          by the hosting provider.
-        </p>
-
-        <p><strong>4. Cookies</strong></p>
-        <p>
-          Only essential cookies are used (e.g. language settings).
-          No tracking or marketing cookies are used.
-        </p>
-
-        <p><strong>5. Contact</strong></p>
-        <p>
-          Data sent via email is used only for responding to your request.
-        </p>
-
-        <p><strong>6. User rights</strong></p>
-        <p>
-          You have the right to access, correct or delete your data in accordance with GDPR.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / PRIVACY POLICY - ENGLESKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-}
-
-  if(page === "datenschutz"){
-  if(currentLang === "sr"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - SRPSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Zaštita podataka</h3>
-
-        <p><strong>1. Opšte informacije</strong></p>
-        <p>
-          Zaštita ličnih podataka je važna. Ova web stranica je trenutno privatna
-          informativna stranica i služi za predstavljanje projekata, aplikacija i
-          osnovnih kontakt informacija.
-        </p>
-
-        <p><strong>2. Odgovorno lice</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Wien, Österreich<br>
-          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-
-        <p><strong>3. Tehnički podaci / server logovi</strong></p>
-        <p>
-          Prilikom posete web stranici hosting provajder može automatski obrađivati
-          tehnički neophodne podatke, kao što su IP adresa, datum i vreme pristupa,
-          posećene stranice, browser, operativni sistem, referrer URL i informacije
-          o uređaju. Ovi podaci služe za siguran, stabilan i ispravan rad stranice.
-        </p>
-
-        <p><strong>4. Kontakt putem emaila</strong></p>
-        <p>
-          Ako nas kontaktirate putem emaila, obrađuju se samo podaci koje sami
-          pošaljete. Ti podaci se koriste isključivo za obradu i odgovor na vaš upit.
-        </p>
-
-        <p><strong>5. Kolačići i analiza</strong></p>
-        <p>
-          Ova stranica trenutno ne koristi reklamne tracking kolačiće i ne pravi
-          lične korisničke profile. Ako se kasnije koriste analitičke funkcije,
-          koristiće se u meri potrebnoj za statistiku i poboljšanje stranice.
-        </p>
-
-        <p><strong>6. Prosleđivanje podataka</strong></p>
-        <p>
-          Lični podaci se ne prodaju, ne koriste za reklamno praćenje i ne prosleđuju
-          trećim licima u komercijalne svrhe. Prosleđivanje je moguće samo ako je
-          tehnički neophodno, zakonski propisano ili ako postoji vaša saglasnost.
-        </p>
-
-        <p><strong>7. Vreme čuvanja podataka</strong></p>
-        <p>
-          Podaci se čuvaju samo onoliko dugo koliko je potrebno za odgovarajuću
-          svrhu ili koliko zahtevaju zakonske obaveze. Email upiti mogu biti sačuvani
-          dok je potrebno za obradu i dokumentaciju komunikacije.
-        </p>
-
-        <p><strong>8. Vaša prava</strong></p>
-        <p>
-          Imate pravo na informaciju, ispravku, brisanje, ograničenje obrade,
-          prenosivost podataka i prigovor na obradu ličnih podataka, u skladu sa
-          važećim propisima o zaštiti podataka.
-        </p>
-
-        <p><strong>9. Pravo na žalbu</strong></p>
-        <p>
-          Ako smatrate da se vaši podaci obrađuju protivno važećem pravu, možete se
-          obratiti nadležnom organu za zaštitu podataka.
-        </p>
-
-        <p><strong>10. Izmene ove izjave</strong></p>
-        <p>
-          Ova izjava o zaštiti podataka može biti izmenjena ako dođe do tehničkih,
-          pravnih ili sadržajnih promena na ovoj web stranici.
-        </p>
-
-        <p><strong>Stanje:</strong> Maj 2026</p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - SRPSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "de"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - NEMAČKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Datenschutzerklärung</h3>
-
-        <p><strong>1. Allgemeine Hinweise</strong></p>
-        <p>
-          Der Schutz personenbezogener Daten ist uns wichtig. Diese Website ist derzeit
-          eine private Informationsseite und dient der allgemeinen Darstellung von
-          Projekten, Apps und Kontaktinformationen.
-        </p>
-
-        <p><strong>2. Verantwortliche Person</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Wien, Österreich<br>
-          E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-
-        <p><strong>3. Zugriffsdaten / Server-Logfiles</strong></p>
-        <p>
-          Beim Besuch dieser Website können durch den Hosting-Anbieter technisch
-          notwendige Daten automatisch verarbeitet werden. Dazu können insbesondere
-          IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seiten, Browsertyp,
-          Betriebssystem, Referrer-URL und technische Informationen zum verwendeten
-          Gerät gehören. Diese Verarbeitung dient der sicheren, stabilen und
-          funktionsfähigen Bereitstellung der Website.
-        </p>
-
-        <p><strong>4. Kontaktaufnahme per E-Mail</strong></p>
-        <p>
-          Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten
-          Angaben ausschließlich zur Bearbeitung und Beantwortung Ihrer Anfrage
-          verwendet. Eine Weitergabe an Dritte erfolgt nicht, außer wenn dies
-          gesetzlich erforderlich ist.
-        </p>
-
-        <p><strong>5. Cookies und Analyse</strong></p>
-        <p>
-          Diese Website verwendet derzeit keine werblichen Tracking-Cookies und
-          erstellt keine persönlichen Nutzerprofile. Sollten künftig
-          datenschutzfreundliche Analysefunktionen eingesetzt werden, erfolgen diese
-          ausschließlich zur technischen Verbesserung und statistischen Auswertung
-          der Website.
-        </p>
-
-        <p><strong>6. Weitergabe von Daten</strong></p>
-        <p>
-          Personenbezogene Daten werden nicht verkauft und nicht zu Werbezwecken an
-          Dritte weitergegeben. Eine Weitergabe erfolgt nur, wenn dies zur technischen
-          Bereitstellung der Website notwendig ist, eine gesetzliche Verpflichtung
-          besteht oder Sie ausdrücklich eingewilligt haben.
-        </p>
-
-        <p><strong>7. Speicherdauer</strong></p>
-        <p>
-          Personenbezogene Daten werden nur so lange gespeichert, wie dies für den
-          jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten
-          bestehen. E-Mail-Anfragen können so lange gespeichert werden, wie dies zur
-          Bearbeitung der Anfrage oder zur Dokumentation erforderlich ist.
-        </p>
-
-        <p><strong>8. Ihre Rechte</strong></p>
-        <p>
-          Sie haben nach Maßgabe der geltenden Datenschutzgesetze grundsätzlich das
-          Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
-          Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung
-          personenbezogener Daten. Außerdem haben Sie das Recht, eine erteilte
-          Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen.
-        </p>
-
-        <p><strong>9. Beschwerderecht</strong></p>
-        <p>
-          Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen
-          Daten gegen geltendes Datenschutzrecht verstößt, können Sie sich an die
-          zuständige Datenschutzbehörde wenden.
-        </p>
-
-        <p><strong>10. Änderungen dieser Datenschutzerklärung</strong></p>
-        <p>
-          Diese Datenschutzerklärung kann angepasst werden, wenn sich technische,
-          rechtliche oder inhaltliche Änderungen an dieser Website ergeben.
-        </p>
-
-        <p><strong>Stand:</strong> Mai 2026</p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - NEMAČKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "hu"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - MAĐARSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Adatvédelmi tájékoztató</h3>
-
-        <p><strong>1. Általános információk</strong></p>
-        <p>
-          A személyes adatok védelme fontos számunkra. Ez a weboldal jelenleg
-          privát tájékoztató oldal, amely projektek, alkalmazások és kapcsolati
-          információk bemutatására szolgál.
-        </p>
-
-        <p><strong>2. Felelős személy</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Wien, Österreich<br>
-          E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-
-        <p><strong>3. Hozzáférési adatok / szervernaplók</strong></p>
-        <p>
-          A weboldal látogatásakor a tárhelyszolgáltató technikailag szükséges
-          adatokat automatikusan kezelhet. Ezek közé tartozhat az IP-cím, a hozzáférés
-          dátuma és ideje, a meglátogatott oldalak, a böngésző típusa, az operációs
-          rendszer, a hivatkozó URL és az eszköz technikai adatai. Az adatkezelés
-          célja a weboldal biztonságos, stabil és megfelelő működése.
-        </p>
-
-        <p><strong>4. Kapcsolatfelvétel e-mailben</strong></p>
-        <p>
-          Ha e-mailben kapcsolatba lép velünk, az Ön által megadott adatokat kizárólag
-          a megkeresés feldolgozására és megválaszolására használjuk. Harmadik félnek
-          nem adjuk tovább, kivéve ha ezt jogszabály előírja.
-        </p>
-
-        <p><strong>5. Sütik és elemzés</strong></p>
-        <p>
-          Ez a weboldal jelenleg nem használ reklámcélú követő sütiket, és nem hoz
-          létre személyes felhasználói profilokat. Ha a jövőben adatvédelmi szempontból
-          kímélő elemzési funkciók kerülnek alkalmazásra, azok kizárólag technikai
-          javításra és statisztikai célokra szolgálnak.
-        </p>
-
-        <p><strong>6. Adatok továbbítása</strong></p>
-        <p>
-          A személyes adatokat nem értékesítjük, és nem adjuk tovább reklámcélból
-          harmadik félnek. Adattovábbítás csak akkor történik, ha az a weboldal
-          technikai működéséhez szükséges, jogszabály írja elő, vagy Ön kifejezetten
-          hozzájárult.
-        </p>
-
-        <p><strong>7. Adatok megőrzési ideje</strong></p>
-        <p>
-          A személyes adatokat csak addig tároljuk, ameddig az adott célhoz szükséges,
-          vagy ameddig jogszabályi megőrzési kötelezettség fennáll. Az e-mailes
-          megkeresések a feldolgozás és dokumentáció idejéig megőrizhetők.
-        </p>
-
-        <p><strong>8. Az Ön jogai</strong></p>
-        <p>
-          Az alkalmazandó adatvédelmi jogszabályok alapján Ön jogosult tájékoztatást
-          kérni, helyesbítést, törlést, az adatkezelés korlátozását, adathordozhatóságot
-          és tiltakozást kérni a személyes adatok kezelése ellen.
-        </p>
-
-        <p><strong>9. Panasztételi jog</strong></p>
-        <p>
-          Ha úgy véli, hogy személyes adatainak kezelése sérti az alkalmazandó
-          adatvédelmi jogszabályokat, jogosult az illetékes adatvédelmi hatósághoz
-          fordulni.
-        </p>
-
-        <p><strong>10. Az adatvédelmi tájékoztató módosítása</strong></p>
-        <p>
-          Ez az adatvédelmi tájékoztató módosítható, ha technikai, jogi vagy tartalmi
-          változások történnek a weboldalon.
-        </p>
-
-        <p><strong>Állapot:</strong> 2026. május</p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - MAĐARSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "en"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - ENGLESKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Data Protection Notice</h3>
-
-        <p><strong>1. General information</strong></p>
-        <p>
-          The protection of personal data is important to us. This website is currently
-          a private informational website intended to present projects, apps and
-          contact information.
-        </p>
-
-        <p><strong>2. Responsible person</strong></p>
+        <p><strong>1. Responsible person / Verantwortliche Person</strong></p>
         <p>
           Lenard Zivanović<br>
           Vienna, Austria<br>
-          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+          Email: <a href="mailto:${email}">${email}</a>
         </p>
 
-        <p><strong>3. Access data / server log files</strong></p>
+        <p><strong>2. Scope / Geltungsbereich</strong></p>
         <p>
-          When visiting this website, the hosting provider may automatically process
-          technically necessary data. This may include IP address, date and time of
-          access, visited pages, browser type, operating system, referrer URL and
-          technical device information. This processing serves the secure, stable and
-          functional operation of the website.
+          This Privacy Policy applies to this website and to mobile applications published under IT Zone Apps,
+          including apps such as “Skeki – PDF, QR & Photo Tools” and future IT Zone Apps projects.
         </p>
-
-        <p><strong>4. Contact by email</strong></p>
         <p>
-          If you contact us by email, the information you provide will be used solely
-          to process and respond to your request. Data will not be shared with third
-          parties unless legally required.
+          Diese Datenschutzerklärung gilt für diese Website und für mobile Anwendungen, die unter IT Zone Apps
+          veröffentlicht werden, einschließlich „Skeki – PDF, QR & Photo Tools“ und zukünftiger IT Zone Apps Projekte.
         </p>
 
-        <p><strong>5. Cookies and analytics</strong></p>
+        <p><strong>3. App data processing / Datenverarbeitung in Apps</strong></p>
         <p>
-          This website currently does not use advertising tracking cookies and does not
-          create personal user profiles. If privacy-friendly analytics are used in the
-          future, they will be used only for technical improvement and statistical
-          evaluation of the website.
+          Skeki is designed for photo, PDF, QR code and image utility functions. Files selected by the user are used
+          only for the selected app function, such as PDF creation, QR code generation, image editing, blur/redaction,
+          optimization or export. Where possible, processing is performed locally on the user’s device.
         </p>
-
-        <p><strong>6. Sharing of data</strong></p>
         <p>
-          Personal data is not sold and is not shared with third parties for advertising
-          purposes. Data is shared only where technically necessary for providing the
-          website, where legally required, or where you have given explicit consent.
+          Skeki ist für Foto-, PDF-, QR-Code- und Bildwerkzeug-Funktionen bestimmt. Vom Nutzer ausgewählte Dateien
+          werden nur für die ausgewählte Funktion verwendet, z. B. PDF-Erstellung, QR-Code-Erstellung, Bildbearbeitung,
+          Unschärfe/Redaktion, Optimierung oder Export. Soweit möglich erfolgt die Verarbeitung lokal auf dem Gerät.
         </p>
 
-        <p><strong>7. Storage period</strong></p>
+        <p><strong>4. Photos, documents and files / Fotos, Dokumente und Dateien</strong></p>
         <p>
-          Personal data is stored only as long as necessary for the respective purpose
-          or as required by statutory retention obligations. Email inquiries may be
-          stored as long as necessary for processing and documentation.
+          If a user selects photos, images or documents in the app, these files are processed only to provide the requested
+          function. The user is responsible for the content of the selected files and for ensuring that they have the right
+          to process or share them.
         </p>
-
-        <p><strong>8. Your rights</strong></p>
         <p>
-          Under applicable data protection laws, you generally have the right to access,
-          rectification, deletion, restriction of processing, data portability and
-          objection to the processing of personal data. You also have the right to
-          withdraw consent with effect for the future.
+          Wenn ein Nutzer Fotos, Bilder oder Dokumente in der App auswählt, werden diese Dateien ausschließlich zur
+          Bereitstellung der gewünschten Funktion verarbeitet. Der Nutzer ist für den Inhalt der ausgewählten Dateien verantwortlich.
         </p>
 
-        <p><strong>9. Right to lodge a complaint</strong></p>
+        <p><strong>5. QR codes and payment QR information / QR-Codes und Zahlungs-QR-Informationen</strong></p>
         <p>
-          If you believe that the processing of your personal data violates applicable
-          data protection law, you may contact the competent data protection authority.
+          If the app provides QR code or payment QR code generation, the information is generated from data entered by the user.
+          IT Zone Apps is not a bank, payment institution or financial service provider. The user is responsible for checking
+          the accuracy of all entered payment or QR information before using or sharing it.
         </p>
-
-        <p><strong>10. Changes to this notice</strong></p>
         <p>
-          This data protection notice may be updated if technical, legal or content-related
-          changes are made to this website.
+          Wenn die App QR-Code- oder Zahlungs-QR-Code-Erstellung anbietet, werden die Informationen aus den vom Nutzer eingegebenen
+          Daten erzeugt. IT Zone Apps ist keine Bank, kein Zahlungsinstitut und kein Finanzdienstleister. Der Nutzer ist dafür
+          verantwortlich, alle eingegebenen Zahlungs- oder QR-Daten vor der Nutzung zu prüfen.
         </p>
 
-        <p><strong>Last updated:</strong> May 2026</p>
+        <p><strong>6. Health app projects / Gesundheits-App-Projekte</strong></p>
+        <p>
+          Future health-related apps may allow users to enter and store health information such as blood pressure, blood sugar,
+          pulse, weight and notes. Such data is entered voluntarily by the user and is used only to provide app functionality,
+          history, backup, synchronization or export features where offered.
+        </p>
+        <p>
+          Zukünftige gesundheitsbezogene Apps können es Nutzern ermöglichen, Gesundheitsinformationen wie Blutdruck, Blutzucker,
+          Puls, Gewicht und Notizen einzugeben und zu speichern. Diese Daten werden freiwillig vom Nutzer eingegeben und nur zur
+          Bereitstellung der App-Funktionalität, Historie, Sicherung, Synchronisierung oder Exportfunktionen verwendet, sofern angeboten.
+        </p>
+
+        <p><strong>7. Medical disclaimer / Medizinischer Hinweis</strong></p>
+        <p>
+          Health-related apps from IT Zone Apps are for informational and personal tracking purposes only. They are not medical devices,
+          do not diagnose, treat or prevent diseases, and do not provide medical advice. Always consult a qualified doctor or healthcare
+          professional for medical decisions.
+        </p>
+        <p>
+          Gesundheitsbezogene Apps von IT Zone Apps dienen ausschließlich Informations- und persönlichen Dokumentationszwecken. Sie sind
+          keine Medizinprodukte, stellen keine Diagnose, behandeln oder verhindern keine Krankheiten und ersetzen keine medizinische Beratung.
+          Wenden Sie sich bei medizinischen Entscheidungen immer an qualifiziertes medizinisches Fachpersonal.
+        </p>
+
+        <p><strong>8. Accounts, cloud storage and backup / Konten, Cloud-Speicherung und Backup</strong></p>
+        <p>
+          If an app offers account registration, cloud backup or synchronization, the purpose is to allow users to save their data,
+          access their history across devices and restore data when changing devices. Data may be stored using a cloud backend provider,
+          for example Supabase or a similar service. The exact use depends on the app version and enabled features.
+        </p>
+        <p>
+          Wenn eine App Registrierung, Cloud-Backup oder Synchronisierung anbietet, dient dies dazu, Nutzerdaten zu speichern,
+          die Historie geräteübergreifend verfügbar zu machen und Daten beim Gerätewechsel wiederherzustellen. Daten können über
+          einen Cloud-Backend-Anbieter wie Supabase oder einen ähnlichen Dienst gespeichert werden. Die konkrete Nutzung hängt von
+          der App-Version und den aktivierten Funktionen ab.
+        </p>
+
+        <p><strong>9. Premium features and purchases / Premium-Funktionen und Käufe</strong></p>
+        <p>
+          If an app offers premium features, purchases or subscriptions are processed through Google Play Billing. IT Zone Apps does not
+          receive or store full payment card information. Payment processing is handled by Google according to Google Play’s terms and
+          privacy policy.
+        </p>
+        <p>
+          Wenn eine App Premium-Funktionen anbietet, werden Käufe oder Abonnements über Google Play Billing abgewickelt. IT Zone Apps
+          erhält und speichert keine vollständigen Zahlungskartendaten. Die Zahlungsabwicklung erfolgt durch Google gemäß den Bedingungen
+          und Datenschutzbestimmungen von Google Play.
+        </p>
+
+        <p><strong>10. Advertising / Werbung</strong></p>
+        <p>
+          Some free app versions may display ads. If ads are used, they may be provided by Google AdMob or another advertising provider.
+          Advertising providers may process device identifiers, approximate location, ad interactions or diagnostic data according to their
+          own policies. Premium versions may remove ads where offered.
+        </p>
+        <p>
+          Einige kostenlose App-Versionen können Werbung anzeigen. Wenn Werbung verwendet wird, kann sie durch Google AdMob oder einen
+          anderen Werbeanbieter bereitgestellt werden. Werbeanbieter können Gerätekennungen, ungefähren Standort, Anzeigeninteraktionen
+          oder Diagnosedaten gemäß ihren eigenen Richtlinien verarbeiten. Premium-Versionen können Werbung entfernen, sofern angeboten.
+        </p>
+
+        <p><strong>11. Contact by email / Kontakt per E-Mail</strong></p>
+        <p>
+          If you contact us by email, the information you voluntarily send, such as your email address and message content, is used only
+          to process and answer your request. Email communication may be stored as long as necessary for documentation and support.
+        </p>
+        <p>
+          Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen freiwillig übermittelten Informationen, z. B. E-Mail-Adresse und
+          Nachrichteninhalt, nur zur Bearbeitung und Beantwortung Ihrer Anfrage verwendet.
+        </p>
+
+        <p><strong>12. Website technical data / Technische Website-Daten</strong></p>
+        <p>
+          When visiting this website, the hosting provider may automatically process technical data such as IP address, access time,
+          browser type, operating system and visited pages. This is necessary for the secure and stable operation of the website.
+        </p>
+        <p>
+          Beim Besuch dieser Website kann der Hosting-Anbieter automatisch technische Daten wie IP-Adresse, Zugriffszeit, Browsertyp,
+          Betriebssystem und besuchte Seiten verarbeiten. Dies ist für den sicheren und stabilen Betrieb der Website erforderlich.
+        </p>
+
+        <p><strong>13. Weather information / Wetterinformationen</strong></p>
+        <p>
+          This website may request basic weather information from an external weather service to display temperature information.
+          This is used only for display purposes.
+        </p>
+        <p>
+          Diese Website kann grundlegende Wetterinformationen von einem externen Wetterdienst abrufen, um Temperaturinformationen anzuzeigen.
+          Dies dient ausschließlich Anzeigezwecken.
+        </p>
+
+        <p><strong>14. Cookies and local storage / Cookies und lokale Speicherung</strong></p>
+        <p>
+          The website may use local storage or basic cookies to remember language settings. No advertising tracking cookies are intentionally
+          used on this website.
+        </p>
+        <p>
+          Diese Website kann lokale Speicherung oder grundlegende Cookies verwenden, um Spracheinstellungen zu speichern. Auf dieser Website
+          werden bewusst keine Werbe-Tracking-Cookies eingesetzt.
+        </p>
+
+        <p><strong>15. Data sharing / Weitergabe von Daten</strong></p>
+        <p>
+          Personal data is not sold and is not shared with third parties for marketing purposes by IT Zone Apps. Data may be processed or
+          transmitted where technically necessary, legally required, requested by the user, or required to provide app functionality such as
+          cloud storage, payment processing or ads.
+        </p>
+        <p>
+          Personenbezogene Daten werden von IT Zone Apps nicht verkauft und nicht zu Marketingzwecken an Dritte weitergegeben. Daten können
+          verarbeitet oder übertragen werden, wenn dies technisch notwendig, gesetzlich erforderlich, vom Nutzer angefordert oder zur Bereitstellung
+          von App-Funktionen wie Cloud-Speicherung, Zahlungsabwicklung oder Werbung erforderlich ist.
+        </p>
+
+        <p><strong>16. Data security / Datensicherheit</strong></p>
+        <p>
+          Reasonable technical and organizational measures are used to protect user data. However, no electronic transmission or storage system
+          can be guaranteed to be 100% secure.
+        </p>
+        <p>
+          Es werden angemessene technische und organisatorische Maßnahmen zum Schutz von Nutzerdaten eingesetzt. Dennoch kann kein elektronisches
+          Übertragungs- oder Speichersystem zu 100% sicher garantiert werden.
+        </p>
+
+        <p><strong>17. User rights and deletion / Nutzerrechte und Löschung</strong></p>
+        <p>
+          Users may request access, correction or deletion of their personal data in accordance with applicable GDPR rules. If an app provides
+          account functionality, users may request deletion of their account and associated data by using the app function where available or by
+          contacting us at <a href="mailto:${email}">${email}</a>.
+        </p>
+        <p>
+          Nutzer können gemäß den geltenden DSGVO-Regeln Auskunft, Berichtigung oder Löschung ihrer personenbezogenen Daten verlangen. Wenn eine
+          App Kontofunktionen bietet, können Nutzer die Löschung ihres Kontos und der zugehörigen Daten über die verfügbare App-Funktion oder per
+          Kontaktaufnahme unter <a href="mailto:${email}">${email}</a> beantragen.
+        </p>
+
+        <p><strong>18. Changes to this policy / Änderungen dieser Erklärung</strong></p>
+        <p>
+          This Privacy Policy may be updated when apps, features, technologies, legal requirements or services change.
+        </p>
+        <p>
+          Diese Datenschutzerklärung kann aktualisiert werden, wenn sich Apps, Funktionen, Technologien, rechtliche Anforderungen oder Dienste ändern.
+        </p>
       </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / DATENSCHUTZ - ENGLESKI - KRAJ -->
-      <!-- ===================================================== -->
     `;
   }
-}
 
   if(page === "agb"){
-  if(currentLang === "sr"){
     return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - SRPSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Opšti uslovi (AGB)</h3>
+      <div class="construction-box legal-box">
+        <h3>AGB / Terms and Conditions</h3>
 
-        <p><strong>1. Opšte informacije</strong></p>
+        <p><strong>1. General information / Allgemeines</strong></p>
         <p>
-          Ova web stranica predstavlja privatni projekat i služi isključivo u informativne svrhe.
-          Ne predstavlja pravno obavezujuću ponudu niti komercijalnu uslugu.
+          This website is a private informational website for apps, projects and digital tools in development.
+          Mobile apps published under IT Zone Apps are provided according to the functions and conditions shown in the app and on Google Play.
+        </p>
+        <p>
+          Diese Website ist eine private Informationsseite für Apps, Projekte und digitale Werkzeuge in Entwicklung.
+          Mobile Apps von IT Zone Apps werden gemäß den in der App und bei Google Play dargestellten Funktionen und Bedingungen bereitgestellt.
         </p>
 
-        <p><strong>2. Korišćenje sadržaja</strong></p>
+        <p><strong>2. Use of apps / Nutzung der Apps</strong></p>
         <p>
-          Sav sadržaj na ovoj stranici koristi se na sopstvenu odgovornost korisnika.
-          Autor ne garantuje tačnost, potpunost ili ažurnost informacija.
+          Users are responsible for the content they create, edit, upload, scan, save or share using the apps. The apps are provided as tools;
+          users must check exported files, QR codes, payment information, photos and documents before using or sharing them.
+        </p>
+        <p>
+          Nutzer sind für Inhalte verantwortlich, die sie mit den Apps erstellen, bearbeiten, hochladen, scannen, speichern oder teilen. Die Apps
+          werden als Werkzeuge bereitgestellt; Nutzer müssen exportierte Dateien, QR-Codes, Zahlungsinformationen, Fotos und Dokumente vor der Nutzung prüfen.
         </p>
 
-        <p><strong>3. Ograničenje odgovornosti</strong></p>
+        <p><strong>3. Health disclaimer / Gesundheitshinweis</strong></p>
         <p>
-          Ne preuzima se odgovornost za eventualnu štetu nastalu korišćenjem ove stranice
-          ili njenih informacija.
+          Health-related apps are not medical devices and do not provide medical advice. They are intended only for personal tracking and informational purposes.
+          Always consult a qualified healthcare professional for medical decisions.
+        </p>
+        <p>
+          Gesundheitsbezogene Apps sind keine Medizinprodukte und stellen keine medizinische Beratung dar. Sie dienen nur der persönlichen Dokumentation und Information.
+          Für medizinische Entscheidungen wenden Sie sich immer an qualifiziertes medizinisches Fachpersonal.
         </p>
 
-        <p><strong>4. Autorska prava</strong></p>
+        <p><strong>4. Premium and payments / Premium und Zahlungen</strong></p>
         <p>
-          Svi sadržaji (tekst, dizajn, aplikacije) su zaštićeni i ne smeju se kopirati
-          ili koristiti bez dozvole.
+          Premium features, purchases and subscriptions, if offered, are processed through Google Play Billing. Prices, trial periods and renewal conditions are displayed
+          before purchase in Google Play.
+        </p>
+        <p>
+          Premium-Funktionen, Käufe und Abonnements werden, sofern angeboten, über Google Play Billing abgewickelt. Preise, Testzeiträume und Verlängerungsbedingungen
+          werden vor dem Kauf in Google Play angezeigt.
         </p>
 
-        <p><strong>5. Završne odredbe</strong></p>
+        <p><strong>5. Limitation of liability / Haftungsbeschränkung</strong></p>
         <p>
-          Autor zadržava pravo izmene sadržaja u bilo kom trenutku bez prethodne najave.
+          The apps and website are provided with reasonable care. No guarantee is given that all functions will be available on all devices, operating systems,
+          banking apps, QR readers or third-party services.
+        </p>
+        <p>
+          Apps und Website werden mit angemessener Sorgfalt bereitgestellt. Es wird nicht garantiert, dass alle Funktionen auf allen Geräten, Betriebssystemen,
+          Banking-Apps, QR-Lesern oder Diensten Dritter verfügbar sind.
+        </p>
+
+        <p><strong>6. Copyright / Urheberrecht</strong></p>
+        <p>
+          Texts, design elements, app names, graphics and app content are protected by copyright and may not be copied or used without permission.
+        </p>
+        <p>
+          Texte, Designelemente, App-Namen, Grafiken und App-Inhalte sind urheberrechtlich geschützt und dürfen nicht ohne Zustimmung kopiert oder verwendet werden.
+        </p>
+
+        <p><strong>7. Contact / Kontakt</strong></p>
+        <p>
+          Email: <a href="mailto:${email}">${email}</a>
         </p>
       </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - SRPSKI - KRAJ -->
-      <!-- ===================================================== -->
     `;
   }
-
-  if(currentLang === "de"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - NEMAČKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Allgemeine Geschäftsbedingungen (AGB)</h3>
-
-        <p><strong>1. Allgemeines</strong></p>
-        <p>
-          Diese Website ist ein privates Projekt und dient ausschließlich zu Informationszwecken.
-          Sie stellt kein rechtlich bindendes Angebot dar.
-        </p>
-
-        <p><strong>2. Nutzung der Inhalte</strong></p>
-        <p>
-          Die Nutzung der Inhalte erfolgt auf eigene Verantwortung.
-          Es wird keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität übernommen.
-        </p>
-
-        <p><strong>3. Haftungsausschluss</strong></p>
-        <p>
-          Für Schäden, die durch die Nutzung dieser Website entstehen,
-          wird keine Haftung übernommen.
-        </p>
-
-        <p><strong>4. Urheberrecht</strong></p>
-        <p>
-          Alle Inhalte dieser Website sind urheberrechtlich geschützt
-          und dürfen ohne Zustimmung nicht verwendet werden.
-        </p>
-
-        <p><strong>5. Schlussbestimmungen</strong></p>
-        <p>
-          Der Betreiber behält sich das Recht vor, Inhalte jederzeit zu ändern.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - NEMAČKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "hu"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - MAĐARSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Általános szerződési feltételek (AGB)</h3>
-
-        <p><strong>1. Általános információk</strong></p>
-        <p>
-          Ez a weboldal egy privát projekt, amely kizárólag tájékoztató jellegű.
-          Nem minősül jogilag kötelező érvényű ajánlatnak.
-        </p>
-
-        <p><strong>2. Tartalom használata</strong></p>
-        <p>
-          A tartalom használata a felhasználó saját felelősségére történik.
-          Nem vállalunk garanciát a pontosságra vagy teljességre.
-        </p>
-
-        <p><strong>3. Felelősség kizárása</strong></p>
-        <p>
-          Nem vállalunk felelősséget az oldal használatából eredő károkért.
-        </p>
-
-        <p><strong>4. Szerzői jogok</strong></p>
-        <p>
-          A weboldal tartalma szerzői jogi védelem alatt áll,
-          és engedély nélkül nem használható fel.
-        </p>
-
-        <p><strong>5. Záró rendelkezések</strong></p>
-        <p>
-          A tulajdonos fenntartja a jogot a tartalom módosítására.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - MAĐARSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "en"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - ENGLESKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Terms and Conditions (AGB)</h3>
-
-        <p><strong>1. General information</strong></p>
-        <p>
-          This website is a private project intended for informational purposes only.
-          It does not constitute a legally binding offer.
-        </p>
-
-        <p><strong>2. Use of content</strong></p>
-        <p>
-          All content is used at your own risk.
-          No guarantee is given for accuracy or completeness.
-        </p>
-
-        <p><strong>3. Limitation of liability</strong></p>
-        <p>
-          The operator is not liable for any damages resulting from the use of this website.
-        </p>
-
-        <p><strong>4. Copyright</strong></p>
-        <p>
-          All content is protected and may not be used without permission.
-        </p>
-
-        <p><strong>5. Final provisions</strong></p>
-        <p>
-          The operator reserves the right to modify content at any time.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / AGB - ENGLESKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-}
 
   if(page === "impressum"){
-  if(currentLang === "sr"){
     return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - SRPSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
+      <div class="construction-box legal-box">
         <h3>Impressum</h3>
 
-        <p><strong>Vlasnik stranice</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Wien, Österreich
-        </p>
-
-        <p><strong>Kontakt</strong></p>
-        <p>
-          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-
-        <p><strong>Napomena</strong></p>
-        <p>
-          Ova web stranica je privatni projekat i služi isključivo u informativne svrhe.
-          Ne predstavlja komercijalnu ponudu niti registrovanu firmu.
-        </p>
-
-        <p><strong>Odgovornost za sadržaj</strong></p>
-        <p>
-          Sav sadržaj je kreiran pažljivo, ali ne garantujemo potpunost ili tačnost informacija.
-        </p>
-
-        <p><strong>Autorska prava</strong></p>
-        <p>
-          Svi sadržaji (tekst, dizajn, aplikacije) su zaštićeni i ne smeju se koristiti bez dozvole.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - SRPSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "de"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - NEMAČKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Impressum</h3>
-
-        <p><strong>Betreiber der Website</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Wien, Österreich
-        </p>
-
-        <p><strong>Kontakt</strong></p>
-        <p>
-          E-Mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-
-        <p><strong>Hinweis</strong></p>
-        <p>
-          Diese Website ist ein privates Projekt und dient ausschließlich zu Informationszwecken.
-          Es handelt sich nicht um ein kommerzielles Angebot oder ein registriertes Unternehmen.
-        </p>
-
-        <p><strong>Haftung für Inhalte</strong></p>
-        <p>
-          Die Inhalte wurden mit größter Sorgfalt erstellt, jedoch wird keine Gewähr für
-          Richtigkeit, Vollständigkeit oder Aktualität übernommen.
-        </p>
-
-        <p><strong>Urheberrecht</strong></p>
-        <p>
-          Alle Inhalte dieser Website sind urheberrechtlich geschützt und dürfen ohne Zustimmung
-          nicht verwendet werden.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - NEMAČKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "hu"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - MAĐARSKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Impresszum</h3>
-
-        <p><strong>Weboldal tulajdonosa</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Bécs, Ausztria
-        </p>
-
-        <p><strong>Kapcsolat</strong></p>
-        <p>
-          E-mail: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
-        </p>
-
-        <p><strong>Megjegyzés</strong></p>
-        <p>
-          Ez a weboldal egy privát projekt, amely kizárólag tájékoztató jellegű.
-          Nem minősül kereskedelmi ajánlatnak vagy hivatalos vállalkozásnak.
-        </p>
-
-        <p><strong>Felelősség a tartalomért</strong></p>
-        <p>
-          A tartalmak gondosan készültek, de nem vállalunk garanciát azok pontosságára.
-        </p>
-
-        <p><strong>Szerzői jogok</strong></p>
-        <p>
-          A weboldal minden tartalma szerzői jogi védelem alatt áll.
-        </p>
-      </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - MAĐARSKI - KRAJ -->
-      <!-- ===================================================== -->
-    `;
-  }
-
-  if(currentLang === "en"){
-    return `
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - ENGLESKI - POČETAK -->
-      <!-- ===================================================== -->
-      <div class="construction-box">
-        <h3>Impressum</h3>
-
-        <p><strong>Website owner</strong></p>
+        <p><strong>Website owner / Betreiber der Website</strong></p>
         <p>
           Lenard Zivanović<br>
           Vienna, Austria
         </p>
 
-        <p><strong>Contact</strong></p>
+        <p><strong>Contact / Kontakt</strong></p>
         <p>
-          Email: <a href="mailto:itzoneapps1@gmail.com">itzoneapps1@gmail.com</a>
+          Email: <a href="mailto:${email}">${email}</a>
         </p>
 
-        <p><strong>Notice</strong></p>
+        <p><strong>Project status / Projektstatus</strong></p>
         <p>
-          This website is a private project for informational purposes only.
-          It does not represent a commercial offer or registered business.
+          IT Zone Apps is currently a private informational project for presenting apps, software projects and digital tools in development.
+          It does not represent a registered company unless explicitly stated otherwise.
+        </p>
+        <p>
+          IT Zone Apps ist derzeit ein privates Informationsprojekt zur Darstellung von Apps, Softwareprojekten und digitalen Werkzeugen in Entwicklung.
+          Es handelt sich nicht um ein registriertes Unternehmen, sofern nicht ausdrücklich anders angegeben.
         </p>
 
-        <p><strong>Liability for content</strong></p>
+        <p><strong>Responsible for content / Verantwortlich für den Inhalt</strong></p>
         <p>
-          Content has been created with care, but no guarantee is given for accuracy or completeness.
+          Lenard Zivanović, Vienna, Austria
         </p>
 
-        <p><strong>Copyright</strong></p>
+        <p><strong>Liability for content / Haftung für Inhalte</strong></p>
         <p>
-          All content is protected and may not be used without permission.
+          The content of this website has been created with care. However, no guarantee is given for accuracy, completeness or currentness.
+        </p>
+        <p>
+          Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Es wird jedoch keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität übernommen.
+        </p>
+
+        <p><strong>Copyright / Urheberrecht</strong></p>
+        <p>
+          All texts, designs, graphics, logos and app-related content are protected and may not be copied or used without permission.
+        </p>
+        <p>
+          Alle Texte, Designs, Grafiken, Logos und appbezogenen Inhalte sind geschützt und dürfen ohne Zustimmung nicht kopiert oder verwendet werden.
         </p>
       </div>
-      <!-- ===================================================== -->
-      <!-- DONJA STRANICA / IMPRESSUM - ENGLESKI - KRAJ -->
-      <!-- ===================================================== -->
     `;
   }
-}
 
   return constructionHtml();
 }
-/* ===================================================== */
-/* DONJE STRANICE - KRAJ */
-/* ===================================================== */
 
 function applyLanguage(){
   const t = i18n[currentLang];
-
   document.documentElement.lang = currentLang;
   document.getElementById("menuTitle").innerText = t.menuTitle;
   document.getElementById("footerText").innerText = t.footer;
-
   document.querySelector('[data-key="home"]').innerText = t.home;
   document.querySelector('[data-key="apps"]').innerText = t.apps;
   document.querySelector('[data-key="news"]').innerText = t.news;
-
   render(currentPage);
   updateTime();
 }
 
 function show(pageKey, btn){
   currentPage = pageKey;
-
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
   if(btn) btn.classList.add("active");
-
   render(pageKey);
 }
 
 function showFooterPage(pageKey){
   currentPage = pageKey;
-
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
   render(pageKey);
-
   window.scrollTo({
     top: document.querySelector(".content").offsetTop - 20,
     behavior: "smooth"
@@ -2154,12 +1409,8 @@ function render(pageKey){
 
 function updateTime(){
   const now = new Date();
-
-  document.getElementById("date").innerText =
-    now.toLocaleDateString(localeForLang(currentLang));
-
-  document.getElementById("time").innerText =
-    now.toLocaleTimeString(localeForLang(currentLang));
+  document.getElementById("date").innerText = now.toLocaleDateString(localeForLang(currentLang));
+  document.getElementById("time").innerText = now.toLocaleTimeString(localeForLang(currentLang));
 }
 
 fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
@@ -2180,7 +1431,6 @@ document.getElementById("langSelect").addEventListener("change", function(){
 });
 
 setInterval(updateTime, 1000);
-
 applyLanguage();
 updateTime();
 </script>
