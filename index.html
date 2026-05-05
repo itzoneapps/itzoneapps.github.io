@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>IT ZONE</title>
-<meta name="description" content="IT ZONE privatna informativna web stranica za aplikacije, projekte i digitalne alate u razvoju." />
+<meta name="description" content="IT Zone Apps - private informational website for apps, projects and digital tools in development." />
 
 <style>
 :root{
@@ -16,778 +16,102 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background:linear-gradient(180deg,#f7fbff,#eef4fb);color:var(--text);}
+a{color:var(--blue);text-decoration:none;} a:hover{text-decoration:underline;}
 
-body{
-  font-family:Arial, sans-serif;
-  background:linear-gradient(180deg,#f7fbff,#eef4fb);
-  color:var(--text);
-}
+.hero{margin:20px;min-height:300px;border-radius:28px;overflow:hidden;position:relative;background:url("logo3.jpg") center/cover no-repeat;box-shadow:var(--shadow);}
+.hero-inner{position:relative;min-height:300px;padding:40px;}
+.lang-wrap{position:absolute;top:16px;right:18px;z-index:5;}
+.lang-select{height:42px;min-width:108px;border-radius:14px;border:1px solid rgba(0,0,0,.10);background:rgba(255,255,255,.88);padding:0 12px;font-size:14px;font-weight:700;cursor:pointer;}
+.hero-meta{position:absolute;left:40px;bottom:6px;display:flex;gap:20px;font-weight:700;color:#111;font-size:14px;z-index:4;flex-wrap:wrap;}
 
-a{color:var(--blue);text-decoration:none;}
-a:hover{text-decoration:underline;}
+.layout{display:grid;grid-template-columns:250px 1fr;gap:20px;padding:20px;}
+.sidebar{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;min-height:220px;}
+.sidebar h3{margin-bottom:10px;font-size:18px;}
+.sidebar button{width:100%;padding:14px;margin-bottom:10px;border-radius:12px;border:1px solid var(--line);background:#fff;text-align:left;font-weight:700;font-size:14px;cursor:pointer;color:var(--text);}
+.sidebar button.active{background:#eef5ff;color:#2455b2;border-color:#2455b2;}
 
-.hero{
-  margin:20px;
-  min-height:300px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  background:url("logo3.jpg") center/cover no-repeat;
-  box-shadow:var(--shadow);
-}
+.content{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px;min-height:720px;}
+.content h2{font-size:34px;margin-bottom:18px;}
 
-.hero-inner{
-  position:relative;
-  min-height:300px;
-  padding:40px;
-}
+.construction-box{min-height:560px;border:1px solid var(--line);border-radius:22px;position:relative;overflow:hidden;text-align:center;padding:40px 20px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,251,255,.98)),repeating-linear-gradient(45deg,rgba(36,85,178,.035) 0 12px,transparent 12px 24px);}
+.construction-box h3{font-size:30px;margin-bottom:10px;}
+.construction-box p{color:var(--muted);font-size:18px;line-height:1.6;max-width:760px;margin:0 auto;}
+.legal-box{text-align:left;line-height:1.65;}
+.legal-box h3{text-align:center;font-size:30px;margin-bottom:18px;}
+.legal-box p{max-width:920px;margin:0 auto 14px;color:var(--muted);font-size:16px;}
+.legal-box strong{color:var(--text);}
 
-.lang-wrap{
-  position:absolute;
-  top:16px;
-  right:18px;
-  z-index:5;
-}
+.apps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.app-card{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 14px 35px rgba(20,55,95,.10);}
+.app-badge{display:inline-block;padding:7px 11px;border-radius:999px;background:#eef5ff;color:#2455b2;font-size:12px;font-weight:800;margin-bottom:12px;}
+.app-card h3{font-size:24px;margin-bottom:10px;}
+.app-card p{color:var(--muted);font-size:16px;line-height:1.6;margin-bottom:16px;}
+.app-features{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.app-features span{border:1px solid var(--line);background:#fff;color:#5f6f86;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;}
+.app-button{display:inline-block;padding:12px 16px;border-radius:14px;background:#2455b2;color:#fff;font-weight:800;font-size:14px;}
+.app-button:hover{text-decoration:none;background:#1f4897;}
 
-.lang-select{
-  height:42px;
-  min-width:108px;
-  border-radius:14px;
-  border:1px solid rgba(0,0,0,.10);
-  background:rgba(255,255,255,.88);
-  padding:0 12px;
-  font-size:14px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.hero-meta{
-  position:absolute;
-  left:40px;
-  bottom:6px;
-  display:flex;
-  gap:20px;
-  font-weight:700;
-  color:#111;
-  font-size:14px;
-  z-index:4;
-  flex-wrap:wrap;
-}
-
-.layout{
-  display:grid;
-  grid-template-columns:250px 1fr;
-  gap:20px;
-  padding:20px;
-}
-
-.sidebar{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:20px;
-  min-height:220px;
-}
-
-.sidebar h3{
-  margin-bottom:10px;
-  font-size:18px;
-}
-
-.sidebar button{
-  width:100%;
-  padding:14px;
-  margin-bottom:10px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#fff;
-  text-align:left;
-  font-weight:700;
-  font-size:14px;
-  cursor:pointer;
-  color:var(--text);
-}
-
-.sidebar button.active{
-  background:#eef5ff;
-  color:#2455b2;
-  border-color:#2455b2;
-}
-
-.content{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:34px;
-  min-height:720px;
-}
-
-.content h2{
-  font-size:34px;
-  margin-bottom:18px;
-}
-
-.construction-box{
-  min-height:560px;
-  border:1px solid var(--line);
-  border-radius:22px;
-  position:relative;
-  overflow:hidden;
-  text-align:center;
-  padding:40px 20px;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,251,255,.98)),
-    repeating-linear-gradient(45deg,rgba(36,85,178,.035) 0 12px,transparent 12px 24px);
-}
-
-.legal-box{
-  text-align:left;
-  line-height:1.65;
-}
-
-.legal-box h3{
-  text-align:center;
-  font-size:30px;
-  margin-bottom:18px;
-}
-
-.legal-box p{
-  max-width:900px;
-  margin:0 auto 14px;
-  color:var(--muted);
-  font-size:16px;
-}
-
-.legal-box strong{
-  color:var(--text);
-}
-
-.site-scene{
-  position:relative;
-  height:315px;
-  max-width:860px;
-  margin:0 auto 22px;
-}
-
-.sun{
-  position:absolute;
-  top:18px;
-  right:70px;
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  background:#fff4b8;
-  box-shadow:0 0 35px rgba(255,210,80,.55);
-  animation:sunPulse 3s infinite ease-in-out;
-}
-
-.crane-tower{
-  position:absolute;
-  left:105px;
-  bottom:38px;
-  width:18px;
-  height:220px;
-  background:#223146;
-  border-radius:8px;
-}
-
-.crane-arm{
-  position:absolute;
-  left:111px;
-  top:48px;
-  width:360px;
-  height:14px;
-  background:#223146;
-  border-radius:999px;
-  transform-origin:left center;
-  animation:craneMove 4s infinite ease-in-out;
-}
-
-.crane-cable{
-  position:absolute;
-  left:445px;
-  top:60px;
-  width:3px;
-  height:88px;
-  background:#223146;
-  animation:cableMove 4s infinite ease-in-out;
-}
-
-.crane-hook{
-  position:absolute;
-  left:432px;
-  top:144px;
-  font-size:34px;
-  animation:hookMove 4s infinite ease-in-out;
-}
-
-.building-text{
-  position:absolute;
-  left:220px;
-  top:165px;
-  display:flex;
-  gap:6px;
-  font-weight:900;
-  font-size:34px;
-  color:#2455b2;
-  letter-spacing:1px;
-  white-space:nowrap;
-}
-
-.building-text span{
-  display:inline-block;
-  opacity:0;
-  transform:translateY(30px) rotate(-8deg);
-  animation:letterBuild 3.8s infinite ease-in-out;
-}
-
-.building-text .space{width:15px;}
-
-.worker{
-  position:absolute;
-  left:455px;
-  bottom:60px;
-  font-size:54px;
-  animation:workerMove 1.2s infinite ease-in-out;
-}
-
-.shovel{
-  position:absolute;
-  left:500px;
-  bottom:100px;
-  font-size:36px;
-  transform-origin:left bottom;
-  animation:shovelThrow 1.4s infinite ease-in-out;
-}
-
-.flying-letter{
-  position:absolute;
-  left:515px;
-  bottom:148px;
-  font-size:28px;
-  font-weight:900;
-  color:#2455b2;
-  animation:letterThrow 1.4s infinite ease-in-out;
-}
-
-.flying-letter.two{animation-delay:.45s;color:#223146;}
-.flying-letter.three{animation-delay:.9s;color:#2455b2;}
-
-.mixer{
-  position:absolute;
-  left:585px;
-  bottom:58px;
-  font-size:58px;
-  animation:mixerSpin 1.4s infinite ease-in-out;
-}
-
-.truck{
-  position:absolute;
-  left:25px;
-  bottom:42px;
-  font-size:68px;
-  animation:truckMove 6s infinite ease-in-out;
-}
-
-.ground{
-  position:absolute;
-  left:35px;
-  right:35px;
-  bottom:30px;
-  height:10px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#d8e3f0,#b9c9db,#d8e3f0);
-}
-
-.dust{
-  position:absolute;
-  left:180px;
-  bottom:52px;
-  font-size:22px;
-  opacity:.45;
-  animation:dustMove 2s infinite ease-in-out;
-}
-
-.construction-box h3{
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.construction-box p{
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.6;
-  max-width:760px;
-  margin:0 auto;
-}
-
-.apps-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.app-card{
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:24px;
-  background:linear-gradient(180deg,#ffffff,#fbfdff);
-  box-shadow:0 14px 35px rgba(20,55,95,.10);
-}
-
-.app-badge{
-  display:inline-block;
-  padding:7px 11px;
-  border-radius:999px;
-  background:#eef5ff;
-  color:#2455b2;
-  font-size:12px;
-  font-weight:800;
-  margin-bottom:12px;
-}
-
-.app-card h3{
-  font-size:24px;
-  margin-bottom:10px;
-}
-
-.app-card p{
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.6;
-  margin-bottom:16px;
-}
-
-.app-features{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:18px;
-}
-
-.app-features span{
-  border:1px solid var(--line);
-  background:#fff;
-  color:#5f6f86;
-  border-radius:999px;
-  padding:7px 10px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.app-button{
-  display:inline-block;
-  padding:12px 16px;
-  border-radius:14px;
-  background:#2455b2;
-  color:#fff;
-  font-weight:800;
-  font-size:14px;
-}
-
-.app-button:hover{
-  text-decoration:none;
-  background:#1f4897;
-}
-
-.footer-links{
-  padding:32px 20px 46px;
-  text-align:center;
-  color:#8a96a8;
-  font-size:11px;
-}
-
-.footer-nav{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:8px;
-  opacity:.55;
-}
-
-.footer-nav button{
-  border:0;
-  background:transparent;
-  color:#7d899a;
-  font-size:11px;
-  cursor:pointer;
-  padding:2px 3px;
-}
-
-.footer-nav button:hover{
-  color:#2455b2;
-  text-decoration:underline;
-}
-
+.footer-links{padding:32px 20px 46px;text-align:center;color:#8a96a8;font-size:11px;}
+.footer-nav{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;opacity:.65;}
+.footer-nav button{border:0;background:transparent;color:#7d899a;font-size:11px;cursor:pointer;padding:2px 3px;}
+.footer-nav button:hover{color:#2455b2;text-decoration:underline;}
 .footer-nav span{color:#aab4c2;}
 
-@keyframes craneMove{0%,100%{transform:rotate(-1deg);}50%{transform:rotate(4deg);}}
-@keyframes cableMove{0%,100%{height:88px;transform:translateX(0);}50%{height:112px;transform:translateX(22px);}}
-@keyframes hookMove{0%,100%{transform:translateX(0) translateY(0);}50%{transform:translateX(22px) translateY(24px);}}
-@keyframes letterBuild{0%{opacity:0;transform:translateY(35px) rotate(-12deg) scale(.75);}35%,75%{opacity:1;transform:translateY(0) rotate(0deg) scale(1);}100%{opacity:0;transform:translateY(-12px) rotate(8deg) scale(1);}}
+.app-factory{position:relative;height:280px;margin-top:30px;border-radius:16px;background:#f4f8ff;border:1px solid var(--line);overflow:hidden;}
+.factory-logo{position:absolute;top:10px;left:10px;background:#223146;color:#fff;padding:6px 10px;border-radius:10px;font-size:12px;font-weight:800;}
+.worker-factory{position:absolute;left:80px;top:90px;font-size:40px;animation:workerMove 1.2s infinite;}
+.belt{position:absolute;left:20px;right:20px;bottom:80px;height:40px;background:#d8e3f0;border-radius:10px;overflow:hidden;}
+.belt-line{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#999 0 10px,transparent 10px 20px);animation:beltMove 1s linear infinite;}
+.app-part{position:absolute;top:5px;background:#fff;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:800;animation:moveParts 4s linear infinite;}
+.part-2{animation-delay:.5s;} .part-3{animation-delay:1s;}
+.machine{position:absolute;right:120px;bottom:70px;width:100px;height:100px;background:#223146;border-radius:12px;}
+.machine-top{color:#fff;text-align:center;font-size:10px;margin-top:5px;}
+.press{width:40px;height:30px;background:#fff;margin:20px auto;animation:press 1.5s infinite;}
+.finished-app{position:absolute;right:70px;bottom:95px;font-size:35px;animation:appShow 4s infinite;}
+.mini-crane-hook{position:absolute;right:40px;top:40px;font-size:20px;animation:craneMove 3s infinite;}
+.train{position:absolute;right:10px;bottom:20px;font-size:40px;animation:trainMove 4s infinite;}
+
 @keyframes workerMove{0%,100%{transform:rotate(-5deg) translateY(0);}50%{transform:rotate(7deg) translateY(-5px);}}
-@keyframes shovelThrow{0%,100%{transform:rotate(-35deg);}50%{transform:rotate(35deg) translateY(-8px);}}
-@keyframes letterThrow{0%{opacity:0;transform:translate(0,0) scale(.7) rotate(-10deg);}25%{opacity:1;}70%{opacity:1;transform:translate(70px,45px) scale(1.1) rotate(12deg);}100%{opacity:0;transform:translate(95px,62px) scale(.6) rotate(20deg);}}
-@keyframes mixerSpin{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(8deg);}}
-@keyframes truckMove{0%{transform:translateX(-25px);}45%,65%{transform:translateX(85px);}100%{transform:translateX(-25px);}}
-@keyframes dustMove{0%,100%{opacity:.15;transform:translateX(0) scale(.8);}50%{opacity:.55;transform:translateX(40px) scale(1.15);}}
-@keyframes sunPulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(1.08);opacity:1;}}
-
-@media (max-width:900px){
-  .layout{
-    grid-template-columns:1fr;
-    gap:16px;
-    padding:16px;
-  }
-
-  .apps-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media (max-width:768px){
-  body{
-    background:linear-gradient(180deg,#eef4fb,#f7fbff);
-  }
-
-  .hero{
-    margin:0;
-    width:100%;
-    min-height:235px;
-    border-radius:0;
-    background-size:contain;
-    background-position:center center;
-    background-repeat:no-repeat;
-    background-color:#fff;
-    box-shadow:none;
-    border-bottom:1px solid var(--line);
-  }
-
-  .hero::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:70px;
-    background:linear-gradient(180deg,transparent,rgba(255,255,255,.92));
-    pointer-events:none;
-  }
-
-  .hero-inner{
-    min-height:235px;
-    padding:14px;
-  }
-
-  .lang-wrap{top:14px;right:14px;}
-
-  .lang-select{
-    height:40px;
-    min-width:104px;
-    border-radius:15px;
-    font-size:14px;
-    background:#fff;
-  }
-
-  .hero-meta{
-    left:18px;
-    right:18px;
-    bottom:10px;
-    gap:12px;
-    font-size:13px;
-    font-weight:800;
-  }
-
-  .layout{
-    padding:14px;
-    gap:14px;
-  }
-
-  .sidebar{
-    border-radius:20px;
-    padding:16px;
-    min-height:auto;
-    box-shadow:0 10px 30px rgba(20,55,95,.08);
-  }
-
-  .sidebar h3{
-    font-size:20px;
-    margin-bottom:12px;
-  }
-
-  .sidebar button{
-    position:relative;
-    font-size:16px;
-    padding:14px 14px 14px 46px;
-    border-radius:15px;
-    margin-bottom:10px;
-    background:#fff;
-  }
-
-  .sidebar button::before{
-    position:absolute;
-    left:15px;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:18px;
-  }
-
-  .sidebar button[data-key="home"]::before{content:"🏠";}
-  .sidebar button[data-key="apps"]::before{content:"📱";}
-  .sidebar button[data-key="news"]::before{content:"📰";}
-
-  .sidebar button.active{
-    background:linear-gradient(90deg,#eef5ff,#ffffff);
-    box-shadow:inset 4px 0 0 #2455b2;
-  }
-
-  .content{
-    padding:18px;
-    min-height:620px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(20,55,95,.08);
-  }
-
-  .content h2{
-    font-size:26px;
-    margin-bottom:16px;
-  }
-
-  .construction-box{
-    min-height:500px;
-    border-radius:18px;
-    padding:18px 10px 28px;
-    overflow:hidden;
-  }
-
-  .site-scene{
-    width:100%;
-    height:300px;
-    max-width:100%;
-    transform:none;
-    margin:0 auto 16px;
-  }
-
-  .sun{top:22px;right:24px;width:38px;height:38px;}
-  .crane-tower{left:30px;bottom:46px;width:13px;height:190px;}
-  .crane-arm{left:36px;top:62px;width:225px;height:11px;}
-  .crane-cable{left:240px;top:72px;height:76px;}
-  .crane-hook{left:228px;top:147px;font-size:27px;}
-  .building-text{left:50px;top:180px;font-size:20px;gap:3px;letter-spacing:0;}
-  .building-text .space{width:7px;}
-  .worker{left:154px;bottom:72px;font-size:40px;}
-  .shovel{left:190px;bottom:104px;font-size:27px;}
-  .flying-letter{left:201px;bottom:142px;font-size:21px;}
-  .mixer{left:232px;bottom:70px;font-size:40px;}
-  .truck{left:0;bottom:58px;font-size:48px;}
-  .dust{left:78px;bottom:68px;font-size:17px;}
-  .ground{left:12px;right:12px;bottom:48px;}
-
-  .construction-box h3{
-    font-size:22px;
-    margin-bottom:10px;
-  }
-
-  .construction-box p{
-    font-size:15px;
-    line-height:1.55;
-    padding:0 4px;
-  }
-
-  .legal-box p{
-    font-size:14px;
-  }
-
-  .app-card{
-    padding:20px;
-    border-radius:20px;
-  }
-
-  .app-card h3{
-    font-size:22px;
-  }
-
-  .app-card p{
-    font-size:15px;
-  }
-
-  .footer-links{
-    padding:24px 16px 36px;
-    font-size:11px;
-  }
-
-  .footer-nav{
-    gap:6px;
-  }
-
-  .footer-nav button{
-    font-size:11px;
-  }
-}
-
-@media (max-width:420px){
-  .hero{min-height:220px;}
-  .hero-inner{min-height:220px;}
-  .hero-meta{font-size:13px;gap:10px;left:16px;}
-  .sidebar h3{font-size:19px;}
-  .sidebar button{font-size:15px;padding:13px 13px 13px 44px;}
-  .content h2{font-size:24px;}
-  .site-scene{height:285px;}
-  .building-text{left:42px;font-size:19px;}
-  .worker{left:144px;}
-  .shovel{left:178px;}
-  .flying-letter{left:190px;}
-  .mixer{left:220px;}
-}
-
-/* ===== APP FACTORY STYLE ===== */
-.app-factory{
-  position:relative;
-  height:280px;
-  margin-top:30px;
-  border-radius:16px;
-  background:#f4f8ff;
-  border:1px solid var(--line);
-}
-
-.factory-logo{
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:#223146;
-  color:#fff;
-  padding:6px 10px;
-  border-radius:10px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.worker-factory{
-  position:absolute;
-  left:80px;
-  top:90px;
-  font-size:40px;
-  animation:workerMove 1.2s infinite;
-}
-
-.belt{
-  position:absolute;
-  left:20px;
-  right:20px;
-  bottom:80px;
-  height:40px;
-  background:#d8e3f0;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.belt-line{
-  position:absolute;
-  inset:0;
-  background:repeating-linear-gradient(90deg,#999 0 10px,transparent 10px 20px);
-  animation:beltMove 1s linear infinite;
-}
-
-.app-part{
-  position:absolute;
-  top:5px;
-  background:#fff;
-  padding:4px 8px;
-  border-radius:6px;
-  font-size:11px;
-  font-weight:800;
-  animation:moveParts 4s linear infinite;
-}
-
-.part-2{animation-delay:.5s;}
-.part-3{animation-delay:1s;}
-
-.machine{
-  position:absolute;
-  right:120px;
-  bottom:70px;
-  width:100px;
-  height:100px;
-  background:#223146;
-  border-radius:12px;
-}
-
-.machine-top{
-  color:#fff;
-  text-align:center;
-  font-size:10px;
-  margin-top:5px;
-}
-
-.press{
-  width:40px;
-  height:30px;
-  background:#fff;
-  margin:20px auto;
-  animation:press 1.5s infinite;
-}
-
-.finished-app{
-  position:absolute;
-  right:70px;
-  bottom:95px;
-  font-size:35px;
-  animation:appShow 4s infinite;
-}
-
-.mini-crane-hook{
-  position:absolute;
-  right:40px;
-  top:40px;
-  font-size:20px;
-  animation:craneMove 3s infinite;
-}
-
-.train{
-  position:absolute;
-  right:10px;
-  bottom:20px;
-  font-size:40px;
-  animation:trainMove 4s infinite;
-}
-
 @keyframes beltMove{0%{transform:translateX(0);}100%{transform:translateX(20px);}}
 @keyframes moveParts{0%{left:0;}100%{left:300px;opacity:0;}}
 @keyframes press{0%,100%{transform:translateY(0);}50%{transform:translateY(20px);}}
 @keyframes appShow{0%,50%{opacity:0;}60%,90%{opacity:1;}100%{opacity:0;}}
+@keyframes craneMove{0%,100%{transform:translateX(0);}50%{transform:translateX(-30px);}}
 @keyframes trainMove{0%,100%{transform:translateX(0);}50%{transform:translateX(-20px);}}
+
+@media (max-width:900px){.layout{grid-template-columns:1fr;gap:16px;padding:16px;}.apps-grid{grid-template-columns:1fr;}}
+@media (max-width:768px){
+  .hero{margin:0;width:100%;min-height:235px;border-radius:0;background-size:contain;background-position:center;background-repeat:no-repeat;background-color:#fff;box-shadow:none;border-bottom:1px solid var(--line);}
+  .hero-inner{min-height:235px;padding:14px;}.lang-wrap{top:14px;right:14px;}.hero-meta{left:18px;right:18px;bottom:10px;gap:12px;font-size:13px;}
+  .layout{padding:14px;gap:14px;}.sidebar{border-radius:20px;padding:16px;min-height:auto;box-shadow:0 10px 30px rgba(20,55,95,.08);}.sidebar h3{font-size:20px;margin-bottom:12px;}
+  .sidebar button{position:relative;font-size:16px;padding:14px 14px 14px 46px;border-radius:15px;margin-bottom:10px;}.sidebar button::before{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:18px;}.sidebar button[data-key="home"]::before{content:"🏠";}.sidebar button[data-key="apps"]::before{content:"📱";}.sidebar button[data-key="news"]::before{content:"📰";}
+  .content{padding:18px;min-height:620px;border-radius:20px;box-shadow:0 10px 30px rgba(20,55,95,.08);}.content h2{font-size:26px;margin-bottom:16px;}.construction-box{min-height:500px;border-radius:18px;padding:18px 10px 28px;}.construction-box h3{font-size:22px;}.construction-box p{font-size:15px;line-height:1.55;padding:0 4px;}.legal-box p{font-size:14px;}.app-card{padding:20px;border-radius:20px;}.app-card h3{font-size:22px;}.app-card p{font-size:15px;}.footer-links{padding:24px 16px 36px;font-size:11px;}
+}
 </style>
 </head>
 
 <body>
-
 <div class="hero">
   <div class="hero-inner">
     <div class="lang-wrap">
       <select id="langSelect" class="lang-select">
+        <option value="en">🇬🇧 EN</option>
         <option value="sr">🇷🇸 SR</option>
         <option value="de">🇦🇹 AT</option>
         <option value="hu">🇭🇺 HU</option>
-        <option value="en">🇬🇧 EN</option>
       </select>
     </div>
-
-    <div class="hero-meta">
-      <div id="date"></div>
-      <div id="time"></div>
-      <div id="temp"></div>
-    </div>
+    <div class="hero-meta"><div id="date"></div><div id="time"></div><div id="temp"></div></div>
   </div>
 </div>
 
 <div class="layout">
   <aside class="sidebar">
-    <h3 id="menuTitle">Glavni meni</h3>
-    <button class="nav-btn active" data-key="home" onclick="show('home',this)">Početna</button>
-    <button class="nav-btn" data-key="apps" onclick="show('apps',this)">Aplikacije</button>
-    <button class="nav-btn" data-key="news" onclick="show('news',this)">Novosti</button>
+    <h3 id="menuTitle">Main menu</h3>
+    <button class="nav-btn active" data-key="home" onclick="show('home',this)">Home</button>
+    <button class="nav-btn" data-key="apps" onclick="show('apps',this)">Apps</button>
+    <button class="nav-btn" data-key="news" onclick="show('news',this)">News</button>
   </aside>
 
   <main class="content">
@@ -798,559 +122,179 @@ a:hover{text-decoration:underline;}
 
 <footer class="footer-links">
   <div class="footer-nav">
-    <button onclick="showFooterPage('contact')">Kontakt</button>
-    <span>•</span>
-    <button onclick="showFooterPage('privacy')">Privacy Policy</button>
-    <span>•</span>
-    <button onclick="showFooterPage('datenschutz')">Datenschutz</button>
-    <span>•</span>
-    <button onclick="showFooterPage('agb')">AGB</button>
-    <span>•</span>
+    <button onclick="showFooterPage('contact')">Contact</button><span>•</span>
+    <button onclick="showFooterPage('privacy')">Privacy Policy</button><span>•</span>
+    <button onclick="showFooterPage('datenschutz')">Datenschutz</button><span>•</span>
+    <button onclick="showFooterPage('agb')">Terms / AGB</button><span>•</span>
     <button onclick="showFooterPage('impressum')">Impressum</button>
   </div>
-  <div id="footerText">© 2026 IT Zone Apps. Sva prava zadržana.</div>
+  <div id="footerText">© 2026 IT Zone Apps. All rights reserved.</div>
 </footer>
 
 <script>
 const SUPPORT_EMAIL = "zivanoviclenard3@gmail.com";
 
 const i18n = {
-  sr: {
-    menuTitle: "Glavni meni",
-    home: "Početna",
-    apps: "Aplikacije",
-    news: "Novosti",
-    footer: "© 2026 IT Zone Apps. Sva prava zadržana.",
-    constructionTitle: "Stranica je u fazi izrade",
-    constructionText: "Ovaj deo sajta se trenutno gradi. Uskoro će biti dodate nove informacije, aplikacije i objave.",
-    contact: "Kontakt",
-    privacy: "Privacy Policy",
-    datenschutz: "Datenschutz",
-    agb: "AGB",
-    impressum: "Impressum"
-  },
-  de: {
-    menuTitle: "Hauptmenü",
-    home: "Startseite",
-    apps: "Apps",
-    news: "Neuigkeiten",
-    footer: "© 2026 IT Zone Apps. Alle Rechte vorbehalten.",
-    constructionTitle: "Seite befindet sich im Aufbau",
-    constructionText: "Dieser Bereich der Website wird derzeit aufgebaut. Neue Informationen, Apps und Beiträge werden später ergänzt.",
-    contact: "Kontakt",
-    privacy: "Privacy Policy",
-    datenschutz: "Datenschutz",
-    agb: "AGB",
-    impressum: "Impressum"
-  },
-  hu: {
-    menuTitle: "Főmenü",
-    home: "Kezdőlap",
-    apps: "Alkalmazások",
-    news: "Hírek",
-    footer: "© 2026 IT Zone Apps. Minden jog fenntartva.",
-    constructionTitle: "Az oldal fejlesztés alatt áll",
-    constructionText: "Ez a rész jelenleg készül. Hamarosan új információk, alkalmazások és hírek kerülnek ide.",
-    contact: "Kapcsolat",
-    privacy: "Privacy Policy",
-    datenschutz: "Adatvédelem",
-    agb: "AGB",
-    impressum: "Impresszum"
-  },
-  en: {
-    menuTitle: "Main menu",
-    home: "Home",
-    apps: "Apps",
-    news: "News",
-    footer: "© 2026 IT Zone Apps. All rights reserved.",
-    constructionTitle: "Page under construction",
-    constructionText: "This section of the website is currently being built. New information, apps and updates will be added soon.",
-    contact: "Contact",
-    privacy: "Privacy Policy",
-    datenschutz: "Data Protection",
-    agb: "Terms",
-    impressum: "Impressum"
-  }
+  en:{menuTitle:"Main menu",home:"Home",apps:"Apps",news:"News",footer:"© 2026 IT Zone Apps. All rights reserved.",constructionTitle:"Page under construction",constructionText:"This section is currently being built. New information, apps and updates will be added soon.",contact:"Contact",privacy:"Privacy Policy",datenschutz:"Data Protection",agb:"Terms / AGB",impressum:"Impressum"},
+  sr:{menuTitle:"Glavni meni",home:"Početna",apps:"Aplikacije",news:"Novosti",footer:"© 2026 IT Zone Apps. Sva prava zadržana.",constructionTitle:"Stranica je u fazi izrade",constructionText:"Ovaj deo sajta se trenutno gradi. Uskoro će biti dodate nove informacije, aplikacije i objave.",contact:"Kontakt",privacy:"Privacy Policy",datenschutz:"Zaštita podataka",agb:"AGB / Uslovi",impressum:"Impressum"},
+  de:{menuTitle:"Hauptmenü",home:"Startseite",apps:"Apps",news:"Neuigkeiten",footer:"© 2026 IT Zone Apps. Alle Rechte vorbehalten.",constructionTitle:"Seite befindet sich im Aufbau",constructionText:"Dieser Bereich der Website wird derzeit aufgebaut. Neue Informationen, Apps und Beiträge werden später ergänzt.",contact:"Kontakt",privacy:"Privacy Policy",datenschutz:"Datenschutz",agb:"AGB",impressum:"Impressum"},
+  hu:{menuTitle:"Főmenü",home:"Kezdőlap",apps:"Alkalmazások",news:"Hírek",footer:"© 2026 IT Zone Apps. Minden jog fenntartva.",constructionTitle:"Az oldal fejlesztés alatt áll",constructionText:"Ez a rész jelenleg készül. Hamarosan új információk, alkalmazások és hírek kerülnek ide.",contact:"Kapcsolat",privacy:"Privacy Policy",datenschutz:"Adatvédelem",agb:"Feltételek / AGB",impressum:"Impresszum"}
 };
 
-let currentLang = localStorage.getItem("site_lang") || "sr";
+let currentLang = localStorage.getItem("site_lang") || "en";
 let currentPage = "home";
 
 function localeForLang(lang){
   if(lang === "de") return "de-AT";
   if(lang === "hu") return "hu-HU";
-  if(lang === "en") return "en-GB";
-  return "sr-RS";
-}
-
-function constructionHtml(){
-  const t = i18n[currentLang];
-  return `
-    <div class="construction-box">
-      <div class="site-scene">
-        <div class="sun"></div>
-        <div class="crane-tower"></div>
-        <div class="crane-arm"></div>
-        <div class="crane-cable"></div>
-        <div class="crane-hook">🪝</div>
-        <div class="building-text">
-          <span>I</span><span>T</span>
-          <span class="space"></span>
-          <span>Z</span><span>o</span><span>n</span><span>e</span>
-          <span class="space"></span>
-          <span>A</span><span>p</span><span>p</span><span>s</span>
-        </div>
-        <div class="worker">👷‍♂️</div>
-        <div class="shovel">⛏️</div>
-        <div class="flying-letter">I</div>
-        <div class="flying-letter two">T</div>
-        <div class="flying-letter three">A</div>
-        <div class="mixer">⚙️</div>
-        <div class="truck">🚚</div>
-        <div class="dust">💨</div>
-        <div class="ground"></div>
-      </div>
-      <h3>${t.constructionTitle}</h3>
-      <p>${t.constructionText}</p>
-    </div>
-  `;
+  if(lang === "sr") return "sr-RS";
+  return "en-GB";
 }
 
 function homeHtml(){
+  const text = {
+    en:["IT Zone Apps","Welcome! This is an informational website for apps, projects and digital tools in development."],
+    sr:["IT Zone Apps","Dobro došli! Ovo je informativna stranica za aplikacije, projekte i digitalne alate u razvoju."],
+    de:["IT Zone Apps","Willkommen! Dies ist eine Informationsseite für Apps, Projekte und digitale Werkzeuge in Entwicklung."],
+    hu:["IT Zone Apps","Üdvözöljük! Ez egy információs oldal fejlesztés alatt álló alkalmazásokhoz, projektekhez és digitális eszközökhöz."]
+  }[currentLang];
+
   return `
     <div class="construction-box">
-      <h3>IT Zone Apps</h3>
-      <p>
-        Dobro došli! Ovo je informativna stranica za aplikacije,
-        projekte i digitalne alate u razvoju.
-      </p>
-
+      <h3>${text[0]}</h3>
+      <p>${text[1]}</p>
       <div class="app-factory">
         <div class="factory-logo">IT Zone Apps</div>
         <div class="worker-factory">👷‍♂️</div>
-        <div class="belt">
-          <div class="belt-line"></div>
-          <div class="app-part part-1">PDF</div>
-          <div class="app-part part-2">QR</div>
-          <div class="app-part part-3">AI</div>
-        </div>
-        <div class="machine">
-          <div class="machine-top">IT Zone</div>
-          <div class="press"></div>
-        </div>
-        <div class="finished-app">📱</div>
-        <div class="mini-crane">
-          <div class="mini-crane-arm"></div>
-          <div class="mini-crane-cable"></div>
-          <div class="mini-crane-hook">🪝</div>
-        </div>
-        <div class="train">🚆</div>
+        <div class="belt"><div class="belt-line"></div><div class="app-part part-1">PDF</div><div class="app-part part-2">QR</div><div class="app-part part-3">AI</div></div>
+        <div class="machine"><div class="machine-top">IT Zone</div><div class="press"></div></div>
+        <div class="finished-app">📱</div><div class="mini-crane-hook">🪝</div><div class="train">🚆</div>
       </div>
     </div>
   `;
 }
 
 function appsHtml(){
+  const data = {
+    en:{skeki:"PDF scanner, blur, QR and photo tools in one app. The app is intended for quick image editing, document scanning, QR code creation and file preparation for sharing.",health:"An app in development for tracking health entries such as blood pressure, blood sugar, pulse, weight and personal notes.",soon:"Coming soon",prep:"In development"},
+    sr:{skeki:"PDF scanner, blur, QR i photo tools u jednoj aplikaciji. Aplikacija je namenjena za brzo uređivanje slika, skeniranje dokumenata, kreiranje QR kodova i pripremu fajlova za slanje.",health:"Aplikacija u razvoju za praćenje zdravstvenih unosa kao što su krvni pritisak, šećer, puls, težina i lične napomene.",soon:"Google Play uskoro",prep:"U pripremi"},
+    de:{skeki:"PDF-Scanner, Blur, QR und Foto-Tools in einer App. Die App ist für schnelle Bildbearbeitung, Dokumentenscans, QR-Code-Erstellung und Dateivorbereitung gedacht.",health:"Eine App in Entwicklung zur Dokumentation von Gesundheitswerten wie Blutdruck, Blutzucker, Puls, Gewicht und persönlichen Notizen.",soon:"Google Play bald",prep:"In Vorbereitung"},
+    hu:{skeki:"PDF-szkenner, elmosás, QR és fotóeszközök egy alkalmazásban. Gyors képszerkesztésre, dokumentum-szkennelésre, QR-kód készítésre és fájlok előkészítésére szolgál.",health:"Fejlesztés alatt álló alkalmazás egészségügyi adatok, például vérnyomás, vércukor, pulzus, testsúly és jegyzetek rögzítésére.",soon:"Google Play hamarosan",prep:"Fejlesztés alatt"}
+  }[currentLang];
+
   return `
     <div class="apps-grid">
       <div class="app-card">
         <span class="app-badge">PHOTO • PDF • QR • AI</span>
         <h3>Skeki App</h3>
-        <p>
-          PDF scanner, blur, QR i photo tools u jednoj aplikaciji.
-          Aplikacija je namenjena za brzo uređivanje slika, skeniranje dokumenata,
-          kreiranje QR kodova i pripremu fajlova za slanje.
-        </p>
-        <div class="app-features">
-          <span>PDF Scanner</span>
-          <span>Blur Tool</span>
-          <span>QR Code</span>
-          <span>Photo Tools</span>
-          <span>AI Effects</span>
-        </div>
-        <a class="app-button" href="#">Google Play uskoro</a>
+        <p>${data.skeki}</p>
+        <div class="app-features"><span>PDF Scanner</span><span>Blur Tool</span><span>QR Code</span><span>Photo Tools</span><span>AI Effects</span></div>
+        <a class="app-button" href="#" onclick="return false;">${data.soon}</a>
       </div>
-
       <div class="app-card">
         <span class="app-badge">HEALTH • TRACKER • HISTORY</span>
         <h3>Dnevnik zdravlja</h3>
-        <p>
-          Aplikacija u razvoju za praćenje zdravstvenih unosa kao što su krvni pritisak,
-          šećer, puls, težina i lične napomene.
-        </p>
-        <div class="app-features">
-          <span>Blood Pressure</span>
-          <span>Blood Sugar</span>
-          <span>Weight</span>
-          <span>Pulse</span>
-          <span>History</span>
-        </div>
-        <a class="app-button" href="#" onclick="return false;">U pripremi</a>
+        <p>${data.health}</p>
+        <div class="app-features"><span>Blood Pressure</span><span>Blood Sugar</span><span>Weight</span><span>Pulse</span><span>History</span></div>
+        <a class="app-button" href="#" onclick="return false;">${data.prep}</a>
       </div>
     </div>
   `;
 }
 
 function newsHtml(){
-  return `
-    <div class="construction-box">
-      <h3>Novosti uskoro</h3>
-      <p>Ovde će biti objave, nove verzije aplikacija i važna obaveštenja.</p>
-    </div>
-  `;
+  const t = {
+    en:["News coming soon","Posts, new app versions and important updates will be shown here."],
+    sr:["Novosti uskoro","Ovde će biti objave, nove verzije aplikacija i važna obaveštenja."],
+    de:["Neuigkeiten bald","Hier werden Beiträge, neue App-Versionen und wichtige Hinweise angezeigt."],
+    hu:["Hírek hamarosan","Itt jelennek meg a bejegyzések, új alkalmazásverziók és fontos értesítések."]
+  }[currentLang];
+  return `<div class="construction-box"><h3>${t[0]}</h3><p>${t[1]}</p></div>`;
+}
+
+function legalText(type){
+  const email = `<a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`;
+
+  if(type === "contact"){
+    return {
+      en:`<h3>Contact</h3><p><strong>IT Zone Apps</strong></p><p>Private informational website for apps, projects and digital tools in development.</p><p><strong>Contact details</strong></p><p>Email: ${email}<br>Location: Vienna, Austria</p><p>Email contact is used only to respond to your request. Data is not sold or shared with third parties for marketing purposes.</p>`,
+      sr:`<h3>Kontakt</h3><p><strong>IT Zone Apps</strong></p><p>Privatna informativna web stranica za aplikacije, projekte i digitalne alate u razvoju.</p><p><strong>Kontakt podaci</strong></p><p>Email: ${email}<br>Lokacija: Wien, Österreich</p><p>Kontakt putem emaila koristi se isključivo za odgovor na vaš upit. Podaci se ne prodaju i ne prosleđuju trećim licima u marketinške svrhe.</p>`,
+      de:`<h3>Kontakt</h3><p><strong>IT Zone Apps</strong></p><p>Private Informationsseite für Apps, Projekte und digitale Werkzeuge in Entwicklung.</p><p><strong>Kontaktdaten</strong></p><p>E-Mail: ${email}<br>Standort: Wien, Österreich</p><p>Kontakt per E-Mail wird ausschließlich zur Beantwortung Ihrer Anfrage verwendet. Daten werden nicht verkauft oder zu Marketingzwecken weitergegeben.</p>`,
+      hu:`<h3>Kapcsolat</h3><p><strong>IT Zone Apps</strong></p><p>Privát információs weboldal fejlesztés alatt álló alkalmazásokhoz, projektekhez és digitális eszközökhöz.</p><p><strong>Kapcsolati adatok</strong></p><p>E-mail: ${email}<br>Helyszín: Bécs, Ausztria</p><p>Az e-mailes kapcsolatfelvétel kizárólag a megkeresés megválaszolására szolgál. Az adatokat nem értékesítjük és marketing célra nem adjuk tovább.</p>`
+    }[currentLang];
+  }
+
+  if(type === "privacy" || type === "datenschutz"){
+    const en = `
+      <h3>Privacy Policy</h3>
+      <p><strong>Last updated: May 2026</strong></p>
+      <p><strong>1. Responsible person</strong></p><p>Lenard Zivanović<br>Vienna, Austria<br>Email: ${email}</p>
+      <p><strong>2. Scope</strong></p><p>This Privacy Policy applies to this website and to mobile applications published under IT Zone Apps, including apps such as “Skeki – PDF, QR & Photo Tools” and future IT Zone Apps projects.</p>
+      <p><strong>3. App data processing</strong></p><p>Skeki is designed for photo, PDF, QR code and image utility functions. Files selected by the user are used only for the selected app function, such as PDF creation, QR code generation, image editing, blur/redaction, optimization or export. Where possible, processing is performed locally on the user’s device.</p>
+      <p><strong>4. Photos, documents and files</strong></p><p>If a user selects photos, images or documents in the app, these files are processed only to provide the requested function. The user is responsible for the content of the selected files and for ensuring that they have the right to process or share them.</p>
+      <p><strong>5. QR codes and payment QR information</strong></p><p>If the app provides QR code or payment QR code generation, the information is generated from data entered by the user. IT Zone Apps is not a bank, payment institution or financial service provider. The user is responsible for checking the accuracy of all entered payment or QR information before using or sharing it.</p>
+      <p><strong>6. Health app projects</strong></p><p>Future health-related apps may allow users to enter and store health information such as blood pressure, blood sugar, pulse, weight and notes. Such data is entered voluntarily by the user and is used only to provide app functionality, history, backup, synchronization or export features where offered.</p>
+      <p><strong>7. Medical disclaimer</strong></p><p>Health-related apps from IT Zone Apps are for informational and personal tracking purposes only. They are not medical devices, do not diagnose, treat or prevent diseases, and do not provide medical advice. Always consult a qualified doctor or healthcare professional for medical decisions.</p>
+      <p><strong>8. Accounts, cloud storage and backup</strong></p><p>If an app offers account registration, cloud backup or synchronization, the purpose is to allow users to save their data, access their history across devices and restore data when changing devices. Data may be stored using a cloud backend provider, for example Supabase or a similar service. The exact use depends on the app version and enabled features.</p>
+      <p><strong>9. Premium features and purchases</strong></p><p>If an app offers premium features, purchases or subscriptions are processed through Google Play Billing. IT Zone Apps does not receive or store full payment card information. Payment processing is handled by Google according to Google Play’s terms and privacy policy.</p>
+      <p><strong>10. Advertising</strong></p><p>Some free app versions may display ads. If ads are used, they may be provided by Google AdMob or another advertising provider. Advertising providers may process device identifiers, approximate location, ad interactions or diagnostic data according to their own policies. Premium versions may remove ads where offered.</p>
+      <p><strong>11. Contact by email</strong></p><p>If you contact us by email, the information you voluntarily send, such as your email address and message content, is used only to process and answer your request. Email communication may be stored as long as necessary for documentation and support.</p>
+      <p><strong>12. Website technical data</strong></p><p>When visiting this website, the hosting provider may automatically process technical data such as IP address, access time, browser type, operating system and visited pages. This is necessary for the secure and stable operation of the website.</p>
+      <p><strong>13. Weather information</strong></p><p>This website may request basic weather information from an external weather service to display temperature information. This is used only for display purposes.</p>
+      <p><strong>14. Cookies and local storage</strong></p><p>The website may use local storage or basic cookies to remember language settings. No advertising tracking cookies are intentionally used on this website.</p>
+      <p><strong>15. Data sharing</strong></p><p>Personal data is not sold and is not shared with third parties for marketing purposes by IT Zone Apps. Data may be processed or transmitted where technically necessary, legally required, requested by the user, or required to provide app functionality such as cloud storage, payment processing or ads.</p>
+      <p><strong>16. Data security</strong></p><p>Reasonable technical and organizational measures are used to protect user data. However, no electronic transmission or storage system can be guaranteed to be 100% secure.</p>
+      <p><strong>17. User rights and deletion</strong></p><p>Users may request access, correction or deletion of their personal data in accordance with applicable GDPR rules. If an app provides account functionality, users may request deletion of their account and associated data by using the app function where available or by contacting us at ${email}.</p>
+      <p><strong>18. Changes to this policy</strong></p><p>This Privacy Policy may be updated when apps, features, technologies, legal requirements or services change.</p>`;
+
+    const sr = `
+      <h3>Privacy Policy / Politika privatnosti</h3>
+      <p><strong>Ažurirano: maj 2026.</strong></p>
+      <p><strong>1. Odgovorno lice</strong></p><p>Lenard Zivanović<br>Beč, Austrija<br>Email: ${email}</p>
+      <p><strong>2. Opseg</strong></p><p>Ova politika privatnosti važi za ovu web stranicu i za mobilne aplikacije objavljene pod nazivom IT Zone Apps, uključujući “Skeki – PDF, QR & Photo Tools” i buduće IT Zone Apps projekte.</p>
+      <p><strong>3. Obrada podataka u aplikacijama</strong></p><p>Skeki je namenjen za foto, PDF, QR kod i alatke za slike. Fajlovi koje korisnik izabere koriste se samo za odabranu funkciju aplikacije, kao što su izrada PDF-a, kreiranje QR koda, uređivanje slike, blur/redakcija, optimizacija ili export. Gde je moguće, obrada se vrši lokalno na uređaju korisnika.</p>
+      <p><strong>4. Fotografije, dokumenti i fajlovi</strong></p><p>Ako korisnik izabere fotografije, slike ili dokumente u aplikaciji, ti fajlovi se obrađuju samo radi izvršavanja tražene funkcije. Korisnik je odgovoran za sadržaj izabranih fajlova i za pravo da ih obrađuje ili deli.</p>
+      <p><strong>5. QR kodovi i payment QR informacije</strong></p><p>Ako aplikacija omogućava kreiranje QR ili payment QR koda, informacije se generišu iz podataka koje korisnik unese. IT Zone Apps nije banka, platna institucija niti finansijski servis. Korisnik je odgovoran da proveri tačnost svih unetih podataka pre korišćenja ili deljenja.</p>
+      <p><strong>6. Health app projekti</strong></p><p>Buduće aplikacije vezane za zdravlje mogu omogućiti korisniku da unosi i čuva zdravstvene podatke kao što su krvni pritisak, šećer u krvi, puls, težina i napomene. Te podatke korisnik unosi dobrovoljno i koriste se samo za funkcionalnost aplikacije, istoriju, backup, sinhronizaciju ili export, ako su te funkcije dostupne.</p>
+      <p><strong>7. Medicinska napomena</strong></p><p>Aplikacije IT Zone Apps koje se odnose na zdravlje služe isključivo za informativno i lično praćenje. One nisu medicinski uređaji, ne dijagnostikuju, ne leče, ne sprečavaju bolesti i ne daju medicinski savet. Za medicinske odluke uvek se obratite lekaru ili kvalifikovanom zdravstvenom radniku.</p>
+      <p><strong>8. Nalog, cloud čuvanje i backup</strong></p><p>Ako aplikacija nudi registraciju, cloud backup ili sinhronizaciju, svrha je da korisnik sačuva podatke, pristupi istoriji na više uređaja i obnovi podatke prilikom promene telefona. Podaci mogu biti čuvani preko cloud backend provajdera, na primer Supabase ili sličnog servisa. Konkretna upotreba zavisi od verzije aplikacije i uključenih funkcija.</p>
+      <p><strong>9. Premium funkcije i kupovine</strong></p><p>Ako aplikacija nudi premium funkcije, kupovine ili pretplate se obrađuju preko Google Play Billing sistema. IT Zone Apps ne prima i ne čuva pune podatke platnih kartica. Plaćanje obrađuje Google prema uslovima i politici privatnosti Google Play-a.</p>
+      <p><strong>10. Reklame</strong></p><p>Neke besplatne verzije aplikacija mogu prikazivati reklame. Ako se koriste reklame, one mogu biti prikazane preko Google AdMob-a ili drugog reklamnog provajdera. Reklamni provajderi mogu obrađivati identifikatore uređaja, približnu lokaciju, interakcije sa reklamama ili dijagnostičke podatke prema svojim pravilima. Premium verzije mogu ukloniti reklame ako je ta funkcija dostupna.</p>
+      <p><strong>11. Kontakt putem emaila</strong></p><p>Ako nas kontaktirate emailom, podaci koje dobrovoljno pošaljete, kao što su email adresa i sadržaj poruke, koriste se samo za obradu i odgovor na vaš zahtev. Email komunikacija se može čuvati onoliko dugo koliko je potrebno za dokumentaciju i podršku.</p>
+      <p><strong>12. Tehnički podaci web stranice</strong></p><p>Prilikom posete ovoj web stranici, hosting provajder može automatski obrađivati tehničke podatke kao što su IP adresa, vreme pristupa, tip browsera, operativni sistem i posećene stranice. To je potrebno za siguran i stabilan rad web stranice.</p>
+      <p><strong>13. Vremenske informacije</strong></p><p>Ova web stranica može zatražiti osnovne informacije o vremenu od eksternog servisa za prikaz temperature. To se koristi samo za prikaz.</p>
+      <p><strong>14. Cookies i local storage</strong></p><p>Web stranica može koristiti local storage ili osnovne cookies za pamćenje jezika. Na ovoj stranici se namerno ne koriste reklamni tracking cookies.</p>
+      <p><strong>15. Deljenje podataka</strong></p><p>IT Zone Apps ne prodaje lične podatke i ne deli ih trećim licima u marketinške svrhe. Podaci mogu biti obrađeni ili preneti kada je to tehnički potrebno, zakonski obavezno, zatraženo od korisnika ili potrebno za funkcije aplikacije kao što su cloud čuvanje, plaćanje ili reklame.</p>
+      <p><strong>16. Bezbednost podataka</strong></p><p>Koriste se razumne tehničke i organizacione mere za zaštitu podataka korisnika. Ipak, nijedan elektronski sistem prenosa ili čuvanja ne može biti garantovano 100% siguran.</p>
+      <p><strong>17. Prava korisnika i brisanje</strong></p><p>Korisnici mogu tražiti pristup, ispravku ili brisanje svojih ličnih podataka u skladu sa GDPR pravilima. Ako aplikacija ima nalog, korisnici mogu tražiti brisanje naloga i povezanih podataka kroz dostupnu funkciju u aplikaciji ili kontaktom na ${email}.</p>
+      <p><strong>18. Izmene politike</strong></p><p>Ova politika privatnosti može biti ažurirana kada se promene aplikacije, funkcije, tehnologije, pravni zahtevi ili servisi.</p>`;
+
+    if(currentLang === "sr") return sr;
+    if(currentLang === "de") return `<h3>Datenschutzerklärung</h3><p><strong>Hinweis:</strong> Aus Gründen der Genauigkeit wird diese rechtliche Erklärung aktuell auf Englisch bereitgestellt.</p>${en}`;
+    if(currentLang === "hu") return `<h3>Adatvédelmi szabályzat</h3><p><strong>Megjegyzés:</strong> A jogi pontosság érdekében ez a nyilatkozat jelenleg angol nyelven érhető el.</p>${en}`;
+    return en;
+  }
+
+  if(type === "agb"){
+    const en = `<h3>Terms and Conditions / AGB</h3><p><strong>1. General information</strong></p><p>This website is a private informational website for apps, projects and digital tools in development. Mobile apps published under IT Zone Apps are provided according to the functions and conditions shown in the app and on Google Play.</p><p><strong>2. Use of apps</strong></p><p>Users are responsible for the content they create, edit, upload, scan, save or share using the apps. The apps are provided as tools; users must check exported files, QR codes, payment information, photos and documents before using or sharing them.</p><p><strong>3. Health disclaimer</strong></p><p>Health-related apps are not medical devices and do not provide medical advice. They are intended only for personal tracking and informational purposes. Always consult a qualified healthcare professional for medical decisions.</p><p><strong>4. Premium and payments</strong></p><p>Premium features, purchases and subscriptions, if offered, are processed through Google Play Billing. Prices, trial periods and renewal conditions are displayed before purchase in Google Play.</p><p><strong>5. Limitation of liability</strong></p><p>The apps and website are provided with reasonable care. No guarantee is given that all functions will be available on all devices, operating systems, banking apps, QR readers or third-party services.</p><p><strong>6. Copyright</strong></p><p>Texts, design elements, app names, graphics and app content are protected by copyright and may not be copied or used without permission.</p><p><strong>7. Contact</strong></p><p>Email: ${email}</p>`;
+    const sr = `<h3>AGB / Uslovi korišćenja</h3><p><strong>1. Opšte informacije</strong></p><p>Ova web stranica je privatna informativna stranica za aplikacije, projekte i digitalne alate u razvoju. Mobilne aplikacije pod IT Zone Apps nude se prema funkcijama i uslovima prikazanim u aplikaciji i na Google Play prodavnici.</p><p><strong>2. Korišćenje aplikacija</strong></p><p>Korisnici su odgovorni za sadržaj koji kreiraju, uređuju, uploaduju, skeniraju, čuvaju ili dele putem aplikacija. Aplikacije su alati; korisnik mora proveriti exportovane fajlove, QR kodove, payment informacije, fotografije i dokumente pre korišćenja ili deljenja.</p><p><strong>3. Zdravstvena napomena</strong></p><p>Aplikacije vezane za zdravlje nisu medicinski uređaji i ne daju medicinski savet. Namenjene su samo za lično praćenje i informativnu upotrebu. Za medicinske odluke obratite se kvalifikovanom zdravstvenom radniku.</p><p><strong>4. Premium i plaćanje</strong></p><p>Premium funkcije, kupovine i pretplate, ako postoje, obrađuju se preko Google Play Billing sistema. Cena, probni period i uslovi obnove prikazuju se pre kupovine u Google Play-u.</p><p><strong>5. Ograničenje odgovornosti</strong></p><p>Aplikacije i web stranica pružaju se uz razumnu pažnju. Ne garantuje se da će sve funkcije raditi na svim uređajima, operativnim sistemima, banking aplikacijama, QR čitačima ili servisima trećih strana.</p><p><strong>6. Autorska prava</strong></p><p>Tekstovi, dizajn, nazivi aplikacija, grafika i sadržaj aplikacija su zaštićeni autorskim pravima i ne smeju se kopirati ili koristiti bez dozvole.</p><p><strong>7. Kontakt</strong></p><p>Email: ${email}</p>`;
+    return currentLang === "sr" ? sr : en;
+  }
+
+  if(type === "impressum"){
+    return {
+      en:`<h3>Impressum</h3><p><strong>Website owner</strong></p><p>Lenard Zivanović<br>Vienna, Austria</p><p><strong>Contact</strong></p><p>Email: ${email}</p><p><strong>Project status</strong></p><p>IT Zone Apps is currently a private informational project for presenting apps, software projects and digital tools in development. It does not represent a registered company unless explicitly stated otherwise.</p><p><strong>Responsible for content</strong></p><p>Lenard Zivanović, Vienna, Austria</p><p><strong>Liability for content</strong></p><p>The content of this website has been created with care. However, no guarantee is given for accuracy, completeness or currentness.</p><p><strong>Copyright</strong></p><p>All texts, designs, graphics, logos and app-related content are protected and may not be copied or used without permission.</p>`,
+      sr:`<h3>Impressum</h3><p><strong>Vlasnik web stranice</strong></p><p>Lenard Zivanović<br>Beč, Austrija</p><p><strong>Kontakt</strong></p><p>Email: ${email}</p><p><strong>Status projekta</strong></p><p>IT Zone Apps je trenutno privatni informativni projekat za predstavljanje aplikacija, softverskih projekata i digitalnih alata u razvoju. Ne predstavlja registrovanu firmu osim ako nije drugačije izričito navedeno.</p><p><strong>Odgovoran za sadržaj</strong></p><p>Lenard Zivanović, Beč, Austrija</p><p><strong>Odgovornost za sadržaj</strong></p><p>Sadržaj ove web stranice je kreiran pažljivo, ali se ne garantuje tačnost, potpunost ili ažurnost.</p><p><strong>Autorska prava</strong></p><p>Svi tekstovi, dizajn, grafika, logo i sadržaj vezan za aplikacije su zaštićeni i ne smeju se kopirati ili koristiti bez dozvole.</p>`,
+      de:`<h3>Impressum</h3><p><strong>Betreiber der Website</strong></p><p>Lenard Zivanović<br>Wien, Österreich</p><p><strong>Kontakt</strong></p><p>E-Mail: ${email}</p><p><strong>Projektstatus</strong></p><p>IT Zone Apps ist derzeit ein privates Informationsprojekt zur Darstellung von Apps, Softwareprojekten und digitalen Werkzeugen in Entwicklung. Es handelt sich nicht um ein registriertes Unternehmen, sofern nicht ausdrücklich anders angegeben.</p><p><strong>Verantwortlich für den Inhalt</strong></p><p>Lenard Zivanović, Wien, Österreich</p><p><strong>Haftung für Inhalte</strong></p><p>Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Es wird jedoch keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität übernommen.</p><p><strong>Urheberrecht</strong></p><p>Alle Texte, Designs, Grafiken, Logos und appbezogenen Inhalte sind geschützt und dürfen ohne Zustimmung nicht kopiert oder verwendet werden.</p>`,
+      hu:`<h3>Impresszum</h3><p><strong>Weboldal tulajdonosa</strong></p><p>Lenard Zivanović<br>Bécs, Ausztria</p><p><strong>Kapcsolat</strong></p><p>E-mail: ${email}</p><p><strong>Projekt státusza</strong></p><p>Az IT Zone Apps jelenleg privát információs projekt alkalmazások, szoftverprojektek és fejlesztés alatt álló digitális eszközök bemutatására. Nem minősül bejegyzett vállalkozásnak, kivéve ha ez kifejezetten szerepel.</p><p><strong>Tartalomért felelős</strong></p><p>Lenard Zivanović, Bécs, Ausztria</p><p><strong>Felelősség a tartalomért</strong></p><p>A weboldal tartalma gondosan készült, de nem vállalunk garanciát a pontosságért, teljességért vagy aktualitásért.</p><p><strong>Szerzői jog</strong></p><p>Minden szöveg, design, grafika, logó és alkalmazással kapcsolatos tartalom védett, engedély nélkül nem másolható vagy használható.</p>`
+    }[currentLang];
+  }
+
+  return "";
 }
 
 function footerPageHtml(page){
-  const email = SUPPORT_EMAIL;
-
-  if(page === "contact"){
-    return `
-      <div class="construction-box legal-box">
-        <h3>Kontakt / Contact</h3>
-        <p><strong>IT Zone Apps</strong></p>
-        <p>
-          Privatna informativna web stranica za aplikacije, projekte i digitalne alate u razvoju.
-        </p>
-        <p><strong>Kontakt podaci</strong></p>
-        <p>
-          Email: <a href="mailto:${email}">${email}</a><br>
-          Lokacija: Wien, Österreich
-        </p>
-        <p>
-          Kontakt putem emaila koristi se isključivo za odgovor na vaš upit.
-          Podaci se ne prodaju i ne prosleđuju trećim licima u marketinške svrhe.
-        </p>
-      </div>
-    `;
-  }
-
-  if(page === "privacy" || page === "datenschutz"){
-    return `
-      <div class="construction-box legal-box">
-        <h3>Privacy Policy / Datenschutzerklärung</h3>
-
-        <p><strong>Last updated / Stand: May 2026</strong></p>
-
-        <p><strong>1. Responsible person / Verantwortliche Person</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Vienna, Austria<br>
-          Email: <a href="mailto:${email}">${email}</a>
-        </p>
-
-        <p><strong>2. Scope / Geltungsbereich</strong></p>
-        <p>
-          This Privacy Policy applies to this website and to mobile applications published under IT Zone Apps,
-          including apps such as “Skeki – PDF, QR & Photo Tools” and future IT Zone Apps projects.
-        </p>
-        <p>
-          Diese Datenschutzerklärung gilt für diese Website und für mobile Anwendungen, die unter IT Zone Apps
-          veröffentlicht werden, einschließlich „Skeki – PDF, QR & Photo Tools“ und zukünftiger IT Zone Apps Projekte.
-        </p>
-
-        <p><strong>3. App data processing / Datenverarbeitung in Apps</strong></p>
-        <p>
-          Skeki is designed for photo, PDF, QR code and image utility functions. Files selected by the user are used
-          only for the selected app function, such as PDF creation, QR code generation, image editing, blur/redaction,
-          optimization or export. Where possible, processing is performed locally on the user’s device.
-        </p>
-        <p>
-          Skeki ist für Foto-, PDF-, QR-Code- und Bildwerkzeug-Funktionen bestimmt. Vom Nutzer ausgewählte Dateien
-          werden nur für die ausgewählte Funktion verwendet, z. B. PDF-Erstellung, QR-Code-Erstellung, Bildbearbeitung,
-          Unschärfe/Redaktion, Optimierung oder Export. Soweit möglich erfolgt die Verarbeitung lokal auf dem Gerät.
-        </p>
-
-        <p><strong>4. Photos, documents and files / Fotos, Dokumente und Dateien</strong></p>
-        <p>
-          If a user selects photos, images or documents in the app, these files are processed only to provide the requested
-          function. The user is responsible for the content of the selected files and for ensuring that they have the right
-          to process or share them.
-        </p>
-        <p>
-          Wenn ein Nutzer Fotos, Bilder oder Dokumente in der App auswählt, werden diese Dateien ausschließlich zur
-          Bereitstellung der gewünschten Funktion verarbeitet. Der Nutzer ist für den Inhalt der ausgewählten Dateien verantwortlich.
-        </p>
-
-        <p><strong>5. QR codes and payment QR information / QR-Codes und Zahlungs-QR-Informationen</strong></p>
-        <p>
-          If the app provides QR code or payment QR code generation, the information is generated from data entered by the user.
-          IT Zone Apps is not a bank, payment institution or financial service provider. The user is responsible for checking
-          the accuracy of all entered payment or QR information before using or sharing it.
-        </p>
-        <p>
-          Wenn die App QR-Code- oder Zahlungs-QR-Code-Erstellung anbietet, werden die Informationen aus den vom Nutzer eingegebenen
-          Daten erzeugt. IT Zone Apps ist keine Bank, kein Zahlungsinstitut und kein Finanzdienstleister. Der Nutzer ist dafür
-          verantwortlich, alle eingegebenen Zahlungs- oder QR-Daten vor der Nutzung zu prüfen.
-        </p>
-
-        <p><strong>6. Health app projects / Gesundheits-App-Projekte</strong></p>
-        <p>
-          Future health-related apps may allow users to enter and store health information such as blood pressure, blood sugar,
-          pulse, weight and notes. Such data is entered voluntarily by the user and is used only to provide app functionality,
-          history, backup, synchronization or export features where offered.
-        </p>
-        <p>
-          Zukünftige gesundheitsbezogene Apps können es Nutzern ermöglichen, Gesundheitsinformationen wie Blutdruck, Blutzucker,
-          Puls, Gewicht und Notizen einzugeben und zu speichern. Diese Daten werden freiwillig vom Nutzer eingegeben und nur zur
-          Bereitstellung der App-Funktionalität, Historie, Sicherung, Synchronisierung oder Exportfunktionen verwendet, sofern angeboten.
-        </p>
-
-        <p><strong>7. Medical disclaimer / Medizinischer Hinweis</strong></p>
-        <p>
-          Health-related apps from IT Zone Apps are for informational and personal tracking purposes only. They are not medical devices,
-          do not diagnose, treat or prevent diseases, and do not provide medical advice. Always consult a qualified doctor or healthcare
-          professional for medical decisions.
-        </p>
-        <p>
-          Gesundheitsbezogene Apps von IT Zone Apps dienen ausschließlich Informations- und persönlichen Dokumentationszwecken. Sie sind
-          keine Medizinprodukte, stellen keine Diagnose, behandeln oder verhindern keine Krankheiten und ersetzen keine medizinische Beratung.
-          Wenden Sie sich bei medizinischen Entscheidungen immer an qualifiziertes medizinisches Fachpersonal.
-        </p>
-
-        <p><strong>8. Accounts, cloud storage and backup / Konten, Cloud-Speicherung und Backup</strong></p>
-        <p>
-          If an app offers account registration, cloud backup or synchronization, the purpose is to allow users to save their data,
-          access their history across devices and restore data when changing devices. Data may be stored using a cloud backend provider,
-          for example Supabase or a similar service. The exact use depends on the app version and enabled features.
-        </p>
-        <p>
-          Wenn eine App Registrierung, Cloud-Backup oder Synchronisierung anbietet, dient dies dazu, Nutzerdaten zu speichern,
-          die Historie geräteübergreifend verfügbar zu machen und Daten beim Gerätewechsel wiederherzustellen. Daten können über
-          einen Cloud-Backend-Anbieter wie Supabase oder einen ähnlichen Dienst gespeichert werden. Die konkrete Nutzung hängt von
-          der App-Version und den aktivierten Funktionen ab.
-        </p>
-
-        <p><strong>9. Premium features and purchases / Premium-Funktionen und Käufe</strong></p>
-        <p>
-          If an app offers premium features, purchases or subscriptions are processed through Google Play Billing. IT Zone Apps does not
-          receive or store full payment card information. Payment processing is handled by Google according to Google Play’s terms and
-          privacy policy.
-        </p>
-        <p>
-          Wenn eine App Premium-Funktionen anbietet, werden Käufe oder Abonnements über Google Play Billing abgewickelt. IT Zone Apps
-          erhält und speichert keine vollständigen Zahlungskartendaten. Die Zahlungsabwicklung erfolgt durch Google gemäß den Bedingungen
-          und Datenschutzbestimmungen von Google Play.
-        </p>
-
-        <p><strong>10. Advertising / Werbung</strong></p>
-        <p>
-          Some free app versions may display ads. If ads are used, they may be provided by Google AdMob or another advertising provider.
-          Advertising providers may process device identifiers, approximate location, ad interactions or diagnostic data according to their
-          own policies. Premium versions may remove ads where offered.
-        </p>
-        <p>
-          Einige kostenlose App-Versionen können Werbung anzeigen. Wenn Werbung verwendet wird, kann sie durch Google AdMob oder einen
-          anderen Werbeanbieter bereitgestellt werden. Werbeanbieter können Gerätekennungen, ungefähren Standort, Anzeigeninteraktionen
-          oder Diagnosedaten gemäß ihren eigenen Richtlinien verarbeiten. Premium-Versionen können Werbung entfernen, sofern angeboten.
-        </p>
-
-        <p><strong>11. Contact by email / Kontakt per E-Mail</strong></p>
-        <p>
-          If you contact us by email, the information you voluntarily send, such as your email address and message content, is used only
-          to process and answer your request. Email communication may be stored as long as necessary for documentation and support.
-        </p>
-        <p>
-          Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen freiwillig übermittelten Informationen, z. B. E-Mail-Adresse und
-          Nachrichteninhalt, nur zur Bearbeitung und Beantwortung Ihrer Anfrage verwendet.
-        </p>
-
-        <p><strong>12. Website technical data / Technische Website-Daten</strong></p>
-        <p>
-          When visiting this website, the hosting provider may automatically process technical data such as IP address, access time,
-          browser type, operating system and visited pages. This is necessary for the secure and stable operation of the website.
-        </p>
-        <p>
-          Beim Besuch dieser Website kann der Hosting-Anbieter automatisch technische Daten wie IP-Adresse, Zugriffszeit, Browsertyp,
-          Betriebssystem und besuchte Seiten verarbeiten. Dies ist für den sicheren und stabilen Betrieb der Website erforderlich.
-        </p>
-
-        <p><strong>13. Weather information / Wetterinformationen</strong></p>
-        <p>
-          This website may request basic weather information from an external weather service to display temperature information.
-          This is used only for display purposes.
-        </p>
-        <p>
-          Diese Website kann grundlegende Wetterinformationen von einem externen Wetterdienst abrufen, um Temperaturinformationen anzuzeigen.
-          Dies dient ausschließlich Anzeigezwecken.
-        </p>
-
-        <p><strong>14. Cookies and local storage / Cookies und lokale Speicherung</strong></p>
-        <p>
-          The website may use local storage or basic cookies to remember language settings. No advertising tracking cookies are intentionally
-          used on this website.
-        </p>
-        <p>
-          Diese Website kann lokale Speicherung oder grundlegende Cookies verwenden, um Spracheinstellungen zu speichern. Auf dieser Website
-          werden bewusst keine Werbe-Tracking-Cookies eingesetzt.
-        </p>
-
-        <p><strong>15. Data sharing / Weitergabe von Daten</strong></p>
-        <p>
-          Personal data is not sold and is not shared with third parties for marketing purposes by IT Zone Apps. Data may be processed or
-          transmitted where technically necessary, legally required, requested by the user, or required to provide app functionality such as
-          cloud storage, payment processing or ads.
-        </p>
-        <p>
-          Personenbezogene Daten werden von IT Zone Apps nicht verkauft und nicht zu Marketingzwecken an Dritte weitergegeben. Daten können
-          verarbeitet oder übertragen werden, wenn dies technisch notwendig, gesetzlich erforderlich, vom Nutzer angefordert oder zur Bereitstellung
-          von App-Funktionen wie Cloud-Speicherung, Zahlungsabwicklung oder Werbung erforderlich ist.
-        </p>
-
-        <p><strong>16. Data security / Datensicherheit</strong></p>
-        <p>
-          Reasonable technical and organizational measures are used to protect user data. However, no electronic transmission or storage system
-          can be guaranteed to be 100% secure.
-        </p>
-        <p>
-          Es werden angemessene technische und organisatorische Maßnahmen zum Schutz von Nutzerdaten eingesetzt. Dennoch kann kein elektronisches
-          Übertragungs- oder Speichersystem zu 100% sicher garantiert werden.
-        </p>
-
-        <p><strong>17. User rights and deletion / Nutzerrechte und Löschung</strong></p>
-        <p>
-          Users may request access, correction or deletion of their personal data in accordance with applicable GDPR rules. If an app provides
-          account functionality, users may request deletion of their account and associated data by using the app function where available or by
-          contacting us at <a href="mailto:${email}">${email}</a>.
-        </p>
-        <p>
-          Nutzer können gemäß den geltenden DSGVO-Regeln Auskunft, Berichtigung oder Löschung ihrer personenbezogenen Daten verlangen. Wenn eine
-          App Kontofunktionen bietet, können Nutzer die Löschung ihres Kontos und der zugehörigen Daten über die verfügbare App-Funktion oder per
-          Kontaktaufnahme unter <a href="mailto:${email}">${email}</a> beantragen.
-        </p>
-
-        <p><strong>18. Changes to this policy / Änderungen dieser Erklärung</strong></p>
-        <p>
-          This Privacy Policy may be updated when apps, features, technologies, legal requirements or services change.
-        </p>
-        <p>
-          Diese Datenschutzerklärung kann aktualisiert werden, wenn sich Apps, Funktionen, Technologien, rechtliche Anforderungen oder Dienste ändern.
-        </p>
-      </div>
-    `;
-  }
-
-  if(page === "agb"){
-    return `
-      <div class="construction-box legal-box">
-        <h3>AGB / Terms and Conditions</h3>
-
-        <p><strong>1. General information / Allgemeines</strong></p>
-        <p>
-          This website is a private informational website for apps, projects and digital tools in development.
-          Mobile apps published under IT Zone Apps are provided according to the functions and conditions shown in the app and on Google Play.
-        </p>
-        <p>
-          Diese Website ist eine private Informationsseite für Apps, Projekte und digitale Werkzeuge in Entwicklung.
-          Mobile Apps von IT Zone Apps werden gemäß den in der App und bei Google Play dargestellten Funktionen und Bedingungen bereitgestellt.
-        </p>
-
-        <p><strong>2. Use of apps / Nutzung der Apps</strong></p>
-        <p>
-          Users are responsible for the content they create, edit, upload, scan, save or share using the apps. The apps are provided as tools;
-          users must check exported files, QR codes, payment information, photos and documents before using or sharing them.
-        </p>
-        <p>
-          Nutzer sind für Inhalte verantwortlich, die sie mit den Apps erstellen, bearbeiten, hochladen, scannen, speichern oder teilen. Die Apps
-          werden als Werkzeuge bereitgestellt; Nutzer müssen exportierte Dateien, QR-Codes, Zahlungsinformationen, Fotos und Dokumente vor der Nutzung prüfen.
-        </p>
-
-        <p><strong>3. Health disclaimer / Gesundheitshinweis</strong></p>
-        <p>
-          Health-related apps are not medical devices and do not provide medical advice. They are intended only for personal tracking and informational purposes.
-          Always consult a qualified healthcare professional for medical decisions.
-        </p>
-        <p>
-          Gesundheitsbezogene Apps sind keine Medizinprodukte und stellen keine medizinische Beratung dar. Sie dienen nur der persönlichen Dokumentation und Information.
-          Für medizinische Entscheidungen wenden Sie sich immer an qualifiziertes medizinisches Fachpersonal.
-        </p>
-
-        <p><strong>4. Premium and payments / Premium und Zahlungen</strong></p>
-        <p>
-          Premium features, purchases and subscriptions, if offered, are processed through Google Play Billing. Prices, trial periods and renewal conditions are displayed
-          before purchase in Google Play.
-        </p>
-        <p>
-          Premium-Funktionen, Käufe und Abonnements werden, sofern angeboten, über Google Play Billing abgewickelt. Preise, Testzeiträume und Verlängerungsbedingungen
-          werden vor dem Kauf in Google Play angezeigt.
-        </p>
-
-        <p><strong>5. Limitation of liability / Haftungsbeschränkung</strong></p>
-        <p>
-          The apps and website are provided with reasonable care. No guarantee is given that all functions will be available on all devices, operating systems,
-          banking apps, QR readers or third-party services.
-        </p>
-        <p>
-          Apps und Website werden mit angemessener Sorgfalt bereitgestellt. Es wird nicht garantiert, dass alle Funktionen auf allen Geräten, Betriebssystemen,
-          Banking-Apps, QR-Lesern oder Diensten Dritter verfügbar sind.
-        </p>
-
-        <p><strong>6. Copyright / Urheberrecht</strong></p>
-        <p>
-          Texts, design elements, app names, graphics and app content are protected by copyright and may not be copied or used without permission.
-        </p>
-        <p>
-          Texte, Designelemente, App-Namen, Grafiken und App-Inhalte sind urheberrechtlich geschützt und dürfen nicht ohne Zustimmung kopiert oder verwendet werden.
-        </p>
-
-        <p><strong>7. Contact / Kontakt</strong></p>
-        <p>
-          Email: <a href="mailto:${email}">${email}</a>
-        </p>
-      </div>
-    `;
-  }
-
-  if(page === "impressum"){
-    return `
-      <div class="construction-box legal-box">
-        <h3>Impressum</h3>
-
-        <p><strong>Website owner / Betreiber der Website</strong></p>
-        <p>
-          Lenard Zivanović<br>
-          Vienna, Austria
-        </p>
-
-        <p><strong>Contact / Kontakt</strong></p>
-        <p>
-          Email: <a href="mailto:${email}">${email}</a>
-        </p>
-
-        <p><strong>Project status / Projektstatus</strong></p>
-        <p>
-          IT Zone Apps is currently a private informational project for presenting apps, software projects and digital tools in development.
-          It does not represent a registered company unless explicitly stated otherwise.
-        </p>
-        <p>
-          IT Zone Apps ist derzeit ein privates Informationsprojekt zur Darstellung von Apps, Softwareprojekten und digitalen Werkzeugen in Entwicklung.
-          Es handelt sich nicht um ein registriertes Unternehmen, sofern nicht ausdrücklich anders angegeben.
-        </p>
-
-        <p><strong>Responsible for content / Verantwortlich für den Inhalt</strong></p>
-        <p>
-          Lenard Zivanović, Vienna, Austria
-        </p>
-
-        <p><strong>Liability for content / Haftung für Inhalte</strong></p>
-        <p>
-          The content of this website has been created with care. However, no guarantee is given for accuracy, completeness or currentness.
-        </p>
-        <p>
-          Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Es wird jedoch keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität übernommen.
-        </p>
-
-        <p><strong>Copyright / Urheberrecht</strong></p>
-        <p>
-          All texts, designs, graphics, logos and app-related content are protected and may not be copied or used without permission.
-        </p>
-        <p>
-          Alle Texte, Designs, Grafiken, Logos und appbezogenen Inhalte sind geschützt und dürfen ohne Zustimmung nicht kopiert oder verwendet werden.
-        </p>
-      </div>
-    `;
-  }
-
-  return constructionHtml();
+  return `<div class="construction-box legal-box">${legalText(page)}</div>`;
 }
 
 function applyLanguage(){
@@ -1376,33 +320,26 @@ function showFooterPage(pageKey){
   currentPage = pageKey;
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));
   render(pageKey);
-  window.scrollTo({
-    top: document.querySelector(".content").offsetTop - 20,
-    behavior: "smooth"
-  });
+  window.scrollTo({top:document.querySelector(".content").offsetTop - 20,behavior:"smooth"});
 }
 
 function render(pageKey){
   const t = i18n[currentLang];
-
   if(pageKey === "home"){
     document.getElementById("title").innerText = t.home;
     document.getElementById("contentArea").innerHTML = homeHtml();
     return;
   }
-
   if(pageKey === "apps"){
     document.getElementById("title").innerText = t.apps;
     document.getElementById("contentArea").innerHTML = appsHtml();
     return;
   }
-
   if(pageKey === "news"){
     document.getElementById("title").innerText = t.news;
     document.getElementById("contentArea").innerHTML = newsHtml();
     return;
   }
-
   document.getElementById("title").innerText = t[pageKey] || pageKey;
   document.getElementById("contentArea").innerHTML = footerPageHtml(pageKey);
 }
@@ -1415,25 +352,19 @@ function updateTime(){
 
 fetch("https://api.open-meteo.com/v1/forecast?latitude=48.2&longitude=16.37&current_weather=true")
 .then(r=>r.json())
-.then(d=>{
-  document.getElementById("temp").innerText = Math.round(d.current_weather.temperature) + "°C";
-})
-.catch(()=>{
-  document.getElementById("temp").innerText = "24°C";
-});
+.then(d=>{document.getElementById("temp").innerText = Math.round(d.current_weather.temperature) + "°C";})
+.catch(()=>{document.getElementById("temp").innerText = "24°C";});
 
 document.getElementById("langSelect").value = currentLang;
-
 document.getElementById("langSelect").addEventListener("change", function(){
   currentLang = this.value;
   localStorage.setItem("site_lang", currentLang);
   applyLanguage();
 });
 
-setInterval(updateTime, 1000);
+setInterval(updateTime,1000);
 applyLanguage();
 updateTime();
 </script>
-
 </body>
 </html>
