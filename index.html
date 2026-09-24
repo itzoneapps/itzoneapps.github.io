@@ -4,21 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IT Zone Apps — Portal</title>
+<title>IT Zone Apps — Security Portal</title>
+<meta name="description" content="IT Zone Apps secure portal for applications, projects and digital services.">
 
 <style>
+
 :root{
     --blue:#0867f2;
+    --blue-dark:#0555d8;
     --blue2:#00a7ef;
+    --cyan:#21c4ff;
+    --navy:#07111f;
     --text:#101828;
     --muted:#667085;
     --line:#dce6f0;
+    --soft:#eef7ff;
+    --white:#ffffff;
 }
 
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -34,18 +45,53 @@ select{
     font:inherit;
 }
 
-/* =========================
+button,
+select{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* =========================================================
+   SVG ICONS
+========================================================= */
+
+.svg-icon{
+    width:26px;
+    height:26px;
+    display:block;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.svg-icon.small{
+    width:20px;
+    height:20px;
+}
+
+.svg-icon.large{
+    width:38px;
+    height:38px;
+}
+
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header{
     height:88px;
     background:rgba(255,255,255,.97);
-    border-bottom:1px solid #e7edf4;
+    border-bottom:1px solid #e5edf5;
     display:flex;
     align-items:center;
     position:relative;
-    z-index:5;
+    z-index:10;
+    box-shadow:0 4px 20px rgba(15,45,80,.035);
 }
 
 .header-inner{
@@ -55,6 +101,8 @@ select{
     align-items:center;
     gap:34px;
 }
+
+/* BRAND */
 
 .brand{
     display:flex;
@@ -68,6 +116,7 @@ select{
     width:50px;
     height:50px;
     position:relative;
+    flex:0 0 auto;
 }
 
 .brand-icon:before{
@@ -78,6 +127,7 @@ select{
     width:38px;
     height:12px;
     background:linear-gradient(90deg,var(--blue2),var(--blue));
+    box-shadow:0 4px 12px rgba(8,103,242,.12);
 }
 
 .brand-icon:after{
@@ -105,6 +155,7 @@ select{
     display:block;
     font-size:25px;
     letter-spacing:.3px;
+    line-height:1;
 }
 
 .brand-text b{
@@ -112,54 +163,93 @@ select{
 }
 
 .brand-text small{
+    display:block;
+    margin-top:6px;
     font-size:10px;
     letter-spacing:3px;
     font-weight:700;
     color:#4b5563;
 }
 
+/* NAV */
+
 .nav{
     margin-left:auto;
     display:flex;
-    gap:13px;
+    align-items:center;
+    gap:4px;
 }
 
 .nav button{
     border:0;
     background:transparent;
-    padding:10px 12px;
+    color:#111827;
+    padding:11px 14px;
+    border-radius:10px;
+    font-size:14px;
     font-weight:700;
-    cursor:pointer;
+    transition:.2s ease;
 }
+
+.nav button:hover{
+    color:var(--blue);
+    background:#edf6ff;
+}
+
+.nav button.active{
+    color:var(--blue);
+    background:#edf6ff;
+}
+
+/* HEADER ACTIONS */
 
 .actions{
     display:flex;
-    gap:15px;
+    gap:12px;
     align-items:center;
 }
 
 .lang{
     height:52px;
-    border:1px solid var(--line);
+    border:1px solid #d6e1ec;
     border-radius:14px;
     background:#fff;
-    padding:0 15px;
+    padding:0 14px;
     font-weight:700;
+    color:#172033;
+    outline:none;
+    transition:.2s;
+}
+
+.lang:hover,
+.lang:focus{
+    border-color:#93c5fd;
+    box-shadow:0 0 0 4px rgba(8,103,242,.07);
 }
 
 .portal{
     height:52px;
     border:0;
     border-radius:12px;
-    padding:0 25px;
+    padding:0 22px;
     color:#fff;
-    background:linear-gradient(135deg,var(--blue),#009cf5);
+    background:linear-gradient(135deg,var(--blue),var(--blue2));
     font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    box-shadow:0 10px 25px rgba(8,103,242,.23);
+    transition:.2s ease;
 }
 
-/* =========================
+.portal:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(8,103,242,.30);
+}
+
+/* =========================================================
    LOGIN HERO
-========================= */
+========================================================= */
 
 .login-hero{
     min-height:845px;
@@ -172,93 +262,122 @@ select{
 
     display:flex;
     align-items:center;
+    overflow:hidden;
 }
 
 .login-hero:before{
     content:"";
     position:absolute;
     inset:0;
+    z-index:0;
 
     background:
         linear-gradient(
             90deg,
-            rgba(3,16,31,.84) 0%,
-            rgba(3,16,31,.66) 43%,
-            rgba(3,16,31,.16) 66%,
-            rgba(3,16,31,.08) 100%
+            rgba(3,15,30,.90) 0%,
+            rgba(3,18,36,.75) 38%,
+            rgba(5,34,65,.36) 61%,
+            rgba(6,45,83,.10) 100%
         );
+}
+
+.login-hero:after{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    right:-230px;
+    top:-260px;
+    border-radius:50%;
+    background:rgba(0,167,239,.16);
+    filter:blur(70px);
+    pointer-events:none;
 }
 
 .login-inner{
     position:relative;
     z-index:2;
-
-    width:min(1100px,90%);
+    width:min(1180px,90%);
     margin:auto;
-
     display:grid;
     grid-template-columns:1fr 520px;
-    gap:80px;
-
+    gap:85px;
     align-items:center;
 }
 
-/* =========================
+/* =========================================================
    LEFT SIDE
-========================= */
+========================================================= */
 
 .intro{
-    color:white;
+    color:#fff;
+    text-shadow:0 2px 15px rgba(0,0,0,.10);
 }
 
 .intro h1{
-    font-size:58px;
+    font-size:59px;
     line-height:1;
     font-weight:800;
+    letter-spacing:-1.8px;
     margin-bottom:14px;
 }
 
 .intro h1 span{
-    color:#1298f4;
+    background:linear-gradient(90deg,#24c3ff,#0877f9);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .intro .sub{
-    font-size:19px;
+    font-size:18px;
     letter-spacing:6px;
-    margin-bottom:37px;
+    margin-bottom:36px;
+    color:#f2f7fc;
 }
 
 .intro .lead{
     font-size:22px;
     line-height:1.55;
-    max-width:470px;
-    margin-bottom:37px;
-    color:#f4f7fb;
+    max-width:490px;
+    margin-bottom:34px;
+    color:#f4f8fc;
 }
+
+/* BENEFITS */
 
 .benefit{
     display:flex;
     gap:18px;
     align-items:center;
-    margin:17px 0;
+    margin:16px 0;
 }
 
 .benefit-icon{
-    width:65px;
-    height:65px;
+    width:64px;
+    height:64px;
+    flex:0 0 64px;
+    border-radius:16px;
 
-    border-radius:15px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,145,255,.32),
+            rgba(0,91,210,.18)
+        );
 
-    background:rgba(8,103,242,.24);
-
-    border:
-        1px solid
-        rgba(111,191,255,.32);
+    border:1px solid rgba(124,203,255,.36);
 
     display:grid;
     place-items:center;
 
-    font-size:27px;
+    color:#67caff;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 8px 24px rgba(0,75,180,.10);
+
+    backdrop-filter:blur(10px);
 }
 
 .benefit strong{
@@ -269,73 +388,173 @@ select{
 
 .benefit span{
     font-size:15px;
-    color:#e1e8f1;
+    color:#dbe7f2;
 }
 
-/* =========================
+/* =========================================================
    LOGIN CARD
-========================= */
+========================================================= */
 
 .card{
-    background:rgba(255,255,255,.97);
+    position:relative;
 
-    border-radius:27px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.985),
+            rgba(247,251,255,.97)
+        );
 
-    padding:
-        37px 45px
-        32px;
+    border:1px solid rgba(255,255,255,.75);
+
+    border-radius:28px;
+
+    padding:37px 45px 32px;
 
     box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.25);
+        0 35px 90px rgba(0,17,42,.30),
+        0 0 0 1px rgba(8,103,242,.04),
+        0 0 50px rgba(0,167,239,.08);
+
+    backdrop-filter:blur(18px);
 }
 
-.lock{
-    width:72px;
-    height:72px;
-
-    margin:
-        0 auto 18px;
-
-    border-radius:18px;
+.card:before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:28px;
+    pointer-events:none;
 
     background:
         linear-gradient(
             135deg,
-            var(--blue),
-            #008be9
+            rgba(255,255,255,.65),
+            transparent 35%,
+            rgba(0,167,239,.08)
         );
+}
+
+/* SECURITY PORTAL ICON */
+
+.security-icon{
+    width:78px;
+    height:78px;
+
+    margin:0 auto 18px;
+
+    border-radius:21px;
+
+    position:relative;
 
     display:grid;
     place-items:center;
 
     color:#fff;
-    font-size:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #078cf7 0%,
+            #0867f2 48%,
+            #0349c7 100%
+        );
 
     box-shadow:
-        0 10px 25px
-        rgba(8,103,242,.28);
+        0 15px 32px rgba(8,103,242,.32),
+        inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+.security-icon:before{
+    content:"";
+    position:absolute;
+    width:56px;
+    height:56px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+}
+
+.security-icon svg{
+    width:43px;
+    height:43px;
+    position:relative;
+    z-index:2;
+}
+
+.security-icon .shield{
+    fill:rgba(255,255,255,.10);
+    stroke:#fff;
+    stroke-width:2.4;
+}
+
+.security-icon .lock-body{
+    fill:#fff;
+    stroke:#fff;
+}
+
+.security-icon .lock-loop{
+    fill:none;
+    stroke:#fff;
+    stroke-width:2.5;
+    stroke-linecap:round;
+}
+
+.security-icon .keyhole{
+    fill:var(--blue);
+    stroke:none;
+}
+
+/* SECURITY LABEL */
+
+.security-label{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:7px;
+
+    width:max-content;
+    max-width:100%;
+
+    margin:0 auto 12px;
+
+    padding:6px 11px;
+
+    border-radius:999px;
+
+    background:#edf6ff;
+
+    color:#0872dd;
+
+    font-size:10px;
+    font-weight:800;
+
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+}
+
+.security-label svg{
+    width:13px;
+    height:13px;
 }
 
 .card h2{
     text-align:center;
     font-size:34px;
+    letter-spacing:-.8px;
     margin-bottom:7px;
 }
 
 .card .desc{
     text-align:center;
-
     color:var(--muted);
-
-    line-height:1.45;
-
+    line-height:1.5;
     margin-bottom:25px;
+    font-size:15px;
 }
 
-/* =========================
+/* =========================================================
    FORM
-========================= */
+========================================================= */
 
 .field{
     margin-bottom:15px;
@@ -345,16 +564,16 @@ select{
     display:block;
     font-weight:800;
     margin-bottom:7px;
+    font-size:14px;
+    color:#172033;
 }
 
 .input{
-    height:54px;
+    height:55px;
 
-    border:
-        1px solid
-        #cfd9e4;
+    border:1px solid #cfd9e4;
 
-    border-radius:11px;
+    border-radius:12px;
 
     display:flex;
     align-items:center;
@@ -364,13 +583,36 @@ select{
     gap:11px;
 
     background:#fff;
+
+    color:#667085;
+
+    transition:.2s ease;
+
+    box-shadow:0 2px 8px rgba(28,58,92,.025);
+}
+
+.input:focus-within{
+    border-color:#4da5ff;
+
+    box-shadow:
+        0 0 0 4px rgba(8,103,242,.09),
+        0 5px 15px rgba(8,103,242,.06);
+
+    color:var(--blue);
 }
 
 .input input{
     border:0;
     outline:0;
     width:100%;
+    height:100%;
     font-size:15px;
+    color:#172033;
+    background:transparent;
+}
+
+.input input::placeholder{
+    color:#98a2b3;
 }
 
 .eye{
@@ -378,25 +620,33 @@ select{
     background:transparent;
     cursor:pointer;
     color:#667085;
+    display:grid;
+    place-items:center;
+    padding:5px;
 }
 
-/* =========================
+.eye:hover{
+    color:var(--blue);
+}
+
+/* =========================================================
    LOGIN BUTTON
-========================= */
+========================================================= */
 
 .login-btn{
-    height:55px;
+    height:56px;
     width:100%;
 
     border:0;
 
-    border-radius:11px;
+    border-radius:12px;
 
     background:
         linear-gradient(
             90deg,
-            var(--blue),
-            #08a9f4
+            #0867f2 0%,
+            #078af7 55%,
+            #09aff2 100%
         );
 
     color:#fff;
@@ -406,18 +656,38 @@ select{
 
     cursor:pointer;
 
-    margin-top:2px;
+    margin-top:3px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+
+    box-shadow:
+        0 11px 24px rgba(8,103,242,.23);
+
+    transition:.2s ease;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 15px 30px rgba(8,103,242,.30);
+}
+
+.login-btn:active{
+    transform:translateY(0);
 }
 
 .or{
     display:flex;
     align-items:center;
-
     gap:15px;
-
-    color:#667085;
-
+    color:#98a2b3;
     margin:18px 0;
+    font-size:12px;
+    font-weight:700;
 }
 
 .or:before,
@@ -428,52 +698,75 @@ select{
     flex:1;
 }
 
-/* =========================
+/* =========================================================
    GOOGLE
-========================= */
+========================================================= */
 
 .google{
-    height:53px;
+    height:54px;
     width:100%;
 
-    border:
-        1px solid
-        #cfd9e4;
+    border:1px solid #cfd9e4;
 
-    border-radius:11px;
+    border-radius:12px;
 
     background:#fff;
+
+    color:#172033;
 
     font-weight:800;
 
     cursor:pointer;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    transition:.2s ease;
 }
 
-.google b{
-    color:#4285f4;
-
-    font-size:20px;
-
-    margin-right:9px;
+.google:hover{
+    border-color:#9fc4ec;
+    background:#f9fcff;
+    box-shadow:0 6px 18px rgba(25,70,110,.07);
 }
 
-/* =========================
+.google-logo{
+    width:21px;
+    height:21px;
+    display:block;
+}
+
+/* =========================================================
    OPTIONS
-========================= */
+========================================================= */
 
 .options{
     display:flex;
-
-    justify-content:
-        space-between;
-
+    justify-content:space-between;
     align-items:center;
+    gap:15px;
 
     font-size:14px;
 
-    margin-top:17px;
+    margin-top:18px;
 
     color:#475467;
+}
+
+.remember{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+}
+
+.remember input{
+    width:18px;
+    height:18px;
+    accent-color:var(--blue);
+    cursor:pointer;
 }
 
 .options a,
@@ -483,68 +776,140 @@ select{
     text-decoration:none;
 }
 
+.options a:hover,
+.signup a:hover{
+    text-decoration:underline;
+}
+
 .signup{
     text-align:center;
-
-    margin-top:35px;
-
+    margin-top:34px;
     color:#667085;
-
     font-size:14px;
 }
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer{
-    height:90px;
-
+    min-height:90px;
     display:flex;
-
     align-items:center;
-
-    border-top:
-        1px solid
-        #e7edf4;
+    border-top:1px solid #e7edf4;
+    background:#fff;
 }
 
 .footer-inner{
     width:min(1440px,94%);
-
     margin:auto;
 
-    display:flex;
-
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
     align-items:center;
-
-    justify-content:
-        space-between;
+    gap:30px;
 }
 
-.footer-logo{
+.footer-brand{
     display:flex;
     align-items:center;
-    font-weight:800;
+    gap:10px;
+    min-width:max-content;
+}
+
+.footer-brand .brand-icon{
+    width:39px;
+    height:39px;
+    transform:scale(.75);
+    transform-origin:left center;
+    margin-right:-7px;
+}
+
+.footer-brand-text strong{
+    display:block;
+    font-size:15px;
+}
+
+.footer-brand-text strong span{
+    color:var(--blue);
+}
+
+.footer-brand-text small{
+    display:block;
+    font-size:6px;
+    letter-spacing:1.6px;
+    margin-top:3px;
+    color:#667085;
+    font-weight:700;
 }
 
 .footer-links{
     display:flex;
-
-    gap:14px;
-
+    align-items:center;
+    justify-content:center;
+    gap:10px;
     color:#667085;
-
     font-size:13px;
 }
 
-.footer-links span{
-    cursor:pointer;
+.footer-links a{
+    color:#667085;
+    transition:.2s;
 }
 
-/* =========================
+.footer-links a:hover{
+    color:var(--blue);
+}
+
+.footer-dot{
+    color:#b2bdca;
+}
+
+.footer-social{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:15px;
+    color:#101828;
+}
+
+.footer-social button{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:9px;
+    background:transparent;
+    display:grid;
+    place-items:center;
+    color:#101828;
+    transition:.2s;
+}
+
+.footer-social button:hover{
+    background:#edf6ff;
+    color:var(--blue);
+}
+
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
+
+@media(max-width:1050px){
+
+    .nav{
+        gap:0;
+    }
+
+    .nav button{
+        padding:10px 8px;
+        font-size:13px;
+    }
+
+    .login-inner{
+        gap:45px;
+        grid-template-columns:1fr 480px;
+    }
+}
 
 @media(max-width:900px){
 
@@ -555,7 +920,22 @@ select{
     .login-inner{
         grid-template-columns:1fr;
         gap:35px;
-        padding:45px 0;
+        padding:50px 0;
+    }
+
+    .login-hero{
+        min-height:auto;
+        background-position:center center;
+    }
+
+    .login-hero:before{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(3,16,31,.83) 0%,
+                rgba(3,16,31,.66) 48%,
+                rgba(3,16,31,.42) 100%
+            );
     }
 
     .intro{
@@ -573,10 +953,6 @@ select{
         text-align:left;
     }
 
-    .login-hero{
-        min-height:auto;
-    }
-
     .card{
         max-width:540px;
         width:100%;
@@ -584,24 +960,27 @@ select{
     }
 
     .footer{
-        height:auto;
-        padding:25px 0;
+        padding:24px 0;
     }
 
     .footer-inner{
+        display:flex;
         flex-direction:column;
         gap:18px;
     }
 
     .footer-links{
         flex-wrap:wrap;
+    }
+
+    .footer-social{
         justify-content:center;
     }
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:560px){
 
@@ -614,17 +993,23 @@ select{
         gap:8px;
     }
 
+    .brand{
+        gap:6px;
+    }
+
     .brand-text strong{
         font-size:16px;
     }
 
     .brand-text small{
         font-size:7px;
-        letter-spacing:1.5px;
+        letter-spacing:1.4px;
+        margin-top:4px;
     }
 
     .brand-icon{
         transform:scale(.78);
+        transform-origin:left center;
         margin-right:-7px;
     }
 
@@ -639,36 +1024,99 @@ select{
     .lang{
         height:42px;
         padding:0 8px;
+        font-size:12px;
     }
 
     .login-inner{
         width:92%;
+        padding:38px 0;
     }
 
     .intro h1{
-        font-size:39px;
+        font-size:40px;
     }
 
     .intro .sub{
-        font-size:13px;
-        letter-spacing:4px;
+        font-size:12px;
+        letter-spacing:3.5px;
+        margin-bottom:27px;
     }
 
     .intro .lead{
         font-size:17px;
+        margin-bottom:28px;
+    }
+
+    .benefit{
+        max-width:330px;
+    }
+
+    .benefit-icon{
+        width:55px;
+        height:55px;
+        flex-basis:55px;
+        border-radius:14px;
+    }
+
+    .benefit strong{
+        font-size:16px;
+    }
+
+    .benefit span{
+        font-size:13px;
     }
 
     .card{
-        padding:30px 20px 25px;
-        border-radius:22px;
+        padding:29px 20px 25px;
+        border-radius:23px;
+    }
+
+    .security-icon{
+        width:68px;
+        height:68px;
+        border-radius:18px;
+    }
+
+    .security-icon svg{
+        width:37px;
+        height:37px;
     }
 
     .card h2{
         font-size:28px;
     }
 
+    .card .desc{
+        font-size:14px;
+    }
+
+    .options{
+        font-size:12px;
+    }
+
+    .signup{
+        margin-top:28px;
+    }
+
     .footer-links{
         font-size:11px;
+        gap:7px;
+    }
+}
+
+@media(max-width:390px){
+
+    .brand-text small{
+        display:none;
+    }
+
+    .intro h1{
+        font-size:36px;
+    }
+
+    .options{
+        align-items:flex-start;
+        flex-direction:column;
     }
 }
 
@@ -677,7 +1125,9 @@ select{
 
 <body>
 
-<!-- HEADER -->
+<!-- ======================================================
+     HEADER
+====================================================== -->
 
 <header class="header">
 
@@ -706,38 +1156,50 @@ select{
 
     <nav class="nav">
 
-        <button>Home</button>
+        <button class="active">
+            Home
+        </button>
 
-        <button>Applications</button>
+        <button>
+            Applications
+        </button>
 
-        <button>Projects</button>
+        <button>
+            Projects
+        </button>
 
-        <button>News</button>
+        <button>
+            News
+        </button>
 
-        <button>About</button>
+        <button>
+            About
+        </button>
 
-        <button>Contact</button>
+        <button>
+            Contact
+        </button>
 
     </nav>
 
 
     <div class="actions">
 
-        <select class="lang">
+        <select class="lang" aria-label="Language">
 
-            <option>
+            <option value="en">
                 🌐 EN
             </option>
 
-            <option>
+            <option value="sr">
                 🇷🇸 SR
             </option>
 
-            <option>
+            <option value="de">
                 🇦🇹 DE
             </option>
 
-            <option>
+            <option value="hu">
                 🇭🇺 HU
             </option>
 
@@ -745,7 +1207,15 @@ select{
 
 
         <button class="portal">
-            ♙ &nbsp; Portal
+
+            <svg class="svg-icon small" viewBox="0 0 24 24">
+                <path d="M7 10V7a5 5 0 0 1 10 0v3"/>
+                <rect x="5" y="10" width="14" height="11" rx="2"/>
+                <path d="M12 14v3"/>
+            </svg>
+
+            Security Portal
+
         </button>
 
     </div>
@@ -755,14 +1225,18 @@ select{
 </header>
 
 
-<!-- LOGIN AREA -->
+<!-- ======================================================
+     LOGIN AREA
+====================================================== -->
 
 <main class="login-hero">
 
 <div class="login-inner">
 
 
-<!-- LEFT SIDE -->
+<!-- ======================================================
+     LEFT SIDE
+====================================================== -->
 
 <section class="intro">
 
@@ -777,19 +1251,26 @@ select{
 
 
     <p class="lead">
-
         Secure access to applications,
         <br>
-
         projects and digital services.
-
     </p>
 
+
+    <!-- SECURE LOGIN -->
 
     <div class="benefit">
 
         <div class="benefit-icon">
-            ♢
+
+            <svg class="svg-icon large" viewBox="0 0 24 24">
+
+                <path d="M12 3l7 3v5c0 4.8-2.8 8-7 10-4.2-2-7-5.2-7-10V6l7-3z"/>
+
+                <path d="M9.5 12l1.7 1.7 3.5-3.5"/>
+
+            </svg>
+
         </div>
 
         <div>
@@ -807,10 +1288,22 @@ select{
     </div>
 
 
+    <!-- CLOUD -->
+
     <div class="benefit">
 
         <div class="benefit-icon">
-            ☁
+
+            <svg class="svg-icon large" viewBox="0 0 24 24">
+
+                <path d="M6.5 18h11a4 4 0 0 0 .5-8A6 6 0 0 0 6.7 8.5 4.8 4.8 0 0 0 6.5 18z"/>
+
+                <path d="M12 11v5"/>
+
+                <path d="M9.8 13.2L12 11l2.2 2.2"/>
+
+            </svg>
+
         </div>
 
         <div>
@@ -828,10 +1321,22 @@ select{
     </div>
 
 
+    <!-- APPS -->
+
     <div class="benefit">
 
         <div class="benefit-icon">
-            ▯
+
+            <svg class="svg-icon large" viewBox="0 0 24 24">
+
+                <rect x="7" y="2.5" width="10" height="19" rx="2"/>
+
+                <path d="M10 5h4"/>
+
+                <circle cx="12" cy="18.5" r=".7"/>
+
+            </svg>
+
         </div>
 
         <div>
@@ -849,10 +1354,20 @@ select{
     </div>
 
 
+    <!-- FEATURES -->
+
     <div class="benefit">
 
         <div class="benefit-icon">
-            ⚙
+
+            <svg class="svg-icon large" viewBox="0 0 24 24">
+
+                <circle cx="12" cy="12" r="3"/>
+
+                <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/>
+
+            </svg>
+
         </div>
 
         <div>
@@ -872,12 +1387,58 @@ select{
 </section>
 
 
-<!-- LOGIN CARD -->
+<!-- ======================================================
+     LOGIN CARD
+====================================================== -->
 
 <section class="card">
 
-    <div class="lock">
-        ♙
+
+    <!-- SECURITY ICON -->
+
+    <div class="security-icon">
+
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+
+            <path
+                class="shield"
+                d="M32 5L53 13V28C53 42 45 52 32 59C19 52 11 42 11 28V13L32 5Z"
+            />
+
+            <path
+                class="lock-loop"
+                d="M25 31V25C25 16 39 16 39 25V31"
+            />
+
+            <rect
+                class="lock-body"
+                x="22"
+                y="29"
+                width="20"
+                height="17"
+                rx="4"
+            />
+
+            <circle
+                class="keyhole"
+                cx="32"
+                cy="37"
+                r="2"
+            />
+
+        </svg>
+
+    </div>
+
+
+    <div class="security-label">
+
+        <svg class="svg-icon" viewBox="0 0 24 24">
+            <path d="M12 3l7 3v5c0 4.8-2.8 8-7 10-4.2-2-7-5.2-7-10V6l7-3z"/>
+        </svg>
+
+        Security Portal
+
     </div>
 
 
@@ -887,13 +1448,9 @@ select{
 
 
     <p class="desc">
-
         Log in to your IT Zone Apps account
-
         <br>
-
         and access all applications and services.
-
     </p>
 
 
@@ -909,19 +1466,32 @@ select{
 
         <div class="field">
 
-            <label>
+            <label for="email">
                 Email
             </label>
 
             <div class="input">
 
-                <span>
-                    ✉
-                </span>
+                <svg class="svg-icon small" viewBox="0 0 24 24">
+
+                    <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="14"
+                        rx="2"
+                    />
+
+                    <path d="M3 7l9 6 9-6"/>
+
+                </svg>
+
 
                 <input
+                    id="email"
                     type="email"
                     placeholder="your@email.com"
+                    autocomplete="email"
                     required
                 >
 
@@ -934,29 +1504,63 @@ select{
 
         <div class="field">
 
-            <label>
+            <label for="password">
                 Password
             </label>
 
             <div class="input">
 
-                <span>
-                    ♙
-                </span>
+                <svg class="svg-icon small" viewBox="0 0 24 24">
+
+                    <rect
+                        x="5"
+                        y="10"
+                        width="14"
+                        height="11"
+                        rx="2"
+                    />
+
+                    <path
+                        d="M8 10V7a4 4 0 0 1 8 0v3"
+                    />
+
+                </svg>
+
 
                 <input
                     id="password"
                     type="password"
                     placeholder="Enter your password"
+                    autocomplete="current-password"
                     required
                 >
+
 
                 <button
                     class="eye"
                     type="button"
                     onclick="togglePassword()"
+                    aria-label="Show or hide password"
                 >
-                    ◉
+
+                    <svg
+                        id="eyeIcon"
+                        class="svg-icon small"
+                        viewBox="0 0 24 24"
+                    >
+
+                        <path
+                            d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="2.5"
+                        />
+
+                    </svg>
+
                 </button>
 
             </div>
@@ -971,7 +1575,15 @@ select{
             type="submit"
         >
 
-            Log In &nbsp; →
+            Log In
+
+            <svg class="svg-icon small" viewBox="0 0 24 24">
+
+                <path d="M5 12h14"/>
+
+                <path d="M14 7l5 5-5 5"/>
+
+            </svg>
 
         </button>
 
@@ -988,22 +1600,50 @@ select{
             type="button"
         >
 
-            <b>G</b>
+            <svg
+                class="google-logo"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    fill="#4285F4"
+                    d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"
+                />
+
+                <path
+                    fill="#34A853"
+                    d="M12 22c2.7 0 5-.9 6.6-2.5L15.4 17c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"
+                />
+
+                <path
+                    fill="#FBBC05"
+                    d="M6.4 13.9A6 6 0 0 1 6.1 12c0-.7.1-1.3.3-1.9V7.5H3.1A10 10 0 0 0 2 12c0 1.6.4 3.1 1.1 4.5l3.3-2.6z"
+                />
+
+                <path
+                    fill="#EA4335"
+                    d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A9.7 9.7 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6C7.2 7.8 9.4 6 12 6z"
+                />
+
+            </svg>
 
             Continue with Google
 
         </button>
 
 
+        <!-- OPTIONS -->
+
         <div class="options">
 
-            <label>
+            <label class="remember">
 
-                <input
-                    type="checkbox"
-                >
+                <input type="checkbox">
 
-                &nbsp;Remember me
+                <span>
+                    Remember me
+                </span>
 
             </label>
 
@@ -1014,6 +1654,8 @@ select{
 
         </div>
 
+
+        <!-- SIGN UP -->
 
         <div class="signup">
 
@@ -1036,58 +1678,155 @@ select{
 </main>
 
 
-<!-- FOOTER -->
+<!-- ======================================================
+     FOOTER
+====================================================== -->
 
 <footer class="footer">
 
 <div class="footer-inner">
 
-    <div class="footer-logo">
 
-        IT ZONE&nbsp;
+    <!-- FOOTER LOGO -->
 
-        <span style="color:#0867f2">
-            APPS
-        </span>
+    <div class="footer-brand">
+
+        <div class="brand-icon">
+            <span></span>
+        </div>
+
+        <div class="footer-brand-text">
+
+            <strong>
+                IT ZONE
+                <span>APPS</span>
+            </strong>
+
+            <small>
+                WEB & APP DEVELOPMENT
+            </small>
+
+        </div>
 
     </div>
 
+
+    <!-- LINKS -->
 
     <div class="footer-links">
 
-        <span>
+        <a href="#">
             Contact
+        </a>
+
+        <span class="footer-dot">
+            •
         </span>
 
-        <span>•</span>
-
-        <span>
+        <a href="#">
             Privacy Policy
+        </a>
+
+        <span class="footer-dot">
+            •
         </span>
 
-        <span>•</span>
-
-        <span>
+        <a href="#">
             Datenschutz
+        </a>
+
+        <span class="footer-dot">
+            •
         </span>
 
-        <span>•</span>
-
-        <span>
+        <a href="#">
             Terms / AGB
+        </a>
+
+        <span class="footer-dot">
+            •
         </span>
 
-        <span>•</span>
-
-        <span>
+        <a href="#">
             Impressum
-        </span>
+        </a>
 
     </div>
 
 
-    <div>
-        ✉ &nbsp; ◉ &nbsp; ◎
+    <!-- FOOTER ICONS -->
+
+    <div class="footer-social">
+
+        <button
+            type="button"
+            aria-label="Email"
+        >
+
+            <svg class="svg-icon small" viewBox="0 0 24 24">
+
+                <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="2"
+                />
+
+                <path d="M3 7l9 6 9-6"/>
+
+            </svg>
+
+        </button>
+
+
+        <button
+            type="button"
+            aria-label="Code"
+        >
+
+            <svg class="svg-icon small" viewBox="0 0 24 24">
+
+                <path d="M8 9l-3 3 3 3"/>
+
+                <path d="M16 9l3 3-3 3"/>
+
+                <path d="M14 5l-4 14"/>
+
+            </svg>
+
+        </button>
+
+
+        <button
+            type="button"
+            aria-label="Website"
+        >
+
+            <svg class="svg-icon small" viewBox="0 0 24 24">
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                />
+
+                <path
+                    d="M3 12h18"
+                />
+
+                <path
+                    d="M12 3a14 14 0 0 1 0 18"
+                />
+
+                <path
+                    d="M12 3a14 14 0 0 0 0 18"
+                />
+
+            </svg>
+
+        </button>
+
     </div>
 
 </div>
@@ -1097,18 +1836,44 @@ select{
 
 <script>
 
+/* =========================================================
+   PASSWORD VISIBILITY
+========================================================= */
+
 function togglePassword(){
 
     const password =
         document.getElementById("password");
 
-    password.type =
-        password.type === "password"
-        ? "text"
-        : "password";
+    const eye =
+        document.getElementById("eyeIcon");
+
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+        eye.innerHTML = `
+            <path d="M3 3l18 18"></path>
+            <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"></path>
+            <path d="M9.8 5.2A10.5 10.5 0 0 1 12 5c6 0 9.5 7 9.5 7a15.5 15.5 0 0 1-2.1 2.8"></path>
+            <path d="M6.6 6.6C4 8.3 2.5 12 2.5 12S6 19 12 19c1.7 0 3.2-.5 4.5-1.2"></path>
+        `;
+
+    }else{
+
+        password.type = "password";
+
+        eye.innerHTML = `
+            <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"></path>
+            <circle cx="12" cy="12" r="2.5"></circle>
+        `;
+
+    }
+
 }
 
 </script>
 
 </body>
-</html>
+    </html>
