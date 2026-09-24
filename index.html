@@ -1,270 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>IT Zone Apps — Security Portal</title>
-<meta name="description" content="IT Zone Apps secure portal for applications, projects and digital services.">
-
-<style>
-
-:root{
-    --blue:#0867f2;
-    --blue-dark:#0555d8;
-    --blue2:#00a7ef;
-    --cyan:#21c4ff;
-    --navy:#07111f;
-    --text:#101828;
-    --muted:#667085;
-    --line:#dce6f0;
-    --soft:#eef7ff;
-    --white:#ffffff;
-}
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:var(--text);
-    background:#fff;
-    min-height:100vh;
-}
-
-button,
-input,
-select{
-    font:inherit;
-}
-
-button,
-select{
-    cursor:pointer;
-}
-
-a{
-    text-decoration:none;
-}
-
 /* =========================================================
-   SVG ICONS
-========================================================= */
-
-.svg-icon{
-    width:26px;
-    height:26px;
-    display:block;
-    fill:none;
-    stroke:currentColor;
-    stroke-width:2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-}
-
-.svg-icon.small{
-    width:20px;
-    height:20px;
-}
-
-.svg-icon.large{
-    width:38px;
-    height:38px;
-}
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header{
-    height:88px;
-    background:rgba(255,255,255,.97);
-    border-bottom:1px solid #e5edf5;
-    display:flex;
-    align-items:center;
-    position:relative;
-    z-index:10;
-    box-shadow:0 4px 20px rgba(15,45,80,.035);
-}
-
-.header-inner{
-    width:min(1440px,94%);
-    margin:auto;
-    display:flex;
-    align-items:center;
-    gap:34px;
-}
-
-/* BRAND */
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    cursor:pointer;
-    min-width:max-content;
-}
-
-.brand-icon{
-    width:50px;
-    height:50px;
-    position:relative;
-    flex:0 0 auto;
-}
-
-.brand-icon:before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    width:38px;
-    height:12px;
-    background:linear-gradient(90deg,var(--blue2),var(--blue));
-    box-shadow:0 4px 12px rgba(8,103,242,.12);
-}
-
-.brand-icon:after{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    width:12px;
-    height:48px;
-    background:linear-gradient(180deg,var(--blue2),var(--blue));
-}
-
-.brand-icon span{
-    position:absolute;
-    right:0;
-    bottom:0;
-    width:35px;
-    height:35px;
-    border:9px solid var(--blue);
-    border-left:0;
-    border-top:0;
-}
-
-.brand-text strong{
-    display:block;
-    font-size:25px;
-    letter-spacing:.3px;
-    line-height:1;
-}
-
-.brand-text b{
-    color:var(--blue);
-}
-
-.brand-text small{
-    display:block;
-    margin-top:6px;
-    font-size:10px;
-    letter-spacing:3px;
-    font-weight:700;
-    color:#4b5563;
-}
-
-/* NAV */
-
-.nav{
-    margin-left:auto;
-    display:flex;
-    align-items:center;
-    gap:4px;
-}
-
-.nav button{
-    border:0;
-    background:transparent;
-    color:#111827;
-    padding:11px 14px;
-    border-radius:10px;
-    font-size:14px;
-    font-weight:700;
-    transition:.2s ease;
-}
-
-.nav button:hover{
-    color:var(--blue);
-    background:#edf6ff;
-}
-
-.nav button.active{
-    color:var(--blue);
-    background:#edf6ff;
-}
-
-/* HEADER ACTIONS */
-
-.actions{
-    display:flex;
-    gap:12px;
-    align-items:center;
-}
-
-.lang{
-    height:52px;
-    border:1px solid #d6e1ec;
-    border-radius:14px;
-    background:#fff;
-    padding:0 14px;
-    font-weight:700;
-    color:#172033;
-    outline:none;
-    transition:.2s;
-}
-
-.lang:hover,
-.lang:focus{
-    border-color:#93c5fd;
-    box-shadow:0 0 0 4px rgba(8,103,242,.07);
-}
-
-.portal{
-    height:52px;
-    border:0;
-    border-radius:12px;
-    padding:0 22px;
-    color:#fff;
-    background:linear-gradient(135deg,var(--blue),var(--blue2));
-    font-weight:800;
-    display:flex;
-    align-items:center;
-    gap:9px;
-    box-shadow:0 10px 25px rgba(8,103,242,.23);
-    transition:.2s ease;
-}
-
-.portal:hover{
-    transform:translateY(-2px);
-    box-shadow:0 14px 30px rgba(8,103,242,.30);
-}
-
-/* =========================================================
-   LOGIN HERO
+   HERO — MATCH REFERENCE
 ========================================================= */
 
 .login-hero{
+    height:845px;
     min-height:845px;
     position:relative;
 
-    background:
-        url("it-zone-login-bg.png")
-        center 53% / cover
-        no-repeat;
+    background-image:url("it-zone-login-bg.png");
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    /* važno: kadar pomeren malo udesno */
+    background-position:center 52%;
 
     display:flex;
     align-items:center;
     overflow:hidden;
 }
 
+/* Tamniji samo levi deo — desna strana ostaje svetla */
 .login-hero:before{
     content:"";
     position:absolute;
@@ -274,36 +29,38 @@ a{
     background:
         linear-gradient(
             90deg,
-            rgba(3,15,30,.90) 0%,
-            rgba(3,18,36,.75) 38%,
-            rgba(5,34,65,.36) 61%,
-            rgba(6,45,83,.10) 100%
+            rgba(4,16,29,.82) 0%,
+            rgba(4,17,31,.72) 27%,
+            rgba(4,20,37,.48) 43%,
+            rgba(4,25,45,.20) 58%,
+            rgba(4,25,45,.05) 74%,
+            rgba(4,25,45,0) 100%
         );
 }
 
+/* uklanjamo plavu svetleću kuglu */
 .login-hero:after{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    right:-230px;
-    top:-260px;
-    border-radius:50%;
-    background:rgba(0,167,239,.16);
-    filter:blur(70px);
-    pointer-events:none;
+    display:none;
 }
 
 .login-inner{
     position:relative;
     z-index:2;
+
     width:min(1180px,90%);
-    margin:auto;
+    margin:0 auto;
+
     display:grid;
-    grid-template-columns:1fr 520px;
-    gap:85px;
+
+    /* približno odnosu sa referentne slike */
+    grid-template-columns:470px 520px;
+
+    justify-content:space-between;
     align-items:center;
+
+    gap:100px;
 }
+
 
 /* =========================================================
    LEFT SIDE
@@ -311,19 +68,26 @@ a{
 
 .intro{
     color:#fff;
-    text-shadow:0 2px 15px rgba(0,0,0,.10);
+    text-shadow:0 2px 14px rgba(0,0,0,.12);
 }
 
 .intro h1{
-    font-size:59px;
-    line-height:1;
+    font-size:58px;
+    line-height:.98;
     font-weight:800;
-    letter-spacing:-1.8px;
-    margin-bottom:14px;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:18px;
 }
 
 .intro h1 span{
-    background:linear-gradient(90deg,#24c3ff,#0877f9);
+    background:linear-gradient(
+        90deg,
+        #16b7ff,
+        #0875f5
+    );
+
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -331,119 +95,151 @@ a{
 
 .intro .sub{
     font-size:18px;
+    font-weight:500;
+
     letter-spacing:6px;
-    margin-bottom:36px;
-    color:#f2f7fc;
+
+    margin-bottom:35px;
+
+    color:#fff;
 }
 
 .intro .lead{
-    font-size:22px;
-    line-height:1.55;
-    max-width:490px;
+    font-size:21px;
+    line-height:1.5;
+
+    max-width:450px;
+
     margin-bottom:34px;
-    color:#f4f8fc;
+
+    color:#fff;
 }
 
-/* BENEFITS */
+
+/* =========================================================
+   BENEFITS
+========================================================= */
 
 .benefit{
     display:flex;
-    gap:18px;
     align-items:center;
+
+    gap:18px;
+
     margin:16px 0;
 }
 
 .benefit-icon{
     width:64px;
     height:64px;
+
     flex:0 0 64px;
-    border-radius:16px;
+
+    border-radius:15px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(16,145,255,.32),
-            rgba(0,91,210,.18)
+            rgba(23,132,242,.34),
+            rgba(14,87,184,.25)
         );
 
-    border:1px solid rgba(124,203,255,.36);
+    border:
+        1px solid
+        rgba(106,188,255,.38);
 
     display:grid;
     place-items:center;
 
-    color:#67caff;
+    color:#ffffff;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 8px 24px rgba(0,75,180,.10);
+        inset 0 1px 0 rgba(255,255,255,.14),
+        0 8px 22px rgba(0,55,120,.12);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(7px);
+}
+
+.benefit-icon .svg-icon{
+    width:32px;
+    height:32px;
+
+    stroke:#ffffff;
+
+    filter:
+        drop-shadow(
+            0 2px 5px
+            rgba(0,102,255,.25)
+        );
 }
 
 .benefit strong{
-    font-size:19px;
     display:block;
-    margin-bottom:5px;
+
+    margin-bottom:4px;
+
+    font-size:19px;
+    font-weight:700;
+
+    color:#fff;
 }
 
 .benefit span{
     font-size:15px;
-    color:#dbe7f2;
+
+    color:
+        rgba(255,255,255,.86);
 }
 
+
 /* =========================================================
-   LOGIN CARD
+   LOGIN CARD — MATCH REFERENCE
 ========================================================= */
 
 .card{
     position:relative;
 
+    width:520px;
+
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.985),
-            rgba(247,251,255,.97)
-        );
+        rgba(255,255,255,.965);
 
-    border:1px solid rgba(255,255,255,.75);
+    border:
+        1px solid
+        rgba(255,255,255,.85);
 
-    border-radius:28px;
+    border-radius:27px;
 
-    padding:37px 45px 32px;
+    padding:
+        35px 45px
+        30px;
 
     box-shadow:
-        0 35px 90px rgba(0,17,42,.30),
-        0 0 0 1px rgba(8,103,242,.04),
-        0 0 50px rgba(0,167,239,.08);
+        0 25px 65px
+        rgba(0,20,45,.26);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(15px);
 }
 
+/* uklanjamo dodatni glow */
 .card:before{
-    content:"";
-    position:absolute;
-    inset:-1px;
-    border-radius:28px;
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.65),
-            transparent 35%,
-            rgba(0,167,239,.08)
-        );
+    display:none;
 }
 
-/* SECURITY PORTAL ICON */
+
+/* =========================================================
+   SECURITY ICON
+========================================================= */
 
 .security-icon{
-    width:78px;
-    height:78px;
+    width:74px;
+    height:74px;
 
-    margin:0 auto 18px;
+    margin:
+        0 auto
+        17px;
 
-    border-radius:21px;
+    border-radius:19px;
 
     position:relative;
 
@@ -455,102 +251,69 @@ a{
     background:
         linear-gradient(
             145deg,
-            #078cf7 0%,
-            #0867f2 48%,
-            #0349c7 100%
+            #0aa3f7 0%,
+            #0874f5 52%,
+            #0457da 100%
         );
 
     box-shadow:
-        0 15px 32px rgba(8,103,242,.32),
-        inset 0 1px 0 rgba(255,255,255,.25);
+        0 12px 26px
+        rgba(8,103,242,.30);
 }
 
 .security-icon:before{
-    content:"";
-    position:absolute;
-    width:56px;
-    height:56px;
-    border-radius:18px;
-    background:rgba(255,255,255,.05);
+    display:none;
 }
 
 .security-icon svg{
-    width:43px;
-    height:43px;
+    width:40px;
+    height:40px;
+
     position:relative;
     z-index:2;
 }
 
-.security-icon .shield{
-    fill:rgba(255,255,255,.10);
-    stroke:#fff;
-    stroke-width:2.4;
-}
 
-.security-icon .lock-body{
-    fill:#fff;
-    stroke:#fff;
-}
-
-.security-icon .lock-loop{
-    fill:none;
-    stroke:#fff;
-    stroke-width:2.5;
-    stroke-linecap:round;
-}
-
-.security-icon .keyhole{
-    fill:var(--blue);
-    stroke:none;
-}
-
-/* SECURITY LABEL */
+/* =========================================================
+   SECURITY PORTAL LABEL
+========================================================= */
 
 .security-label{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:7px;
-
-    width:max-content;
-    max-width:100%;
-
-    margin:0 auto 12px;
-
-    padding:6px 11px;
-
-    border-radius:999px;
-
-    background:#edf6ff;
-
-    color:#0872dd;
-
-    font-size:10px;
-    font-weight:800;
-
-    letter-spacing:1.4px;
-    text-transform:uppercase;
+    display:none;
 }
 
-.security-label svg{
-    width:13px;
-    height:13px;
-}
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
 
 .card h2{
     text-align:center;
+
     font-size:34px;
+    line-height:1.1;
+
+    font-weight:800;
+
     letter-spacing:-.8px;
-    margin-bottom:7px;
+
+    margin-bottom:9px;
+
+    color:#101828;
 }
 
 .card .desc{
     text-align:center;
-    color:var(--muted);
-    line-height:1.5;
-    margin-bottom:25px;
+
+    color:#667085;
+
+    line-height:1.45;
+
+    margin-bottom:27px;
+
     font-size:15px;
 }
+
 
 /* =========================================================
    FORM
@@ -562,18 +325,24 @@ a{
 
 .field label{
     display:block;
-    font-weight:800;
+
+    font-weight:700;
+
     margin-bottom:7px;
+
     font-size:14px;
-    color:#172033;
+
+    color:#101828;
 }
 
 .input{
-    height:55px;
+    height:54px;
 
-    border:1px solid #cfd9e4;
+    border:
+        1px solid
+        #ccd6e1;
 
-    border-radius:12px;
+    border-radius:11px;
 
     display:flex;
     align-items:center;
@@ -588,65 +357,38 @@ a{
 
     transition:.2s ease;
 
-    box-shadow:0 2px 8px rgba(28,58,92,.025);
+    box-shadow:none;
 }
 
 .input:focus-within{
-    border-color:#4da5ff;
+    border-color:#1687f7;
 
     box-shadow:
-        0 0 0 4px rgba(8,103,242,.09),
-        0 5px 15px rgba(8,103,242,.06);
+        0 0 0 3px
+        rgba(8,103,242,.08);
 
-    color:var(--blue);
+    color:#0867f2;
 }
 
-.input input{
-    border:0;
-    outline:0;
-    width:100%;
-    height:100%;
-    font-size:15px;
-    color:#172033;
-    background:transparent;
-}
-
-.input input::placeholder{
-    color:#98a2b3;
-}
-
-.eye{
-    border:0;
-    background:transparent;
-    cursor:pointer;
-    color:#667085;
-    display:grid;
-    place-items:center;
-    padding:5px;
-}
-
-.eye:hover{
-    color:var(--blue);
-}
 
 /* =========================================================
    LOGIN BUTTON
 ========================================================= */
 
 .login-btn{
-    height:56px;
+    height:55px;
     width:100%;
 
     border:0;
 
-    border-radius:12px;
+    border-radius:11px;
 
     background:
         linear-gradient(
             90deg,
-            #0867f2 0%,
-            #078af7 55%,
-            #09aff2 100%
+            #0872f5 0%,
+            #078ef5 55%,
+            #08aff1 100%
         );
 
     color:#fff;
@@ -661,82 +403,75 @@ a{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:9px;
+
+    gap:10px;
 
     box-shadow:
-        0 11px 24px rgba(8,103,242,.23);
-
-    transition:.2s ease;
+        0 8px 18px
+        rgba(8,103,242,.20);
 }
 
-.login-btn:hover{
-    transform:translateY(-2px);
 
-    box-shadow:
-        0 15px 30px rgba(8,103,242,.30);
-}
-
-.login-btn:active{
-    transform:translateY(0);
-}
+/* =========================================================
+   OR
+========================================================= */
 
 .or{
     display:flex;
     align-items:center;
+
     gap:15px;
-    color:#98a2b3;
-    margin:18px 0;
+
+    color:#7c8797;
+
+    margin:17px 0;
+
     font-size:12px;
-    font-weight:700;
+
+    font-weight:500;
 }
 
 .or:before,
 .or:after{
     content:"";
+
     height:1px;
+
     background:#dce3eb;
+
     flex:1;
 }
+
 
 /* =========================================================
    GOOGLE
 ========================================================= */
 
 .google{
-    height:54px;
+    height:53px;
     width:100%;
 
-    border:1px solid #cfd9e4;
+    border:
+        1px solid
+        #cfd9e4;
 
-    border-radius:12px;
+    border-radius:11px;
 
     background:#fff;
 
-    color:#172033;
+    color:#101828;
 
-    font-weight:800;
+    font-weight:700;
 
     cursor:pointer;
 
     display:flex;
     justify-content:center;
     align-items:center;
+
     gap:10px;
-
-    transition:.2s ease;
 }
 
-.google:hover{
-    border-color:#9fc4ec;
-    background:#f9fcff;
-    box-shadow:0 6px 18px rgba(25,70,110,.07);
-}
-
-.google-logo{
-    width:21px;
-    height:21px;
-    display:block;
-}
 
 /* =========================================================
    OPTIONS
@@ -744,151 +479,41 @@ a{
 
 .options{
     display:flex;
+
     justify-content:space-between;
     align-items:center;
+
     gap:15px;
 
     font-size:14px;
 
-    margin-top:18px;
+    margin-top:17px;
 
     color:#475467;
 }
 
-.remember{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    cursor:pointer;
-}
-
-.remember input{
-    width:18px;
-    height:18px;
-    accent-color:var(--blue);
-    cursor:pointer;
-}
-
-.options a,
-.signup a{
-    color:var(--blue);
-    font-weight:700;
-    text-decoration:none;
-}
-
-.options a:hover,
-.signup a:hover{
-    text-decoration:underline;
-}
-
 .signup{
     text-align:center;
-    margin-top:34px;
+
+    margin-top:31px;
+
     color:#667085;
+
     font-size:14px;
 }
 
+
 /* =========================================================
-   FOOTER
+   DESKTOP LARGE
 ========================================================= */
 
-.footer{
-    min-height:90px;
-    display:flex;
-    align-items:center;
-    border-top:1px solid #e7edf4;
-    background:#fff;
+@media(min-width:1400px){
+
+    .login-inner{
+        width:1180px;
+    }
 }
 
-.footer-inner{
-    width:min(1440px,94%);
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:1fr auto 1fr;
-    align-items:center;
-    gap:30px;
-}
-
-.footer-brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    min-width:max-content;
-}
-
-.footer-brand .brand-icon{
-    width:39px;
-    height:39px;
-    transform:scale(.75);
-    transform-origin:left center;
-    margin-right:-7px;
-}
-
-.footer-brand-text strong{
-    display:block;
-    font-size:15px;
-}
-
-.footer-brand-text strong span{
-    color:var(--blue);
-}
-
-.footer-brand-text small{
-    display:block;
-    font-size:6px;
-    letter-spacing:1.6px;
-    margin-top:3px;
-    color:#667085;
-    font-weight:700;
-}
-
-.footer-links{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    color:#667085;
-    font-size:13px;
-}
-
-.footer-links a{
-    color:#667085;
-    transition:.2s;
-}
-
-.footer-links a:hover{
-    color:var(--blue);
-}
-
-.footer-dot{
-    color:#b2bdca;
-}
-
-.footer-social{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:15px;
-    color:#101828;
-}
-
-.footer-social button{
-    width:35px;
-    height:35px;
-    border:0;
-    border-radius:9px;
-    background:transparent;
-    display:grid;
-    place-items:center;
-    color:#101828;
-    transition:.2s;
-}
-
-.footer-social button:hover{
-    background:#edf6ff;
-    color:var(--blue);
-}
 
 /* =========================================================
    TABLET
@@ -896,45 +521,46 @@ a{
 
 @media(max-width:1050px){
 
-    .nav{
-        gap:0;
-    }
-
-    .nav button{
-        padding:10px 8px;
-        font-size:13px;
-    }
-
     .login-inner{
+        width:92%;
+
+        grid-template-columns:
+            minmax(360px,1fr)
+            470px;
+
         gap:45px;
-        grid-template-columns:1fr 480px;
+    }
+
+    .card{
+        width:470px;
     }
 }
 
+
 @media(max-width:900px){
 
-    .nav{
-        display:none;
+    .login-hero{
+        height:auto;
+        min-height:auto;
+
+        background-position:center center;
     }
 
     .login-inner{
         grid-template-columns:1fr;
-        gap:35px;
-        padding:50px 0;
-    }
 
-    .login-hero{
-        min-height:auto;
-        background-position:center center;
+        gap:38px;
+
+        padding:50px 0;
     }
 
     .login-hero:before{
         background:
             linear-gradient(
                 180deg,
-                rgba(3,16,31,.83) 0%,
-                rgba(3,16,31,.66) 48%,
-                rgba(3,16,31,.42) 100%
+                rgba(3,16,31,.78) 0%,
+                rgba(3,16,31,.60) 48%,
+                rgba(3,16,31,.32) 100%
             );
     }
 
@@ -949,34 +575,22 @@ a{
 
     .benefit{
         max-width:390px;
-        margin:15px auto;
+
+        margin:
+            15px auto;
+
         text-align:left;
     }
 
     .card{
-        max-width:540px;
         width:100%;
+
+        max-width:520px;
+
         margin:auto;
     }
-
-    .footer{
-        padding:24px 0;
-    }
-
-    .footer-inner{
-        display:flex;
-        flex-direction:column;
-        gap:18px;
-    }
-
-    .footer-links{
-        flex-wrap:wrap;
-    }
-
-    .footer-social{
-        justify-content:center;
-    }
 }
+
 
 /* =========================================================
    MOBILE
@@ -984,52 +598,12 @@ a{
 
 @media(max-width:560px){
 
-    .header{
-        height:70px;
-    }
-
-    .header-inner{
-        width:94%;
-        gap:8px;
-    }
-
-    .brand{
-        gap:6px;
-    }
-
-    .brand-text strong{
-        font-size:16px;
-    }
-
-    .brand-text small{
-        font-size:7px;
-        letter-spacing:1.4px;
-        margin-top:4px;
-    }
-
-    .brand-icon{
-        transform:scale(.78);
-        transform-origin:left center;
-        margin-right:-7px;
-    }
-
-    .actions{
-        margin-left:auto;
-    }
-
-    .portal{
-        display:none;
-    }
-
-    .lang{
-        height:42px;
-        padding:0 8px;
-        font-size:12px;
-    }
-
     .login-inner{
         width:92%;
-        padding:38px 0;
+
+        padding:
+            38px 0
+            42px;
     }
 
     .intro h1{
@@ -1038,12 +612,15 @@ a{
 
     .intro .sub{
         font-size:12px;
+
         letter-spacing:3.5px;
+
         margin-bottom:27px;
     }
 
     .intro .lead{
         font-size:17px;
+
         margin-bottom:28px;
     }
 
@@ -1054,8 +631,15 @@ a{
     .benefit-icon{
         width:55px;
         height:55px;
+
         flex-basis:55px;
+
         border-radius:14px;
+    }
+
+    .benefit-icon .svg-icon{
+        width:27px;
+        height:27px;
     }
 
     .benefit strong{
@@ -1067,813 +651,21 @@ a{
     }
 
     .card{
-        padding:29px 20px 25px;
+        padding:
+            29px 20px
+            25px;
+
         border-radius:23px;
     }
 
     .security-icon{
         width:68px;
         height:68px;
-        border-radius:18px;
-    }
 
-    .security-icon svg{
-        width:37px;
-        height:37px;
+        border-radius:18px;
     }
 
     .card h2{
         font-size:28px;
     }
-
-    .card .desc{
-        font-size:14px;
-    }
-
-    .options{
-        font-size:12px;
-    }
-
-    .signup{
-        margin-top:28px;
-    }
-
-    .footer-links{
-        font-size:11px;
-        gap:7px;
-    }
 }
-
-@media(max-width:390px){
-
-    .brand-text small{
-        display:none;
-    }
-
-    .intro h1{
-        font-size:36px;
-    }
-
-    .options{
-        align-items:flex-start;
-        flex-direction:column;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- ======================================================
-     HEADER
-====================================================== -->
-
-<header class="header">
-
-<div class="header-inner">
-
-    <div class="brand">
-
-        <div class="brand-icon">
-            <span></span>
-        </div>
-
-        <div class="brand-text">
-
-            <strong>
-                IT ZONE <b>APPS</b>
-            </strong>
-
-            <small>
-                WEB & APP DEVELOPMENT
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <nav class="nav">
-
-        <button class="active">
-            Home
-        </button>
-
-        <button>
-            Applications
-        </button>
-
-        <button>
-            Projects
-        </button>
-
-        <button>
-            News
-        </button>
-
-        <button>
-            About
-        </button>
-
-        <button>
-            Contact
-        </button>
-
-    </nav>
-
-
-    <div class="actions">
-
-        <select class="lang" aria-label="Language">
-
-            <option value="en">
-                🌐 EN
-            </option>
-
-            <option value="sr">
-                🇷🇸 SR
-            </option>
-
-            <option value="de">
-                🇦🇹 DE
-            </option>
-
-            <option value="hu">
-                🇭🇺 HU
-            </option>
-
-        </select>
-
-
-        <button class="portal">
-
-            <svg class="svg-icon small" viewBox="0 0 24 24">
-                <path d="M7 10V7a5 5 0 0 1 10 0v3"/>
-                <rect x="5" y="10" width="14" height="11" rx="2"/>
-                <path d="M12 14v3"/>
-            </svg>
-
-            Security Portal
-
-        </button>
-
-    </div>
-
-</div>
-
-</header>
-
-
-<!-- ======================================================
-     LOGIN AREA
-====================================================== -->
-
-<main class="login-hero">
-
-<div class="login-inner">
-
-
-<!-- ======================================================
-     LEFT SIDE
-====================================================== -->
-
-<section class="intro">
-
-    <h1>
-        IT ZONE
-        <span>APPS</span>
-    </h1>
-
-    <div class="sub">
-        WEB & APP DEVELOPMENT
-    </div>
-
-
-    <p class="lead">
-        Secure access to applications,
-        <br>
-        projects and digital services.
-    </p>
-
-
-    <!-- SECURE LOGIN -->
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-
-            <svg class="svg-icon large" viewBox="0 0 24 24">
-
-                <path d="M12 3l7 3v5c0 4.8-2.8 8-7 10-4.2-2-7-5.2-7-10V6l7-3z"/>
-
-                <path d="M9.5 12l1.7 1.7 3.5-3.5"/>
-
-            </svg>
-
-        </div>
-
-        <div>
-
-            <strong>
-                Secure Login
-            </strong>
-
-            <span>
-                Your data is protected
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- CLOUD -->
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-
-            <svg class="svg-icon large" viewBox="0 0 24 24">
-
-                <path d="M6.5 18h11a4 4 0 0 0 .5-8A6 6 0 0 0 6.7 8.5 4.8 4.8 0 0 0 6.5 18z"/>
-
-                <path d="M12 11v5"/>
-
-                <path d="M9.8 13.2L12 11l2.2 2.2"/>
-
-            </svg>
-
-        </div>
-
-        <div>
-
-            <strong>
-                Cloud Access
-            </strong>
-
-            <span>
-                Access from anywhere
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- APPS -->
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-
-            <svg class="svg-icon large" viewBox="0 0 24 24">
-
-                <rect x="7" y="2.5" width="10" height="19" rx="2"/>
-
-                <path d="M10 5h4"/>
-
-                <circle cx="12" cy="18.5" r=".7"/>
-
-            </svg>
-
-        </div>
-
-        <div>
-
-            <strong>
-                All Your Apps
-            </strong>
-
-            <span>
-                In one place
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- FEATURES -->
-
-    <div class="benefit">
-
-        <div class="benefit-icon">
-
-            <svg class="svg-icon large" viewBox="0 0 24 24">
-
-                <circle cx="12" cy="12" r="3"/>
-
-                <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/>
-
-            </svg>
-
-        </div>
-
-        <div>
-
-            <strong>
-                Future Features
-            </strong>
-
-            <span>
-                New tools coming soon
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ======================================================
-     LOGIN CARD
-====================================================== -->
-
-<section class="card">
-
-
-    <!-- SECURITY ICON -->
-
-    <div class="security-icon">
-
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-
-            <path
-                class="shield"
-                d="M32 5L53 13V28C53 42 45 52 32 59C19 52 11 42 11 28V13L32 5Z"
-            />
-
-            <path
-                class="lock-loop"
-                d="M25 31V25C25 16 39 16 39 25V31"
-            />
-
-            <rect
-                class="lock-body"
-                x="22"
-                y="29"
-                width="20"
-                height="17"
-                rx="4"
-            />
-
-            <circle
-                class="keyhole"
-                cx="32"
-                cy="37"
-                r="2"
-            />
-
-        </svg>
-
-    </div>
-
-
-    <div class="security-label">
-
-        <svg class="svg-icon" viewBox="0 0 24 24">
-            <path d="M12 3l7 3v5c0 4.8-2.8 8-7 10-4.2-2-7-5.2-7-10V6l7-3z"/>
-        </svg>
-
-        Security Portal
-
-    </div>
-
-
-    <h2>
-        Welcome Back
-    </h2>
-
-
-    <p class="desc">
-        Log in to your IT Zone Apps account
-        <br>
-        and access all applications and services.
-    </p>
-
-
-    <form
-        onsubmit="
-        event.preventDefault();
-        alert('Demo login — connect this form to Supabase/Auth next.');
-        "
-    >
-
-
-        <!-- EMAIL -->
-
-        <div class="field">
-
-            <label for="email">
-                Email
-            </label>
-
-            <div class="input">
-
-                <svg class="svg-icon small" viewBox="0 0 24 24">
-
-                    <rect
-                        x="3"
-                        y="5"
-                        width="18"
-                        height="14"
-                        rx="2"
-                    />
-
-                    <path d="M3 7l9 6 9-6"/>
-
-                </svg>
-
-
-                <input
-                    id="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    autocomplete="email"
-                    required
-                >
-
-            </div>
-
-        </div>
-
-
-        <!-- PASSWORD -->
-
-        <div class="field">
-
-            <label for="password">
-                Password
-            </label>
-
-            <div class="input">
-
-                <svg class="svg-icon small" viewBox="0 0 24 24">
-
-                    <rect
-                        x="5"
-                        y="10"
-                        width="14"
-                        height="11"
-                        rx="2"
-                    />
-
-                    <path
-                        d="M8 10V7a4 4 0 0 1 8 0v3"
-                    />
-
-                </svg>
-
-
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="Enter your password"
-                    autocomplete="current-password"
-                    required
-                >
-
-
-                <button
-                    class="eye"
-                    type="button"
-                    onclick="togglePassword()"
-                    aria-label="Show or hide password"
-                >
-
-                    <svg
-                        id="eyeIcon"
-                        class="svg-icon small"
-                        viewBox="0 0 24 24"
-                    >
-
-                        <path
-                            d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"
-                        />
-
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="2.5"
-                        />
-
-                    </svg>
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- LOGIN -->
-
-        <button
-            class="login-btn"
-            type="submit"
-        >
-
-            Log In
-
-            <svg class="svg-icon small" viewBox="0 0 24 24">
-
-                <path d="M5 12h14"/>
-
-                <path d="M14 7l5 5-5 5"/>
-
-            </svg>
-
-        </button>
-
-
-        <div class="or">
-            OR
-        </div>
-
-
-        <!-- GOOGLE -->
-
-        <button
-            class="google"
-            type="button"
-        >
-
-            <svg
-                class="google-logo"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-            >
-
-                <path
-                    fill="#4285F4"
-                    d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"
-                />
-
-                <path
-                    fill="#34A853"
-                    d="M12 22c2.7 0 5-.9 6.6-2.5L15.4 17c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z"
-                />
-
-                <path
-                    fill="#FBBC05"
-                    d="M6.4 13.9A6 6 0 0 1 6.1 12c0-.7.1-1.3.3-1.9V7.5H3.1A10 10 0 0 0 2 12c0 1.6.4 3.1 1.1 4.5l3.3-2.6z"
-                />
-
-                <path
-                    fill="#EA4335"
-                    d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A9.7 9.7 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6C7.2 7.8 9.4 6 12 6z"
-                />
-
-            </svg>
-
-            Continue with Google
-
-        </button>
-
-
-        <!-- OPTIONS -->
-
-        <div class="options">
-
-            <label class="remember">
-
-                <input type="checkbox">
-
-                <span>
-                    Remember me
-                </span>
-
-            </label>
-
-
-            <a href="#">
-                Forgot password?
-            </a>
-
-        </div>
-
-
-        <!-- SIGN UP -->
-
-        <div class="signup">
-
-            Don't have an account?
-
-            &nbsp;
-
-            <a href="#">
-                Sign Up
-            </a>
-
-        </div>
-
-    </form>
-
-</section>
-
-</div>
-
-</main>
-
-
-<!-- ======================================================
-     FOOTER
-====================================================== -->
-
-<footer class="footer">
-
-<div class="footer-inner">
-
-
-    <!-- FOOTER LOGO -->
-
-    <div class="footer-brand">
-
-        <div class="brand-icon">
-            <span></span>
-        </div>
-
-        <div class="footer-brand-text">
-
-            <strong>
-                IT ZONE
-                <span>APPS</span>
-            </strong>
-
-            <small>
-                WEB & APP DEVELOPMENT
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <!-- LINKS -->
-
-    <div class="footer-links">
-
-        <a href="#">
-            Contact
-        </a>
-
-        <span class="footer-dot">
-            •
-        </span>
-
-        <a href="#">
-            Privacy Policy
-        </a>
-
-        <span class="footer-dot">
-            •
-        </span>
-
-        <a href="#">
-            Datenschutz
-        </a>
-
-        <span class="footer-dot">
-            •
-        </span>
-
-        <a href="#">
-            Terms / AGB
-        </a>
-
-        <span class="footer-dot">
-            •
-        </span>
-
-        <a href="#">
-            Impressum
-        </a>
-
-    </div>
-
-
-    <!-- FOOTER ICONS -->
-
-    <div class="footer-social">
-
-        <button
-            type="button"
-            aria-label="Email"
-        >
-
-            <svg class="svg-icon small" viewBox="0 0 24 24">
-
-                <rect
-                    x="3"
-                    y="5"
-                    width="18"
-                    height="14"
-                    rx="2"
-                />
-
-                <path d="M3 7l9 6 9-6"/>
-
-            </svg>
-
-        </button>
-
-
-        <button
-            type="button"
-            aria-label="Code"
-        >
-
-            <svg class="svg-icon small" viewBox="0 0 24 24">
-
-                <path d="M8 9l-3 3 3 3"/>
-
-                <path d="M16 9l3 3-3 3"/>
-
-                <path d="M14 5l-4 14"/>
-
-            </svg>
-
-        </button>
-
-
-        <button
-            type="button"
-            aria-label="Website"
-        >
-
-            <svg class="svg-icon small" viewBox="0 0 24 24">
-
-                <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
-                />
-
-                <path
-                    d="M3 12h18"
-                />
-
-                <path
-                    d="M12 3a14 14 0 0 1 0 18"
-                />
-
-                <path
-                    d="M12 3a14 14 0 0 0 0 18"
-                />
-
-            </svg>
-
-        </button>
-
-    </div>
-
-</div>
-
-</footer>
-
-
-<script>
-
-/* =========================================================
-   PASSWORD VISIBILITY
-========================================================= */
-
-function togglePassword(){
-
-    const password =
-        document.getElementById("password");
-
-    const eye =
-        document.getElementById("eyeIcon");
-
-
-    if(password.type === "password"){
-
-        password.type = "text";
-
-        eye.innerHTML = `
-            <path d="M3 3l18 18"></path>
-            <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"></path>
-            <path d="M9.8 5.2A10.5 10.5 0 0 1 12 5c6 0 9.5 7 9.5 7a15.5 15.5 0 0 1-2.1 2.8"></path>
-            <path d="M6.6 6.6C4 8.3 2.5 12 2.5 12S6 19 12 19c1.7 0 3.2-.5 4.5-1.2"></path>
-        `;
-
-    }else{
-
-        password.type = "password";
-
-        eye.innerHTML = `
-            <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"></path>
-            <circle cx="12" cy="12" r="2.5"></circle>
-        `;
-
-    }
-
-}
-
-</script>
-
-</body>
-    </html>
