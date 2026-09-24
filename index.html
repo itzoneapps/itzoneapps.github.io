@@ -5,21 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>IT Zone Apps</title>
-
-<meta name="description"
-content="IT Zone Apps - software development, web solutions and digital projects.">
+<meta name="description" content="IT Zone Apps - web development, mobile applications, software and digital solutions.">
 
 <style>
-
 :root{
-    --blue:#075cff;
-    --blue2:#003ca8;
+    --blue:#0867f2;
+    --blue2:#00a7ef;
     --dark:#07111f;
-    --text:#18263a;
-    --muted:#6d7b8e;
-    --line:#dce5ef;
-    --bg:#f4f8fc;
+    --text:#111827;
+    --muted:#667085;
+    --line:#dce6f0;
+    --bg:#f7fbff;
     --white:#ffffff;
+    --soft:#eef7ff;
 }
 
 *{
@@ -34,607 +32,1110 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:
-        radial-gradient(circle at 15% 0%,rgba(0,92,255,.07),transparent 32%),
-        linear-gradient(180deg,#f8fbff 0%,#eef4fa 100%);
     color:var(--text);
+    background:#fff;
     min-height:100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
+button,select{
+    font:inherit;
+}
 
-.topbar{
-    width:100%;
-    height:64px;
+/* ========================================
+   HEADER
+======================================== */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid #e7edf4;
+    backdrop-filter:blur(14px);
+}
+
+.header-inner{
+    max-width:1220px;
+    height:82px;
+    margin:auto;
+    padding:0 26px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 32px;
-    background:rgba(255,255,255,.92);
-    border-bottom:1px solid var(--line);
-    position:sticky;
-    top:0;
-    z-index:50;
-    backdrop-filter:blur(12px);
+    gap:30px;
 }
 
-.brand-small{
+.brand{
     display:flex;
     align-items:center;
-    gap:11px;
-    font-weight:800;
-    font-size:17px;
-    color:var(--dark);
-}
-
-.brand-symbol{
-    width:34px;
-    height:34px;
-    border-radius:10px;
-    background:linear-gradient(135deg,var(--blue),var(--blue2));
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:900;
-    font-size:16px;
-    box-shadow:0 7px 18px rgba(0,92,255,.22);
-}
-
-.top-right{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.status{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    font-size:12px;
-    font-weight:700;
-    color:#64748b;
-}
-
-.status-dot{
-    width:8px;
-    height:8px;
-    background:#19b46b;
-    border-radius:50%;
-    box-shadow:0 0 0 4px rgba(25,180,107,.11);
-}
-
-.lang-select{
-    border:1px solid var(--line);
-    background:white;
-    height:38px;
-    border-radius:11px;
-    padding:0 10px;
-    font-weight:700;
-    color:#334155;
+    gap:13px;
+    min-width:max-content;
     cursor:pointer;
-    outline:none;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    max-width:1180px;
-    margin:38px auto 0;
-    padding:0 24px;
-}
-
-.hero-card{
-    min-height:370px;
-    border-radius:30px;
-    overflow:hidden;
+.brand-icon{
+    width:50px;
+    height:50px;
     position:relative;
-    background:
-        radial-gradient(circle at 78% 30%,rgba(0,92,255,.27),transparent 25%),
-        linear-gradient(135deg,#02060d 0%,#07101d 55%,#020711 100%);
-    box-shadow:0 28px 70px rgba(17,39,74,.20);
+    border-radius:3px;
 }
 
-.hero-grid{
-    position:absolute;
-    inset:0;
-    opacity:.13;
-    background-image:
-        linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);
-    background-size:38px 38px;
-    mask-image:linear-gradient(to right,black,transparent);
-}
-
-.hero-glow{
-    position:absolute;
-    width:430px;
-    height:430px;
-    border-radius:50%;
-    background:#005cff;
-    filter:blur(130px);
-    opacity:.15;
-    right:-120px;
-    top:-160px;
-}
-
-.hero-content{
-    position:relative;
-    z-index:3;
-    min-height:370px;
-    display:grid;
-    grid-template-columns:1fr 390px;
-    align-items:center;
-    gap:35px;
-    padding:48px 58px;
-}
-
-.hero-text{
-    color:white;
-}
-
-.eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:7px 12px;
-    border-radius:999px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
-    color:#9ebeff;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1.4px;
-    text-transform:uppercase;
-    margin-bottom:18px;
-}
-
-.hero-text h1{
-    font-size:48px;
-    line-height:1.03;
-    letter-spacing:-1.8px;
-    margin-bottom:16px;
-}
-
-.hero-text h1 span{
-    color:#1469ff;
-}
-
-.hero-text p{
-    max-width:570px;
-    color:#aebbd0;
-    font-size:16px;
-    line-height:1.7;
-}
-
-.hero-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:9px;
-    margin-top:25px;
-}
-
-.hero-tags span{
-    padding:8px 11px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.05);
-    border-radius:9px;
-    color:#c9d5e7;
-    font-size:11px;
-    font-weight:700;
-}
-
-/* =========================
-   LOGO CARD
-========================= */
-
-.logo-card{
-    width:100%;
-    max-width:360px;
-    justify-self:end;
-    background:#000;
-    border-radius:25px;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 22px 50px rgba(0,0,0,.38);
-    position:relative;
-}
-
-.logo-card img{
-    display:block;
-    width:100%;
-    height:auto;
-}
-
-/* mask old Google Play Developer text */
-
-.logo-mask{
+.brand-icon::before{
+    content:"";
     position:absolute;
     left:0;
+    top:0;
+    width:38px;
+    height:12px;
+    background:linear-gradient(90deg,var(--blue2),var(--blue));
+}
+
+.brand-icon::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:12px;
+    height:48px;
+    background:linear-gradient(180deg,var(--blue2),var(--blue));
+}
+
+.brand-icon span{
+    position:absolute;
     right:0;
     bottom:0;
-    height:31%;
-    background:linear-gradient(
-        180deg,
-        rgba(0,0,0,0) 0%,
-        #000 33%,
-        #000 100%
-    );
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    padding-bottom:24px;
+    width:35px;
+    height:35px;
+    border:9px solid var(--blue);
+    border-left:0;
+    border-top:0;
 }
 
-.logo-mask span{
-    color:#dce6f7;
-    font-size:12px;
+.brand-text strong{
+    display:block;
+    font-size:20px;
+    letter-spacing:.4px;
+}
+
+.brand-text strong b{
+    color:var(--blue);
+}
+
+.brand-text small{
+    display:block;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-top:3px;
+    color:#4b5563;
     font-weight:700;
-    letter-spacing:4px;
-    text-transform:uppercase;
 }
 
-/* =========================
-   MAIN
-========================= */
-
-.main{
-    max-width:1180px;
-    margin:24px auto;
-    padding:0 24px;
-    display:grid;
-    grid-template-columns:235px 1fr;
-    gap:20px;
-}
-
-.sidebar,
-.content{
-    background:rgba(255,255,255,.92);
-    border:1px solid var(--line);
-    box-shadow:0 15px 40px rgba(37,63,96,.07);
-}
-
-.sidebar{
-    border-radius:20px;
-    padding:18px;
-    align-self:start;
-}
-
-.menu-title{
-    font-size:12px;
-    color:#94a3b8;
-    text-transform:uppercase;
-    letter-spacing:1.4px;
-    font-weight:800;
-    padding:5px 8px 13px;
-}
-
-.nav-button{
-    width:100%;
-    border:0;
-    background:transparent;
-    padding:13px 14px;
-    border-radius:12px;
-    margin-bottom:5px;
-    cursor:pointer;
+.desktop-nav{
     display:flex;
     align-items:center;
-    gap:11px;
-    font-size:14px;
+    gap:5px;
+    margin-left:auto;
+}
+
+.nav-link{
+    border:0;
+    background:transparent;
+    color:#101828;
+    padding:11px 15px;
+    border-radius:11px;
+    font-size:13px;
     font-weight:700;
-    color:#536174;
-    text-align:left;
+    cursor:pointer;
     transition:.2s;
 }
 
-.nav-button:hover{
-    background:#f2f6fb;
+.nav-link:hover,
+.nav-link.active{
+    background:#edf5ff;
     color:var(--blue);
 }
 
-.nav-button.active{
-    color:var(--blue);
-    background:#edf4ff;
-}
-
-.nav-icon{
-    width:25px;
-    text-align:center;
-    font-size:17px;
-}
-
-.sidebar-info{
-    border-top:1px solid #edf1f6;
-    margin-top:13px;
-    padding:17px 8px 3px;
-    color:#9aa7b7;
-    font-size:11px;
-    line-height:1.6;
-}
-
-.content{
-    min-height:520px;
-    border-radius:20px;
-    padding:32px;
-}
-
-.content-head{
+.header-actions{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    gap:15px;
-    margin-bottom:23px;
+    gap:10px;
 }
 
-.content-head h2{
-    font-size:25px;
-    color:#172337;
+.lang-select{
+    height:44px;
+    border:1px solid var(--line);
+    background:#fff;
+    border-radius:13px;
+    padding:0 12px;
+    font-weight:700;
+    color:#1f2937;
+    outline:none;
+    cursor:pointer;
 }
 
-.content-label{
-    padding:6px 10px;
-    border-radius:999px;
-    background:#edf4ff;
-    color:var(--blue);
-    font-size:10px;
+.portal-button{
+    height:44px;
+    border:0;
+    border-radius:11px;
+    background:linear-gradient(135deg,var(--blue),#0066ff);
+    color:#fff;
+    padding:0 18px;
+    font-size:13px;
     font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.8px;
+    cursor:pointer;
+    box-shadow:0 8px 22px rgba(8,103,242,.22);
 }
 
-/* =========================
-   CONSTRUCTION
-========================= */
+.mobile-menu-btn{
+    display:none;
+    width:42px;
+    height:42px;
+    border:1px solid var(--line);
+    background:white;
+    border-radius:11px;
+    cursor:pointer;
+    font-size:20px;
+}
 
-.construction{
-    min-height:395px;
-    border:1px dashed #cfdbea;
-    border-radius:19px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:35px;
+/* ========================================
+   HERO
+======================================== */
+
+.hero{
     position:relative;
     overflow:hidden;
     background:
-        radial-gradient(circle at center,rgba(0,92,255,.055),transparent 48%),
-        #fbfdff;
+        radial-gradient(circle at 85% 20%,rgba(0,166,239,.18),transparent 28%),
+        linear-gradient(110deg,#ffffff 0%,#f8fcff 43%,#eaf7ff 100%);
+    border-bottom:1px solid #e7edf4;
 }
 
-.code-icon{
+.hero-inner{
+    max-width:1220px;
+    min-height:500px;
+    margin:auto;
+    padding:54px 26px 38px;
+    display:grid;
+    grid-template-columns:1.02fr .98fr;
+    align-items:center;
+    gap:35px;
+}
+
+.hero-copy{
+    position:relative;
+    z-index:3;
+}
+
+.hero-eyebrow{
+    font-size:11px;
+    letter-spacing:4px;
+    font-weight:800;
+    color:#344054;
+    margin-bottom:14px;
+}
+
+.hero h1{
+    font-size:61px;
+    line-height:.98;
+    letter-spacing:-2.7px;
+    max-width:590px;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--blue);
+}
+
+.hero-description{
+    max-width:560px;
+    color:#475467;
+    font-size:17px;
+    line-height:1.55;
+    margin-bottom:26px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.primary-btn,
+.secondary-btn{
+    min-height:48px;
+    padding:0 20px;
+    border-radius:11px;
+    font-weight:800;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.primary-btn{
+    border:0;
+    color:#fff;
+    background:linear-gradient(135deg,var(--blue),#00a5ef);
+    box-shadow:0 12px 25px rgba(8,103,242,.20);
+}
+
+.secondary-btn{
+    border:1px solid #aebdce;
+    background:#fff;
+    color:#172337;
+}
+
+.hero-visual{
+    position:relative;
+    min-height:390px;
+}
+
+.screen{
+    position:absolute;
+    width:470px;
+    max-width:90%;
+    right:20px;
+    top:35px;
+    background:#0d1c30;
+    border:7px solid #172337;
+    border-radius:18px;
+    box-shadow:0 30px 55px rgba(23,43,72,.25);
+    transform:perspective(1000px) rotateY(-6deg);
+    overflow:hidden;
+}
+
+.screen-top{
+    height:28px;
+    background:#f5f7fa;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    padding-left:12px;
+}
+
+.screen-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#c5cfdb;
+}
+
+.dashboard{
+    padding:20px;
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:15px;
+    min-height:270px;
+    background:linear-gradient(135deg,#10253e,#edf7ff);
+}
+
+.dash-side{
+    background:#0c1c31;
+    border-radius:8px;
+    padding:12px 8px;
+}
+
+.dash-side div{
+    height:7px;
+    background:#24405e;
+    border-radius:8px;
+    margin-bottom:13px;
+}
+
+.dash-main{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.widget{
+    background:white;
+    border-radius:10px;
+    min-height:82px;
+    padding:11px;
+    box-shadow:0 5px 15px rgba(20,45,75,.10);
+}
+
+.widget.wide{
+    grid-column:1 / -1;
+    min-height:105px;
+}
+
+.chart{
+    display:flex;
+    height:55px;
+    align-items:flex-end;
+    gap:5px;
+    margin-top:12px;
+}
+
+.chart i{
+    flex:1;
+    background:linear-gradient(180deg,var(--blue2),var(--blue));
+    border-radius:3px 3px 0 0;
+}
+
+.chart i:nth-child(1){height:32%;}
+.chart i:nth-child(2){height:50%;}
+.chart i:nth-child(3){height:39%;}
+.chart i:nth-child(4){height:72%;}
+.chart i:nth-child(5){height:58%;}
+.chart i:nth-child(6){height:87%;}
+.chart i:nth-child(7){height:69%;}
+
+.phone{
+    position:absolute;
+    width:155px;
+    height:300px;
+    right:-3px;
+    bottom:2px;
+    border-radius:29px;
+    background:#080d14;
+    border:6px solid #111827;
+    box-shadow:0 25px 40px rgba(13,31,55,.35);
+    padding:15px 10px;
+    transform:rotate(3deg);
+}
+
+.phone-notch{
+    width:52px;
+    height:7px;
+    background:#1d2939;
+    border-radius:20px;
+    margin:0 auto 14px;
+}
+
+.phone-title{
+    color:white;
+    font-size:10px;
+    font-weight:800;
+    margin:8px 4px 12px;
+}
+
+.phone-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.phone-app{
+    height:57px;
+    background:linear-gradient(135deg,#0ba7ee,#0867f2);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:19px;
+    font-weight:800;
+}
+
+.phone-photo{
+    height:82px;
+    margin-top:9px;
+    border-radius:12px;
+    background:
+        linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.1)),
+        linear-gradient(135deg,#c9eaff,#77b5f5 50%,#e9f7ff 50%);
+}
+
+.hero-features{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-top:30px;
+}
+
+.hero-feature{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:#475467;
+    font-size:12px;
+    line-height:1.25;
+}
+
+.feature-icon{
+    font-size:24px;
+    color:var(--blue);
+}
+
+/* ========================================
+   SERVICES
+======================================== */
+
+.section{
+    max-width:1220px;
+    margin:auto;
+    padding:28px 26px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+    margin-top:-4px;
+}
+
+.service-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:25px;
+    min-height:205px;
+    box-shadow:0 8px 30px rgba(36,64,96,.055);
+    transition:.2s;
+}
+
+.service-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(36,64,96,.10);
+}
+
+.service-card.portal{
+    background:linear-gradient(145deg,#f6fbff,#eaf6ff);
+    border-color:#9fd5f5;
+}
+
+.service-icon{
+    font-size:35px;
+    margin-bottom:18px;
+    color:var(--blue);
+}
+
+.service-card h3{
+    font-size:18px;
+    margin-bottom:9px;
+}
+
+.service-card p{
+    color:var(--muted);
+    line-height:1.45;
+    font-size:13px;
+    min-height:58px;
+}
+
+.card-link{
+    border:0;
+    background:transparent;
+    color:var(--blue);
+    margin-top:15px;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.portal-login{
+    border:0;
+    background:var(--blue);
+    color:#fff;
+    border-radius:9px;
+    padding:11px 15px;
+    margin-top:14px;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* ========================================
+   PROJECTS
+======================================== */
+
+.projects-section{
+    padding-top:20px;
+    padding-bottom:40px;
+}
+
+.section-small{
+    color:#475467;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:4px;
+    margin-bottom:8px;
+}
+
+.section-title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:38px;
+    letter-spacing:-1.4px;
+}
+
+.section-title span{
+    color:var(--blue);
+}
+
+.outline-button{
+    border:1px solid #9cc8f5;
+    background:#fff;
+    color:var(--blue);
+    border-radius:10px;
+    padding:11px 15px;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.project-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:17px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(36,64,96,.055);
+}
+
+.project-image{
+    height:175px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.project-image.scan{
+    background:linear-gradient(135deg,#dff2ff,#f7fbff);
+}
+
+.project-image.health{
+    background:linear-gradient(135deg,#e8fff5,#f8fffc);
+}
+
+.project-image.web{
+    background:linear-gradient(135deg,#edf5ff,#d9ebff);
+}
+
+.project-phone{
     width:86px;
-    height:86px;
+    height:145px;
+    border:5px solid #172337;
+    border-radius:17px;
+    background:white;
+    box-shadow:0 12px 25px rgba(17,35,55,.20);
+    padding:10px 7px;
+}
+
+.project-phone div{
+    height:8px;
+    background:#e4ebf3;
+    border-radius:6px;
+    margin-bottom:7px;
+}
+
+.project-phone div:nth-child(2){width:80%;}
+.project-phone div:nth-child(3){width:90%;}
+.project-phone div:nth-child(4){width:65%;}
+
+.project-symbol{
+    position:absolute;
+    left:24px;
+    bottom:22px;
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#08a6ee,#0867f2);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+    box-shadow:0 10px 20px rgba(8,103,242,.25);
+}
+
+.project-info{
+    padding:15px 17px 18px;
+    position:relative;
+}
+
+.project-info h3{
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.project-info p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.45;
+    padding-right:30px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:12px;
+}
+
+.tag{
+    padding:5px 9px;
+    background:#edf6ff;
+    color:#0871d7;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.tag.green{
+    background:#e7fbf3;
+    color:#12805c;
+}
+
+/* ========================================
+   CTA
+======================================== */
+
+.cta{
+    max-width:1168px;
+    margin:0 auto 34px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:linear-gradient(100deg,#f2f9ff,#e7f4ff);
+    min-height:100px;
+    padding:22px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.cta h3{
+    font-size:22px;
+    margin-bottom:5px;
+}
+
+.cta p{
+    color:#667085;
+    font-size:13px;
+}
+
+.cta button{
+    border:0;
+    border-radius:10px;
+    background:var(--blue);
+    color:white;
+    padding:14px 24px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* ========================================
+   DEVELOPMENT MODAL
+======================================== */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:500;
+    background:rgba(5,15,30,.55);
+    backdrop-filter:blur(5px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-card{
+    width:100%;
+    max-width:480px;
+    background:#fff;
     border-radius:24px;
-    background:linear-gradient(135deg,#075cff,#003da9);
+    padding:35px 28px;
+    text-align:center;
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    right:15px;
+    top:13px;
+    width:34px;
+    height:34px;
+    border:0;
+    background:#f2f5f8;
+    border-radius:50%;
+    font-size:19px;
+    cursor:pointer;
+}
+
+.modal-icon{
+    width:78px;
+    height:78px;
+    margin:0 auto 20px;
+    border-radius:22px;
+    background:linear-gradient(135deg,var(--blue),#00a7ef);
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
     font-family:monospace;
-    font-size:30px;
+    font-size:28px;
     font-weight:900;
-    box-shadow:0 18px 35px rgba(0,92,255,.22);
-    margin-bottom:23px;
 }
 
-.construction h3{
+.modal-card h3{
     font-size:25px;
-    margin-bottom:11px;
+    margin-bottom:10px;
 }
 
-.construction p{
-    max-width:520px;
-    color:#728095;
-    line-height:1.65;
+.modal-card p{
+    color:#667085;
+    line-height:1.6;
     font-size:14px;
 }
 
-.progress{
-    margin-top:25px;
-    width:210px;
-    height:5px;
-    background:#e8eef6;
-    border-radius:10px;
-    overflow:hidden;
+/* ========================================
+   LEGAL PAGE
+======================================== */
+
+.legal-overlay{
+    display:none;
+    max-width:1050px;
+    margin:35px auto;
+    padding:0 25px;
 }
 
-.progress span{
+.legal-overlay.show{
     display:block;
-    height:100%;
-    width:42%;
-    background:linear-gradient(90deg,#075cff,#4a88ff);
-    border-radius:10px;
-    animation:loading 2.2s ease-in-out infinite;
 }
 
-@keyframes loading{
-    0%{transform:translateX(-110%);}
-    100%{transform:translateX(250%);}
+.legal-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(30,60,90,.08);
 }
 
-/* =========================
-   LEGAL
-========================= */
-
-.legal-content{
-    line-height:1.7;
-}
-
-.legal-content h3{
-    font-size:27px;
+.legal-card h2{
+    font-size:30px;
     margin-bottom:25px;
 }
 
-.legal-content p{
-    color:#64748b;
-    font-size:14px;
+.legal-card p{
+    color:#667085;
+    line-height:1.7;
     margin-bottom:15px;
+    font-size:14px;
 }
 
-.legal-content strong{
-    color:#26364d;
+.legal-card strong{
+    color:#25344a;
 }
 
-.legal-content a{
+.legal-card a{
     color:var(--blue);
-    text-decoration:none;
 }
 
-.legal-content a:hover{
-    text-decoration:underline;
+.back-button{
+    border:0;
+    background:#edf5ff;
+    color:var(--blue);
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:800;
+    margin-bottom:20px;
+    cursor:pointer;
 }
 
-/* =========================
+/* ========================================
    FOOTER
-========================= */
+======================================== */
 
-footer{
-    max-width:1180px;
-    margin:10px auto 0;
-    padding:25px 24px 45px;
-    text-align:center;
+.footer{
+    border-top:1px solid #e5ebf2;
+    background:#fff;
 }
 
-.footer-nav{
+.footer-inner{
+    max-width:1220px;
+    margin:auto;
+    padding:25px 26px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+}
+
+.footer-brand{
     display:flex;
     align-items:center;
+    gap:10px;
+    font-weight:800;
+}
+
+.footer-brand .brand-icon{
+    transform:scale(.72);
+    transform-origin:left center;
+    margin-right:-9px;
+}
+
+.footer-links{
+    display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:13px;
+    gap:4px;
 }
 
-.footer-nav button{
+.footer-links button{
     border:0;
     background:transparent;
-    color:#7c8999;
-    font-size:12px;
+    color:#667085;
+    font-size:11px;
+    padding:7px 10px;
     cursor:pointer;
-    padding:3px;
 }
 
-.footer-nav button:hover{
+.footer-links button:hover{
     color:var(--blue);
-    text-decoration:underline;
-}
-
-.footer-dot{
-    color:#c4ccd7;
 }
 
 .footer-copy{
-    color:#9ba7b6;
-    font-size:11px;
+    max-width:1220px;
+    margin:auto;
+    padding:0 26px 25px;
+    color:#98a2b3;
+    font-size:10px;
 }
 
-/* =========================
+/* ========================================
    MOBILE
-========================= */
+======================================== */
 
-@media(max-width:850px){
+@media(max-width:950px){
 
-    .topbar{
-        padding:0 16px;
-        height:58px;
-    }
-
-    .status{
+    .desktop-nav,
+    .portal-button{
         display:none;
     }
 
-    .hero{
-        margin-top:16px;
-        padding:0 13px;
+    .mobile-menu-btn{
+        display:block;
     }
 
-    .hero-card{
-        border-radius:21px;
-    }
-
-    .hero-content{
-        grid-template-columns:1fr;
-        padding:34px 24px 27px;
-        gap:28px;
-    }
-
-    .hero-text h1{
-        font-size:38px;
-    }
-
-    .logo-card{
-        justify-self:center;
-        max-width:310px;
-    }
-
-    .main{
-        grid-template-columns:1fr;
-        padding:0 13px;
-        gap:13px;
-        margin-top:13px;
-    }
-
-    .sidebar{
-        padding:13px;
-    }
-
-    .menu-title{
-        padding-bottom:9px;
-    }
-
-    .nav-button{
-        padding:12px;
-    }
-
-    .sidebar-info{
+    .mobile-nav{
         display:none;
+        padding:8px 16px 15px;
+        border-top:1px solid #edf1f5;
+        background:#fff;
     }
 
-    .content{
-        min-height:480px;
-        padding:19px;
+    .mobile-nav.show{
+        display:block;
     }
 
-    .content-head h2{
-        font-size:22px;
+    .mobile-nav button{
+        display:block;
+        width:100%;
+        border:0;
+        background:transparent;
+        padding:13px 10px;
+        text-align:left;
+        font-weight:700;
+        color:#475467;
+        border-radius:9px;
     }
 
-    .construction{
-        min-height:380px;
-        padding:25px 17px;
+    .mobile-nav button:hover{
+        background:#edf5ff;
+        color:var(--blue);
     }
 
-    footer{
-        padding-top:18px;
+    .hero-inner{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding-top:40px;
+    }
+
+    .hero-copy{
+        text-align:center;
+    }
+
+    .hero h1{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons,
+    .hero-features{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        width:100%;
+        max-width:620px;
+        margin:auto;
+    }
+
+    .services{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .project-image{
+        height:220px;
     }
 }
 
-@media(max-width:420px){
+@media(min-width:951px){
+    .mobile-nav{
+        display:none !important;
+    }
+}
 
-    .brand-small{
-        font-size:14px;
+@media(max-width:650px){
+
+    .header-inner{
+        height:68px;
+        padding:0 15px;
+        gap:8px;
     }
 
-    .brand-symbol{
-        width:31px;
-        height:31px;
+    .brand-icon{
+        width:39px;
+        height:39px;
+        transform:scale(.8);
+        transform-origin:left center;
+        margin-right:-6px;
+    }
+
+    .brand-text strong{
+        font-size:15px;
+    }
+
+    .brand-text small{
+        font-size:7px;
+        letter-spacing:1.3px;
     }
 
     .lang-select{
-        height:35px;
+        height:39px;
+        padding:0 7px;
+        font-size:12px;
     }
 
-    .hero-text h1{
-        font-size:34px;
+    .mobile-menu-btn{
+        width:39px;
+        height:39px;
     }
 
-    .hero-text p{
-        font-size:14px;
+    .hero-inner{
+        padding:35px 18px 28px;
+    }
+
+    .hero-eyebrow{
+        font-size:9px;
+        letter-spacing:2.8px;
+    }
+
+    .hero h1{
+        font-size:44px;
+        letter-spacing:-2px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-features{
+        gap:15px;
+    }
+
+    .hero-visual{
+        min-height:315px;
+    }
+
+    .screen{
+        width:93%;
+        right:5%;
+        top:15px;
+    }
+
+    .dashboard{
+        min-height:220px;
+        grid-template-columns:55px 1fr;
+        padding:12px;
+    }
+
+    .phone{
+        width:115px;
+        height:225px;
+        right:-2px;
+        bottom:0;
+        border-radius:22px;
+    }
+
+    .phone-app{
+        height:40px;
+        font-size:15px;
+    }
+
+    .phone-photo{
+        height:50px;
+    }
+
+    .section{
+        padding:22px 15px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        min-height:auto;
+    }
+
+    .service-card p{
+        min-height:auto;
+    }
+
+    .section-title-row{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .section-title{
+        font-size:32px;
+    }
+
+    .cta{
+        margin:0 15px 25px;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:23px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        padding:23px 15px 14px;
+    }
+
+    .footer-copy{
+        text-align:center;
+        padding-bottom:25px;
     }
 }
 
@@ -643,183 +1144,508 @@ footer{
 
 <body>
 
-<header class="topbar">
+<header class="header">
 
-    <div class="brand-small">
-        <div class="brand-symbol">&lt;/&gt;</div>
-        <span>IT ZONE APPS</span>
-    </div>
+<div class="header-inner">
 
-    <div class="top-right">
+    <div class="brand" onclick="goHome()">
 
-        <div class="status">
-            <span class="status-dot"></span>
-            <span id="statusText">Development environment</span>
+        <div class="brand-icon">
+            <span></span>
         </div>
 
+        <div class="brand-text">
+            <strong>IT ZONE <b>APPS</b></strong>
+            <small>WEB & APP DEVELOPMENT</small>
+        </div>
+
+    </div>
+
+    <nav class="desktop-nav">
+        <button class="nav-link active" id="menuHome" onclick="goHome()">Home</button>
+        <button class="nav-link" id="menuApps" onclick="showDevelopment()">Applications</button>
+        <button class="nav-link" id="menuProjects" onclick="showDevelopment()">Projects</button>
+        <button class="nav-link" id="menuNews" onclick="showDevelopment()">News</button>
+        <button class="nav-link" id="menuAbout" onclick="showDevelopment()">About</button>
+        <button class="nav-link" id="menuContact" onclick="openLegal('contact')">Contact</button>
+    </nav>
+
+    <div class="header-actions">
+
         <select id="langSelect" class="lang-select">
-            <option value="en">🇬🇧 EN</option>
+            <option value="en">🌐 EN</option>
             <option value="sr">🇷🇸 SR</option>
             <option value="de">🇦🇹 DE</option>
             <option value="hu">🇭🇺 HU</option>
         </select>
 
+        <button class="portal-button" onclick="showDevelopment()">
+            ◇ &nbsp; Portal
+        </button>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+
     </div>
+
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+    <button id="mobileHome" onclick="goHome()">Home</button>
+    <button id="mobileApps" onclick="showDevelopment()">Applications</button>
+    <button id="mobileProjects" onclick="showDevelopment()">Projects</button>
+    <button id="mobileNews" onclick="showDevelopment()">News</button>
+    <button id="mobileAbout" onclick="showDevelopment()">About</button>
+    <button id="mobileContact" onclick="openLegal('contact')">Contact</button>
+</div>
 
 </header>
 
 
+<div id="mainWebsite">
+
 <section class="hero">
 
-    <div class="hero-card">
+<div class="hero-inner">
 
-        <div class="hero-grid"></div>
-        <div class="hero-glow"></div>
+    <div class="hero-copy">
 
-        <div class="hero-content">
+        <div class="hero-eyebrow">
+            IDEAS · APPS · WEB · SOLUTIONS
+        </div>
 
-            <div class="hero-text">
+        <h1 id="heroTitle">
+            Digital solutions<br>
+            for a simpler<br>
+            <span>everyday.</span>
+        </h1>
 
-                <div class="eyebrow">
-                    SOFTWARE • WEB • DIGITAL
-                </div>
+        <p class="hero-description" id="heroDescription">
+            We develop modern web applications, mobile apps and digital tools designed to make everyday work simpler and more efficient.
+        </p>
 
-                <h1>
-                    IT ZONE<br>
-                    <span>APPS EU</span>
-                </h1>
+        <div class="hero-buttons">
 
-                <p id="heroDescription">
-                    Software development, web solutions and digital projects.
-                    New products and services are currently in development.
-                </p>
+            <button class="primary-btn" id="exploreBtn" onclick="showDevelopment()">
+                Explore Our Projects &nbsp; →
+            </button>
 
-                <div class="hero-tags">
-                    <span>Web Development</span>
-                    <span>Mobile Apps</span>
-                    <span>Software</span>
-                    <span>Digital Tools</span>
-                </div>
+            <button class="secondary-btn" id="aboutBtn" onclick="showDevelopment()">
+                About IT Zone Apps
+            </button>
 
+        </div>
+
+        <div class="hero-features">
+
+            <div class="hero-feature">
+                <span class="feature-icon">♢</span>
+                <span id="featureOne">Modern<br>Solutions</span>
             </div>
 
-            <div class="logo-card">
+            <div class="hero-feature">
+                <span class="feature-icon">ϟ</span>
+                <span id="featureTwo">Modern<br>Technologies</span>
+            </div>
 
-                <img src="logo3.jpg" alt="IT Zone Apps">
-
-                <div class="logo-mask">
-                    <span>Software • Web • Apps</span>
-                </div>
-
+            <div class="hero-feature">
+                <span class="feature-icon">◎</span>
+                <span id="featureThree">Digital<br>Projects</span>
             </div>
 
         </div>
 
     </div>
 
+
+    <div class="hero-visual">
+
+        <div class="screen">
+
+            <div class="screen-top">
+                <span class="screen-dot"></span>
+                <span class="screen-dot"></span>
+                <span class="screen-dot"></span>
+            </div>
+
+            <div class="dashboard">
+
+                <div class="dash-side">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div class="dash-main">
+
+                    <div class="widget">
+                        <small>Dashboard</small>
+                        <div class="chart">
+                            <i></i><i></i><i></i><i></i>
+                            <i></i><i></i><i></i>
+                        </div>
+                    </div>
+
+                    <div class="widget">
+                        <small>Projects</small>
+                        <div class="chart">
+                            <i></i><i></i><i></i><i></i>
+                            <i></i><i></i><i></i>
+                        </div>
+                    </div>
+
+                    <div class="widget wide">
+                        <small>Development</small>
+                        <div class="chart">
+                            <i></i><i></i><i></i><i></i>
+                            <i></i><i></i><i></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="phone">
+
+            <div class="phone-notch"></div>
+
+            <div class="phone-title">
+                IT ZONE APPS
+            </div>
+
+            <div class="phone-grid">
+                <div class="phone-app">⌁</div>
+                <div class="phone-app">⌕</div>
+                <div class="phone-app">◇</div>
+                <div class="phone-app">◎</div>
+            </div>
+
+            <div class="phone-photo"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
 </section>
 
 
-<div class="main">
+<section class="section">
 
-    <aside class="sidebar">
+<div class="services">
 
-        <div class="menu-title" id="menuTitle">
-            Main menu
-        </div>
-
-        <button
-            class="nav-button active"
-            data-page="home"
-            onclick="openPage('home',this)"
-        >
-            <span class="nav-icon">⌂</span>
-            <span id="navHome">Home</span>
+    <article class="service-card">
+        <div class="service-icon">▣</div>
+        <h3 id="webTitle">Web Applications</h3>
+        <p id="webText">
+            Modern web solutions and applications designed for different digital needs.
+        </p>
+        <button class="card-link" onclick="showDevelopment()">
+            <span id="learnOne">Learn More</span> &nbsp; →
         </button>
+    </article>
 
-        <button
-            class="nav-button"
-            data-page="apps"
-            onclick="openPage('apps',this)"
-        >
-            <span class="nav-icon">▣</span>
-            <span id="navApps">Apps</span>
+
+    <article class="service-card">
+        <div class="service-icon">▯</div>
+        <h3 id="mobileTitle">Mobile Apps</h3>
+        <p id="mobileText">
+            Mobile applications and tools designed for modern smartphones and devices.
+        </p>
+        <button class="card-link" onclick="showDevelopment()">
+            <span id="learnTwo">Learn More</span> &nbsp; →
         </button>
+    </article>
 
-        <button
-            class="nav-button"
-            data-page="projects"
-            onclick="openPage('projects',this)"
-        >
-            <span class="nav-icon">⌘</span>
-            <span id="navProjects">Projects</span>
+
+    <article class="service-card">
+        <div class="service-icon">◇</div>
+        <h3 id="digitalTitle">Digital Tools</h3>
+        <p id="digitalText">
+            Practical digital tools created to simplify everyday workflows.
+        </p>
+        <button class="card-link" onclick="showDevelopment()">
+            <span id="learnThree">Learn More</span> &nbsp; →
         </button>
+    </article>
 
-        <button
-            class="nav-button"
-            data-page="news"
-            onclick="openPage('news',this)"
-        >
-            <span class="nav-icon">◫</span>
-            <span id="navNews">News</span>
+
+    <article class="service-card portal">
+        <div class="service-icon">♙</div>
+        <h3>Portal</h3>
+        <p id="portalText">
+            Secure access area for future applications and digital services.
+        </p>
+        <button class="portal-login" id="portalLogin" onclick="showDevelopment()">
+            Login to Portal &nbsp; →
         </button>
+    </article>
 
-        <div class="sidebar-info">
-            IT Zone Apps<br>
-            Vienna • Austria
-        </div>
+</div>
 
-    </aside>
+</section>
 
 
-    <main class="content">
+<section class="section projects-section">
 
-        <div class="content-head">
+<div class="section-small" id="projectSmall">
+    OUR PROJECTS
+</div>
 
-            <h2 id="pageTitle">
-                Home
-            </h2>
+<div class="section-title-row">
 
-            <span class="content-label" id="pageLabel">
-                Development
-            </span>
+    <h2 class="section-title" id="projectHeading">
+        Selected <span>Applications</span>
+    </h2>
 
-        </div>
-
-        <div id="contentArea"></div>
-
-    </main>
+    <button class="outline-button" id="allProjectsBtn" onclick="showDevelopment()">
+        View All Projects &nbsp; →
+    </button>
 
 </div>
 
 
-<footer>
+<div class="projects">
 
-    <div class="footer-nav">
+    <article class="project-card" onclick="showDevelopment()" style="cursor:pointer">
+
+        <div class="project-image scan">
+
+            <div class="project-phone">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="project-symbol">
+                ◫
+            </div>
+
+        </div>
+
+        <div class="project-info">
+
+            <h3 id="projectOneTitle">
+                Document Tools
+            </h3>
+
+            <p id="projectOneText">
+                Digital tools for documents, images and everyday productivity.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Mobile App</span>
+                <span class="tag">Productivity</span>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="project-card" onclick="showDevelopment()" style="cursor:pointer">
+
+        <div class="project-image health">
+
+            <div class="project-phone">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="project-symbol">
+                ♡
+            </div>
+
+        </div>
+
+        <div class="project-info">
+
+            <h3 id="projectTwoTitle">
+                Health Project
+            </h3>
+
+            <p id="projectTwoText">
+                A digital project currently being developed for personal tracking.
+            </p>
+
+            <div class="tags">
+                <span class="tag green">Mobile App</span>
+                <span class="tag green">Health</span>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="project-card" onclick="showDevelopment()" style="cursor:pointer">
+
+        <div class="project-image web">
+
+            <div class="screen" style="
+                position:relative;
+                width:78%;
+                right:auto;
+                top:auto;
+                transform:none;
+            ">
+                <div class="screen-top"></div>
+                <div style="
+                    background:#eef6ff;
+                    height:115px;
+                    padding:15px;
+                ">
+                    <div style="
+                        height:14px;
+                        width:60%;
+                        background:#0a70ef;
+                        border-radius:5px;
+                        margin-bottom:12px;
+                    "></div>
+
+                    <div style="
+                        height:9px;
+                        width:85%;
+                        background:#cbdced;
+                        border-radius:5px;
+                        margin-bottom:7px;
+                    "></div>
+
+                    <div style="
+                        height:9px;
+                        width:70%;
+                        background:#cbdced;
+                        border-radius:5px;
+                    "></div>
+                </div>
+            </div>
+
+            <div class="project-symbol">
+                ▱
+            </div>
+
+        </div>
+
+        <div class="project-info">
+
+            <h3 id="projectThreeTitle">
+                Web Platform
+            </h3>
+
+            <p id="projectThreeText">
+                Web applications and platforms for future digital projects.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Web App</span>
+                <span class="tag">Digital</span>
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+</section>
+
+
+<section class="cta">
+
+<div>
+    <h3 id="ctaTitle">Have a project in mind?</h3>
+    <p id="ctaText">Contact IT Zone Apps for more information.</p>
+</div>
+
+<button id="ctaButton" onclick="openLegal('contact')">
+    Contact Us &nbsp; →
+</button>
+
+</section>
+
+</div>
+
+
+<section class="legal-overlay" id="legalOverlay">
+
+<button class="back-button" onclick="closeLegal()">
+    ← <span id="backText">Back</span>
+</button>
+
+<div class="legal-card" id="legalContent"></div>
+
+</section>
+
+
+<div class="modal" id="developmentModal" onclick="modalBackground(event)">
+
+<div class="modal-card">
+
+    <button class="modal-close" onclick="closeDevelopment()">
+        ×
+    </button>
+
+    <div class="modal-icon">
+        &lt;/&gt;
+    </div>
+
+    <h3 id="developmentTitle">
+        Page under development
+    </h3>
+
+    <p id="developmentText">
+        This section is currently being developed. New information and digital services will be available soon.
+    </p>
+
+</div>
+
+</div>
+
+
+<footer class="footer">
+
+<div class="footer-inner">
+
+    <div class="footer-brand">
+
+        <div class="brand-icon">
+            <span></span>
+        </div>
+
+        <span>
+            IT ZONE <span style="color:#0867f2">APPS</span>
+        </span>
+
+    </div>
+
+    <div class="footer-links">
 
         <button onclick="openLegal('contact')">
             Contact
         </button>
 
-        <span class="footer-dot">•</span>
-
         <button onclick="openLegal('privacy')">
             Privacy Policy
         </button>
-
-        <span class="footer-dot">•</span>
 
         <button onclick="openLegal('datenschutz')">
             Datenschutz
         </button>
 
-        <span class="footer-dot">•</span>
-
         <button onclick="openLegal('agb')">
             Terms / AGB
         </button>
-
-        <span class="footer-dot">•</span>
 
         <button onclick="openLegal('impressum')">
             Impressum
@@ -827,9 +1653,11 @@ footer{
 
     </div>
 
-    <div class="footer-copy" id="footerCopy">
-        © 2026 IT Zone Apps. All rights reserved.
-    </div>
+</div>
+
+<div class="footer-copy" id="footerCopy">
+    © 2026 IT Zone Apps. All rights reserved.
+</div>
 
 </footer>
 
@@ -841,105 +1669,256 @@ const SUPPORT_EMAIL = "zivanoviclenard3@gmail.com";
 let currentLang =
     localStorage.getItem("site_lang") || "en";
 
-let currentPage = "home";
-
 
 const translations = {
 
 en:{
-    menu:"Main menu",
     home:"Home",
-    apps:"Apps",
+    applications:"Applications",
     projects:"Projects",
     news:"News",
+    about:"About",
+    contact:"Contact",
 
-    status:"Development environment",
+    heroTitle:
+    'Digital solutions<br>for a simpler<br><span>everyday.</span>',
 
-    hero:
-    "Software development, web solutions and digital projects. New products and services are currently in development.",
+    heroDescription:
+    "We develop modern web applications, mobile apps and digital tools designed to make everyday work simpler and more efficient.",
 
-    title:
-    "Website under development",
+    explore:"Explore Our Projects",
+    aboutButton:"About IT Zone Apps",
 
-    text:
-    "This section is currently being developed. New information, projects and digital services will be published here soon.",
+    feature1:"Modern<br>Solutions",
+    feature2:"Modern<br>Technologies",
+    feature3:"Digital<br>Projects",
 
-    label:"Development",
+    webTitle:"Web Applications",
+    webText:"Modern web solutions and applications designed for different digital needs.",
+
+    mobileTitle:"Mobile Apps",
+    mobileText:"Mobile applications and tools designed for modern smartphones and devices.",
+
+    digitalTitle:"Digital Tools",
+    digitalText:"Practical digital tools created to simplify everyday workflows.",
+
+    portalText:
+    "Secure access area for future applications and digital services.",
+
+    portalLogin:"Login to Portal",
+    learn:"Learn More",
+
+    projectSmall:"OUR PROJECTS",
+    projectHeading:'Selected <span>Applications</span>',
+    allProjects:"View All Projects",
+
+    p1:"Document Tools",
+    p1text:"Digital tools for documents, images and everyday productivity.",
+
+    p2:"Health Project",
+    p2text:"A digital project currently being developed for personal tracking.",
+
+    p3:"Web Platform",
+    p3text:"Web applications and platforms for future digital projects.",
+
+    ctaTitle:"Have a project in mind?",
+    ctaText:"Contact IT Zone Apps for more information.",
+    ctaButton:"Contact Us",
+
+    developmentTitle:"Page under development",
+    developmentText:
+    "This section is currently being developed. New information, projects and digital services will be available soon.",
+
+    back:"Back",
 
     footer:
     "© 2026 IT Zone Apps. All rights reserved."
 },
 
-
 sr:{
-    menu:"Glavni meni",
     home:"Početna",
-    apps:"Aplikacije",
+    applications:"Aplikacije",
     projects:"Projekti",
     news:"Novosti",
+    about:"O nama",
+    contact:"Kontakt",
 
-    status:"Razvojno okruženje",
+    heroTitle:
+    'Digitalna rešenja<br>za jednostavniju<br><span>svakodnevicu.</span>',
 
-    hero:
-    "Razvoj softvera, web rešenja i digitalni projekti. Novi proizvodi i usluge su trenutno u fazi razvoja.",
+    heroDescription:
+    "Razvijamo moderne web aplikacije, mobilne aplikacije i digitalne alate koji pojednostavljuju svakodnevni rad.",
 
-    title:
-    "Stranica je u fazi izrade",
+    explore:"Pogledaj projekte",
+    aboutButton:"O IT Zone Apps",
 
-    text:
-    "Ovaj deo sajta se trenutno razvija. Nove informacije, projekti i digitalne usluge biće uskoro objavljeni.",
+    feature1:"Moderna<br>rešenja",
+    feature2:"Savremene<br>tehnologije",
+    feature3:"Digitalni<br>projekti",
 
-    label:"U razvoju",
+    webTitle:"Web aplikacije",
+    webText:"Moderna web rešenja i aplikacije za različite digitalne potrebe.",
+
+    mobileTitle:"Mobilne aplikacije",
+    mobileText:"Mobilne aplikacije i alati razvijeni za savremene telefone i uređaje.",
+
+    digitalTitle:"Digitalni alati",
+    digitalText:"Praktični digitalni alati namenjeni jednostavnijem svakodnevnom radu.",
+
+    portalText:
+    "Zaštićen pristup budućim aplikacijama i digitalnim servisima.",
+
+    portalLogin:"Pristup portalu",
+    learn:"Saznaj više",
+
+    projectSmall:"NAŠI PROJEKTI",
+    projectHeading:'Odabrane <span>aplikacije</span>',
+    allProjects:"Svi projekti",
+
+    p1:"Alati za dokumente",
+    p1text:"Digitalni alati za dokumente, slike i svakodnevnu produktivnost.",
+
+    p2:"Zdravstveni projekat",
+    p2text:"Digitalni projekat u razvoju namenjen ličnom praćenju podataka.",
+
+    p3:"Web platforma",
+    p3text:"Web aplikacije i platforme za buduće digitalne projekte.",
+
+    ctaTitle:"Imate projekat na umu?",
+    ctaText:"Kontaktirajte IT Zone Apps za više informacija.",
+    ctaButton:"Kontakt",
+
+    developmentTitle:"Stranica je u fazi izrade",
+    developmentText:
+    "Ovaj deo sajta se trenutno razvija. Nove informacije, projekti i digitalne usluge biće uskoro dostupni.",
+
+    back:"Nazad",
 
     footer:
     "© 2026 IT Zone Apps. Sva prava zadržana."
 },
 
-
 de:{
-    menu:"Hauptmenü",
     home:"Startseite",
-    apps:"Apps",
+    applications:"Apps",
     projects:"Projekte",
     news:"Neuigkeiten",
+    about:"Über uns",
+    contact:"Kontakt",
 
-    status:"Entwicklungsumgebung",
+    heroTitle:
+    'Digitale Lösungen<br>für einen einfacheren<br><span>Alltag.</span>',
 
-    hero:
-    "Softwareentwicklung, Weblösungen und digitale Projekte. Neue Produkte und Dienstleistungen befinden sich derzeit in Entwicklung.",
+    heroDescription:
+    "Wir entwickeln moderne Webanwendungen, mobile Apps und digitale Werkzeuge für einfachere digitale Abläufe.",
 
-    title:
-    "Seite befindet sich im Aufbau",
+    explore:"Projekte ansehen",
+    aboutButton:"Über IT Zone Apps",
 
-    text:
-    "Dieser Bereich wird derzeit entwickelt. Neue Informationen, Projekte und digitale Dienste werden hier bald veröffentlicht.",
+    feature1:"Moderne<br>Lösungen",
+    feature2:"Moderne<br>Technologien",
+    feature3:"Digitale<br>Projekte",
 
-    label:"Entwicklung",
+    webTitle:"Webanwendungen",
+    webText:"Moderne Weblösungen und Anwendungen für unterschiedliche digitale Anforderungen.",
+
+    mobileTitle:"Mobile Apps",
+    mobileText:"Mobile Anwendungen und Werkzeuge für moderne Smartphones und Geräte.",
+
+    digitalTitle:"Digitale Tools",
+    digitalText:"Praktische digitale Werkzeuge zur Vereinfachung alltäglicher Abläufe.",
+
+    portalText:
+    "Geschützter Zugang zu zukünftigen Anwendungen und digitalen Diensten.",
+
+    portalLogin:"Portal öffnen",
+    learn:"Mehr erfahren",
+
+    projectSmall:"UNSERE PROJEKTE",
+    projectHeading:'Ausgewählte <span>Anwendungen</span>',
+    allProjects:"Alle Projekte",
+
+    p1:"Dokument-Tools",
+    p1text:"Digitale Werkzeuge für Dokumente, Bilder und Produktivität.",
+
+    p2:"Gesundheitsprojekt",
+    p2text:"Ein digitales Projekt in Entwicklung für persönliche Aufzeichnungen.",
+
+    p3:"Web-Plattform",
+    p3text:"Webanwendungen und Plattformen für zukünftige digitale Projekte.",
+
+    ctaTitle:"Sie haben eine Projektidee?",
+    ctaText:"Kontaktieren Sie IT Zone Apps für weitere Informationen.",
+    ctaButton:"Kontakt",
+
+    developmentTitle:"Seite befindet sich im Aufbau",
+    developmentText:
+    "Dieser Bereich wird derzeit entwickelt. Neue Informationen, Projekte und digitale Dienste werden bald verfügbar sein.",
+
+    back:"Zurück",
 
     footer:
     "© 2026 IT Zone Apps. Alle Rechte vorbehalten."
 },
 
-
 hu:{
-    menu:"Főmenü",
     home:"Kezdőlap",
-    apps:"Alkalmazások",
+    applications:"Alkalmazások",
     projects:"Projektek",
     news:"Hírek",
+    about:"Rólunk",
+    contact:"Kapcsolat",
 
-    status:"Fejlesztési környezet",
+    heroTitle:
+    'Digitális megoldások<br>az egyszerűbb<br><span>mindennapokért.</span>',
 
-    hero:
-    "Szoftverfejlesztés, webes megoldások és digitális projektek. Új termékek és szolgáltatások jelenleg fejlesztés alatt állnak.",
+    heroDescription:
+    "Modern webalkalmazásokat, mobilalkalmazásokat és digitális eszközöket fejlesztünk.",
 
-    title:
-    "Az oldal fejlesztés alatt áll",
+    explore:"Projektek",
+    aboutButton:"Az IT Zone Apps-ról",
 
-    text:
-    "Ez a rész jelenleg fejlesztés alatt áll. Hamarosan új információk, projektek és digitális szolgáltatások jelennek meg.",
+    feature1:"Modern<br>megoldások",
+    feature2:"Modern<br>technológiák",
+    feature3:"Digitális<br>projektek",
 
-    label:"Fejlesztés",
+    webTitle:"Webalkalmazások",
+    webText:"Modern webes megoldások különböző digitális igényekhez.",
+
+    mobileTitle:"Mobilalkalmazások",
+    mobileText:"Mobilalkalmazások és eszközök modern készülékekhez.",
+
+    digitalTitle:"Digitális eszközök",
+    digitalText:"Praktikus digitális eszközök a mindennapi munkafolyamatokhoz.",
+
+    portalText:
+    "Biztonságos hozzáférés jövőbeli alkalmazásokhoz és digitális szolgáltatásokhoz.",
+
+    portalLogin:"Portál",
+    learn:"További információ",
+
+    projectSmall:"PROJEKTJEINK",
+    projectHeading:'Kiválasztott <span>alkalmazások</span>',
+    allProjects:"Minden projekt",
+
+    p1:"Dokumentumeszközök",
+    p1text:"Digitális eszközök dokumentumokhoz, képekhez és produktivitáshoz.",
+
+    p2:"Egészségügyi projekt",
+    p2text:"Fejlesztés alatt álló digitális projekt személyes adatok követéséhez.",
+
+    p3:"Webplatform",
+    p3text:"Webalkalmazások és platformok jövőbeli digitális projektekhez.",
+
+    ctaTitle:"Van egy projektötlete?",
+    ctaText:"További információért lépjen kapcsolatba az IT Zone Apps-szal.",
+    ctaButton:"Kapcsolat",
+
+    developmentTitle:"Az oldal fejlesztés alatt áll",
+    developmentText:
+    "Ez a rész jelenleg fejlesztés alatt áll. Hamarosan új információk és digitális szolgáltatások lesznek elérhetők.",
+
+    back:"Vissza",
 
     footer:
     "© 2026 IT Zone Apps. Minden jog fenntartva."
@@ -948,84 +1927,132 @@ hu:{
 };
 
 
-/* =====================================
-   UNDER CONSTRUCTION
-===================================== */
-
-function constructionHTML(){
+function applyLanguage(){
 
     const t = translations[currentLang];
 
-    return `
+    document.documentElement.lang = currentLang;
 
-    <div class="construction">
+    document.getElementById("menuHome").innerText = t.home;
+    document.getElementById("menuApps").innerText = t.applications;
+    document.getElementById("menuProjects").innerText = t.projects;
+    document.getElementById("menuNews").innerText = t.news;
+    document.getElementById("menuAbout").innerText = t.about;
+    document.getElementById("menuContact").innerText = t.contact;
 
-        <div class="code-icon">
-            &lt;/&gt;
-        </div>
+    document.getElementById("mobileHome").innerText = t.home;
+    document.getElementById("mobileApps").innerText = t.applications;
+    document.getElementById("mobileProjects").innerText = t.projects;
+    document.getElementById("mobileNews").innerText = t.news;
+    document.getElementById("mobileAbout").innerText = t.about;
+    document.getElementById("mobileContact").innerText = t.contact;
 
-        <h3>
-            ${t.title}
-        </h3>
+    document.getElementById("heroTitle").innerHTML = t.heroTitle;
+    document.getElementById("heroDescription").innerText = t.heroDescription;
 
-        <p>
-            ${t.text}
-        </p>
+    document.getElementById("exploreBtn").innerHTML = t.explore + " &nbsp; →";
+    document.getElementById("aboutBtn").innerText = t.aboutButton;
 
-        <div class="progress">
-            <span></span>
-        </div>
+    document.getElementById("featureOne").innerHTML = t.feature1;
+    document.getElementById("featureTwo").innerHTML = t.feature2;
+    document.getElementById("featureThree").innerHTML = t.feature3;
 
-    </div>
+    document.getElementById("webTitle").innerText = t.webTitle;
+    document.getElementById("webText").innerText = t.webText;
 
-    `;
+    document.getElementById("mobileTitle").innerText = t.mobileTitle;
+    document.getElementById("mobileText").innerText = t.mobileText;
+
+    document.getElementById("digitalTitle").innerText = t.digitalTitle;
+    document.getElementById("digitalText").innerText = t.digitalText;
+
+    document.getElementById("portalText").innerText = t.portalText;
+    document.getElementById("portalLogin").innerHTML = t.portalLogin + " &nbsp; →";
+
+    document.getElementById("learnOne").innerText = t.learn;
+    document.getElementById("learnTwo").innerText = t.learn;
+    document.getElementById("learnThree").innerText = t.learn;
+
+    document.getElementById("projectSmall").innerText = t.projectSmall;
+    document.getElementById("projectHeading").innerHTML = t.projectHeading;
+    document.getElementById("allProjectsBtn").innerHTML = t.allProjects + " &nbsp; →";
+
+    document.getElementById("projectOneTitle").innerText = t.p1;
+    document.getElementById("projectOneText").innerText = t.p1text;
+
+    document.getElementById("projectTwoTitle").innerText = t.p2;
+    document.getElementById("projectTwoText").innerText = t.p2text;
+
+    document.getElementById("projectThreeTitle").innerText = t.p3;
+    document.getElementById("projectThreeText").innerText = t.p3text;
+
+    document.getElementById("ctaTitle").innerText = t.ctaTitle;
+    document.getElementById("ctaText").innerText = t.ctaText;
+    document.getElementById("ctaButton").innerHTML = t.ctaButton + " &nbsp; →";
+
+    document.getElementById("developmentTitle").innerText = t.developmentTitle;
+    document.getElementById("developmentText").innerText = t.developmentText;
+
+    document.getElementById("backText").innerText = t.back;
+
+    document.getElementById("footerCopy").innerText = t.footer;
 }
 
 
-/* =====================================
-   NORMAL PAGES
-===================================== */
+function showDevelopment(){
 
-function openPage(page,button){
+    document.getElementById("mobileNav").classList.remove("show");
+    document.getElementById("developmentModal").classList.add("show");
+    document.body.style.overflow = "hidden";
+}
 
-    currentPage = page;
 
-    document
-        .querySelectorAll(".nav-button")
-        .forEach(btn => btn.classList.remove("active"));
+function closeDevelopment(){
 
-    if(button){
-        button.classList.add("active");
+    document.getElementById("developmentModal").classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+
+function modalBackground(event){
+
+    if(event.target.id === "developmentModal"){
+        closeDevelopment();
     }
-
-    render();
-
 }
 
 
-/* =====================================
-   LEGAL
-===================================== */
+function toggleMobileMenu(){
+
+    document.getElementById("mobileNav").classList.toggle("show");
+}
+
+
+function goHome(){
+
+    document.getElementById("mobileNav").classList.remove("show");
+
+    document.getElementById("legalOverlay").classList.remove("show");
+    document.getElementById("mainWebsite").style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
 
 function legalHTML(type){
 
     const email =
-    `<a href="mailto:${SUPPORT_EMAIL}">
-        ${SUPPORT_EMAIL}
-    </a>`;
-
+    `<a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>`;
 
     if(type === "contact"){
 
         return `
+        <h2>Contact</h2>
 
-        <div class="legal-content">
-
-        <h3>Contact</h3>
-
-        <p>
-        <strong>IT Zone Apps</strong>
-        </p>
+        <p><strong>IT Zone Apps</strong></p>
 
         <p>
         Private informational website for software,
@@ -1034,7 +2061,7 @@ function legalHTML(type){
         </p>
 
         <p>
-        <strong>Contact</strong><br>
+        <strong>Contact details</strong><br>
         Email: ${email}<br>
         Vienna, Austria
         </p>
@@ -1043,21 +2070,120 @@ function legalHTML(type){
         Email communication is used only to process
         and answer enquiries.
         </p>
-
-        </div>
-
         `;
+    }
 
+
+    if(type === "privacy" || type === "datenschutz"){
+
+        return `
+        <h2>Privacy Policy / Datenschutz</h2>
+
+        <p>
+        <strong>Responsible person</strong><br>
+        Lenard Zivanović<br>
+        Vienna, Austria<br>
+        Email: ${email}
+        </p>
+
+        <p><strong>Scope</strong></p>
+
+        <p>
+        This privacy policy applies to this website
+        and digital projects published under IT Zone Apps.
+        </p>
+
+        <p><strong>Technical website data</strong></p>
+
+        <p>
+        When visiting this website, the hosting provider
+        may automatically process technical information
+        such as IP address, browser type, operating system
+        and access time. This may be necessary for secure
+        and stable operation of the website.
+        </p>
+
+        <p><strong>Local storage</strong></p>
+
+        <p>
+        This website uses local browser storage to remember
+        the selected language.
+        </p>
+
+        <p><strong>Email communication</strong></p>
+
+        <p>
+        Information voluntarily sent by email is used only
+        to process and answer the enquiry.
+        </p>
+
+        <p><strong>Data sharing</strong></p>
+
+        <p>
+        Personal data is not sold or intentionally shared
+        with third parties for marketing purposes.
+        </p>
+
+        <p><strong>User rights</strong></p>
+
+        <p>
+        Users may request information, correction or deletion
+        of personal data in accordance with applicable data
+        protection regulations. Requests can be sent to ${email}.
+        </p>
+        `;
+    }
+
+
+    if(type === "agb"){
+
+        return `
+        <h2>Terms / AGB</h2>
+
+        <p><strong>General information</strong></p>
+
+        <p>
+        This website is a private informational website
+        for software, applications, projects and digital
+        tools in development.
+        </p>
+
+        <p><strong>Availability</strong></p>
+
+        <p>
+        Individual website sections, projects or functions
+        may be changed, temporarily unavailable or still
+        under development.
+        </p>
+
+        <p><strong>Liability</strong></p>
+
+        <p>
+        The website is provided with reasonable care.
+        No guarantee is given that all information or
+        functions will always be available, complete or
+        error-free.
+        </p>
+
+        <p><strong>Copyright</strong></p>
+
+        <p>
+        Texts, graphics, designs, project names and other
+        content may not be copied or used without permission.
+        </p>
+
+        <p>
+        <strong>Contact</strong><br>
+        ${email}
+        </p>
+        `;
     }
 
 
     if(type === "impressum"){
 
         return `
-
-        <div class="legal-content">
-
-        <h3>Impressum</h3>
+        <h2>Impressum</h2>
 
         <p>
         <strong>Website owner</strong><br>
@@ -1070,17 +2196,14 @@ function legalHTML(type){
         Email: ${email}
         </p>
 
-        <p>
-        <strong>Project status</strong>
-        </p>
+        <p><strong>Project status</strong></p>
 
         <p>
-        IT Zone Apps is currently a private
-        informational project for presenting
-        applications, software projects,
+        IT Zone Apps is currently a private informational
+        project for presenting applications, software projects,
         web solutions and digital tools in development.
-        It does not represent a registered company
-        unless explicitly stated otherwise.
+        It does not represent a registered company unless
+        explicitly stated otherwise.
         </p>
 
         <p>
@@ -1089,326 +2212,62 @@ function legalHTML(type){
         Vienna, Austria
         </p>
 
-        <p>
-        <strong>Liability for content</strong>
-        </p>
+        <p><strong>Liability for content</strong></p>
 
         <p>
-        The content of this website has been created
-        with care. However, no guarantee is given for
-        accuracy, completeness or currentness.
+        The content of this website has been created with care.
+        However, no guarantee is given for accuracy,
+        completeness or currentness.
         </p>
+
+        <p><strong>Copyright</strong></p>
 
         <p>
-        <strong>Copyright</strong>
+        All texts, designs, graphics, logos and project-related
+        content are protected and may not be copied or used
+        without permission.
         </p>
-
-        <p>
-        All texts, designs, graphics, logos and
-        project-related content are protected and
-        may not be copied or used without permission.
-        </p>
-
-        </div>
-
         `;
-
     }
 
-
-    if(
-        type === "privacy" ||
-        type === "datenschutz"
-    ){
-
-        return `
-
-        <div class="legal-content">
-
-        <h3>
-        Privacy Policy / Datenschutz
-        </h3>
-
-        <p>
-        <strong>Responsible person</strong><br>
-        Lenard Zivanović<br>
-        Vienna, Austria<br>
-        Email: ${email}
-        </p>
-
-        <p>
-        <strong>Scope</strong>
-        </p>
-
-        <p>
-        This privacy policy applies to this website
-        and digital projects published under
-        IT Zone Apps.
-        </p>
-
-        <p>
-        <strong>Technical website data</strong>
-        </p>
-
-        <p>
-        When visiting this website, the hosting
-        provider may automatically process technical
-        information such as IP address, browser type,
-        operating system and access time.
-        This information may be necessary for the
-        secure and stable operation of the website.
-        </p>
-
-        <p>
-        <strong>Local storage</strong>
-        </p>
-
-        <p>
-        This website uses local browser storage
-        to remember the selected language.
-        </p>
-
-        <p>
-        <strong>Email communication</strong>
-        </p>
-
-        <p>
-        If you contact IT Zone Apps by email,
-        information voluntarily provided in your
-        message is used only to process and answer
-        the enquiry.
-        </p>
-
-        <p>
-        <strong>Data sharing</strong>
-        </p>
-
-        <p>
-        Personal data is not sold or intentionally
-        shared with third parties for marketing
-        purposes.
-        </p>
-
-        <p>
-        <strong>User rights</strong>
-        </p>
-
-        <p>
-        Users may request information, correction
-        or deletion of personal data in accordance
-        with applicable data protection regulations.
-        Requests can be sent to ${email}.
-        </p>
-
-        </div>
-
-        `;
-
-    }
-
-
-    if(type === "agb"){
-
-        return `
-
-        <div class="legal-content">
-
-        <h3>
-        Terms / AGB
-        </h3>
-
-        <p>
-        <strong>General information</strong>
-        </p>
-
-        <p>
-        This website is a private informational
-        website for software, applications,
-        projects and digital tools in development.
-        </p>
-
-        <p>
-        <strong>Availability</strong>
-        </p>
-
-        <p>
-        Individual website sections, projects
-        or functions may be changed, temporarily
-        unavailable or still under development.
-        </p>
-
-        <p>
-        <strong>Liability</strong>
-        </p>
-
-        <p>
-        The website is provided with reasonable care.
-        No guarantee is given that all information
-        or functions will always be available,
-        complete or error-free.
-        </p>
-
-        <p>
-        <strong>Copyright</strong>
-        </p>
-
-        <p>
-        Texts, graphics, designs, project names
-        and other content may not be copied
-        or used without permission.
-        </p>
-
-        <p>
-        <strong>Contact</strong><br>
-        ${email}
-        </p>
-
-        </div>
-
-        `;
-
-    }
-
+    return "";
 }
 
-
-/* =====================================
-   OPEN LEGAL PAGE
-===================================== */
 
 function openLegal(type){
 
-    currentPage = type;
+    document.getElementById("mobileNav").classList.remove("show");
 
-    document
-        .querySelectorAll(".nav-button")
-        .forEach(btn => btn.classList.remove("active"));
+    document.getElementById("mainWebsite").style.display = "none";
 
-    let titles = {
-
-        contact:"Contact",
-
-        privacy:"Privacy Policy",
-
-        datenschutz:"Datenschutz",
-
-        agb:"Terms / AGB",
-
-        impressum:"Impressum"
-
-    };
-
-    document.getElementById("pageTitle").innerText =
-        titles[type];
-
-    document.getElementById("pageLabel").innerText =
-        "IT Zone Apps";
-
-    document.getElementById("contentArea").innerHTML =
+    document.getElementById("legalContent").innerHTML =
         legalHTML(type);
 
-    document.querySelector(".content")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
+    document.getElementById("legalOverlay").classList.add("show");
 
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* =====================================
-   RENDER
-===================================== */
+function closeLegal(){
 
-function render(){
+    document.getElementById("legalOverlay").classList.remove("show");
 
-    const t = translations[currentLang];
+    document.getElementById("mainWebsite").style.display = "block";
 
-    let pageNames = {
-
-        home:t.home,
-        apps:t.apps,
-        projects:t.projects,
-        news:t.news
-
-    };
-
-    document.getElementById("pageTitle").innerText =
-        pageNames[currentPage] || t.home;
-
-    document.getElementById("pageLabel").innerText =
-        t.label;
-
-    document.getElementById("contentArea").innerHTML =
-        constructionHTML();
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* =====================================
-   LANGUAGE
-===================================== */
+document.getElementById("langSelect").value = currentLang;
 
-function applyLanguage(){
-
-    const t = translations[currentLang];
-
-    document.documentElement.lang = currentLang;
-
-    document.getElementById("menuTitle").innerText =
-        t.menu;
-
-    document.getElementById("navHome").innerText =
-        t.home;
-
-    document.getElementById("navApps").innerText =
-        t.apps;
-
-    document.getElementById("navProjects").innerText =
-        t.projects;
-
-    document.getElementById("navNews").innerText =
-        t.news;
-
-    document.getElementById("statusText").innerText =
-        t.status;
-
-    document.getElementById("heroDescription").innerText =
-        t.hero;
-
-    document.getElementById("footerCopy").innerText =
-        t.footer;
-
-
-    if(
-        currentPage === "contact" ||
-        currentPage === "privacy" ||
-        currentPage === "datenschutz" ||
-        currentPage === "agb" ||
-        currentPage === "impressum"
-    ){
-
-        openLegal(currentPage);
-
-    }else{
-
-        render();
-
-    }
-
-}
-
-
-/* =====================================
-   INIT
-===================================== */
-
-document.getElementById("langSelect").value =
-    currentLang;
-
-
-document
-.getElementById("langSelect")
+document.getElementById("langSelect")
 .addEventListener("change",function(){
 
     currentLang = this.value;
@@ -1419,7 +2278,14 @@ document
     );
 
     applyLanguage();
+});
 
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        closeDevelopment();
+    }
 });
 
 
