@@ -153,6 +153,19 @@ a{
     border-top:0;
 }
 
+.brand-code{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--blue);
+    font-size:27px;
+    font-weight:900;
+    font-family:monospace;
+    flex:0 0 auto;
+}
+
 .brand-text strong{
     display:block;
     font-size:25px;
@@ -836,6 +849,12 @@ a{
     margin-right:-8px;
 }
 
+.footer-brand .brand-code{
+    transform:scale(.75);
+    transform-origin:left center;
+    margin-right:-8px;
+}
+
 .footer-brand-text strong{
     display:block;
     font-size:15px;
@@ -1005,6 +1024,12 @@ a{
         margin-right:-7px;
     }
 
+    .brand-code{
+        transform:scale(.78);
+        transform-origin:left center;
+        margin-right:-7px;
+    }
+
     .actions{
         margin-left:auto;
     }
@@ -1153,9 +1178,7 @@ a{
 
     <div class="brand" onclick="goHome()">
 
-        <div class="brand-icon">
-            <span></span>
-        </div>
+        <div class="brand-code">&lt;/&gt;</div>
 
         <div class="brand-text">
             <strong>IT ZONE <b>APPS</b></strong>
@@ -1718,9 +1741,7 @@ a{
 
     <div class="footer-brand">
 
-        <div class="brand-icon">
-            <span></span>
-        </div>
+        <div class="brand-code">&lt;/&gt;</div>
 
         <div class="footer-brand-text">
 
