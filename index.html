@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,7 +90,7 @@ a{
     display:flex;
     align-items:center;
     position:relative;
-    z-index:10;
+    z-index:100;
     box-shadow:0 4px 20px rgba(15,45,80,.035);
 }
 
@@ -249,6 +249,107 @@ a{
     align-items:center;
     gap:9px;
     box-shadow:0 10px 25px rgba(8,103,242,.23);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.menu-toggle{
+    width:46px;
+    height:46px;
+    border:1px solid #d6e1ec;
+    border-radius:12px;
+    background:#fff;
+    color:#172033;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    padding:0;
+}
+
+.menu-toggle span{
+    width:21px;
+    height:2px;
+    border-radius:10px;
+    background:#172033;
+    display:block;
+    transition:.2s ease;
+}
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    padding:12px 4% 18px;
+    background:rgba(255,255,255,.99);
+    border-top:1px solid #edf1f5;
+    border-bottom:1px solid #dce5ee;
+    box-shadow:0 18px 35px rgba(15,45,80,.13);
+}
+
+.mobile-menu.active{
+    display:block;
+}
+
+.mobile-menu-inner{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.mobile-menu button{
+    width:100%;
+    min-height:48px;
+    border:0;
+    border-radius:11px;
+    background:transparent;
+    color:#172033;
+    font-size:15px;
+    font-weight:700;
+    text-align:left;
+    padding:0 16px;
+    display:flex;
+    align-items:center;
+    transition:.2s ease;
+}
+
+.mobile-menu button:hover,
+.mobile-menu button:active{
+    color:var(--blue);
+    background:#edf6ff;
+}
+
+.mobile-menu .mobile-portal{
+    margin-top:6px;
+    justify-content:center;
+    color:#fff;
+    background:linear-gradient(135deg,var(--blue),var(--blue2));
+    box-shadow:0 8px 20px rgba(8,103,242,.18);
+}
+
+.mobile-menu .mobile-portal:hover,
+.mobile-menu .mobile-portal:active{
+    color:#fff;
+    background:linear-gradient(135deg,var(--blue-dark),var(--blue2));
 }
 
 
@@ -945,6 +1046,18 @@ a{
         display:none;
     }
 
+    .portal{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    .actions{
+        margin-left:auto;
+    }
+
     .login-hero{
         min-height:calc(100vh - 70px);
         background-position:center center;
@@ -1002,7 +1115,7 @@ a{
 
     .header-inner{
         width:94%;
-        gap:8px;
+        gap:7px;
     }
 
     .brand{
@@ -1025,23 +1138,28 @@ a{
     }
 
     .brand-code{
-        transform:scale(.78);
-        transform-origin:left center;
-        margin-right:-7px;
+        width:42px;
+        height:42px;
+        font-size:23px;
+        flex-basis:42px;
     }
 
     .actions{
         margin-left:auto;
-    }
-
-    .portal{
-        display:none;
+        gap:7px;
     }
 
     .lang{
         height:42px;
-        padding:0 8px;
+        padding:0 7px;
         font-size:12px;
+        border-radius:11px;
+    }
+
+    .menu-toggle{
+        width:42px;
+        height:42px;
+        border-radius:11px;
     }
 
     .login-hero{
@@ -1191,27 +1309,27 @@ a{
     <nav class="nav">
 
         <button class="active" onclick="goHome()" id="navHome">
-            Home
+            Startseite
         </button>
 
         <button onclick="openSection('applications')" id="navApplications">
-            Applications
+            Anwendungen
         </button>
 
         <button onclick="openSection('projects')" id="navProjects">
-            Projects
+            Projekte
         </button>
 
         <button onclick="openSection('news')" id="navNews">
-            News
+            Neuigkeiten
         </button>
 
         <button onclick="openSection('about')" id="navAbout">
-            About
+            Über uns
         </button>
 
         <button onclick="openLegal('contact')" id="navContact">
-            Contact
+            Kontakt
         </button>
 
     </nav>
@@ -1224,9 +1342,9 @@ a{
             id="langSelect"
             aria-label="Language"
         >
-            <option value="en">🌐 EN</option>
-            <option value="sr">🇷🇸 SR</option>
             <option value="de">🇦🇹 DE</option>
+            <option value="sr">🇷🇸 SR</option>
+            <option value="en">🇺🇸 EN</option>
             <option value="hu">🇭🇺 HU</option>
         </select>
 
@@ -1244,10 +1362,71 @@ a{
             </svg>
 
             <span id="portalText">
-                Security Portal
+                Sicherheitsportal
             </span>
 
         </button>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            onclick="toggleMobileMenu()"
+            aria-label="Menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-inner">
+
+            <button type="button" onclick="mobileGoHome()" id="mobileHome">
+                Startseite
+            </button>
+
+            <button type="button" onclick="mobileOpenSection('applications')" id="mobileApplications">
+                Anwendungen
+            </button>
+
+            <button type="button" onclick="mobileOpenSection('projects')" id="mobileProjects">
+                Projekte
+            </button>
+
+            <button type="button" onclick="mobileOpenSection('news')" id="mobileNews">
+                Neuigkeiten
+            </button>
+
+            <button type="button" onclick="mobileOpenSection('about')" id="mobileAbout">
+                Über uns
+            </button>
+
+            <button type="button" onclick="mobileOpenLegal('contact')" id="mobileContact">
+                Kontakt
+            </button>
+
+            <button type="button" class="mobile-portal" onclick="mobileOpenLogin()">
+
+                <svg class="svg-icon small" viewBox="0 0 24 24">
+                    <path d="M7 10V7a5 5 0 0 1 10 0v3"/>
+                    <rect x="5" y="10" width="14" height="11" rx="2"/>
+                    <path d="M12 14v3"/>
+                </svg>
+
+                <span id="mobilePortalText">
+                    Sicherheitsportal
+                </span>
+
+            </button>
+
+        </div>
 
     </div>
 
@@ -1275,8 +1454,7 @@ a{
     </div>
 
     <p class="lead" id="heroLead">
-        Secure access to applications,
-        projects and digital services.
+        Sicherer Zugriff auf Anwendungen, Projekte und digitale Dienste.
     </p>
 
 
@@ -1297,8 +1475,8 @@ a{
         </div>
 
         <div>
-            <strong id="secureTitle">Secure Login</strong>
-            <span id="secureText">Your data is protected</span>
+            <strong id="secureTitle">Sichere Anmeldung</strong>
+            <span id="secureText">Ihre Daten sind geschützt</span>
         </div>
 
     </div>
@@ -1322,8 +1500,8 @@ a{
         </div>
 
         <div>
-            <strong id="cloudTitle">Cloud Access</strong>
-            <span id="cloudText">Access from anywhere</span>
+            <strong id="cloudTitle">Cloud-Zugriff</strong>
+            <span id="cloudText">Zugriff von überall</span>
         </div>
 
     </div>
@@ -1347,8 +1525,8 @@ a{
         </div>
 
         <div>
-            <strong id="appsTitle">All Your Apps</strong>
-            <span id="appsText">In one place</span>
+            <strong id="appsTitle">Alle Ihre Apps</strong>
+            <span id="appsText">An einem Ort</span>
         </div>
 
     </div>
@@ -1374,8 +1552,8 @@ a{
         </div>
 
         <div>
-            <strong id="futureTitle">Future Features</strong>
-            <span id="futureText">New tools coming soon</span>
+            <strong id="futureTitle">Zukünftige Funktionen</strong>
+            <span id="futureText">Neue Tools folgen bald</span>
         </div>
 
     </div>
@@ -1677,7 +1855,7 @@ a{
         onclick="closeModal('infoModal')"
         id="infoClose"
     >
-        Close
+        Schließen
     </button>
 
 </section>
@@ -1866,7 +2044,7 @@ const SUPPORT_EMAIL =
 
 
 let currentLang =
-    localStorage.getItem("site_lang") || "en";
+    localStorage.getItem("site_lang") || "de";
 
 
 /* =========================================================
@@ -1994,12 +2172,89 @@ const translations = {
 
 
 /* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMobileMenu(){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    const toggle =
+        document.getElementById("menuToggle");
+
+    const isOpen =
+        menu.classList.toggle("active");
+
+    toggle.classList.toggle("active", isOpen);
+
+    toggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+    );
+
+}
+
+
+function closeMobileMenu(){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    const toggle =
+        document.getElementById("menuToggle");
+
+    menu.classList.remove("active");
+    toggle.classList.remove("active");
+
+    toggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+}
+
+
+function mobileGoHome(){
+
+    closeMobileMenu();
+    goHome();
+
+}
+
+
+function mobileOpenSection(type){
+
+    closeMobileMenu();
+    openSection(type);
+
+}
+
+
+function mobileOpenLegal(type){
+
+    closeMobileMenu();
+    openLegal(type);
+
+}
+
+
+function mobileOpenLogin(){
+
+    closeMobileMenu();
+    openLogin();
+
+}
+
+
+/* =========================================================
    HOME
 ========================================================= */
 
 function goHome(){
 
     closeAllModals();
+    closeMobileMenu();
 
     window.scrollTo({
         top:0,
@@ -2123,6 +2378,8 @@ function setActiveNav(id){
 ========================================================= */
 
 function openLogin(){
+
+    closeMobileMenu();
 
     openModal("loginModal");
 
@@ -2512,6 +2769,7 @@ function openLegal(type){
 function openModal(id){
 
     closeAllModals();
+    closeMobileMenu();
 
     const modal =
         document.getElementById(id);
@@ -2586,6 +2844,7 @@ document.addEventListener(
         if(event.key === "Escape"){
 
             closeAllModals();
+            closeMobileMenu();
 
         }
 
@@ -2707,8 +2966,32 @@ function applyLanguage(){
     document.getElementById("navContact").textContent =
         t.contact;
 
+
+    document.getElementById("mobileHome").textContent =
+        t.home;
+
+    document.getElementById("mobileApplications").textContent =
+        t.applications;
+
+    document.getElementById("mobileProjects").textContent =
+        t.projects;
+
+    document.getElementById("mobileNews").textContent =
+        t.news;
+
+    document.getElementById("mobileAbout").textContent =
+        t.about;
+
+    document.getElementById("mobileContact").textContent =
+        t.contact;
+
+
     document.getElementById("portalText").textContent =
         t.portal;
+
+    document.getElementById("mobilePortalText").textContent =
+        t.portal;
+
 
     document.getElementById("heroLead").textContent =
         t.hero;
@@ -2768,12 +3051,29 @@ langSelect.addEventListener(
         );
 
         applyLanguage();
+        closeMobileMenu();
 
     }
 );
 
 
 applyLanguage();
+
+
+/* =========================================================
+   CLOSE MOBILE MENU ON RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        if(window.innerWidth > 900){
+            closeMobileMenu();
+        }
+
+    }
+);
 
 </script>
 
