@@ -277,10 +277,8 @@ a{
 .login-inner{
     position:relative;
     z-index:2;
-
     width:min(1180px,90%);
     margin:0 auto;
-
     display:flex;
     align-items:center;
 }
@@ -305,12 +303,7 @@ a{
 }
 
 .intro h1 span{
-    background:linear-gradient(
-        90deg,
-        #16b7ff,
-        #0875f5
-    );
-
+    background:linear-gradient(90deg,#16b7ff,#0875f5);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -342,14 +335,10 @@ a{
     align-items:center;
     gap:18px;
     margin:14px 0;
-
     width:100%;
     max-width:430px;
-
     padding:7px;
-
     border-radius:18px;
-
     cursor:pointer;
 
     transition:
@@ -360,11 +349,8 @@ a{
 
 .benefit:hover{
     transform:translateX(6px);
-
     background:rgba(255,255,255,.08);
-
-    box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,.08);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
 }
 
 .benefit:active{
@@ -375,7 +361,6 @@ a{
     width:64px;
     height:64px;
     flex:0 0 64px;
-
     border-radius:15px;
 
     background:linear-gradient(
@@ -388,7 +373,6 @@ a{
 
     display:grid;
     place-items:center;
-
     color:#fff;
 
     box-shadow:
@@ -396,7 +380,6 @@ a{
         0 8px 22px rgba(0,55,120,.12);
 
     backdrop-filter:blur(7px);
-
     transition:.22s ease;
 }
 
@@ -433,13 +416,12 @@ a{
 
 
 /* =========================================================
-   MODAL BACKGROUND
+   MODALS
 ========================================================= */
 
 .modal-overlay{
     position:fixed;
     inset:0;
-
     z-index:9999;
 
     display:flex;
@@ -455,6 +437,7 @@ a{
 
     opacity:0;
     visibility:hidden;
+    pointer-events:none;
 
     transition:
         opacity .25s ease,
@@ -464,36 +447,25 @@ a{
 .modal-overlay.active{
     opacity:1;
     visibility:visible;
+    pointer-events:auto;
 }
-
-
-/* =========================================================
-   MODAL
-========================================================= */
 
 .modal{
     width:min(520px,100%);
-
     max-height:calc(100vh - 40px);
     overflow:auto;
 
     position:relative;
 
     background:rgba(255,255,255,.985);
-
     border:1px solid rgba(255,255,255,.85);
-
     border-radius:28px;
 
     padding:36px 44px 32px;
 
-    box-shadow:
-        0 30px 90px rgba(0,15,40,.45);
+    box-shadow:0 30px 90px rgba(0,15,40,.45);
 
-    transform:
-        translateY(20px)
-        scale(.96);
-
+    transform:translateY(20px) scale(.96);
     opacity:0;
 
     transition:
@@ -502,19 +474,17 @@ a{
 }
 
 .modal-overlay.active .modal{
-    transform:
-        translateY(0)
-        scale(1);
-
+    transform:translateY(0) scale(1);
     opacity:1;
 }
 
-
-/* CLOSE */
+.modal.legal-modal{
+    width:min(760px,100%);
+    padding:42px 48px 38px;
+}
 
 .modal-close{
     position:absolute;
-
     top:17px;
     right:17px;
 
@@ -522,11 +492,9 @@ a{
     height:39px;
 
     border:1px solid #dbe5ef;
-
     border-radius:50%;
 
     background:#fff;
-
     color:#667085;
 
     display:grid;
@@ -544,17 +512,10 @@ a{
     transform:rotate(90deg);
 }
 
-
-/* =========================================================
-   MODAL ICON
-========================================================= */
-
 .modal-icon{
     width:74px;
     height:74px;
-
     margin:0 auto 18px;
-
     border-radius:20px;
 
     display:grid;
@@ -569,8 +530,7 @@ a{
         #0457da 100%
     );
 
-    box-shadow:
-        0 12px 28px rgba(8,103,242,.30);
+    box-shadow:0 12px 28px rgba(8,103,242,.30);
 }
 
 .modal-icon svg{
@@ -578,43 +538,28 @@ a{
     height:38px;
 }
 
-
-/* =========================================================
-   MODAL TEXT
-========================================================= */
-
 .modal h2{
     text-align:center;
-
     font-size:34px;
     line-height:1.1;
-
     font-weight:800;
-
     letter-spacing:-.8px;
-
     margin-bottom:9px;
-
     color:#101828;
 }
 
 .modal-desc{
     text-align:center;
-
     color:#667085;
-
     line-height:1.5;
-
     margin:0 auto 27px;
-
     font-size:15px;
-
     max-width:390px;
 }
 
 
 /* =========================================================
-   LOGIN FORM
+   FORM
 ========================================================= */
 
 .field{
@@ -631,7 +576,6 @@ a{
 
 .input{
     height:54px;
-
     border:1px solid #ccd6e1;
     border-radius:11px;
 
@@ -643,16 +587,12 @@ a{
 
     background:#fff;
     color:#667085;
-
     transition:.2s ease;
 }
 
 .input:focus-within{
     border-color:#1687f7;
-
-    box-shadow:
-        0 0 0 3px rgba(8,103,242,.08);
-
+    box-shadow:0 0 0 3px rgba(8,103,242,.08);
     color:#0867f2;
 }
 
@@ -661,11 +601,8 @@ a{
     outline:0;
     width:100%;
     height:100%;
-
     font-size:15px;
-
     color:#172033;
-
     background:transparent;
 }
 
@@ -677,22 +614,15 @@ a{
     border:0;
     background:transparent;
     color:#667085;
-
     display:grid;
     place-items:center;
-
     padding:5px;
 }
 
-
-/* =========================================================
-   LOGIN BUTTON
-========================================================= */
-
-.login-btn{
+.login-btn,
+.info-action{
     height:55px;
     width:100%;
-
     border:0;
     border-radius:11px;
 
@@ -704,46 +634,30 @@ a{
     );
 
     color:#fff;
-
     font-size:17px;
     font-weight:800;
-
-    margin-top:3px;
 
     display:flex;
     align-items:center;
     justify-content:center;
-
     gap:10px;
 
-    box-shadow:
-        0 8px 18px rgba(8,103,242,.20);
-
+    box-shadow:0 8px 18px rgba(8,103,242,.20);
     transition:.2s;
 }
 
-.login-btn:hover{
+.login-btn:hover,
+.info-action:hover{
     transform:translateY(-1px);
-
-    box-shadow:
-        0 12px 24px rgba(8,103,242,.28);
+    box-shadow:0 12px 24px rgba(8,103,242,.28);
 }
-
-
-/* =========================================================
-   OR
-========================================================= */
 
 .or{
     display:flex;
     align-items:center;
-
     gap:15px;
-
     color:#7c8797;
-
     margin:17px 0;
-
     font-size:12px;
     font-weight:500;
 }
@@ -751,37 +665,23 @@ a{
 .or::before,
 .or::after{
     content:"";
-
     height:1px;
-
     background:#dce3eb;
-
     flex:1;
 }
-
-
-/* =========================================================
-   GOOGLE
-========================================================= */
 
 .google{
     height:53px;
     width:100%;
-
     border:1px solid #cfd9e4;
-
     border-radius:11px;
-
     background:#fff;
-
     color:#101828;
-
     font-weight:700;
 
     display:flex;
     justify-content:center;
     align-items:center;
-
     gap:10px;
 }
 
@@ -790,23 +690,13 @@ a{
     height:21px;
 }
 
-
-/* =========================================================
-   OPTIONS
-========================================================= */
-
 .options{
     display:flex;
-
     justify-content:space-between;
     align-items:center;
-
     gap:15px;
-
     font-size:14px;
-
     margin-top:17px;
-
     color:#475467;
 }
 
@@ -819,7 +709,6 @@ a{
 .remember input{
     width:18px;
     height:18px;
-
     accent-color:var(--blue);
 }
 
@@ -831,64 +720,85 @@ a{
 
 .signup{
     text-align:center;
-
     margin-top:31px;
-
     color:#667085;
-
     font-size:14px;
 }
 
 
 /* =========================================================
-   INFO MODALS
+   INFO
 ========================================================= */
-
-.info-content{
-    display:none;
-}
-
-.info-content.active{
-    display:block;
-}
 
 .info-box{
     margin-top:22px;
-
     padding:18px;
-
     border-radius:15px;
-
     background:#f5f9fd;
-
     border:1px solid #dce8f3;
-
     color:#475467;
-
     font-size:14px;
-
     line-height:1.6;
 }
 
 .info-action{
     margin-top:20px;
-
-    width:100%;
     height:52px;
+}
 
-    border:0;
 
-    border-radius:11px;
+/* =========================================================
+   LEGAL
+========================================================= */
 
-    color:#fff;
+.legal-header{
+    padding-right:45px;
+    margin-bottom:25px;
+}
 
+.legal-header .legal-badge{
+    display:inline-block;
+    padding:6px 11px;
+    margin-bottom:12px;
+
+    border-radius:999px;
+
+    background:#edf5ff;
+    color:var(--blue);
+
+    font-size:11px;
     font-weight:800;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+}
 
-    background:linear-gradient(
-        90deg,
-        #0872f5,
-        #08aff1
-    );
+.legal-header h2{
+    text-align:left;
+    margin:0;
+    font-size:34px;
+}
+
+.legal-content{
+    color:#667085;
+    font-size:14px;
+    line-height:1.72;
+}
+
+.legal-content p{
+    margin-bottom:17px;
+}
+
+.legal-content strong{
+    color:#26364d;
+}
+
+.legal-content a{
+    color:var(--blue);
+    font-weight:700;
+}
+
+.legal-content a:hover{
+    text-decoration:underline;
 }
 
 
@@ -898,48 +808,36 @@ a{
 
 .footer{
     min-height:90px;
-
     display:flex;
     align-items:center;
-
     border-top:1px solid #e7edf4;
-
     background:#fff;
 }
 
 .footer-inner{
     width:min(1440px,94%);
-
     margin:auto;
 
     display:grid;
-
-    grid-template-columns:
-        1fr auto 1fr;
-
+    grid-template-columns:1fr auto 1fr;
     align-items:center;
-
     gap:30px;
 }
 
 .footer-brand{
     display:flex;
     align-items:center;
-
     gap:10px;
 }
 
 .footer-brand .brand-icon{
     transform:scale(.75);
-
     transform-origin:left center;
-
     margin-right:-8px;
 }
 
 .footer-brand-text strong{
     display:block;
-
     font-size:15px;
 }
 
@@ -949,36 +847,32 @@ a{
 
 .footer-brand-text small{
     display:block;
-
     font-size:6px;
-
     letter-spacing:1.6px;
-
     margin-top:3px;
-
     color:#667085;
-
     font-weight:700;
 }
 
 .footer-links{
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     gap:10px;
-
     color:#667085;
-
     font-size:13px;
 }
 
-.footer-links a{
+.footer-links button{
+    border:0;
+    background:transparent;
     color:#667085;
+    cursor:pointer;
+    font-size:13px;
+    padding:3px;
 }
 
-.footer-links a:hover{
+.footer-links button:hover{
     color:var(--blue);
 }
 
@@ -988,26 +882,19 @@ a{
 
 .footer-social{
     display:flex;
-
     align-items:center;
     justify-content:flex-end;
-
     gap:15px;
 }
 
 .footer-social button{
     width:35px;
     height:35px;
-
     border:0;
-
     border-radius:9px;
-
     background:transparent;
-
     display:grid;
     place-items:center;
-
     color:#101828;
 }
 
@@ -1024,14 +911,13 @@ a{
 
     .nav button{
         padding:10px 8px;
-
         font-size:13px;
     }
 }
 
 
 /* =========================================================
-   MOBILE / TABLET
+   TABLET / MOBILE
 ========================================================= */
 
 @media(max-width:900px){
@@ -1042,7 +928,6 @@ a{
 
     .login-hero{
         min-height:calc(100vh - 70px);
-
         background-position:center center;
     }
 
@@ -1057,15 +942,12 @@ a{
 
     .login-inner{
         width:92%;
-
         padding:60px 0;
-
         justify-content:center;
     }
 
     .intro{
         width:100%;
-
         max-width:560px;
     }
 
@@ -1075,9 +957,7 @@ a{
 
     .footer-inner{
         display:flex;
-
         flex-direction:column;
-
         gap:18px;
     }
 
@@ -1103,7 +983,6 @@ a{
 
     .header-inner{
         width:94%;
-
         gap:8px;
     }
 
@@ -1117,15 +996,12 @@ a{
 
     .brand-text small{
         font-size:7px;
-
         letter-spacing:1.4px;
     }
 
     .brand-icon{
         transform:scale(.78);
-
         transform-origin:left center;
-
         margin-right:-7px;
     }
 
@@ -1139,26 +1015,19 @@ a{
 
     .lang{
         height:42px;
-
         padding:0 8px;
-
         font-size:12px;
     }
 
     .login-hero{
         min-height:calc(100svh - 70px);
-
         align-items:flex-start;
-
         background-position:center center;
     }
 
     .login-inner{
         width:88%;
-
-        padding:
-            62px 0
-            70px;
+        padding:62px 0 70px;
     }
 
     .intro{
@@ -1167,38 +1036,26 @@ a{
 
     .intro h1{
         font-size:40px;
-
         margin-bottom:24px;
     }
 
     .intro .sub{
         font-size:12px;
-
         letter-spacing:3.5px;
-
         margin-bottom:34px;
     }
 
     .intro .lead{
         font-size:17px;
-
         line-height:1.5;
-
-        margin:
-            0 auto
-            36px;
-
+        margin:0 auto 36px;
         max-width:330px;
     }
 
     .benefit{
         max-width:340px;
-
-        margin:
-            10px auto;
-
+        margin:10px auto;
         padding:7px 5px;
-
         text-align:left;
     }
 
@@ -1209,9 +1066,7 @@ a{
     .benefit-icon{
         width:58px;
         height:58px;
-
         flex-basis:58px;
-
         border-radius:15px;
     }
 
@@ -1232,20 +1087,16 @@ a{
         padding:14px;
     }
 
-    .modal{
-        padding:
-            31px 20px
-            25px;
-
+    .modal,
+    .modal.legal-modal{
+        padding:31px 20px 25px;
         border-radius:24px;
-
         max-height:calc(100svh - 28px);
     }
 
     .modal-close{
         width:36px;
         height:36px;
-
         top:13px;
         right:13px;
     }
@@ -1253,7 +1104,6 @@ a{
     .modal-icon{
         width:66px;
         height:66px;
-
         border-radius:18px;
     }
 
@@ -1270,6 +1120,14 @@ a{
         font-size:14px;
     }
 
+    .legal-header{
+        padding-right:35px;
+    }
+
+    .legal-header h2{
+        font-size:27px;
+    }
+
     .options{
         font-size:12px;
     }
@@ -1282,7 +1140,6 @@ a{
 </style>
 </head>
 
-
 <body>
 
 
@@ -1294,22 +1151,15 @@ a{
 
 <div class="header-inner">
 
-    <div class="brand">
+    <div class="brand" onclick="goHome()">
 
         <div class="brand-icon">
             <span></span>
         </div>
 
         <div class="brand-text">
-
-            <strong>
-                IT ZONE <b>APPS</b>
-            </strong>
-
-            <small>
-                WEB & APP DEVELOPMENT
-            </small>
-
+            <strong>IT ZONE <b>APPS</b></strong>
+            <small>WEB & APP DEVELOPMENT</small>
         </div>
 
     </div>
@@ -1317,27 +1167,27 @@ a{
 
     <nav class="nav">
 
-        <button class="active">
+        <button class="active" onclick="goHome()" id="navHome">
             Home
         </button>
 
-        <button>
+        <button onclick="openSection('applications')" id="navApplications">
             Applications
         </button>
 
-        <button>
+        <button onclick="openSection('projects')" id="navProjects">
             Projects
         </button>
 
-        <button>
+        <button onclick="openSection('news')" id="navNews">
             News
         </button>
 
-        <button>
+        <button onclick="openSection('about')" id="navAbout">
             About
         </button>
 
-        <button>
+        <button onclick="openLegal('contact')" id="navContact">
             Contact
         </button>
 
@@ -1348,25 +1198,13 @@ a{
 
         <select
             class="lang"
+            id="langSelect"
             aria-label="Language"
         >
-
-            <option value="en">
-                🌐 EN
-            </option>
-
-            <option value="sr">
-                🇷🇸 SR
-            </option>
-
-            <option value="de">
-                🇦🇹 DE
-            </option>
-
-            <option value="hu">
-                🇭🇺 HU
-            </option>
-
+            <option value="en">🌐 EN</option>
+            <option value="sr">🇷🇸 SR</option>
+            <option value="de">🇦🇹 DE</option>
+            <option value="hu">🇭🇺 HU</option>
         </select>
 
 
@@ -1376,16 +1214,15 @@ a{
             onclick="openLogin()"
         >
 
-            <svg
-                class="svg-icon small"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon small" viewBox="0 0 24 24">
                 <path d="M7 10V7a5 5 0 0 1 10 0v3"/>
                 <rect x="5" y="10" width="14" height="11" rx="2"/>
                 <path d="M12 14v3"/>
             </svg>
 
-            Security Portal
+            <span id="portalText">
+                Security Portal
+            </span>
 
         </button>
 
@@ -1400,10 +1237,9 @@ a{
      HERO
 ====================================================== -->
 
-<main class="login-hero">
+<main class="login-hero" id="home">
 
 <div class="login-inner">
-
 
 <section class="intro">
 
@@ -1415,13 +1251,11 @@ a{
         WEB & APP DEVELOPMENT
     </div>
 
-    <p class="lead">
+    <p class="lead" id="heroLead">
         Secure access to applications,
         projects and digital services.
     </p>
 
-
-    <!-- SECURE LOGIN -->
 
     <div
         class="benefit"
@@ -1432,10 +1266,7 @@ a{
 
         <div class="benefit-icon">
 
-            <svg
-                class="svg-icon large"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon large" viewBox="0 0 24 24">
                 <path d="M12 3l7 3v5c0 4.8-2.8 8-7 10-4.2-2-7-5.2-7-10V6l7-3z"/>
                 <path d="M9.5 12l1.7 1.7 3.5-3.5"/>
             </svg>
@@ -1443,21 +1274,12 @@ a{
         </div>
 
         <div>
-
-            <strong>
-                Secure Login
-            </strong>
-
-            <span>
-                Your data is protected
-            </span>
-
+            <strong id="secureTitle">Secure Login</strong>
+            <span id="secureText">Your data is protected</span>
         </div>
 
     </div>
 
-
-    <!-- CLOUD -->
 
     <div
         class="benefit"
@@ -1468,10 +1290,7 @@ a{
 
         <div class="benefit-icon">
 
-            <svg
-                class="svg-icon large"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon large" viewBox="0 0 24 24">
                 <path d="M6.5 18h11a4 4 0 0 0 .5-8A6 6 0 0 0 6.7 8.5 4.8 4.8 0 0 0 6.5 18z"/>
                 <path d="M12 11v5"/>
                 <path d="M9.8 13.2L12 11l2.2 2.2"/>
@@ -1480,21 +1299,12 @@ a{
         </div>
 
         <div>
-
-            <strong>
-                Cloud Access
-            </strong>
-
-            <span>
-                Access from anywhere
-            </span>
-
+            <strong id="cloudTitle">Cloud Access</strong>
+            <span id="cloudText">Access from anywhere</span>
         </div>
 
     </div>
 
-
-    <!-- APPS -->
 
     <div
         class="benefit"
@@ -1505,10 +1315,7 @@ a{
 
         <div class="benefit-icon">
 
-            <svg
-                class="svg-icon large"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon large" viewBox="0 0 24 24">
                 <rect x="7" y="2.5" width="10" height="19" rx="2"/>
                 <path d="M10 5h4"/>
                 <circle cx="12" cy="18.5" r=".7"/>
@@ -1517,21 +1324,12 @@ a{
         </div>
 
         <div>
-
-            <strong>
-                All Your Apps
-            </strong>
-
-            <span>
-                In one place
-            </span>
-
+            <strong id="appsTitle">All Your Apps</strong>
+            <span id="appsText">In one place</span>
         </div>
 
     </div>
 
-
-    <!-- FUTURE -->
 
     <div
         class="benefit"
@@ -1542,16 +1340,9 @@ a{
 
         <div class="benefit-icon">
 
-            <svg
-                class="svg-icon large"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon large" viewBox="0 0 24 24">
 
-                <circle
-                    cx="12"
-                    cy="12"
-                    r="3"
-                />
+                <circle cx="12" cy="12" r="3"/>
 
                 <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/>
 
@@ -1560,15 +1351,8 @@ a{
         </div>
 
         <div>
-
-            <strong>
-                Future Features
-            </strong>
-
-            <span>
-                New tools coming soon
-            </span>
-
+            <strong id="futureTitle">Future Features</strong>
+            <span id="futureText">New tools coming soon</span>
         </div>
 
     </div>
@@ -1642,35 +1426,29 @@ a{
     </div>
 
 
-    <h2>
+    <h2 id="loginTitle">
         Welcome Back
     </h2>
 
-    <p class="modal-desc">
-        Log in to your IT Zone Apps account
-        and access all applications and services.
+    <p class="modal-desc" id="loginDescription">
+        Log in to your IT Zone Apps account and access all applications and services.
     </p>
 
 
     <form onsubmit="handleLogin(event)">
 
-
         <div class="field">
 
-            <label for="email">
+            <label for="email" id="emailLabel">
                 Email
             </label>
 
             <div class="input">
 
-                <svg
-                    class="svg-icon small"
-                    viewBox="0 0 24 24"
-                >
+                <svg class="svg-icon small" viewBox="0 0 24 24">
                     <rect x="3" y="5" width="18" height="14" rx="2"/>
                     <path d="M3 7l9 6 9-6"/>
                 </svg>
-
 
                 <input
                     id="email"
@@ -1687,20 +1465,16 @@ a{
 
         <div class="field">
 
-            <label for="password">
+            <label for="password" id="passwordLabel">
                 Password
             </label>
 
             <div class="input">
 
-                <svg
-                    class="svg-icon small"
-                    viewBox="0 0 24 24"
-                >
+                <svg class="svg-icon small" viewBox="0 0 24 24">
                     <rect x="5" y="10" width="14" height="11" rx="2"/>
                     <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
                 </svg>
-
 
                 <input
                     id="password"
@@ -1709,7 +1483,6 @@ a{
                     autocomplete="current-password"
                     required
                 >
-
 
                 <button
                     class="eye"
@@ -1734,17 +1507,13 @@ a{
         </div>
 
 
-        <button
-            class="login-btn"
-            type="submit"
-        >
+        <button class="login-btn" type="submit">
 
-            Log In
+            <span id="loginButtonText">
+                Log In
+            </span>
 
-            <svg
-                class="svg-icon small"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon small" viewBox="0 0 24 24">
                 <path d="M5 12h14"/>
                 <path d="M14 7l5 5-5 5"/>
             </svg>
@@ -1752,20 +1521,14 @@ a{
         </button>
 
 
-        <div class="or">
+        <div class="or" id="orText">
             OR
         </div>
 
 
-        <button
-            class="google"
-            type="button"
-        >
+        <button class="google" type="button">
 
-            <svg
-                class="google-logo"
-                viewBox="0 0 24 24"
-            >
+            <svg class="google-logo" viewBox="0 0 24 24">
 
                 <path
                     fill="#4285F4"
@@ -1789,7 +1552,9 @@ a{
 
             </svg>
 
-            Continue with Google
+            <span id="googleText">
+                Continue with Google
+            </span>
 
         </button>
 
@@ -1800,14 +1565,13 @@ a{
 
                 <input type="checkbox">
 
-                <span>
+                <span id="rememberText">
                     Remember me
                 </span>
 
             </label>
 
-
-            <a href="#">
+            <a href="#" onclick="event.preventDefault();" id="forgotText">
                 Forgot password?
             </a>
 
@@ -1816,11 +1580,13 @@ a{
 
         <div class="signup">
 
-            Don't have an account?
+            <span id="accountText">
+                Don't have an account?
+            </span>
 
             &nbsp;
 
-            <a href="#">
+            <a href="#" onclick="event.preventDefault();" id="signupText">
                 Sign Up
             </a>
 
@@ -1860,8 +1626,7 @@ a{
             id="infoIcon"
             class="svg-icon"
             viewBox="0 0 24 24"
-        >
-        </svg>
+        ></svg>
 
     </div>
 
@@ -1874,24 +1639,68 @@ a{
     <p
         class="modal-desc"
         id="infoDescription"
-    >
-    </p>
+    ></p>
 
 
     <div
         class="info-box"
         id="infoBox"
-    >
-    </div>
+    ></div>
 
 
     <button
         class="info-action"
         type="button"
         onclick="closeModal('infoModal')"
+        id="infoClose"
     >
         Close
     </button>
+
+</section>
+
+</div>
+
+
+<!-- ======================================================
+     LEGAL / CONTACT MODAL
+====================================================== -->
+
+<div
+    class="modal-overlay"
+    id="legalModal"
+    onclick="overlayClose(event,'legalModal')"
+>
+
+<section class="modal legal-modal">
+
+    <button
+        class="modal-close"
+        type="button"
+        onclick="closeModal('legalModal')"
+        aria-label="Close"
+    >
+        ×
+    </button>
+
+
+    <div class="legal-header">
+
+        <span class="legal-badge">
+            IT Zone Apps
+        </span>
+
+        <h2 id="legalTitle">
+            Information
+        </h2>
+
+    </div>
+
+
+    <div
+        class="legal-content"
+        id="legalContent"
+    ></div>
 
 </section>
 
@@ -1913,7 +1722,6 @@ a{
             <span></span>
         </div>
 
-
         <div class="footer-brand-text">
 
             <strong>
@@ -1931,41 +1739,48 @@ a{
 
     <div class="footer-links">
 
-        <a href="#">
+        <button
+            type="button"
+            onclick="openLegal('contact')"
+        >
             Contact
-        </a>
+        </button>
 
-        <span class="footer-dot">
-            •
-        </span>
+        <span class="footer-dot">•</span>
 
-        <a href="#">
+        <button
+            type="button"
+            onclick="openLegal('privacy')"
+        >
             Privacy Policy
-        </a>
+        </button>
 
-        <span class="footer-dot">
-            •
-        </span>
+        <span class="footer-dot">•</span>
 
-        <a href="#">
+        <button
+            type="button"
+            onclick="openLegal('datenschutz')"
+        >
             Datenschutz
-        </a>
+        </button>
 
-        <span class="footer-dot">
-            •
-        </span>
+        <span class="footer-dot">•</span>
 
-        <a href="#">
+        <button
+            type="button"
+            onclick="openLegal('agb')"
+        >
             Terms / AGB
-        </a>
+        </button>
 
-        <span class="footer-dot">
-            •
-        </span>
+        <span class="footer-dot">•</span>
 
-        <a href="#">
+        <button
+            type="button"
+            onclick="openLegal('impressum')"
+        >
             Impressum
-        </a>
+        </button>
 
     </div>
 
@@ -1975,12 +1790,10 @@ a{
         <button
             type="button"
             aria-label="Email"
+            onclick="window.location.href='mailto:zivanoviclenard3@gmail.com'"
         >
 
-            <svg
-                class="svg-icon small"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon small" viewBox="0 0 24 24">
                 <rect x="3" y="5" width="18" height="14" rx="2"/>
                 <path d="M3 7l9 6 9-6"/>
             </svg>
@@ -1991,12 +1804,10 @@ a{
         <button
             type="button"
             aria-label="Code"
+            onclick="openSection('projects')"
         >
 
-            <svg
-                class="svg-icon small"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon small" viewBox="0 0 24 24">
                 <path d="M8 9l-3 3 3 3"/>
                 <path d="M16 9l3 3-3 3"/>
                 <path d="M14 5l-4 14"/>
@@ -2008,12 +1819,10 @@ a{
         <button
             type="button"
             aria-label="Website"
+            onclick="goHome()"
         >
 
-            <svg
-                class="svg-icon small"
-                viewBox="0 0 24 24"
-            >
+            <svg class="svg-icon small" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="9"/>
                 <path d="M3 12h18"/>
                 <path d="M12 3a14 14 0 0 1 0 18"/>
@@ -2031,18 +1840,271 @@ a{
 
 <script>
 
+const SUPPORT_EMAIL =
+    "zivanoviclenard3@gmail.com";
+
+
+let currentLang =
+    localStorage.getItem("site_lang") || "en";
+
+
 /* =========================================================
-   LOGIN MODAL
+   TRANSLATIONS
+========================================================= */
+
+const translations = {
+
+    en:{
+        home:"Home",
+        applications:"Applications",
+        projects:"Projects",
+        news:"News",
+        about:"About",
+        contact:"Contact",
+
+        portal:"Security Portal",
+
+        hero:
+        "Secure access to applications, projects and digital services.",
+
+        secureTitle:"Secure Login",
+        secureText:"Your data is protected",
+
+        cloudTitle:"Cloud Access",
+        cloudText:"Access from anywhere",
+
+        appsTitle:"All Your Apps",
+        appsText:"In one place",
+
+        futureTitle:"Future Features",
+        futureText:"New tools coming soon",
+
+        close:"Close"
+    },
+
+
+    sr:{
+        home:"Početna",
+        applications:"Aplikacije",
+        projects:"Projekti",
+        news:"Novosti",
+        about:"O nama",
+        contact:"Kontakt",
+
+        portal:"Sigurnosni portal",
+
+        hero:
+        "Siguran pristup aplikacijama, projektima i digitalnim uslugama.",
+
+        secureTitle:"Sigurna prijava",
+        secureText:"Vaši podaci su zaštićeni",
+
+        cloudTitle:"Cloud pristup",
+        cloudText:"Pristup sa bilo kog mesta",
+
+        appsTitle:"Sve vaše aplikacije",
+        appsText:"Na jednom mestu",
+
+        futureTitle:"Buduće funkcije",
+        futureText:"Novi alati stižu uskoro",
+
+        close:"Zatvori"
+    },
+
+
+    de:{
+        home:"Startseite",
+        applications:"Anwendungen",
+        projects:"Projekte",
+        news:"Neuigkeiten",
+        about:"Über uns",
+        contact:"Kontakt",
+
+        portal:"Sicherheitsportal",
+
+        hero:
+        "Sicherer Zugriff auf Anwendungen, Projekte und digitale Dienste.",
+
+        secureTitle:"Sichere Anmeldung",
+        secureText:"Ihre Daten sind geschützt",
+
+        cloudTitle:"Cloud-Zugriff",
+        cloudText:"Zugriff von überall",
+
+        appsTitle:"Alle Ihre Apps",
+        appsText:"An einem Ort",
+
+        futureTitle:"Zukünftige Funktionen",
+        futureText:"Neue Tools folgen bald",
+
+        close:"Schließen"
+    },
+
+
+    hu:{
+        home:"Kezdőlap",
+        applications:"Alkalmazások",
+        projects:"Projektek",
+        news:"Hírek",
+        about:"Rólunk",
+        contact:"Kapcsolat",
+
+        portal:"Biztonsági portál",
+
+        hero:
+        "Biztonságos hozzáférés alkalmazásokhoz, projektekhez és digitális szolgáltatásokhoz.",
+
+        secureTitle:"Biztonságos bejelentkezés",
+        secureText:"Adatai védve vannak",
+
+        cloudTitle:"Felhő hozzáférés",
+        cloudText:"Hozzáférés bárhonnan",
+
+        appsTitle:"Minden alkalmazás",
+        appsText:"Egy helyen",
+
+        futureTitle:"Jövőbeli funkciók",
+        futureText:"Hamarosan új eszközök érkeznek",
+
+        close:"Bezárás"
+    }
+
+};
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function goHome(){
+
+    closeAllModals();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    setActiveNav("navHome");
+}
+
+
+/* =========================================================
+   TOP MENU
+========================================================= */
+
+function openSection(type){
+
+    const titles = {
+        applications:"Applications",
+        projects:"Projects",
+        news:"News",
+        about:"About"
+    };
+
+
+    const descriptions = {
+
+        applications:
+        "IT Zone Apps applications and digital services.",
+
+        projects:
+        "Current software, web and mobile development projects.",
+
+        news:
+        "News and development updates from IT Zone Apps.",
+
+        about:
+        "Software development, web solutions and digital projects."
+    };
+
+
+    const texts = {
+
+        applications:
+        "This section is currently being developed. Available applications and services will be published here.",
+
+        projects:
+        "Current and upcoming IT Zone Apps projects will be presented here.",
+
+        news:
+        "Development news, updates and new releases will be published here.",
+
+        about:
+        "IT Zone Apps is a private informational project focused on software development, applications, web solutions and digital tools."
+    };
+
+
+    document.getElementById("infoTitle").textContent =
+        titles[type];
+
+
+    document.getElementById("infoDescription").textContent =
+        descriptions[type];
+
+
+    document.getElementById("infoBox").textContent =
+        texts[type];
+
+
+    document.getElementById("infoIcon").innerHTML = `
+        <path d="M8 9l-3 3 3 3"/>
+        <path d="M16 9l3 3-3 3"/>
+        <path d="M14 5l-4 14"/>
+    `;
+
+
+    openModal("infoModal");
+
+
+    const map = {
+        applications:"navApplications",
+        projects:"navProjects",
+        news:"navNews",
+        about:"navAbout"
+    };
+
+    setActiveNav(map[type]);
+
+}
+
+
+/* =========================================================
+   ACTIVE NAV
+========================================================= */
+
+function setActiveNav(id){
+
+    document
+        .querySelectorAll(".nav button")
+        .forEach(function(button){
+
+            button.classList.remove("active");
+
+        });
+
+
+    const target =
+        document.getElementById(id);
+
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN
 ========================================================= */
 
 function openLogin(){
 
-    const modal =
-        document.getElementById("loginModal");
+    openModal("loginModal");
 
-    modal.classList.add("active");
-
-    document.body.classList.add("modal-open");
 
     setTimeout(function(){
 
@@ -2054,11 +2116,12 @@ function openLogin(){
         }
 
     },300);
+
 }
 
 
 /* =========================================================
-   INFO MODALS
+   INFO BENEFITS
 ========================================================= */
 
 function openInfo(type){
@@ -2084,7 +2147,7 @@ function openInfo(type){
         description.textContent =
             "Secure access to your IT Zone Apps services from anywhere.";
 
-        box.innerHTML =
+        box.textContent =
             "Your cloud services and synchronized project data will be available here after login.";
 
         icon.innerHTML = `
@@ -2104,7 +2167,7 @@ function openInfo(type){
         description.textContent =
             "All IT Zone Apps applications in one secure place.";
 
-        box.innerHTML =
+        box.textContent =
             "Your available applications will appear here according to your account and access permissions.";
 
         icon.innerHTML = `
@@ -2124,7 +2187,7 @@ function openInfo(type){
         description.textContent =
             "IT Zone Apps is continuously expanding.";
 
-        box.innerHTML =
+        box.textContent =
             "New applications, integrations and digital tools are coming soon.";
 
         icon.innerHTML = `
@@ -2135,30 +2198,348 @@ function openInfo(type){
     }
 
 
-    document
-        .getElementById("infoModal")
-        .classList
-        .add("active");
+    openModal("infoModal");
 
-
-    document.body
-        .classList
-        .add("modal-open");
 }
 
 
 /* =========================================================
-   CLOSE MODAL
+   LEGAL CONTENT
 ========================================================= */
+
+function legalHTML(type){
+
+    const email = `
+        <a href="mailto:${SUPPORT_EMAIL}">
+            ${SUPPORT_EMAIL}
+        </a>
+    `;
+
+
+    if(type === "contact"){
+
+        return `
+
+        <p>
+            <strong>IT Zone Apps</strong>
+        </p>
+
+        <p>
+            Private informational website for software,
+            applications, web projects and digital tools
+            in development.
+        </p>
+
+        <p>
+            <strong>Contact</strong><br>
+            Email: ${email}<br>
+            Vienna, Austria
+        </p>
+
+        <p>
+            Email communication is used only to process
+            and answer enquiries.
+        </p>
+
+        `;
+
+    }
+
+
+    if(type === "impressum"){
+
+        return `
+
+        <p>
+            <strong>Website owner</strong><br>
+            Lenard Zivanović<br>
+            Vienna, Austria
+        </p>
+
+        <p>
+            <strong>Contact</strong><br>
+            Email: ${email}
+        </p>
+
+        <p>
+            <strong>Project status</strong>
+        </p>
+
+        <p>
+            IT Zone Apps is currently a private
+            informational project for presenting
+            applications, software projects,
+            web solutions and digital tools in development.
+            It does not represent a registered company
+            unless explicitly stated otherwise.
+        </p>
+
+        <p>
+            <strong>Responsible for content</strong><br>
+            Lenard Zivanović<br>
+            Vienna, Austria
+        </p>
+
+        <p>
+            <strong>Liability for content</strong>
+        </p>
+
+        <p>
+            The content of this website has been created
+            with care. However, no guarantee is given for
+            accuracy, completeness or currentness.
+        </p>
+
+        <p>
+            <strong>Copyright</strong>
+        </p>
+
+        <p>
+            All texts, designs, graphics, logos and
+            project-related content are protected and
+            may not be copied or used without permission.
+        </p>
+
+        `;
+
+    }
+
+
+    if(
+        type === "privacy" ||
+        type === "datenschutz"
+    ){
+
+        return `
+
+        <p>
+            <strong>Responsible person</strong><br>
+            Lenard Zivanović<br>
+            Vienna, Austria<br>
+            Email: ${email}
+        </p>
+
+        <p>
+            <strong>Scope</strong>
+        </p>
+
+        <p>
+            This privacy policy applies to this website
+            and digital projects published under
+            IT Zone Apps.
+        </p>
+
+        <p>
+            <strong>Technical website data</strong>
+        </p>
+
+        <p>
+            When visiting this website, the hosting
+            provider may automatically process technical
+            information such as IP address, browser type,
+            operating system and access time.
+            This information may be necessary for the
+            secure and stable operation of the website.
+        </p>
+
+        <p>
+            <strong>Local storage</strong>
+        </p>
+
+        <p>
+            This website uses local browser storage
+            to remember the selected language.
+        </p>
+
+        <p>
+            <strong>Email communication</strong>
+        </p>
+
+        <p>
+            If you contact IT Zone Apps by email,
+            information voluntarily provided in your
+            message is used only to process and answer
+            the enquiry.
+        </p>
+
+        <p>
+            <strong>Data sharing</strong>
+        </p>
+
+        <p>
+            Personal data is not sold or intentionally
+            shared with third parties for marketing
+            purposes.
+        </p>
+
+        <p>
+            <strong>User rights</strong>
+        </p>
+
+        <p>
+            Users may request information, correction
+            or deletion of personal data in accordance
+            with applicable data protection regulations.
+            Requests can be sent to ${email}.
+        </p>
+
+        `;
+
+    }
+
+
+    if(type === "agb"){
+
+        return `
+
+        <p>
+            <strong>General information</strong>
+        </p>
+
+        <p>
+            This website is a private informational
+            website for software, applications,
+            projects and digital tools in development.
+        </p>
+
+        <p>
+            <strong>Availability</strong>
+        </p>
+
+        <p>
+            Individual website sections, projects
+            or functions may be changed, temporarily
+            unavailable or still under development.
+        </p>
+
+        <p>
+            <strong>Liability</strong>
+        </p>
+
+        <p>
+            The website is provided with reasonable care.
+            No guarantee is given that all information
+            or functions will always be available,
+            complete or error-free.
+        </p>
+
+        <p>
+            <strong>Copyright</strong>
+        </p>
+
+        <p>
+            Texts, graphics, designs, project names
+            and other content may not be copied
+            or used without permission.
+        </p>
+
+        <p>
+            <strong>Contact</strong><br>
+            ${email}
+        </p>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   OPEN LEGAL
+========================================================= */
+
+function openLegal(type){
+
+    const titles = {
+
+        contact:"Contact",
+
+        privacy:"Privacy Policy",
+
+        datenschutz:"Datenschutz",
+
+        agb:"Terms / AGB",
+
+        impressum:"Impressum"
+
+    };
+
+
+    document.getElementById("legalTitle").textContent =
+        titles[type];
+
+
+    document.getElementById("legalContent").innerHTML =
+        legalHTML(type);
+
+
+    openModal("legalModal");
+
+
+    if(type === "contact"){
+        setActiveNav("navContact");
+    }
+
+}
+
+
+/* =========================================================
+   MODAL CONTROLS
+========================================================= */
+
+function openModal(id){
+
+    closeAllModals();
+
+    const modal =
+        document.getElementById(id);
+
+    if(modal){
+
+        modal.classList.add("active");
+
+        document.body.classList.add("modal-open");
+
+    }
+
+}
+
 
 function closeModal(id){
 
     const modal =
         document.getElementById(id);
 
-    modal.classList.remove("active");
+    if(modal){
+        modal.classList.remove("active");
+    }
+
+
+    if(
+        !document.querySelector(".modal-overlay.active")
+    ){
+
+        document.body.classList.remove("modal-open");
+
+    }
+
+}
+
+
+function closeAllModals(){
+
+    document
+        .querySelectorAll(".modal-overlay")
+        .forEach(function(modal){
+
+            modal.classList.remove("active");
+
+        });
+
 
     document.body.classList.remove("modal-open");
+
 }
 
 
@@ -2174,7 +2555,7 @@ function overlayClose(event,id){
 
 
 /* =========================================================
-   ESC KEY
+   ESCAPE
 ========================================================= */
 
 document.addEventListener(
@@ -2183,17 +2564,7 @@ document.addEventListener(
 
         if(event.key === "Escape"){
 
-            document
-                .querySelectorAll(".modal-overlay.active")
-                .forEach(function(modal){
-
-                    modal.classList.remove("active");
-
-                });
-
-            document.body
-                .classList
-                .remove("modal-open");
+            closeAllModals();
 
         }
 
@@ -2202,7 +2573,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   KEYBOARD ACCESS FOR BENEFITS
+   KEYBOARD BENEFITS
 ========================================================= */
 
 document
@@ -2245,8 +2616,7 @@ function togglePassword(){
 
     if(password.type === "password"){
 
-        password.type =
-            "text";
+        password.type = "text";
 
         eye.innerHTML = `
             <path d="M3 3l18 18"></path>
@@ -2257,8 +2627,7 @@ function togglePassword(){
 
     }else{
 
-        password.type =
-            "password";
+        password.type = "password";
 
         eye.innerHTML = `
             <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"></path>
@@ -2271,7 +2640,7 @@ function togglePassword(){
 
 
 /* =========================================================
-   TEMP LOGIN
+   LOGIN TEMP
 ========================================================= */
 
 function handleLogin(event){
@@ -2283,6 +2652,107 @@ function handleLogin(event){
     );
 
 }
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+function applyLanguage(){
+
+    const t =
+        translations[currentLang];
+
+
+    document.documentElement.lang =
+        currentLang;
+
+
+    document.getElementById("navHome").textContent =
+        t.home;
+
+    document.getElementById("navApplications").textContent =
+        t.applications;
+
+    document.getElementById("navProjects").textContent =
+        t.projects;
+
+    document.getElementById("navNews").textContent =
+        t.news;
+
+    document.getElementById("navAbout").textContent =
+        t.about;
+
+    document.getElementById("navContact").textContent =
+        t.contact;
+
+    document.getElementById("portalText").textContent =
+        t.portal;
+
+    document.getElementById("heroLead").textContent =
+        t.hero;
+
+    document.getElementById("secureTitle").textContent =
+        t.secureTitle;
+
+    document.getElementById("secureText").textContent =
+        t.secureText;
+
+    document.getElementById("cloudTitle").textContent =
+        t.cloudTitle;
+
+    document.getElementById("cloudText").textContent =
+        t.cloudText;
+
+    document.getElementById("appsTitle").textContent =
+        t.appsTitle;
+
+    document.getElementById("appsText").textContent =
+        t.appsText;
+
+    document.getElementById("futureTitle").textContent =
+        t.futureTitle;
+
+    document.getElementById("futureText").textContent =
+        t.futureText;
+
+    document.getElementById("infoClose").textContent =
+        t.close;
+
+}
+
+
+/* =========================================================
+   LANGUAGE INIT
+========================================================= */
+
+const langSelect =
+    document.getElementById("langSelect");
+
+
+langSelect.value =
+    currentLang;
+
+
+langSelect.addEventListener(
+    "change",
+    function(){
+
+        currentLang =
+            this.value;
+
+        localStorage.setItem(
+            "site_lang",
+            currentLang
+        );
+
+        applyLanguage();
+
+    }
+);
+
+
+applyLanguage();
 
 </script>
 
